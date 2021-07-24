@@ -1,0 +1,9 @@
+{
+"workbench.colorTheme": "Default Dark+",
+"workbench.colorCustomizations": {
+  "statusBar.background": "#dfa612",
+  "titleBar.activeBackground": "#dfa612",
+  "titleBar.inactiveBackground": "#dfa612",
+},
+"window.title": "Eshop-FRONT-End",
+}
