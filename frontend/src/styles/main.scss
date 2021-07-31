@@ -91,7 +91,7 @@ span{
   top: 30vmin;
   width: 40vmin; height: 40vmin;
   border-radius:100%;
-  background: url("./images/logo.png");
+  background: url("./images/logo.svg")no-repeat;
   background-size: contain;
   transform:translateZ(0px);
 }
@@ -138,22 +138,15 @@ a:hover div{
 // }
 .flower-container{
   display: flex;
-  justify-content: space-around;
-  width: 180px;
-  height: 100vh;
   flex-wrap: wrap;
-  // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg");
-  background-attachment: fixed;
   position: absolute;
+  height: 70vh;
+  overflow: hidden;
+  justify-content: center;
+  margin-top: 50px;
+  filter: brightness(0.8);
 }
-.flower-container.one{
-  left: 0px;
-  top: 30px;
-}
-.flower-container.two{
-  right: 0px;
-  top: 30px;
-}
+
 .product-wrapper{
   margin: 20px 7VW;
   cursor: pointer;

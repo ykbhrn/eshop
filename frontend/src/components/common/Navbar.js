@@ -2,12 +2,11 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 import { getPortfolio, getAllUsers, turnOffNotifications } from '../../lib/api'
+
 class Navbar extends React.Component {
   state = {
     some: null
   }
-
-
 
   render() {
     return (

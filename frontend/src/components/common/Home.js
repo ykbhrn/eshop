@@ -18,17 +18,16 @@ class Home extends React.Component {
   renderingFlowers = () => {
     const newProductsArray = []
     const randomNumberArray = []
-
     if (this.state.products.length > 0) {
-      for (let i = 0; i < 5; i++) {
-        let randomNumber = Math.floor(Math.random() * 10)
+      for (let i = 0; i < 40; i++) {
+        let randomNumber = Math.floor((Math.random() * 80) / 2)
+        console.log(randomNumber)
         if (randomNumberArray.includes(randomNumber)) {
           i--
         } else {
           newProductsArray.push(this.state.products[randomNumber])
           randomNumberArray.push(randomNumber)
         }
-        console.log(randomNumberArray)
       }
     }
     return newProductsArray.map(product => {
@@ -70,22 +69,59 @@ class Home extends React.Component {
     return (
       <>
         <main>
-          <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
+          <div className="flower-container" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.renderingFlowers()}
           </div>
+          <ul>
+            <li>
+              <a href="#">
+                <i className="fa fa-home">asdas</i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa fa-gears"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa fa-users"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa fa-sitemap"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa fa-tags"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fa fa-gamepad"></i>
+              </a>
+            </li>
+            <li className="close">
+              <a href="#">
+                <i className="fa fa-times"></i>
+              </a>
+            </li>
+          </ul>
           <div className="menu-container">
-          <span></span>
-            <div class="wrap">
-              <a href="#"><div></div></a>
+            <span></span>
+            <div className="wrap">
+              <a href="#"><div>Muie</div></a>
               <a href="#"><div></div></a>
               <a href="#"><div></div></a>
               <a href="#"><div></div></a>
               <a href="#"><div></div></a>
             </div>
-            </div>
-          <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
-            {this.renderingFlowers()}
           </div>
+          {/* <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
+            {this.renderingFlowers()}
+          </div> */}
           {/* {this.state.products.map(product => {
             return <div key={product._id}>{product.name}</div>
           })} */}

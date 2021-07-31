@@ -1,0 +1,108 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+
+// can touch this!
+$items: 6;
+$size: 100;
+$bgcolor: #F6717F;
+
+// can't touch this!
+$deg: 360/$items;
+$unrotate: - (90 - $deg)/2;
+$skew: 90 - $deg;
+
+body{
+  background: black;
+}
+
+html {
+  background: #44384E;
+  margin: 70px;
+}
+
+ul {
+  @include transform(scale(0.2));
+  @include transition(.3s ease-out all);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  width: #{$size*2}px;
+  height: #{$size*2}px;
+  
+  li {
+    position: absolute;
+    width: #{$size}px;height: #{$size}px;
+    -webkit-transform-origin: 100% 100%;
+    overflow: hidden;
+    display: none;
+    
+    a {
+      color: lighten($bgcolor, 20%);
+      display: block;
+      width: #{$size*2}px;height: #{$size*2}px;
+      border-radius:50%;
+      text-align: center;
+      background: $bgcolor;
+      font-size: 25px;
+    }
+    
+    &:nth-child(odd){
+        a {
+          background: lighten($bgcolor, 2%);
+        }
+    }
+    
+    @for $i from 1 through $items {
+      &:nth-child(#{$i}) {
+        display: block;
+        @include transform(rotate(#{$i*$deg}deg) skew(#{$skew}deg));
+
+        a {
+          line-height: #{$size/2}px;
+          @include transform(skew(#{-$skew}deg) rotate(-#{$deg}deg));
+
+          &:hover {
+            background: darken($bgcolor, 5%);
+            color: white;
+          }
+        }
+      }
+    }
+
+    &.close {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      left: calc(50% - 25px);
+      top: calc(50% - 25px);
+      display: block;
+      @include transform(scale(3.8) rotate(45deg));
+      @include transition(.3s ease-in-out all);
+      -webkit-transform-origin: 50% 50%;
+      
+      a {
+        background: none;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        color: #ccc;
+      }
+    }
+  }
+
+  &.active {
+    @include transform(scale(1));
+
+    .close {
+      @include transform(rotate(0deg));
+    }
+  }
+}
