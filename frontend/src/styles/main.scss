@@ -1,129 +1,137 @@
+$main-font: 'Zen Tokyo Zoo', cursive;
+$logo-font: 'Galindo', cursive;;
 body{
   margin: 0px;
-  font-family: 'Zen Tokyo Zoo', cursive;
+  font-family: $main-font;
+  background: yellow;
+
 }
 .navbar{
   width: 100vw;
-  font-family: 'Galindo', cursive;
+  font-family: $logo-font;
 }
 .logo{
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
+.link-no-underline{
+  text-decoration: none;
+  color: black;
+}
 
-// Menu
-.menu-container{
-  margin-top: -70px;
-.wrap{
-  position:relative;
-  width:80vmin; height:80vmin;
-  margin: -207px auto;
-  background:inherit;
-  transform:scale(0.2) translatez(0px);
-  opacity:0;
-  transition:transform .5s, opacity .5s;
-}
-a{
-  position:absolute;
-  left:0; top:0;
-  width:47.5%; height:47.5%;
-  overflow:hidden;
-  transform:scale(.5) translateZ(0px);
-  background: yellow;
-}
-a div{
-  height:100%;
-  background-size:cover;
-  opacity:.5;
-  transition:opacity .5s;
-  border-radius:inherit;
-}
-a:nth-child(1){
-  border-radius:40vmin 0 0 0;
-  transform-origin: 110% 110%;
-  transition:transform .4s .15s;
-}
-a:nth-child(1) div{
-  background-image:url('https://farm3.staticflickr.com/2827/10384422264_d9c7299146.jpg');
-}
-a:nth-child(2){
-  border-radius:0 40vmin 0 0;
-  left:52.5%;
-  transform-origin: -10% 110%;
-  transition:transform .4s .2s;
-}
-a:nth-child(2) div{
-  background-image:url('https://farm7.staticflickr.com/6083/6055581292_d94c2d90e3.jpg');
-}
-a:nth-child(3){
-  border-radius:0 0 0 40vmin;
-  top:52.5%;
-  transform-origin: 110% -10%;
-  transition:transform .4s .25s;
-}
-a:nth-child(3) div{
-  background-image:url('https://farm7.staticflickr.com/6092/6227418584_d5883b0948.jpg');
-}
-a:nth-child(4){
-  border-radius:0 0 40vmin 0;
-  top:52.5%; left:52.5%;
-  transform-origin: -10% -10%;
-  transition:transform .4s .3s;
-}
-a:nth-child(4) div{
-  background-image: url('https://farm8.staticflickr.com/7187/6895047173_d4b1a0d798.jpg');
-}
-a:nth-child(5){
-  width:55%;height:55%;
-  left:22.5%; top:22.5%;
-  border-radius:50vmin;
-  box-shadow:0 0 0 5vmin #E3DFD2;
-  transform:scale(1);
-}
-a:nth-child(5) div{
-  background-image: url('https://farm4.staticflickr.com/3766/12953056854_b8cdf14f21.jpg');
-}
-span{
-  position:relative;
-  display:block;
-  margin:0 auto;
-  top: 30vmin;
-  width: 40vmin; height: 40vmin;
-  border-radius:100%;
-  background: url("./images/logo.svg")no-repeat;
-  background-size: contain;
-  transform:translateZ(0px);
-}
-// span span{
-//   position:absolute;
-//   width:60%;height:3px;
-//   background:red;
-//   left:20%; top:50%;
-//   border-radius:0;
-// }
-// span span:after, span span:before{
-//   content:'';
-//   position:absolute;
-//   left:0; top:-1.5vmin;
-//   width:100%; height:100%;
+// Alt Menu
+// .menu-container{
+//   margin-top: -70px;
+// .wrap{
+//   position:relative;
+//   width:80vmin; height:80vmin;
+//   margin: -207px auto;
 //   background:inherit;
+//   transform:scale(0.2) translatez(0px);
+//   opacity:0;
+//   transition:transform .5s, opacity .5s;
 // }
-// span span:after{
-//   top:1.5vmin;
+// a{
+//   position:absolute;
+//   left:0; top:0;
+//   width:47.5%; height:47.5%;
+//   overflow:hidden;
+//   transform:scale(.5) translateZ(0px);
+//   background: yellow;
 // }
-span:hover + .wrap, .wrap:hover{
-  transform:scale(.8) translateZ(0px);
-  opacity:1;
-}
-span:hover + .wrap a, .wrap:hover a{
-  transform:scale(1) translatez(0px);
-}
-a:hover div{
-  opacity:1;
-  transform:translatez(0px);
-}
-}
+// a div{
+//   height:100%;
+//   background-size:cover;
+//   opacity:.5;
+//   transition:opacity .5s;
+//   border-radius:inherit;
+// }
+// a:nth-child(1){
+//   border-radius:40vmin 0 0 0;
+//   transform-origin: 110% 110%;
+//   transition:transform .4s .15s;
+// }
+// a:nth-child(1) div{
+//   background-image:url('https://farm3.staticflickr.com/2827/10384422264_d9c7299146.jpg');
+// }
+// a:nth-child(2){
+//   border-radius:0 40vmin 0 0;
+//   left:52.5%;
+//   transform-origin: -10% 110%;
+//   transition:transform .4s .2s;
+// }
+// a:nth-child(2) div{
+//   background-image:url('https://farm7.staticflickr.com/6083/6055581292_d94c2d90e3.jpg');
+// }
+// a:nth-child(3){
+//   border-radius:0 0 0 40vmin;
+//   top:52.5%;
+//   transform-origin: 110% -10%;
+//   transition:transform .4s .25s;
+// }
+// a:nth-child(3) div{
+//   background-image:url('https://farm7.staticflickr.com/6092/6227418584_d5883b0948.jpg');
+// }
+// a:nth-child(4){
+//   border-radius:0 0 40vmin 0;
+//   top:52.5%; left:52.5%;
+//   transform-origin: -10% -10%;
+//   transition:transform .4s .3s;
+// }
+// a:nth-child(4) div{
+//   background-image: url('https://farm8.staticflickr.com/7187/6895047173_d4b1a0d798.jpg');
+// }
+// a:nth-child(5){
+//   width:55%;height:55%;
+//   left:22.5%; top:22.5%;
+//   border-radius:50vmin;
+//   box-shadow:0 0 0 5vmin #E3DFD2;
+//   transform:scale(1);
+// }
+// a:nth-child(5) div{
+//   background-image: url('https://farm4.staticflickr.com/3766/12953056854_b8cdf14f21.jpg');
+// }
+// span{
+//   position:relative;
+//   display:block;
+//   margin:0 auto;
+//   top: 30vmin;
+//   width: 40vmin; height: 40vmin;
+//   border-radius:100%;
+//   background: url("./images/logo.svg")no-repeat;
+//   background-size: contain;
+//   transform:translateZ(0px);
+// }
+// // span span{
+// //   position:absolute;
+// //   width:60%;height:3px;
+// //   background:red;
+// //   left:20%; top:50%;
+// //   border-radius:0;
+// // }
+// // span span:after, span span:before{
+// //   content:'';
+// //   position:absolute;
+// //   left:0; top:-1.5vmin;
+// //   width:100%; height:100%;
+// //   background:inherit;
+// // }
+// // span span:after{
+// //   top:1.5vmin;
+// // }
+// span:hover + .wrap, .wrap:hover{
+//   transform:scale(.8) translateZ(0px);
+//   opacity:1;
+// }
+// span:hover + .wrap a, .wrap:hover a{
+//   transform:scale(1) translatez(0px);
+// }
+// a:hover div{
+//   opacity:1;
+//   transform:translatez(0px);
+// }
+// }
 
 .footer{
   height: 3000px;
@@ -138,13 +146,17 @@ a:hover div{
 // }
 .flower-container{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   position: absolute;
-  height: 70vh;
-  overflow: hidden;
-  justify-content: center;
-  margin-top: 50px;
-  filter: brightness(0.8);
+}
+.flower-container.one{
+  left: 20px;
+  top: 50px;
+}
+.flower-container.two {
+  right: 20px;
+  top: 50px;
 }
 
 .product-wrapper{
@@ -299,6 +311,7 @@ to {opacity: 1;}
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .header .static-txt{
   font-size: 60px;
@@ -337,7 +350,7 @@ to {opacity: 1;}
   height: 100%;
   margin-top: 10px;
   width: 100%;
-  background: white;
+  background: yellow;
   border-left: 2px solid #FC6D6D;
   animation: typing 3s steps(10) infinite;
 }
@@ -349,3 +362,77 @@ to {opacity: 1;}
     left: 0;
   }
 }
+
+//Register
+.register{
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    font-size: 40px;
+  }
+  input {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+  .error-input{
+    border: 2px red solid;
+  }
+  .error-message{
+    color: red;
+  }
+  .register-input-top-wrapper, .register-input-bottom-wrapper{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+
+$green: #2ecc71;
+$red: #e74c3c;
+$blue: #3498db;
+$yellow: #f1c40f;
+$purple: #8e44ad;
+$turquoise: #1abc9c;
+
+.btn {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+
+.third {
+  border-color: $blue;
+  color: #fff;
+  box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+  transition: all 150ms ease-in-out;
+  font-family: $main-font;
+  &:hover {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+  }
+}
+
+

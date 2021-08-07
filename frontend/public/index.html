@@ -7,27 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://kit.fontawesome.com/54c3ad8333.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Galindo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
-  <head>
-    <link href="./compass/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="./compass//stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <!--[if IE]>
+  <link href="./stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="./stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-  </head>
+  <script>$(document).ready(function () {
+      $('.close').mouseenter(function () {
+        $('ul').addClass('active');
+      })
+      $('.close').click(function () {
+        $('ul').toggleClass('active');
+      })
+    })</script>
   <title>GA-LDN React Template</title>
 </head>
 
 <body>
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { getAllProducts } from '../../lib/api'
+import { isAuthenticated } from '../../lib/auth'
 
 class Home extends React.Component {
   state = {
@@ -19,9 +21,8 @@ class Home extends React.Component {
     const newProductsArray = []
     const randomNumberArray = []
     if (this.state.products.length > 0) {
-      for (let i = 0; i < 40; i++) {
-        let randomNumber = Math.floor((Math.random() * 80) / 2)
-        console.log(randomNumber)
+      for (let i = 0; i < 5; i++) {
+        let randomNumber = Math.floor(Math.random() * 10)
         if (randomNumberArray.includes(randomNumber)) {
           i--
         } else {
@@ -51,86 +52,67 @@ class Home extends React.Component {
     })
   }
 
-  // mouseEnterFlowerContainer = () => {
-  //   const flowerContainer = document.querySelector(".flower-container")
-  //   setTimeout(() => {
-  //     flowerContainer.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg")'
-  //   }, 100)
-  // }
-
-  // mouseLeaveFlowerContainer = () => {
-  //   const flowerContainer = document.querySelector(".flower-container")
-  //   setTimeout(() => {
-  //     flowerContainer.style.backgroundImage = 'url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg")'
-  //   }, 100)
-  // }
-
   render() {
     return (
       <>
-        <main>
-          <div className="flower-container" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
+        <section className="home">
+          <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.renderingFlowers()}
           </div>
-          <ul>
-            <li>
-              <a href="#">
-                <i className="fa fa-home">asdas</i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-gears"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-users"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-sitemap"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-tags"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-gamepad"></i>
-              </a>
-            </li>
-            <li className="close">
-              <a href="#">
-                <i className="fa fa-times"></i>
-              </a>
-            </li>
-          </ul>
-          <div className="menu-container">
-            <span></span>
-            <div className="wrap">
-              <a href="#"><div>Muie</div></a>
-              <a href="#"><div></div></a>
-              <a href="#"><div></div></a>
-              <a href="#"><div></div></a>
-              <a href="#"><div></div></a>
-            </div>
+          <div className="home-menu">
+            <ul>
+              <li>
+                <a href="/products">
+                  <i className="fas fa-tshirt"></i>
+                </a>
+              </li>
+              <li>
+                {!isAuthenticated() &&
+                  <a href="/entering">
+                    <i className="fas fa-user"></i>
+                  </a>
+                }
+                {isAuthenticated() &&
+                  <a href="/profile">
+                    <i className="fas fa-user"></i>
+                  </a>
+                }
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fa fa-users"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fa fa-sitemap"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fa fa-tags"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fa fa-gamepad"></i>
+                </a>
+              </li>
+              <li className="close">
+                <a href="#">
+                  <i className="fas fa-peace"></i>
+                </a>
+              </li>
+            </ul>
           </div>
-          {/* <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
+          <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.renderingFlowers()}
-          </div> */}
-          {/* {this.state.products.map(product => {
-            return <div key={product._id}>{product.name}</div>
-          })} */}
-        </main>
-        <section className="footer">
+          </div>
         </section>
       </>
     )
   }
 }
+
 
 export default Home

@@ -16,7 +16,9 @@ class Navbar extends React.Component {
           <span className="hidden-vowels">y</span>
         </div> */}
         <div className="header">
-          <div className="static-txt">Peacefully <span>&#174;</span> </div>
+          <a className="link-no-underline" href="/">
+            < div className="static-txt">Peacefully <span>&#174;</span> </div>
+          </a>
           <ul className="dynamic-txts">
             <li><span>bring</span></li>
             <li><span>hippies</span></li>
