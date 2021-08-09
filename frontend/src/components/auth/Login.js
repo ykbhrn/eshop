@@ -70,7 +70,7 @@ class Login extends React.Component {
             />
           </div>
           {error && <small className="error-message">{error}</small>}
-          <button type="submit" className="btn third">Register</button>
+          <button type="submit" className="btn third">Login</button>
         </form>
       </section>
 

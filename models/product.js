@@ -10,7 +10,8 @@ const commentSchema = new mongoose.Schema({
 
 const productSchema = new mongoose.Schema({
   name: {type: String, required: true},
-  imageUrl: {type: String, required: true},
+  mainImage: {type: String, required: true},
+  otherImages: [{type: String, required: false}],
   description: {type: String, required: true},
   user: {type: Object, required: true},
   comments: [commentSchema]

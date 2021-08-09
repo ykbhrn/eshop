@@ -34,7 +34,7 @@ class Home extends React.Component {
     return newProductsArray.map(product => {
       return <div key={product._id} className="flower-content">
         <section className="flower">
-          <img src={product.imageUrl} className="productPreviewImage" />
+          <img src={product.imageUrl} className="flowerProductImage" />
           <div className="big-petal big-petal1"></div>
           <div className="big-petal big-petal2"></div>
           <div className="big-petal big-petal3"></div>
