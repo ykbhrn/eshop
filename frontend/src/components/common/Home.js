@@ -5,7 +5,8 @@ import { isAuthenticated } from '../../lib/auth'
 
 class Home extends React.Component {
   state = {
-    products: []
+    products: [],
+    images: []
   }
 
   async componentDidMount() {
@@ -32,23 +33,26 @@ class Home extends React.Component {
       }
     }
     return newProductsArray.map(product => {
-      return <div key={product._id} className="flower-content">
-        <section className="flower">
-          <img src={product.imageUrl} className="flowerProductImage" />
-          <div className="big-petal big-petal1"></div>
-          <div className="big-petal big-petal2"></div>
-          <div className="big-petal big-petal3"></div>
-          <div className="big-petal big-petal4"></div>
-          <div className="small-petal small-petal1"></div>
-          <div className="small-petal small-petal2"></div>
-          <div className="small-petal small-petal3"></div>
-          <div className="small-petal small-petal4"></div>
-          <div className="small-petal small-petal5"></div>
-          <div className="small-petal small-petal6"></div>
-          <div className="small-petal small-petal7"></div>
-          <div className="small-petal small-petal8"></div>
-        </section>
-      </div>
+      console.log(product)
+      return <Link to={`/products/${product._id}`} key={product._id}>
+        <div className="flower-content">
+          <div className="flower">
+            <img src={product.images[0]} className="flowerProductImage" />
+            <div className="big-petal big-petal1"></div>
+            <div className="big-petal big-petal2"></div>
+            <div className="big-petal big-petal3"></div>
+            <div className="big-petal big-petal4"></div>
+            <div className="small-petal small-petal1"></div>
+            <div className="small-petal small-petal2"></div>
+            <div className="small-petal small-petal3"></div>
+            <div className="small-petal small-petal4"></div>
+            <div className="small-petal small-petal5"></div>
+            <div className="small-petal small-petal6"></div>
+            <div className="small-petal small-petal7"></div>
+            <div className="small-petal small-petal8"></div>
+          </div>
+        </div>
+      </Link>
     })
   }
 

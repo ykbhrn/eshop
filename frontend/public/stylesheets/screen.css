@@ -4,6 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 18, ../sass/screen.scss */
 .home-menu {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   display: flex;
   position: absolute;
   top: 50%;
@@ -11,7 +12,7 @@
   margin-left: -100px;
   margin-top: -100px;
 }
-/* line 25, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 .home-menu ul {
   -moz-transform: scale(0.2);
   -ms-transform: scale(0.2);
@@ -30,7 +31,7 @@
   height: 200px;
   transform: scale(1.8);
 }
-/* line 38, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 .home-menu ul li {
   position: absolute;
   width: 100px;
@@ -39,7 +40,7 @@
   overflow: hidden;
   display: none;
 }
-/* line 45, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
 .home-menu ul li a {
   color: yellow;
   display: block;
@@ -50,11 +51,11 @@
   background: #F6717F;
   font-size: 25px;
 }
-/* line 56, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
   background: #f77b88;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) {
   display: block;
   -moz-transform: rotate(60deg) skew(30deg);
@@ -62,7 +63,7 @@
   -webkit-transform: rotate(60deg) skew(30deg);
   transform: rotate(60deg) skew(30deg);
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -70,12 +71,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a:hover {
   background: #f45969;
   color: white;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) {
   display: block;
   -moz-transform: rotate(120deg) skew(30deg);
@@ -83,7 +84,7 @@
   -webkit-transform: rotate(120deg) skew(30deg);
   transform: rotate(120deg) skew(30deg);
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -91,12 +92,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a:hover {
   background: #f45969;
   color: white;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) {
   display: block;
   -moz-transform: rotate(180deg) skew(30deg);
@@ -104,7 +105,7 @@
   -webkit-transform: rotate(180deg) skew(30deg);
   transform: rotate(180deg) skew(30deg);
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -112,12 +113,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a:hover {
   background: #f45969;
   color: white;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) {
   display: block;
   -moz-transform: rotate(240deg) skew(30deg);
@@ -125,7 +126,7 @@
   -webkit-transform: rotate(240deg) skew(30deg);
   transform: rotate(240deg) skew(30deg);
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -133,12 +134,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a:hover {
   background: #f45969;
   color: white;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) {
   display: block;
   -moz-transform: rotate(300deg) skew(30deg);
@@ -146,7 +147,7 @@
   -webkit-transform: rotate(300deg) skew(30deg);
   transform: rotate(300deg) skew(30deg);
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -154,12 +155,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a:hover {
   background: #f45969;
   color: white;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) {
   display: block;
   -moz-transform: rotate(360deg) skew(30deg);
@@ -167,7 +168,7 @@
   -webkit-transform: rotate(360deg) skew(30deg);
   transform: rotate(360deg) skew(30deg);
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -175,12 +176,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a:hover {
   background: #f45969;
   color: white;
 }
-/* line 79, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
@@ -203,7 +204,7 @@
   transition: ease-in-out 0.3s all;
   transform-origin: 50% 50%;
 }
-/* line 95, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .home-menu ul li.close a {
   background: none;
   width: 50px;
@@ -211,14 +212,14 @@
   line-height: 50px;
   font-size: 45px;
 }
-/* line 105, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 .home-menu ul.active {
   -moz-transform: scale(1.5);
   -ms-transform: scale(1.5);
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
 }
-/* line 107, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 .home-menu ul.active .close {
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);

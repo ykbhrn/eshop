@@ -10,9 +10,13 @@ const commentSchema = new mongoose.Schema({
 
 const productSchema = new mongoose.Schema({
   name: {type: String, required: true},
-  mainImage: {type: String, required: true},
-  otherImages: [{type: String, required: false}],
+  images: [{type: String, required: false}],
   description: {type: String, required: true},
+  price: {type: Number, required: true},
+  discount: {type: Number, required: false},
+  sizes: [{type: String, required: false}],
+  colors: [{type: String, required: false}],
+  amount: {type: Number, required: false},
   user: {type: Object, required: true},
   comments: [commentSchema]
 }, {

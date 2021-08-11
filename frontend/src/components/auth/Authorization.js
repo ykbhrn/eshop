@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Register from './Register'
 import Login from './Login'
+import { isAuthenticated } from '../../lib/auth'
 
 class Authorization extends React.Component {
   state = {
@@ -19,25 +20,42 @@ class Authorization extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          Are you already our member?
-          <button onClick={() => {
-            this.showRegisterOrLogin("login")
-          }}>Login</button>
-        </div>
-        <div>
-          DO you wanna join?
-          <button onClick={() => {
-            this.showRegisterOrLogin("register")
-          }}>Register</button>        </div>
+      <>
+        {!this.state.login && !this.state.register &&
+          <div className="authorization-section">
+            <div className="authorization-wrapper">
+              Are you already our member?
+              <button className="btn third" onClick={() => {
+                this.showRegisterOrLogin("login")
+              }}>Login</button>
+            </div>
+            <div className="authorization-wrapper">
+              Do you wanna join?
+              <button className="btn third" onClick={() => {
+                this.showRegisterOrLogin("register")
+              }}>Register</button>
+            </div>
+          </div>
+        }
         {this.state.login &&
-          <Login />
+          <>
+            <Login />
+              Don&apos;t have an account yet?
+            <button className="btn third" onClick={() => {
+              this.showRegisterOrLogin("register")
+            }}>Register</button>
+          </>
         }
         {this.state.register &&
-          <Register />
+          <>
+            <Register />
+              Are you already our member?
+            <button className="btn third" onClick={() => {
+              this.showRegisterOrLogin("login")
+            }}>Login</button>
+          </>
         }
-      </div>
+      </>
     )
   }
 }

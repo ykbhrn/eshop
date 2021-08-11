@@ -31,14 +31,14 @@ class Register extends React.Component {
     let userType = 1
     console.log(errors)
 
-    if (errors.errors.name){
+    if (errors.errors.name) {
       if (errors.errors.name.kind === "unique") {
         name = "Username is already taken"
       } else {
         name = "Username is required"
       }
     }
-    if (errors.errors.email){
+    if (errors.errors.email) {
       if (errors.errors.email.kind === "unique") {
         email = "This Email is already registered"
       } else {
@@ -48,11 +48,11 @@ class Register extends React.Component {
     if (errors.errors.password) {
       password = 'Password is required'
     }
-    if (errors.errors.passwordConfirmation){
+    if (errors.errors.passwordConfirmation) {
       passwordConfirmation = 'Password confirmation does not match'
     }
 
-    this.setState({ errors: { name, email, password, passwordConfirmation: passwordConfirmation} })
+    this.setState({ errors: { name, email, password, passwordConfirmation: passwordConfirmation } })
   }
 
   handleChange = event => {
@@ -118,32 +118,30 @@ class Register extends React.Component {
             </div>
           </div>
 
-          <div className="register-input-bottom-wrapper">
-            <div className="input-wrapper">
-              <label>Password:</label>
-              <input
-                className={`${errors.password ? 'error-input' : ''}`}
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={this.handleChange}
-                value={formData.password}
-              />
-              {errors.password && <small className="error-message">{errors.password}</small>}
-            </div>
+          <label>Password:</label>
+          <div className="input-wrapper">
+            <input
+              className={`${errors.password ? 'error-input' : ''}`}
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={this.handleChange}
+              value={formData.password}
+            />
+            {errors.password && <small className="error-message">{errors.password}</small>}
+          </div>
 
-            <div className="input-wrapper">
-              <label>Password Confirmation:</label>
-              <input
-                className={`${errors.passwordConfirmation ? 'error-input' : ''}`}
-                type="password"
-                placeholder="Password Confirmation"
-                name="passwordConfirmation"
-                onChange={this.handleChange}
-                value={formData.passwordConfirmation}
-              />
-              {errors.passwordConfirmation && <small className="error-message">{errors.passwordConfirmation}</small>}
-            </div>
+          <label>Password Confirmation:</label>
+          <div className="input-wrapper">
+            <input
+              className={`${errors.passwordConfirmation ? 'error-input' : ''}`}
+              type="password"
+              placeholder="Password Confirmation"
+              name="passwordConfirmation"
+              onChange={this.handleChange}
+              value={formData.passwordConfirmation}
+            />
+            {errors.passwordConfirmation && <small className="error-message">{errors.passwordConfirmation}</small>}
           </div>
           <button type="submit" className="btn third">Register</button>
         </form>

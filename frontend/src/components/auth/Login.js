@@ -58,8 +58,8 @@ class Login extends React.Component {
             />
           </div>
 
+          <label>Password:</label>
           <div className="input-wrapper">
-            <label>Password:</label>
             <input
               className={`${error ? 'error-input' : ''}`}
               type="password"

@@ -18,9 +18,7 @@ class AllProducts extends React.Component {
   }
 
   otherPreviewImage = (id) => {
-    setTimeout(() => {
-      this.setState({ hoveredProductId: id })
-    }, 295);
+    this.setState({ hoveredProductId: id })
   }
 
   backToMainProductImage = () => {
@@ -32,14 +30,23 @@ class AllProducts extends React.Component {
       <div className="products-section">
         <div className="product-container">
           {this.state.products.slice(0).reverse().map(product => {
-            return <div className="product-wrapper" onMouseEnter={() => {
-              this.otherPreviewImage(product._id)
-            }}
-            onMouseLeave={this.backToMainProductImage} key={product._id}>{product.name}
-              <div className="product-preview-image"
-                style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.otherImages[0] : product.mainImage})` }}>
+            return <Link to={`/products/${product._id}`} key={product._id}>
+              <div className="product-wrapper" onMouseEnter={() => {
+                this.otherPreviewImage(product._id)
+              }}
+              onMouseLeave={this.backToMainProductImage}>
+                <div className="product-preview-image"
+                  style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[1] : product.images[0]})` }}>
+                </div>
+                <div className="product-preview-name">{product.name}</div>
+                <div className="product-preview-price-wrapper">
+                  <div className="product-preview-price">£{product.price}</div>
+                  {product.discount &&
+                    <div className="product-preview-discount">-{product.discount}%</div>
+                  }
+                </div>
               </div>
-            </div>
+            </Link>
           })}
         </div>
       </div>

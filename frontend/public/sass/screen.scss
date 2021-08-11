@@ -16,6 +16,7 @@ $unrotate: - (90 - $deg)/2;
 $skew: 90 - $deg;
 
 .home-menu{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   display: flex;
   position: absolute;
   top: 50%;
