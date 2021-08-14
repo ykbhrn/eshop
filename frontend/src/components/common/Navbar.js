@@ -6,9 +6,17 @@ import { getPortfolio, getAllUsers, turnOffNotifications } from '../../lib/api'
 class Navbar extends React.Component {
   state = {
     some: null,
-    hideBasket: true
+    hideBasket: true,
+    mainButton: ""
   }
 
+  changeMainButton = (hoveredItem) => { 
+    this.setState({mainButton: hoveredItem})
+  }
+
+  mainButtonBack = ()=> {
+    this.setState({mainButton: ""})
+  }
 
   render() {
     return (
@@ -37,19 +45,45 @@ class Navbar extends React.Component {
 
           <div className="main-menu-wrapper">
             <a className='button ctrl' href='#' tabIndex='1'>
-              <i id="ctrl-button" className="fas fa-plus-circle"></i>
+              {this.state.mainButton && 
+                <div className="menu-button-text">{this.state.mainButton}</div>
+              }
+              {!this.state.mainButton &&
+                <i id="ctrl-button" className="fas fa-plus-circle"></i>
+              }
             </a>
             <ul className='tip ctrl'>
               {isAuthenticated() &&
-                <li className='slice'><Link to="/profile"><div><i className="fas fa-user"></i></div></Link></li>
+                <li className='slice'><a href="/profile"><div onMouseEnter={() => {
+                  this.changeMainButton("My Account")
+                }} 
+                onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i></div></a></li>
               }
               {!isAuthenticated() &&
-                <li className='slice'><Link to="/entering"><div><i className="fas fa-user"></i></div></Link></li>
+                <li className='slice'><a href="/entering"><div onMouseEnter={() => {
+                  this.changeMainButton("Register")
+                }} 
+                onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i></div></a></li>
               }
-              <li className='slice'><div>✿</div></li>
-              <li className='slice'><Link to="/products"><div><i className="fas fa-tshirt"></i></div></Link></li>
-              <li className='slice'><div>✪</div></li>
-              <li className='slice'><div>☀</div></li>
+              <li className='slice'><div onMouseEnter={() => {
+                this.changeMainButton("slice")
+              }} 
+              onMouseLeave={this.mainButtonBack} >✿</div></li>
+
+              <li className='slice'><Link to="/products"><div onMouseEnter={() => {
+                this.changeMainButton("products")
+              }}
+              onMouseLeave={this.mainButtonBack}><i className="fas fa-tshirt"></i></div></Link></li>
+
+              <li className='slice'><div onMouseEnter={() => {
+                this.changeMainButton("accessories")
+              }} 
+              onMouseLeave={this.mainButtonBack}><i className="fab fa-redhat"></i></div></li>
+
+              <li className='slice'><div onMouseEnter={() => {
+                this.changeMainButton("About us")
+              }} 
+              onMouseLeave={this.mainButtonBack}>☀</div></li>
             </ul>
           </div>
         </>

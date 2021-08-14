@@ -587,9 +587,15 @@ h1{
 // Main Menu
 .main-menu-wrapper{
 
-  .fa-plus-circle{
-    font-size: 45px;
-  }
+.menu-button-text{
+  font-size: 20px;
+  width: 370px;
+  margin-left: -160px;
+}
+
+.fa-plus-circle{
+  font-size: 45px;
+}
 
 .ctrl {
 	position: fixed;

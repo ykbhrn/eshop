@@ -98,7 +98,7 @@ class Home extends React.Component {
               </li>
               <li>
                 <a href="#">
-                  <i className="fa fa-gamepad"></i>
+                  <i className="fab fa-redhat"></i>
                 </a>
               </li>
               <li className="close">
