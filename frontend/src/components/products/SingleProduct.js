@@ -26,7 +26,6 @@ class SingleProduct extends React.Component {
   }
 
   handleChange = event => {
-    console.log(isNaN(Number(event.target.value)))
     if (event.target.name !== "quantity") {
       const formData = { ...this.state.formData, [event.target.name]: event.target.value }
       this.setState({ formData })
@@ -63,7 +62,6 @@ class SingleProduct extends React.Component {
   render() {
     const { product } = this.state
     if (!product) return null
-    console.log(this.state.formData)
     return (
       <div className="single-product-section">
         <div className="single-product-wrapper">
@@ -111,14 +109,19 @@ class SingleProduct extends React.Component {
                 <div className="product-size">Color: {this.state.color}</div>
               </>
             }
-            <div className="quantity-bar-wrapper">
-              <div className="quantity-bar sign" onClick={this.decreaseQuantity}>-</div>
-              <textarea className="quantity-bar number"
-                name="quantity"
-                onChange={this.handleChange}
-                value={this.state.formData.quantity}
-              />
-              <div className="quantity-bar sign" onClick={this.increaseQuantity}>+</div>
+            <div className="quantity-basket-wrapper">
+              <div className="quantity-bar-wrapper">
+                <div className="quantity-bar sign" onClick={this.decreaseQuantity}>-</div>
+                <textarea className="quantity-bar number"
+                  name="quantity"
+                  onChange={this.handleChange}
+                  value={this.state.formData.quantity}
+                />
+                <div className="quantity-bar sign" onClick={this.increaseQuantity}>+</div>
+              </div>
+              <div className="add-to-basket-wrapper">
+                ADD TO BASKET
+              </div>
             </div>
           </div>
         </div>

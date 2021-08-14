@@ -33,7 +33,6 @@ class Home extends React.Component {
       }
     }
     return newProductsArray.map(product => {
-      console.log(product)
       return <Link to={`/products/${product._id}`} key={product._id}>
         <div className="flower-content">
           <div className="flower">

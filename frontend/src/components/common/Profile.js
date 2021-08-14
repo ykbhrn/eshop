@@ -1,6 +1,6 @@
 import React from 'react'
 import { logout } from '../../lib/auth'
-import { getPortfolio, updateUser } from '../../lib/api'
+import { getMyProfile } from '../../lib/api'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +8,16 @@ import { Link } from 'react-router-dom'
 class Profile extends React.Component {
 
   state = {
+    user: null,
+  }
 
+  async componentDidMount() {
+    try {
+      const res = await getMyProfile()
+      this.setState({ user: res.data })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   handleLogout = () => {
@@ -17,9 +26,14 @@ class Profile extends React.Component {
   }
 
   render() {
+    if (!this.state.user) return null
+    console.log(this.state.user)
     return (
-      <div onClick={this.handleLogout} className="logout">
-        <img src='./images/logo.png' />
+      <div className="profile-section">
+        <h1>{this.state.user.name}</h1>
+        <div onClick={this.handleLogout} className="logout-wrapper">
+          <i className="fas fa-sign-out-alt"></i>
+        </div>
       </div>
     )
   }

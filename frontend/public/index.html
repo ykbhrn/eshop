@@ -23,7 +23,19 @@
       $('.close').click(function () {
         $('ul').toggleClass('active');
       })
-    })</script>
+    
+      $('body').click(function (event) {
+        if (event.target.id !== "ctrl-button") {
+          return $('ul').removeClass('show-tip');
+        }
+      })
+
+      $('.button.ctrl').click(function () {
+      $('ul').toggleClass('show-tip');
+
+    })
+    })
+    </script>
   <title>GA-LDN React Template</title>
 </head>
 
