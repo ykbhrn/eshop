@@ -23,6 +23,16 @@ $skew: 90 - $deg;
   left: 50%;
   margin-left: -100px;
   margin-top: -100px;
+
+  .home-menu-button-text{
+    font-size: 7px;
+    color: #F6717F;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
 ul {
   @include transform(scale(0.2));
   @include transition(.3s ease-out all);
@@ -106,7 +116,7 @@ ul {
   &.active {
     @include transform(scale(1.5));
     .close {
-      @include transform(rotate(0deg));
+      @include transform(rotate(0deg) scale(2));
       background: white;
     }
   }
