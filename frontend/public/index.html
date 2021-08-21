@@ -17,23 +17,23 @@
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
   <script>$(document).ready(function () {
-      $('.close').mouseenter(function () {
+      $('.close').mouseover(function () {
         $('ul').addClass('active');
       })
       $('.close').click(function () {
         $('ul').toggleClass('active');
       })
     
-      $('body').click(function (event) {
+      $('html').click(function (event) {
         if (event.target.id !== "ctrl-button") {
           return $('ul').removeClass('show-tip');
         }
       })
 
       $('.button.ctrl').click(function () {
-      $('ul').toggleClass('show-tip');
-
+      $('#main-menu-ul').toggleClass('show-tip');
     })
+    
     })
     </script>
   <title>GA-LDN React Template</title>

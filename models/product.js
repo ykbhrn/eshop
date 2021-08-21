@@ -15,8 +15,11 @@ const productSchema = new mongoose.Schema({
   price: {type: Number, required: true},
   discount: {type: Number, required: false},
   sizes: [{type: String, required: false}],
+  chosenSize: {type: String, required: false},
   colors: [{type: String, required: false}],
-  amount: {type: Number, required: false},
+  chosenColor: {type: String, required: false},
+  quantity: {type: Number, required: false},
+  chosenQuantity: {type: String, required: false},
   user: {type: Object, required: true},
   comments: [commentSchema]
 }, {

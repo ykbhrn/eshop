@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, required: false, maxlength: 300 },
   userType: { type: Number, required: true },
   profileImage: { type: String, required: false },
+  basket: [{ type: Object, required: false }],
   notifications: [notificationSchema],
   newNotification: { type: Boolean, default: false },
   newChat: { type: Boolean, default: false },

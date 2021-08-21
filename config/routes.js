@@ -2,6 +2,7 @@ const router = require('express').Router()
 const user = require('../controllers/users')
 const auth = require('../controllers/auth')
 const product = require('../controllers/products')
+const basket = require('../controllers/shoppingBasket')
 const secureRoute = require('../lib/secureRoute')
 
 router.route('/users')
@@ -26,5 +27,11 @@ router.route('/products')
 router.route('/products/:id')
   .get(product.show)
   .delete(secureRoute, product.delete)
+
+router.route('/basket/:id')
+  .post(secureRoute, basket.addToBasket)
+
+router.route('/basket')
+  .get(secureRoute, basket.basketLength)
 
 module.exports = router

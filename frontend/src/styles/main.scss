@@ -2,25 +2,37 @@ $main-font: 'Indie Flower', cursive;
 $logo-font: "Galindo", cursive;
 body {
   font-family: $main-font;
-  background: #fcfcfc;
+  // background: #fcfcfc;
 }
 
 * { margin: 0; padding: 0; }
 
-.navbar {
-  width: 100vw;
-  font-family: $logo-font;
-}
-.logo {
+.basket-added-wrapper{
+  width: 60vw;
+  height: 70vh;
+  border: 1px solid black;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  margin-left: -30vw;
+  background: yellow;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  align-items: center;
+  box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+  z-index: 3;
+  .basket-added-continue, .basket-added-proceed{
+    padding: 10px 20px;
+    background: gray;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 30px;
+  }
 }
-.link-no-underline {
-  text-decoration: none;
-  color: black;
-}
-.basket-wrapper{
+
+.basket-icon-wrapper{
+  display: block;
   position: absolute;
   top: 22px;
   right: 30px;
@@ -36,7 +48,31 @@ body {
     right: 14px;
     top: 0px;
   }
+}
+.basket-icon-wrapper:hover{
+  transform: scale(1.1);
+}
 
+@keyframes basket-added {
+  0% {
+    bottom: -100%;
+  } 100% {
+    bottom: 0%;
+  }
+}
+
+.navbar {
+  width: 100vw;
+  font-family: $logo-font;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.link-no-underline {
+  text-decoration: none;
+  color: black;
 }
 
 .footer {
@@ -238,7 +274,7 @@ body {
   height: 100%;
   margin-top: 10px;
   width: 100%;
-  background: #fcfcfc;
+  background: white;
   border-left: 2px solid #fc6d6d;
   animation: typing 3s steps(10) infinite;
 }
@@ -586,20 +622,32 @@ h1{
 
 // Main Menu
 .main-menu-wrapper{
-
+  display: block;
+  .main-menu-button{
+    background: gray;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50% 50% 0 0;
+    text-align: center;
+  }
+  .main-menu-button:hover{
+    transform: scale(1.1);
+  }
 .menu-button-text{
   font-size: 20px;
   width: 370px;
   margin-left: -160px;
 }
 
-.fa-plus-circle{
-  font-size: 45px;
+.fa-plus, .fa-minus{
+  font-size: 35px;
+  color: white;
 }
 
 .ctrl {
 	position: fixed;
-	bottom: 30px;
+	bottom: 25px;
   left: 50%;
 	font-size: 45px;
 	transition: .5s;
@@ -607,18 +655,18 @@ h1{
 
 a.ctrl, .ctrl div {
 	display: block;
-	opacity: .76;
+	opacity: 1;
 	// background: #c9c9c9;
 	color: #7a8092;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: 0 -1px dimgrey;
+	// text-shadow: 0 -1px dimgrey;
   cursor: pointer;
 }
 
-a.ctrl:hover, .ctrl div:hover, a.ctrl:focus { 
-  opacity: 1; 
-}
+// a.ctrl:hover, .ctrl div:hover, a.ctrl:focus { 
+//   opacity: ; 
+// }
 
 a.ctrl:focus { 
   outline: none;
@@ -629,7 +677,7 @@ a.ctrl:focus {
 	margin: -.625em;
 	width: 1.25em; height: 1.25em;
 	border-radius: 50%;
-	box-shadow: 0 0 3px 1px white;
+	// box-shadow: 0 0 3px 1px white;
 }
 
 /* circular menu */
@@ -648,7 +696,7 @@ a.ctrl:focus {
 	position: absolute;
 	top: 34.3%;
 	width: .5em; height: 14%;
-	opacity: .56;
+	opacity: 1;
 	background: #c9c9c9;
 	content: '';
 }
@@ -673,9 +721,12 @@ a.ctrl:focus {
 // 	opacity: 1;
 // }
 
+
+
 .show-tip{
   transform: scale(1);
 	opacity: 1;
+  border-radius: 50%;
 }
 
 /* slices of the circular menu */
@@ -685,6 +736,9 @@ a.ctrl:focus {
 	/**outline: dotted 1px yellow;/**/
 	width: 50%; height: 50%;
 	transform-origin: 100% 100%;
+}
+.slice:hover{
+  filter: brightness(0.9);
 }
 
 /* 
@@ -729,7 +783,7 @@ a.ctrl:focus {
 		transparent 50%, grey 50%, transparent 54%) no-repeat 63.5% 0,
 		/* make sure inner part is transparent */
 		radial-gradient(rgba(127,127,127,0) 49%, 
-					rgba(255,255,255,.7) 51%, #c9c9c9 52%);
+					rgba(255,255,255,.7) 51%, yellow 52%);
 	background-size: 15% 15%, 15% 15%, cover;
 	line-height: 1.4;
 }

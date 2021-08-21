@@ -1,25 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getSingleProduct } from '../../lib/api'
+import { getSingleProduct, addToBasket, basketLength } from '../../lib/api'
+
 
 class SingleProduct extends React.Component {
   state = {
     formData: {
-      sizes: "",
-      colors: '',
+      size: "",
+      color: '',
       quantity: 1
     },
+    basketLength: null,
     product: null,
     bigImage: '',
-    size: "M",
-    color: "",
+    addedToBasket: false,
+    isLoading: false
   }
 
   async componentDidMount() {
     try {
       const productId = this.props.match.params.id
       const res = await getSingleProduct(productId)
-      this.setState({ product: res.data, bigImage: res.data.images[0], color: res.data.colors[0] })
+      const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0]}
+      this.setState({ product: res.data, bigImage: res.data.images[0], formData })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  handleBasket = async () => {
+    try {
+      const productId = this.props.match.params.id
+      const res = await addToBasket(productId, this.state.formData)
+      console.log(res.data)
+      this.setState({ addedToBasket: true })
+      this.props.basket()
     } catch (err) {
       console.log(err)
     }
@@ -35,16 +50,22 @@ class SingleProduct extends React.Component {
     }
   }
 
+  continueShopping = () => {
+    this.setState({ addedToBasket: false })
+  }
+
   changeBigImage = (image) => {
     this.setState({ bigImage: image })
   }
 
   choosingSize = (chosenSize) => {
-    this.setState({ size: chosenSize })
+    const formData = { ...this.state.formData, size: chosenSize}
+    this.setState({ formData })
   }
 
   choosingColor = (chosenColor) => {
-    this.setState({ color: chosenColor })
+    const formData = { ...this.state.formData, color: chosenColor}
+    this.setState({ formData })
   }
 
   increaseQuantity = () => {
@@ -92,21 +113,21 @@ class SingleProduct extends React.Component {
               }
             </div>
             <div className="product-size-container">{product.sizes.map(size => {
-              return <div className={`product-size-wrapper ${this.state.size === size ? "chosen-size" : ""}`} onClick={() => {
+              return <div className={`product-size-wrapper ${this.state.formData.size === size ? "chosen-size" : ""}`} onClick={() => {
                 this.choosingSize(size)
               }}
               key={size}>{size}</div>
             })}</div>
-            <div className="product-size">Size: {this.state.size}</div>
-            {this.state.color &&
+            <div className="product-size">Size: {this.state.formData.size}</div>
+            {this.state.formData.color &&
               <>
                 <div className="product-colors-container">{product.colors.map(color => {
-                  return <div className={`product-color-wrapper ${this.state.color === color ? "chosen-color" : ""}`} onClick={() => {
+                  return <div className={`product-color-wrapper ${this.state.formData.color === color ? "chosen-color" : ""}`} onClick={() => {
                     this.choosingColor(color)
                   }}
                   key={color}>{color}</div>
                 })}</div>
-                <div className="product-size">Color: {this.state.color}</div>
+                <div className="product-size">Color: {this.state.formData.color}</div>
               </>
             }
             <div className="quantity-basket-wrapper">
@@ -119,7 +140,7 @@ class SingleProduct extends React.Component {
                 />
                 <div className="quantity-bar sign" onClick={this.increaseQuantity}>+</div>
               </div>
-              <div className="add-to-basket-wrapper">
+              <div className="add-to-basket-wrapper" onClick={this.handleBasket}>
                 ADD TO BASKET
               </div>
             </div>
@@ -129,10 +150,17 @@ class SingleProduct extends React.Component {
           <h1>Product description</h1>
           {this.state.product.description}
         </div>
+        {this.state.addedToBasket &&
+        <div className="basket-added-wrapper">
+          <div className="basket-added-continue" onClick={this.continueShopping}>Continue Shopping</div>
+          <div className="basket-added-proceed">Proceed to chekout</div>
+        </div>
+        }
       </div>
     )
   }
 }
+
 
 
 export default SingleProduct

@@ -50,6 +50,16 @@ class Home extends React.Component {
     return (
       <>
         <section className="home">
+        <style>
+          {'\
+          .basket-icon-wrapper{\
+            display: none;\
+          }\
+          .main-menu-wrapper{\
+            display: none;\
+          }\
+          '}
+        </style>
           <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
               return <Link to={`/products/${product._id}`} key={product._id}>
@@ -76,72 +86,72 @@ class Home extends React.Component {
           <div className="home-menu">
             <ul>
               <li>
-                <a href="/products" onMouseEnter={() => {
+                <Link to="/products" onMouseEnter={() => {
                   this.changeMainButton("Clothes")
                 }}
                   onMouseLeave={this.mainButtonBack}>
                   <i className="fas fa-tshirt"></i>
-                </a>
+                </Link>
               </li>
               <li>
                 {!isAuthenticated() &&
-                  <a href="/entering" onMouseEnter={() => {
+                  <Link to="/entering" onMouseEnter={() => {
                     this.changeMainButton("Register")
                   }}
                     onMouseLeave={this.mainButtonBack}>
                     <i className="fas fa-user"></i>
-                  </a>
+                  </Link>
                 }
                 {isAuthenticated() &&
-                  <a href="/profile" onMouseEnter={() => {
+                  <Link to="/profile" onMouseEnter={() => {
                     this.changeMainButton("My Account")
                   }}
                     onMouseLeave={this.mainButtonBack}>
                     <i className="fas fa-user"></i>
-                  </a>
+                  </Link>
                 }
               </li>
               <li>
-                <a href="#" onMouseEnter={() => {
+                <Link to="#" onMouseEnter={() => {
                   this.changeMainButton("Nothing")
                 }}
                   onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-users"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onMouseEnter={() => {
+                <Link to="#" onMouseEnter={() => {
                   this.changeMainButton("Everything")
                 }}
                   onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-sitemap"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onMouseEnter={() => {
+                <Link to="#" onMouseEnter={() => {
                   this.changeMainButton("About Us")
                 }}
                   onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-tags"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onMouseEnter={() => {
+                <Link to="#" onMouseEnter={() => {
                   this.changeMainButton("Accessories")
                 }}
                   onMouseLeave={this.mainButtonBack}>
                   <i className="fab fa-redhat"></i>
-                </a>
+                </Link>
               </li>
               <li className="close">
-                <a href="#">
+                <Link to="#">
                   {this.state.mainButton &&
                     <div className="home-menu-button-text">{this.state.mainButton}</div>
                   }
                   {!this.state.mainButton &&
                     <i className="fas fa-peace"></i>
                   }
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

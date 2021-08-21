@@ -34,3 +34,11 @@ export const registerUser = formData => {
 export const loginUser = formData => {
   return axios.post('/api/login/', formData)
 }
+
+export const addToBasket = (id, formData) => {
+  return axios.post(`/api/basket/${id}/`, formData, withHeaders())
+}
+
+export const basketLength = () => {
+  return axios.get('/api/basket', withHeaders())
+}
