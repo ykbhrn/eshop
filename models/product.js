@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
   colors: [{type: String, required: false}],
   chosenColor: {type: String, required: false},
   quantity: {type: Number, required: false},
-  chosenQuantity: {type: String, required: false},
+  chosenQuantity: {type: Number, required: false},
   user: {type: Object, required: true},
   comments: [commentSchema]
 }, {

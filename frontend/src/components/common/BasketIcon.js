@@ -4,9 +4,11 @@ import { isAuthenticated } from '../../lib/auth'
 import { basketLength } from '../../lib/api'
 
 const BasketIcon = ({ basketLength }) => (
-          <div className="basket-icon-wrapper">
-            <img src="/images/basket.png" />
-            <div className="basket-number">{basketLength}</div>
-          </div>
+  <Link to="/basket">
+    <div className="basket-icon-wrapper">
+      <img src="/images/basket.png" />
+      <div className="basket-number">{basketLength}</div>
+    </div>
+  </Link>
 )
 export default BasketIcon

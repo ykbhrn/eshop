@@ -1,12 +1,10 @@
 import React from 'react'
 import { logout } from '../../lib/auth'
 import { getMyProfile } from '../../lib/api'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
 class Profile extends React.Component {
-
   state = {
     user: null,
   }

@@ -19,17 +19,6 @@ async function addToBasket (req, res) {
   }
 }
 
-async function basketLength (req, res) {
-  try {
-    const userId = req.currentUser._id
-    const user = await User.findById(userId)
-    res.status(200).json(user.basket.length)
-  } catch (err) {
-    console.log(err)
-  }
-}
-
 module.exports = {
-  addToBasket,
-  basketLength
+  addToBasket
 }

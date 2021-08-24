@@ -31,7 +31,4 @@ router.route('/products/:id')
 router.route('/basket/:id')
   .post(secureRoute, basket.addToBasket)
 
-router.route('/basket')
-  .get(secureRoute, basket.basketLength)
-
 module.exports = router
