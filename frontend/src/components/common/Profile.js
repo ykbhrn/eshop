@@ -24,6 +24,7 @@ class Profile extends React.Component {
   }
 
   render() {
+    console.log(this.state.user)
     if (!this.state.user) return null
     return (
       <div className="profile-section">

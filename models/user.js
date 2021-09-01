@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const { productSchema } = require('./product')
 
 const notificationSchema = new mongoose.Schema({ 
   notificationType: String,
@@ -19,7 +20,7 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, required: false, maxlength: 300 },
   userType: { type: Number, required: true },
   profileImage: { type: String, required: false },
-  basket: [{ type: Object, required: false }],
+  basket: [productSchema],
   notifications: [notificationSchema],
   newNotification: { type: Boolean, default: false },
   newChat: { type: Boolean, default: false },

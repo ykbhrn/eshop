@@ -66,8 +66,8 @@ class Basket extends React.Component {
               </a>
             </div>
             <div className="quantity-basket-wrapper">
+            Quantity:
               <div className="quantity-bar-basket">
-                Quantity:
                 <div className="quantity-bar sign" onClick={this.decreaseQuantity}>-</div>
                 <textarea className="quantity-bar number"
                   name="quantity"
@@ -80,7 +80,12 @@ class Basket extends React.Component {
           </div>
         })}
         </div>
-        <div className="checkout-button">Total ({this.state.totalQuantity} Items): £{this.state.totalPrice}</div>
+        <div className="checkout-button-total-price">
+          <div className="total-price">
+            Total ({this.state.totalQuantity} Items): £{this.state.totalPrice}
+          </div>
+          <div className="chekout-button">Proceed to Chekout</div>
+        </div>
       </div>
     )
   }

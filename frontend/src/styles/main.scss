@@ -17,6 +17,7 @@ body {
   }
   .basket-item-wrapper{
     display: flex;
+    justify-content: space-between;
     margin: 30px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -27,14 +28,29 @@ body {
       margin-right: 30px;
     }
   }
-  .checkout-button{
+  .checkout-button-total-price{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
     width: 20vw;
-    height: 20vh;
-    line-height: 20vh;
-    text-align: center;
+    height: 150px;
     background: rgb(205, 202, 202);
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 22px;
+  }
+  .chekout-button{
+    border: 1px solid black;
+    text-align: center;
+    width: 17vw;
+    cursor: pointer;
+  }
+  .chekout-button:hover{
+    transform: scale(1.04);
+    opacity: 0.7;
+  }
+  .total-price{
+    text-align: center;
   }
   h1{
     font-size: 23px;
