@@ -38,3 +38,7 @@ export const loginUser = formData => {
 export const addToBasket = (id, formData) => {
   return axios.post(`/api/basket/${id}/`, formData, withHeaders())
 }
+
+export const updateBasket = (id, formData) => {
+  return axios.put(`/api/basket/${id}/`, formData, withHeaders())
+}

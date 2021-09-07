@@ -29,6 +29,23 @@ async function addToBasket (req, res) {
   }
 }
 
+async function updateBasket (req, res) {
+  try {
+    const user = req.currentUser
+    const productId = req.params.id
+    user.basket.map(item => {
+      if (item.id === productId && item.chosenSize === req.body.size && item.chosenColor === req.body.color) {
+        item.chosenQuantity = req.body.quantity
+      } 
+    })
+    await user.save()
+    res.status(201).json(user)
+  } catch (err) {
+    res.json(err)
+  }
+}
+
 module.exports = {
-  addToBasket
+  addToBasket,
+  updateBasket
 }

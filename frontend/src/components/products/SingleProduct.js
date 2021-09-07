@@ -10,6 +10,7 @@ class SingleProduct extends React.Component {
       color: '',
       quantity: 1
     },
+    totalQuantity: null,
     basketLength: null,
     product: null,
     bigImage: '',
@@ -22,7 +23,11 @@ class SingleProduct extends React.Component {
       const productId = this.props.match.params.id
       const res = await getSingleProduct(productId)
       const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0] }
-      this.setState({ product: res.data, bigImage: res.data.images[0], formData })
+      const totalQuantityArray = []
+      for (let i = 1; i <= res.data.quantity; i++) {
+        totalQuantityArray.push(i)
+      }
+      this.setState({ product: res.data, bigImage: res.data.images[0], totalQuantity: totalQuantityArray, formData })
     } catch (err) {
       console.log(err)
     }
@@ -50,11 +55,11 @@ class SingleProduct extends React.Component {
   }
 
   handleChange = event => {
-    if (event.target.name !== "quantity") {
-      const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+    if (event.target.name === "quantity") {
+      const formData = { ...this.state.formData, [event.target.name]: Number(event.target.value) }
       this.setState({ formData })
-    } else if (event.target.name === "quantity" && !isNaN(Number(event.target.value)) && Number(event.target.value) < 100) {
-      const formData = { ...this.state.formData, quantity: Number(event.target.value) }
+    } else {
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value }
       this.setState({ formData })
     }
   }
@@ -140,7 +145,13 @@ class SingleProduct extends React.Component {
               </>
             }
             <div className="quantity-basket-wrapper">
-              <div className="quantity-bar-wrapper">
+            <label>Quantity:</label>
+              <select name="quantity" onChange={this.handleChange}>
+                {this.state.totalQuantity.map(item => {
+                  return <option key={item} value={item}>{item}</option>
+                })}
+              </select>
+              {/* <div className="quantity-bar-wrapper">
                 <div className="quantity-bar sign" onClick={this.decreaseQuantity}>-</div>
                 <textarea className="quantity-bar number"
                   name="quantity"
@@ -148,7 +159,7 @@ class SingleProduct extends React.Component {
                   value={this.state.formData.quantity}
                 />
                 <div className="quantity-bar sign" onClick={this.increaseQuantity}>+</div>
-              </div>
+              </div> */}
               {this.state.isLoading &&
               <div className="add-to-basket-wrapper">
                   <img src='/images/loading.svg' className='loading-image' />

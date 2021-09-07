@@ -1,6 +1,6 @@
 import React from 'react'
 import { logout } from '../../lib/auth'
-import { getMyProfile } from '../../lib/api'
+import { getMyProfile, updateBasket } from '../../lib/api'
 import { Link } from 'react-router-dom'
 
 
@@ -36,22 +36,41 @@ class Basket extends React.Component {
     }
   }
 
-  increaseQuantity = () => {
-    const formData = { ...this.state.formData, quantity: this.state.formData.quantity + 1 }
-    this.setState({ formData })
+  increaseQuantity = (quantity, size, color) => {
+    const formData = { quantity: quantity, size: size, color: color }
   }
 
-  decreaseQuantity = () => {
+  decreaseQuantity = (quantity, size, color) => {
     if (this.state.formData.quantity > 1) {
-      const formData = { ...this.state.formData, quantity: this.state.formData.quantity - 1 }
-      this.setState({ formData })
+      const formData = { quantity: quantity, size: size, color: color }
+
+    }
+  }
+
+  quantityBar = (totalQuantity, chosenQuantity) => {
+    const quantity = []
+    for (let i = 1; i <= totalQuantity; i++) {
+       quantity.push(i)
+    }
+    return quantity.map(item => {
+      return <option key={item} value={item}>{item}</option>
+    })
+  }
+
+  updateBasketItem = async (event, id, size, color) => {
+    try {
+      const formData = {  quantity: event.target.value, size: size, color: color }
+      await updateBasket(id, formData)
+      this.componentDidMount()
+    } catch (err) {
+      console.log(err)
     }
   }
 
 
   render() {
     if (!this.state.user) return null
-    const { user } = this.state
+    const { user } = this.state    
     return (
       <div className="basket-page">
         <div className="basket-container">
@@ -66,16 +85,14 @@ class Basket extends React.Component {
               </a>
             </div>
             <div className="quantity-basket-wrapper">
-            Quantity:
-              <div className="quantity-bar-basket">
-                <div className="quantity-bar sign" onClick={this.decreaseQuantity}>-</div>
-                <textarea className="quantity-bar number"
-                  name="quantity"
-                  onChange={this.handleChange}
-                // value={this.state.formData.quantity}
-                />
-                <div className="quantity-bar sign" onClick={this.increaseQuantity}>+</div>
-              </div>
+            <form>
+              <label>Quantity:</label>
+              <select value={item.chosenQuantity} onChange={() => {
+                this.updateBasketItem(event, item._id, item.chosenSize, item.chosenColor)
+              }}>
+                {this.quantityBar(item.quantity, item.chosenQuantity)} 
+              </select>
+            </form>
             </div>
           </div>
         })}

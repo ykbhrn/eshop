@@ -30,5 +30,6 @@ router.route('/products/:id')
 
 router.route('/basket/:id')
   .post(secureRoute, basket.addToBasket)
+  .put(secureRoute, basket.updateBasket)
 
 module.exports = router
