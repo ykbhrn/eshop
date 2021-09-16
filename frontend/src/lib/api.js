@@ -42,3 +42,7 @@ export const addToBasket = (id, formData) => {
 export const updateBasket = (id, formData) => {
   return axios.put(`/api/basket/${id}/`, formData, withHeaders())
 }
+
+export const addShipping = (formData) => {
+  return axios.put('/api/shipping/', formData, withHeaders())
+}

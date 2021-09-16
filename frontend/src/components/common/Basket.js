@@ -1,5 +1,4 @@
 import React from 'react'
-import { logout } from '../../lib/auth'
 import { getMyProfile, updateBasket } from '../../lib/api'
 import { Link } from 'react-router-dom'
 
@@ -61,6 +60,7 @@ class Basket extends React.Component {
     try {
       const formData = {  quantity: event.target.value, size: size, color: color }
       await updateBasket(id, formData)
+      this.props.basket()
       this.componentDidMount()
     } catch (err) {
       console.log(err)
@@ -101,7 +101,9 @@ class Basket extends React.Component {
           <div className="total-price">
             Total ({this.state.totalQuantity} Items): £{this.state.totalPrice}
           </div>
-          <div className="chekout-button">Proceed to Chekout</div>
+          <Link to="/checkout">
+            <div className="chekout-button">Proceed to Chekout</div>
+          </Link>
         </div>
       </div>
     )

@@ -17,14 +17,16 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true, maxlength: 20, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  shipping: { type: Number, default: 0 },
   bio: { type: String, required: false, maxlength: 300 },
-  userType: { type: Number, required: true },
   profileImage: { type: String, required: false },
   basket: [productSchema],
   notifications: [notificationSchema],
   newNotification: { type: Boolean, default: false },
   newChat: { type: Boolean, default: false },
-  userChats: []
+  userChats: [],
+  userType: { type: Number, required: true }
+
 })
 
 userSchema.virtual('userProducts', {

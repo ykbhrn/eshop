@@ -7,6 +7,7 @@ body {
 
 * { margin: 0; padding: 0; }
 
+//Basket page
 .basket-page{
   display: flex;
   justify-content: space-around;
@@ -136,9 +137,141 @@ body {
 
 @keyframes basket-added {
   0% { bottom: -100% ;}
-  // 50% { bottom: -30%; }
   100% { bottom: 0%; }
 }
+
+//Shipping page 
+.shipping-page{
+  display: flex;
+  padding: 5%;
+  justify-content: space-around;
+  align-items: center;
+  .basket-preview{
+    margin-bottom: -60px;
+  }
+}
+
+//Payment page
+.payment-page{
+  display: flex;
+  padding: 1% 5% 5% 5%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  .payment-radio{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+  input{
+    margin-right: 8px;
+  }
+  .payment-option{
+    margin: 15px 0;
+  }
+  .paypal-icon{
+    width: 80px;
+    height: 80px;
+    margin-bottom: -30px;
+  }
+}
+
+//Checkout page
+.checkout-page{
+  display: flex;
+  padding: 1% 5% 5% 5%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.total-price-checkout-wrapper{
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+}
+.size{
+  padding-right: 20px;
+}
+.color{
+  padding-right: 20px;
+}
+h2{
+  padding-bottom: 10px;
+}
+  .shipping-preview-wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .checkout-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .forms-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .checkout-form{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    padding-right: 20px;
+  }
+  .shipping-radio{
+    width: 40%;
+  }
+  .shipping-option{
+    border: 1px solid black;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .shipping-option-name-radio{
+    display: flex;
+    align-items: flex-start;
+    input{
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  }
+  .shipping-description{
+    color: gray;
+    font-size: 15px;
+  }
+  .billing-radio{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    input{
+      margin-right: 10px;
+    }
+  }
+  .image-checkout-wrapper{
+    margin-bottom: 15px;
+    display: flex;
+    .image-checkout-name{
+      width: 60%;
+      font-size: 14px;
+    }
+    .image-checkout-description{
+      color: gray;
+      font-size: 13px;
+    }
+    .image-checkout{
+      width: 60px;
+      height: 60px;
+      border: 1px solid gray;
+      border-radius: 5%;
+      background-size: cover;
+      margin-right: 7px;
+    }
+  }
+
 
 .navbar {
   width: 100vw;

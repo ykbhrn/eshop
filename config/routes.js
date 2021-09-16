@@ -32,4 +32,7 @@ router.route('/basket/:id')
   .post(secureRoute, basket.addToBasket)
   .put(secureRoute, basket.updateBasket)
 
+router.route('/shipping')
+  .put(secureRoute, basket.addShipping)
+
 module.exports = router

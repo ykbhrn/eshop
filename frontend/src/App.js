@@ -10,6 +10,9 @@ import Profile from './components/common/Profile'
 import Navbar from './components/common/Navbar'
 import Basket from './components/common/Basket'
 import BasketIcon from './components/common/BasketIcon'
+import Checkout from './components/common/Checkout'
+import Shipping from './components/common/Shipping'
+import Payment from './components/common/Payment'
 import Done from './components/common/Done'
 
 class App extends React.Component {
@@ -56,7 +59,10 @@ class App extends React.Component {
           <Route path="/products" component={AllProducts} />
           <Route path="/entering" component={Authorization} />
           <Route path="/profile" component={Profile} />
-          <Route path="/basket" component={Basket} />
+          <Route path='/shipping' component={Shipping} />
+          <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/payment" component={Payment} />
           <Route path="/done" component={Done} />
         </Switch>
       </BrowserRouter>

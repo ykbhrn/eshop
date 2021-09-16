@@ -13,6 +13,9 @@ async function addToBasket (req, res) {
       user.basket.map(item => {
         if (item.id === productId && item.chosenSize === req.body.size && item.chosenColor === req.body.color) {
           item.chosenQuantity = item.chosenQuantity + req.body.quantity
+          if (item.chosenQuantity > product.quantity) {
+            item.chosenQuantity = product.quantity
+          }
         } 
       })
     } else {
@@ -21,7 +24,6 @@ async function addToBasket (req, res) {
       product.chosenQuantity = req.body.quantity
       user.basket.push(product)
     }
-
     await user.save()
     res.status(201).json(user)
   } catch (err) {
@@ -33,13 +35,28 @@ async function updateBasket (req, res) {
   try {
     const user = req.currentUser
     const productId = req.params.id
+    const product = await Product.findById(productId)
     user.basket.map(item => {
       if (item.id === productId && item.chosenSize === req.body.size && item.chosenColor === req.body.color) {
         item.chosenQuantity = req.body.quantity
+        if (item.chosenQuantity > product.quantity) {
+          item.chosenQuantity = product.quantity
+        }
       } 
     })
     await user.save()
-    res.status(201).json(user)
+    res.status(202).json(user)
+  } catch (err) {
+    res.json(err)
+  }
+}
+
+async function addShipping (req, res) {
+  try {
+    const user = req.currentUser
+    user.shipping = req.body.shipping
+    await user.save()
+    res.status(202).json(user)
   } catch (err) {
     res.json(err)
   }
@@ -47,5 +64,6 @@ async function updateBasket (req, res) {
 
 module.exports = {
   addToBasket,
-  updateBasket
+  updateBasket,
+  addShipping
 }
