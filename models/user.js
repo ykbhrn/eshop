@@ -8,19 +8,30 @@ const notificationSchema = new mongoose.Schema({
   profileImage: String,
   userId: String,
   portfolioId: String,
-  url: String,
-  portfolioType: String,
-  isFull: Boolean
+  url: String
+})
+
+const orderSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  company: { type: String, required: false },
+  adressOne: { type: String, required: true },
+  adressTwo: { type: String, required: false },
+  town: { type: String, required: true },
+  postcode: { type: String, required: true },
+  country: { type: String, required: true },
+  phone: { type: Number, required: false },
+  shipping: { type: Number, default: 0 }
 })
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true, maxlength: 20, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  shipping: { type: Number, default: 0 },
   bio: { type: String, required: false, maxlength: 300 },
   profileImage: { type: String, required: false },
   basket: [productSchema],
+  pendingOrder: orderSchema,
+  paidOrders: [orderSchema],
   notifications: [notificationSchema],
   newNotification: { type: Boolean, default: false },
   newChat: { type: Boolean, default: false },

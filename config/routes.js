@@ -32,6 +32,9 @@ router.route('/basket/:id')
   .post(secureRoute, basket.addToBasket)
   .put(secureRoute, basket.updateBasket)
 
+router.route('/order')
+  .post(secureRoute, basket.pendingOrder)
+  
 router.route('/shipping')
   .put(secureRoute, basket.addShipping)
 

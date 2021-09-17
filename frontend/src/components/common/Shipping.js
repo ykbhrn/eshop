@@ -18,7 +18,7 @@ class Shipping extends React.Component {
         priceSum = priceSum + (item.chosenQuantity * item.price)
         basketSize = basketSize + Number(item.chosenQuantity)
       })
-      this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, shipping: res.data.shipping })
+      this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, shipping: res.data.pendingOrder.shipping })
     } catch (err) {
       console.log(err)
     }
@@ -26,7 +26,6 @@ class Shipping extends React.Component {
 
   handleShipping = async (event) => {
     const formData = { shipping: event.target.value }
-    console.log(event.target)
     try {
       await addShipping(formData)
       this.componentDidMount()
@@ -103,8 +102,8 @@ class Shipping extends React.Component {
           })}
           <div className="total-price-checkout-wrapper">
             ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
-            Shipping: £{user.shipping} <br/>
-            Total price: £{this.state.totalPrice + user.shipping}
+            Shipping: £{user.pendingOrder.shipping} <br/>
+            Total price: £{this.state.totalPrice + user.pendingOrder.shipping}
           </div>
         </div>
       </div>

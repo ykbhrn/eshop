@@ -1,5 +1,5 @@
 import React from 'react'
-import { getMyProfile } from '../../lib/api'
+import { getMyProfile, pendingOrder } from '../../lib/api'
 import { Link } from 'react-router-dom'
 
 
@@ -7,13 +7,14 @@ class Checkout extends React.Component {
   state = {
     user: null,
     formData: {
-      fullName: null,
+      name: null,
       company: null,
-      adressLineOne: null,
-      adressLineTwo: null,
+      adressOne: null,
+      adressTwo: null,
       town: null,
       postcode: null,
-      country: null
+      country: null,
+      phone: null
     },
     billingAdress: false
   }
@@ -27,7 +28,11 @@ class Checkout extends React.Component {
         priceSum = priceSum + (item.chosenQuantity * item.price)
         basketSize = basketSize + Number(item.chosenQuantity)
       })
-      this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize })
+      if (res.data.pendingOrder) {
+        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.pendingOrder })
+      } else {
+        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize })
+      }
     } catch (err) {
       console.log(err)
     }
@@ -37,9 +42,32 @@ class Checkout extends React.Component {
     this.setState({ billingAdress: this.state.billingAdress ? false : true })
   }
 
+  handleChange = event => {
+    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+    const errors = { ...this.state.errors, [event.target.name]: '' }
+    this.setState({ formData, errors })
+  }
+
+  makeOrder = async (event) => {
+    event.preventDefault()
+    try {
+     const res = await pendingOrder(this.state.formData)
+     console.log(res)
+     if (res.status === 201) {
+        this.props.history.push('/shipping')
+     } else if (res.status === 422) {
+       throw new Error()
+     }
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   render() {
     if (!this.state.user) return null
     const { user, formData } = this.state
+    console.log(formData)
     return (
       <div className="checkout-page">
 
@@ -48,9 +76,9 @@ class Checkout extends React.Component {
         <form className="checkout-form">
           <label>Full Name:</label>
           <input
-            name="fullName"
+            name="name"
             onChange={this.handleChange}
-            value={formData.fullName}
+            value={formData.name}
           />
 
           <label>Company (Optional):</label>
@@ -62,16 +90,16 @@ class Checkout extends React.Component {
 
           <label>Adress Line 1:</label>
           <input
-            name="adressLineOne"
+            name="adressOne"
             onChange={this.handleChange}
-            value={formData.adressLineOne}
+            value={formData.adressOne}
           />
 
           <label>Adress Line 2 (optional):</label>
           <input
-            name="adressLineTwo"
+            name="adressTwo"
             onChange={this.handleChange}
-            value={formData.adressLineTwo}
+            value={formData.adressTwo}
           />
 
           <label>City/Town:</label>
@@ -93,6 +121,13 @@ class Checkout extends React.Component {
             name="country"
             onChange={this.handleChange}
             value={formData.country}
+          />
+
+          <label>Phone number (optional):</label>
+          <input
+            name="phone"
+            onChange={this.handleChange}
+            value={formData.phone}
           />
         </form>
 
@@ -125,9 +160,9 @@ class Checkout extends React.Component {
           <form className="checkout-form">
             <label>Full Name:</label>
             <input
-              name="fullName"
+              name="name"
               onChange={this.handleChange}
-              value={formData.fullName}
+              value={formData.name}
             />
 
             <label>Company (Optional):</label>
@@ -139,16 +174,16 @@ class Checkout extends React.Component {
 
             <label>Adress Line 1:</label>
             <input
-              name="adressLineOne"
+              name="adressOne"
               onChange={this.handleChange}
-              value={formData.adressLineOne}
+              value={formData.adressOne}
             />
 
             <label>Adress Line 2 (optional):</label>
             <input
-              name="adressLineTwo"
+              name="adressTwo"
               onChange={this.handleChange}
-              value={formData.adressLineTwo}
+              value={formData.adressTwo}
             />
 
             <label>City/Town:</label>
@@ -171,15 +206,20 @@ class Checkout extends React.Component {
               onChange={this.handleChange}
               value={formData.country}
             />
+
+          <label>Phone number (optional):</label>
+          <input
+            name="phone"
+            onChange={this.handleChange}
+            value={formData.phone}
+          />
           </form>
         }
         <div className="checkout-buttons">
             <Link to="/basket">
               <button>Go Back To Basket</button>
             </Link>
-            <Link to="/shipping">
-              <button>Continue To Shipping</button>
-            </Link>
+              <button onClick={this.makeOrder}>Continue To Shipping</button>
           </div>
         </div>
 

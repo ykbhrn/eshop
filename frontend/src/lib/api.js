@@ -43,6 +43,10 @@ export const updateBasket = (id, formData) => {
   return axios.put(`/api/basket/${id}/`, formData, withHeaders())
 }
 
+export const pendingOrder = (formData) => {
+  return axios.post('/api/order', formData, withHeaders())
+}
+
 export const addShipping = (formData) => {
-  return axios.put('/api/shipping/', formData, withHeaders())
+  return axios.put('/api/shipping', formData, withHeaders())
 }

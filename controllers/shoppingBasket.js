@@ -51,10 +51,21 @@ async function updateBasket (req, res) {
   }
 }
 
+async function pendingOrder (req, res) {
+  try {
+    const user = req.currentUser
+    user.pendingOrder = req.body
+    await user.save()
+    res.status(201).json(user)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+}
+
 async function addShipping (req, res) {
   try {
     const user = req.currentUser
-    user.shipping = req.body.shipping
+    user.pendingOrder.shipping = req.body.shipping
     await user.save()
     res.status(202).json(user)
   } catch (err) {
@@ -65,5 +76,6 @@ async function addShipping (req, res) {
 module.exports = {
   addToBasket,
   updateBasket,
-  addShipping
+  addShipping,
+  pendingOrder
 }

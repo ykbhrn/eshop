@@ -150,11 +150,11 @@ class Payment extends React.Component {
               </div>
             </div>
           })}
-            <div className="total-price-checkout-wrapper">
-              ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br />
-              Shipping: £{user.shipping} <br />
-              Total price: £{this.state.totalPrice + user.shipping}
-            </div>
+             <div className="total-price-checkout-wrapper">
+            ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
+            Shipping: £{user.pendingOrder.shipping} <br/>
+            Total price: £{this.state.totalPrice + user.pendingOrder.shipping}
+          </div>
         </div>
       </div>
     )
