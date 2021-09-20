@@ -11,6 +11,17 @@ const notificationSchema = new mongoose.Schema({
   url: String
 })
 
+const billingAdressSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  company: { type: String, required: false },
+  adressOne: { type: String, required: true },
+  adressTwo: { type: String, required: false },
+  town: { type: String, required: true },
+  postcode: { type: String, required: true },
+  country: { type: String, required: true },
+  phone: { type: Number, required: false }
+})
+
 const orderSchema = new mongoose.Schema({
   name: { type: String, required: true },
   company: { type: String, required: false },
@@ -20,7 +31,9 @@ const orderSchema = new mongoose.Schema({
   postcode: { type: String, required: true },
   country: { type: String, required: true },
   phone: { type: Number, required: false },
-  shipping: { type: Number, default: 0 }
+  shipping: { type: Number, default: 0 },
+  isBillingAdress: { type: String, default: 'no' },
+  billingAdress: billingAdressSchema
 })
 
 const userSchema = new mongoose.Schema({

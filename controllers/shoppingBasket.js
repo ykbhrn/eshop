@@ -54,6 +54,9 @@ async function updateBasket (req, res) {
 async function pendingOrder (req, res) {
   try {
     const user = req.currentUser
+    if (req.body.isBillingAdress === 'no') {
+      req.body.billingAdress = null
+    }
     user.pendingOrder = req.body
     await user.save()
     res.status(201).json(user)

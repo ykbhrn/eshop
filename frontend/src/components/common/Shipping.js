@@ -73,14 +73,6 @@ class Shipping extends React.Component {
             </div>
             <div>£6.99</div>
           </div>
-          <div className="checkout-buttons">
-            <Link to="/checkout">
-              <button>Go Back To Shipping Adress</button>
-            </Link>
-            <Link to="/payment">
-              <button>Continue To Payment</button>
-            </Link>
-          </div>
         </div>
 
         <div className="basket-preview">
@@ -104,6 +96,14 @@ class Shipping extends React.Component {
             ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
             Shipping: £{user.pendingOrder.shipping} <br/>
             Total price: £{this.state.totalPrice + user.pendingOrder.shipping}
+          </div>
+          <div className="checkout-buttons">
+            <Link to="/checkout">
+              <button className="left">Go Back To Shipping Adress</button>
+            </Link>
+            <Link to="/payment">
+              <button className="right">Continue To Payment</button>
+            </Link>
           </div>
         </div>
       </div>

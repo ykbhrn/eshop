@@ -144,33 +144,28 @@ class SingleProduct extends React.Component {
                 <div className="product-size">Color: {this.state.formData.color}</div>
               </>
             }
-            <div className="quantity-basket-wrapper">
-            <label>Quantity:</label>
-              <select name="quantity" onChange={this.handleChange}>
-                {this.state.totalQuantity.map(item => {
-                  return <option key={item} value={item}>{item}</option>
-                })}
-              </select>
-              {/* <div className="quantity-bar-wrapper">
-                <div className="quantity-bar sign" onClick={this.decreaseQuantity}>-</div>
-                <textarea className="quantity-bar number"
-                  name="quantity"
-                  onChange={this.handleChange}
-                  value={this.state.formData.quantity}
-                />
-                <div className="quantity-bar sign" onClick={this.increaseQuantity}>+</div>
-              </div> */}
-              {this.state.isLoading &&
-              <div className="add-to-basket-wrapper">
-                  <img src='/images/loading.svg' className='loading-image' />
+
+            <div className="quantity-add-wrapper">
+              <div className="quantity-bar">
+                <label>Quantity:</label>
+                <select name="quantity" onChange={this.handleChange}>
+                  {this.state.totalQuantity.map(item => {
+                    return <option key={item} value={item}>{item}</option>
+                  })}
+                </select>
               </div>
+              {this.state.isLoading &&
+                <div className="add-to-basket-wrapper">
+                  <img src='/images/loading.svg' className='loading-image' />
+                </div>
               }
               {!this.state.isLoading &&
-              <div className="add-to-basket-wrapper" onClick={this.handleBasket}>
+                <div className="add-to-basket-wrapper" onClick={this.handleBasket}>
                   Add to basket
-              </div>
+                </div>
               }
-            </div>
+              </div>
+
           </div>
         </div>
         <div className="product-description">
@@ -181,7 +176,7 @@ class SingleProduct extends React.Component {
           <div className="basket-added-wrapper">
             <div className="basket-added-continue" onClick={this.continueShopping}>Continue Shopping</div>
             <Link to="/basket">
-              <div className="basket-added-proceed">Proceed to chekout</div> 
+              <div className="basket-added-proceed">Proceed to chekout</div>
             </Link>
           </div>
         }

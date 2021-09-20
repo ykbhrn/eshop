@@ -29,8 +29,6 @@ class Register extends React.Component {
     let password = ''
     let passwordConfirmation = ''
     let sports = ''
-    let userType = 1
-    console.log(errors)
 
     if (errors.errors.name) {
       if (errors.errors.name.kind === "unique") {

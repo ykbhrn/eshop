@@ -124,13 +124,6 @@ class Payment extends React.Component {
           {this.state.bankTransfer &&
             <div>We will send you payment instructions in the e-mail.</div>
           }
-
-          <div className="checkout-buttons">
-            <Link to="/shipping">
-              <button>Go Back To Shipping</button>
-            </Link>
-            <button>Complete Your Order</button>
-          </div>
         </div>
 
         <div className="basket-preview">
@@ -154,6 +147,12 @@ class Payment extends React.Component {
             ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
             Shipping: £{user.pendingOrder.shipping} <br/>
             Total price: £{this.state.totalPrice + user.pendingOrder.shipping}
+          </div>
+          <div className="checkout-buttons">
+            <Link to="/shipping">
+              <button className="left">Go Back To Shipping</button>
+            </Link>
+            <button className="right">Complete Your Order</button>
           </div>
         </div>
       </div>
