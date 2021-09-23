@@ -103,10 +103,8 @@ class SingleProduct extends React.Component {
           <div className="single-product-images-wrapper">
             <div className="side-images-container">
               {product.images.map(image => {
-                return <div className="side-image" style={{
+                return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
                   backgroundImage: `url(${image})`,
-                  filter: `brightness(${image === this.state.bigImage ? "1" : "0.6"})`,
-                  border: `${image === this.state.bigImage ? "1px solid red" : "1px solid black"}`
                 }}
                   onClick={() => {
                     this.changeBigImage(image)
@@ -126,7 +124,8 @@ class SingleProduct extends React.Component {
                 <div className="product-discount">-{product.discount}%</div>
               }
             </div>
-            <div className="product-size-container">{product.sizes.map(size => {
+            <div className="product-size-container">
+              {product.sizes.map(size => {
               return <div className={`product-size-wrapper ${this.state.formData.size === size ? "chosen-size" : ""}`} onClick={() => {
                 this.choosingSize(size)
               }}

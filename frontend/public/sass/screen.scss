@@ -8,7 +8,7 @@
 // can touch this!
 $items: 6;
 $size: 100;
-$bgcolor: #F6717F;
+$bgcolor: #FF1510;
 
 // can't touch this!
 $deg: 360/$items;
@@ -26,7 +26,7 @@ $skew: 90 - $deg;
 
   .home-menu-button-text{
     font-size: 7px;
-    color: #F6717F;
+    color: #474747;
   }
 
   a{
@@ -54,7 +54,7 @@ ul {
     display: none;
     
     a {
-      color: yellow;
+      color: #FFE400;
       display: block;
       width: #{$size*2}px;height: #{$size*2}px;
       border-radius:50%;
@@ -65,7 +65,7 @@ ul {
     
     &:nth-child(odd){
         a {
-          background: lighten($bgcolor, 2%);
+          background: #474747;
         }
     }
 

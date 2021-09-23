@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { getAllProducts } from '../../lib/api'
-import { isAuthenticated } from '../../lib/auth'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { getAllProducts } from '../../lib/api';
+import { isAuthenticated } from '../../lib/auth';
 
 class Home extends React.Component {
   state = {
@@ -13,45 +13,45 @@ class Home extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await getAllProducts()
-      this.setState({ products: res.data })
-      this.renderingFlowers()
+      const res = await getAllProducts();
+      this.setState({ products: res.data });
+      this.renderingFlowers();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   changeMainButton = (hoveredItem) => {
-    this.setState({ mainButton: hoveredItem })
+    this.setState({ mainButton: hoveredItem });
   }
 
   mainButtonBack = () => {
-    this.setState({ mainButton: "" })
+    this.setState({ mainButton: "" });
   }
 
   renderingFlowers = () => {
-    const newProductsArray = []
-    const randomNumberArray = []
+    const newProductsArray = [];
+    const randomNumberArray = [];
     if (this.state.products.length > 0) {
-      for (let i = 0; i < 5; i++) {
-        let randomNumber = Math.floor(Math.random() * 10)
+      for (let i = 0; i < 4; i++) {
+        const randomNumber = Math.floor(Math.random() * 10);
         if (randomNumberArray.includes(randomNumber)) {
-          i--
+          i--;
         } else {
-          newProductsArray.push(this.state.products[randomNumber])
-          randomNumberArray.push(randomNumber)
+          newProductsArray.push(this.state.products[randomNumber]);
+          randomNumberArray.push(randomNumber);
         }
       }
     }
-    this.setState({ flowerProducts: newProductsArray })
+    this.setState({ flowerProducts: newProductsArray });
   }
 
   render() {
     return (
       <>
         <section className="home">
-        <style>
-          {'\
+          <style>
+            {'\
           .basket-icon-wrapper{\
             display: none;\
           }\
@@ -59,7 +59,7 @@ class Home extends React.Component {
             display: none;\
           }\
           '}
-        </style>
+          </style>
           <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
               return <Link to={`/products/${product._id}`} key={product._id}>
@@ -80,66 +80,66 @@ class Home extends React.Component {
                     <div className="small-petal small-petal8"></div>
                   </div>
                 </div>
-              </Link>
+              </Link>;
             })}
           </div>
           <div className="home-menu">
             <ul>
               <li>
                 <Link to="/products" onMouseEnter={() => {
-                  this.changeMainButton("Clothes")
+                  this.changeMainButton("Clothes");
                 }}
-                  onMouseLeave={this.mainButtonBack}>
+                onMouseLeave={this.mainButtonBack}>
                   <i className="fas fa-tshirt"></i>
                 </Link>
               </li>
               <li>
                 {!isAuthenticated() &&
                   <Link to="/entering" onMouseEnter={() => {
-                    this.changeMainButton("Register")
+                    this.changeMainButton("Register");
                   }}
-                    onMouseLeave={this.mainButtonBack}>
+                  onMouseLeave={this.mainButtonBack}>
                     <i className="fas fa-user"></i>
                   </Link>
                 }
                 {isAuthenticated() &&
                   <Link to="/profile" onMouseEnter={() => {
-                    this.changeMainButton("My Account")
+                    this.changeMainButton("My Account");
                   }}
-                    onMouseLeave={this.mainButtonBack}>
+                  onMouseLeave={this.mainButtonBack}>
                     <i className="fas fa-user"></i>
                   </Link>
                 }
               </li>
               <li>
                 <Link to="#" onMouseEnter={() => {
-                  this.changeMainButton("Nothing")
+                  this.changeMainButton("Nothing");
                 }}
-                  onMouseLeave={this.mainButtonBack}>
+                onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-users"></i>
                 </Link>
               </li>
               <li>
                 <Link to="#" onMouseEnter={() => {
-                  this.changeMainButton("Everything")
+                  this.changeMainButton("Everything");
                 }}
-                  onMouseLeave={this.mainButtonBack}>
+                onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-sitemap"></i>
                 </Link>
               </li>
               <li>
                 <Link to="#" onMouseEnter={() => {
-                  this.changeMainButton("About Us")
+                  this.changeMainButton("About Us");
                 }}
-                  onMouseLeave={this.mainButtonBack}>
+                onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-tags"></i>
                 </Link>
               </li>
               <li>
                 <Link to="#" onMouseEnter={() => {
-                  this.changeMainButton("Accessories")
+                  this.changeMainButton("Accessories");
                 }}
-                  onMouseLeave={this.mainButtonBack}>
+                onMouseLeave={this.mainButtonBack}>
                   <i className="fab fa-redhat"></i>
                 </Link>
               </li>
@@ -175,14 +175,14 @@ class Home extends React.Component {
                     <div className="small-petal small-petal8"></div>
                   </div>
                 </div>
-              </Link>
+              </Link>;
             })}
           </div>
         </section>
       </>
-    )
+    );
   }
 }
 
 
-export default Home
+export default Home;

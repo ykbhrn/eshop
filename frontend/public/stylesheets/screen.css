@@ -15,7 +15,7 @@
 /* line 27, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
   font-size: 7px;
-  color: #F6717F;
+  color: #474747;
 }
 /* line 32, ../sass/screen.scss */
 .home-menu a {
@@ -51,18 +51,18 @@
 }
 /* line 56, ../sass/screen.scss */
 .home-menu ul li a {
-  color: yellow;
+  color: #FFE400;
   display: block;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   text-align: center;
-  background: #F6717F;
+  background: #FF1510;
   font-size: 25px;
 }
 /* line 67, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
-  background: #f77b88;
+  background: #474747;
 }
 /* line 74, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) {
@@ -82,7 +82,7 @@
 }
 /* line 82, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a:hover {
-  background: #f45969;
+  background: #f60500;
   color: white;
 }
 /* line 74, ../sass/screen.scss */
@@ -103,7 +103,7 @@
 }
 /* line 82, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a:hover {
-  background: #f45969;
+  background: #f60500;
   color: white;
 }
 /* line 74, ../sass/screen.scss */
@@ -124,7 +124,7 @@
 }
 /* line 82, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a:hover {
-  background: #f45969;
+  background: #f60500;
   color: white;
 }
 /* line 74, ../sass/screen.scss */
@@ -145,7 +145,7 @@
 }
 /* line 82, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a:hover {
-  background: #f45969;
+  background: #f60500;
   color: white;
 }
 /* line 74, ../sass/screen.scss */
@@ -166,7 +166,7 @@
 }
 /* line 82, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a:hover {
-  background: #f45969;
+  background: #f60500;
   color: white;
 }
 /* line 74, ../sass/screen.scss */
@@ -187,7 +187,7 @@
 }
 /* line 82, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a:hover {
-  background: #f45969;
+  background: #f60500;
   color: white;
 }
 /* line 90, ../sass/screen.scss */

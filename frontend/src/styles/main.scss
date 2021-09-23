@@ -1,8 +1,15 @@
 $main-font: 'Indie Flower', cursive;
 $logo-font: "Galindo", cursive;
+$first-color: #FF1510;
+$second-color: #FFE400;
+$third-color: #14A76C;
+$dark-color: #474747;
+$gray-color: #747474;
+
 body {
   font-family: $main-font;
   overflow-x: hidden;
+  color: $dark-color;
 }
 
 * { margin: 0; padding: 0; }
@@ -20,8 +27,8 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 30px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid $dark-color;
+    border-bottom: 1px name $dark-color;
     padding: 20px 0;
     img{
       width: 80px;
@@ -34,14 +41,15 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    border: 1px solid $dark-color;
     width: 20vw;
     height: 150px;
-    background: rgb(205, 202, 202);
     margin-top: 30px;
     font-size: 22px;
   }
   .chekout-button{
-    border: 1px solid black;
+    background: $dark-color;
+    color: $second-color; 
     border-radius: 10px;
     text-align: center;
     width: 15vw;
@@ -49,8 +57,8 @@ body {
     cursor: pointer;
   }
   .chekout-button:hover{
-    transform: scale(1.04);
-    opacity: 0.7;
+    transform: scale(1.03);
+    color: $first-color;    
   }
   .total-price{
     text-align: center;
@@ -74,34 +82,6 @@ body {
   }
 }
 
-.basket-added-wrapper{
-  width: 60vw;
-  height: 70vh;
-  border: 1px solid black;
-  position: absolute;
-  bottom: 0%;
-  right: 50%;
-  margin-right: -30vw;
-  background: yellow;
-  opacity: 0.9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  animation: .5s basket-added linear;
-  .basket-added-continue, .basket-added-proceed{
-    padding: 10px 20px;
-    background: gray;
-    border: 1px solid black;
-    cursor: pointer;
-    margin: 30px;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
 .basket-icon-wrapper{
   display: block;
   position: absolute;
@@ -114,10 +94,10 @@ body {
   }
   .basket-number{
     font-size: 21px;
-    color: #fc6d6d;
+    color: $first-color;
     position: absolute;
-    right: 14px;
-    top: 0px;
+    right: 13px;
+    top: -3px;
   }
 }
 .basket-icon-wrapper:hover{
@@ -174,7 +154,7 @@ body {
   flex-wrap: wrap;
 }
 .total-price-checkout-wrapper{
-  border: 1px solid black;
+  border: 1px solid $dark-color;
   padding: 10px;
   font-size: 19px;
   font-weight: bold;
@@ -198,22 +178,28 @@ h2{
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    button{
+      font-family: $main-font;
+      font-weight: bold;
+      font-size: 16px;
+    }
     .right, .left{
-      padding: 10px 20px;
+      padding: 9px 18px;
       cursor: pointer;
       border-radius: 10px;
     }
     .right{
       border: none;
-      color: white;
-      background: #fc6d6d;
+      color: $second-color;
+      background: $dark-color;
     }
     .right:hover{
       transform: scale(1.02);
+      color: $first-color;
     }
     .left{
       background: white;
-      border: 1px solid black;
+      border: 1px solid $dark-color;
     }
   }
   .forms-wrapper{
@@ -234,7 +220,7 @@ h2{
     width: 40%;
   }
   .shipping-option{
-    border: 1px solid black;
+    border: 1px solid $dark-color;
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
@@ -285,6 +271,8 @@ h2{
 .navbar {
   width: 100vw;
   font-family: $logo-font;
+  margin-bottom: 15px;
+  background: $dark-color;
 }
 .logo {
   display: flex;
@@ -293,7 +281,7 @@ h2{
 }
 .link-no-underline {
   text-decoration: none;
-  color: black;
+  color: $first-color;
 }
 
 .footer {
@@ -308,11 +296,11 @@ h2{
 }
 .flower-container.one {
   left: 20px;
-  top: 50px;
+  top: 80px;
 }
 .flower-container.two {
   right: 20px;
-  top: 50px;
+  top: 80px;
 }
 .flowerProductImage {
   height: 300px;
@@ -333,7 +321,7 @@ h2{
   width: 500px;
   transition-duration: 800ms;
   transition-delay: 150ms;
-  box-shadow: 0px 4px 30px 2px rgba(#fff917, 0.92);
+  box-shadow: 0px 4px 30px 2px rgba($second-color, 0.92);
 }
 
 // Flower
@@ -360,7 +348,7 @@ h2{
 }
 .small-petal {
   animation: 1000ms showPetals linear forwards;
-  background-image: linear-gradient(to left, rgba(255, 255, 21, 0.8) 0%, rgba(254, 81, 150, 0.6) 100%);
+  background-image: linear-gradient(to left, rgba(255, 255, 21, 0.8) 0%, #FF652F 100%);
   opacity: 0;
 }
 .big-petal1 {
@@ -471,7 +459,7 @@ h2{
 }
 .dynamic-txts li {
   list-style: none;
-  color: #fc6d6d;
+  color: $second-color;
   font-size: 50px;
   font-weight: 500;
   position: relative;
@@ -495,8 +483,8 @@ h2{
   height: 100%;
   margin-top: 10px;
   width: 100%;
-  background: white;
-  border-left: 2px solid #fc6d6d;
+  background: $dark-color;
+  border-left: 2px solid $first-color;
   animation: typing 3s steps(10) infinite;
 }
 @keyframes typing {
@@ -646,7 +634,7 @@ $turquoise: #1abc9c;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #01FF70;
+    background: $second-color;
     padding: auto;
     width: 60px;
     height: 24px;
@@ -693,8 +681,9 @@ h1{
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  border: 1px solid black;  
+  border: 1px solid $dark-color;  
   margin-bottom: 5px;
+  filter: brightness(0.6);
 }
 .name-price-wrapper{
   display: flex;
@@ -717,7 +706,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #01FF70;
+  background: $second-color;
   padding: auto;
   width: 60px;
   height: 24px;
@@ -733,16 +722,21 @@ h1{
   margin-top: 30px;
 }
 .product-size-wrapper{
-  border: 1px solid black;
+  border: 1px solid $dark-color;
   padding: 5px 20px;
   cursor: pointer;
+  margin-right: 15px;
 }
 .product-size{
   margin-top: 15px;
   font-size: 26px;
 }
 .chosen-size{
-  background: #fc6d6d; 
+  background: $first-color; 
+}
+.chosen-side-image{
+  border: 1px solid $first-color;
+  filter: brightness(1);
 }
 .product-colors-container{
   margin-left: 30px;
@@ -750,9 +744,9 @@ h1{
 }
 .product-color-wrapper{
   margin-left: 10px;
-  border: 1px solid black;
+  border: 1px solid $dark-color;
   padding: 10px 20px;
-  background: #fc6d6d;
+  background: $first-color;
   filter: brightness(0.5);
   cursor: pointer;
 }
@@ -788,7 +782,9 @@ h1{
   }
 }
 .add-to-basket-wrapper{
-  border: 1px solid black;
+  border: 1px solid $dark-color;
+  background: $dark-color;
+  color: $second-color;
   border-radius: 10px;
   font-size: 25px;
   height: 45px;
@@ -802,21 +798,79 @@ h1{
   }
 }
 .add-to-basket-wrapper:hover{
-  filter: opacity(0.6);
   transform: scale(1.04);
-  border-radius: 0px;
   transition: 0.2s;
+  color: $first-color;
 }
 .product-description{
   width: 70vw;
   margin-top: 40px;
 }
+.basket-added-wrapper{
+  width: 60vw;
+  height: 70vh;
+  border: 1px solid $dark-color;
+  position: absolute;
+  bottom: 0%;
+  right: 50%;
+  margin-right: -30vw;
+  background: $first-color;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  animation: .5s basket-added linear;
+  color: $second-color;
+  .basket-added-continue, .basket-added-proceed{
+    padding: 10px 20px;
+    background: gray;
+    border: 1px solid $dark-color;
+    cursor: pointer;
+    margin: 30px;
+  }
+  a {
+    text-decoration: none;
+    color: $second-color;
+  }
+}
 }
 
 //Profile
-.profile-section{
+.profile-page{
   display: flex;
   justify-content: center;
+  .profile-icons-wrapper{
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5%;
+  }
+  .profile-icon{
+    display: flex;
+    width: 300px;
+    border: 1px solid lightgray;
+    margin: 0 40px 40px 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    .description{
+      font-size: 13px;
+      color: gray;
+    }
+    img{
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+    }
+  }
+  .profile-icon:hover{
+    box-shadow: $second-color 0px 30px 60px -12px inset, $second-color 0px 18px 36px -18px inset;
+  }
   .logout-wrapper{
     cursor: pointer;
     width: 64px;
@@ -832,58 +886,55 @@ h1{
 .main-menu-wrapper{
   display: block;
   #ctrl-button{
-    background: gray;
+    background: $dark-color;
     width: 60px;
     height: 60px;
     line-height: 60px;
     border-radius: 50% 50% 0 0;
     text-align: center;
+    margin-left: -8px;
   }
-  .main-menu-button:hover{
+  #ctrl-button:hover{
+    background: $first-color;
     transform: scale(1.1);
   }
+  
 .menu-button-text{
-  font-size: 20px;
+  font-size: 44px;
+  color: $dark-color!important;
   width: 370px;
-  margin-left: -160px;
+  margin-left: -164px;
+  margin-top: -10px;
+  border: 5px solid $first-color;
+  border-radius: 15px;
+  transform: scale(0.4);
 }
 .fa-plus, .fa-minus{
   font-size: 35px;
-  color: white;
+  color: $second-color;
 }
 .ctrl {
 	position: fixed;
 	bottom: 25px;
   left: 50%;
-	font-size: 45px;
+	font-size: 40px;
 	transition: .5s;
 }
 a.ctrl, .ctrl div {
 	display: block;
-	opacity: 1;
-	// background: #c9c9c9;
-	color: #7a8092;
+	color: $second-color;
 	text-align: center;
 	text-decoration: none;
-	// text-shadow: 0 -1px dimgrey;
   cursor: pointer;
 }
-// a.ctrl:hover, .ctrl div:hover, a.ctrl:focus { 
-//   opacity: ; 
-// }
-a.ctrl{
-  opacity: 0.9;
-}
-a.ctrl:focus { 
-  outline: none;
-  opacity: 1;
+.ctrl div:hover{
+  color: $first-color;
 }
 .button {
 	z-index: 2;
 	margin: -.625em;
 	width: 1.25em; height: 1.25em;
 	border-radius: 50%;
-	// box-shadow: 0 0 3px 1px white;
 }
 
 /* circular menu */
@@ -900,71 +951,41 @@ a.ctrl:focus {
 /* the ends of the menu */
 .tip:before, .tip:after {
 	position: absolute;
-	top: 34.3%;
-	width: .5em; height: 14%;
-	opacity: 1;
-	background: #c9c9c9;
+	top: 32.5%;
+	width: .3em; height: 15.7%;
+	background: $second-color;
 	content: '';
 }
 .tip:before {
-	left: 5.4%;
+	left: 7.3%;
 	border-radius: .25em 0 0 .25em;
-	box-shadow: -1px 0 1px dimgrey, inset 1px 0 1px white, inset -1px 0 1px grey, 
-				inset 0 1px 1px white, inset 0 -1px 1px white;
 	transform: rotate(-75deg);
 }
 .tip:after {
-	right: 5.4%;
+	right: 7.3%;
 	border-radius: 0 .25em .25em 0;
-	box-shadow: 1px 0 1px dimgrey, inset -1px 0 1px white, inset 1px 0 1px grey,
-				inset 0 1px 1px white, inset 0 -1px 1px white;
 	transform: rotate(75deg);
 }
-
-/* make the menu appear on click */
-// .button:focus + .tip {
-// 	transform: scale(1);
-// 	opacity: 1;
-// }
-
-
-
 .show-tip{
   transform: scale(1);
 	opacity: 1;
   border-radius: 50%;
 }
-
 /* slices of the circular menu */
 .slice {
 	overflow: hidden;
 	position: absolute;
-	/**outline: dotted 1px yellow;/**/
 	width: 50%; height: 50%;
 	transform-origin: 100% 100%;
 }
-.slice:hover{
-  filter: brightness(0.9);
-}
 
-/* 
- * rotate each slice at the right angle = (A/2)° + (k - (n+1)/2)*A°
- * where A is the angle of 1 slice (30° in this case)
- * k is the number of the slice (in {1,2,3,4,5} here)
- * and n is the number of slices (5 in this case)
- * formula works for odd number of slices (n odd)
- * for even number of slices (n even) the rotation angle is (k - n/2)*A°
- * 
- * after rotating, skew on Y by 90°-A°; here A° = the angle for 1 slice = 30° 
- */
 .slice:first-child { transform: rotate(-45deg) skewY(60deg); }
 .slice:nth-child(2) { transform: rotate(-15deg) skewY(60deg); }
 .slice:nth-child(3) { transform: rotate(15deg) skewY(60deg); }
 .slice:nth-child(4) { transform: rotate(45deg) skewY(60deg); }
 .slice:last-child { transform: rotate(75deg) skewY(60deg); }
 
-/* covers for the inner part of the links so there's no hover trigger between
-   star button & menu links; give them a red background to see them */
+
 .slice:after {
 	position: absolute;
 	top: 32%; left: 32%;
@@ -979,30 +1000,39 @@ a.ctrl:focus {
 .slice div {
 	width: 200%; height: 200%;
 	border-radius: 50%;
-	box-shadow: 0 0 3px dimgrey, inset 0 0 4px white;
 	/* "unskew" & rotate by -A°/2 */
 	transform: skewY(-60deg) rotate(-15deg);
 	background: /* lateral separators */
 			linear-gradient(75deg, 
-		transparent 50%, grey 50%, transparent 54%) no-repeat 36.5% 0,
+		transparent 50%, white 50%, transparent 54%) no-repeat 36.5% 0,
 			linear-gradient(-75deg, 
-		transparent 50%, grey 50%, transparent 54%) no-repeat 63.5% 0,
+		transparent 50%, white 50%, transparent 54%) no-repeat 63.5% 0,
 		/* make sure inner part is transparent */
-		radial-gradient(rgba(127,127,127,0) 49%, 
-					rgba(255,255,255,.7) 51%, #FFDC00 52%);
-	background-size: 15% 15%, 15% 15%, cover;
-	line-height: 1.4;
+		radial-gradient(rgba(127, 127, 127, 0) 49%, 
+					rgba(255,255,255,.3) 0%, $dark-color 40%);
+	background-size: 11% 11%, 11% 11%, cover;
+	line-height: 1.6;
+}
+.slice div:hover{
+  background: /* lateral separators */
+  linear-gradient(75deg, 
+transparent 50%, white 50%, transparent 54%) no-repeat 36.5% 0,
+  linear-gradient(-75deg, 
+transparent 50%, white 50%, transparent 54%) no-repeat 63.5% 0,
+/* make sure inner part is transparent */
+radial-gradient(rgba(127, 127, 127, 0) 49%, 
+      rgba(255,255,255,.3) 0%, $dark-color 40%);
+background-size: 11% 11%, 11% 11%, cover;
 }
 
 /* arrow for middle link */
 .slice:nth-child(3) div:after {
 	position: absolute;
-	top: 13%; left: 50%;
+	top: 15.3%; left: 50%;
 	margin: -.25em;
 	width: .5em; height: .5em;
-	box-shadow: 2px 2px 2px white;
 	transform: rotate(45deg);
-	background: linear-gradient(-45deg, #c9c9c9 50%, transparent 50%);
+	background: linear-gradient(-45deg, $second-color 50%, transparent 50%);
 	content: '';
 }
 }
