@@ -1,6 +1,6 @@
-import React from 'react'
-import { getMyProfile } from '../../lib/api'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { getMyProfile } from '../../lib/api';
+import { Link } from 'react-router-dom';
 
 
 class Payment extends React.Component {
@@ -23,32 +23,32 @@ class Payment extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await getMyProfile()
-      let priceSum = 0
-      let basketSize = 0
+      const res = await getMyProfile();
+      let priceSum = 0;
+      let basketSize = 0;
       res.data.basket.map(item => {
-        priceSum = priceSum + (item.chosenQuantity * item.price)
-        basketSize = basketSize + Number(item.chosenQuantity)
-      })
-      this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize })
+        priceSum = priceSum + (item.chosenQuantity * item.price);
+        basketSize = basketSize + Number(item.chosenQuantity);
+      });
+      this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   radioChange = (event) => {
     if (event.target.name === "credit card") {
-      this.setState({ creditCard: true, paypal: false, bankTransfer: false })
+      this.setState({ creditCard: true, paypal: false, bankTransfer: false });
     } else if (event.target.name === "paypal") {
-      this.setState({ creditCard: false, paypal: true, bankTransfer: false })
+      this.setState({ creditCard: false, paypal: true, bankTransfer: false });
     } else if (event.target.name === "bank transfer") {
-      this.setState({ creditCard: false, paypal: false, bankTransfer: true })
+      this.setState({ creditCard: false, paypal: false, bankTransfer: true });
     }
   }
 
   render() {
-    if (!this.state.user) return null
-    const { user, formData } = this.state
+    if (!this.state.user) return null;
+    const { user, formData } = this.state;
     return (
       <div className="payment-page">
 
@@ -141,12 +141,12 @@ class Payment extends React.Component {
                   Quantity: {item.chosenQuantity}
                 </div>
               </div>
-            </div>
+            </div>;
           })}
-             <div className="total-price-checkout-wrapper">
-            ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
-            Shipping: £{user.pendingOrder.shipping} <br/>
-            Total price: £{this.state.totalPrice + user.pendingOrder.shipping}
+          <div className="total-price-checkout-wrapper">
+            <div className="total-text">({this.state.totalQuantity} Items): £{this.state.totalPrice}</div>
+            <div className="total-text">Shipping: £{user.pendingOrder.shipping}</div>
+            <div className="total-text">Total price: £{this.state.totalPrice + user.pendingOrder.shipping}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/shipping">
@@ -156,8 +156,8 @@ class Payment extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Payment
+export default Payment;

@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { getAllProducts } from '../../lib/api'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { getAllProducts } from '../../lib/api';
 
 class AllProducts extends React.Component {
   state = {
@@ -10,29 +10,29 @@ class AllProducts extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await getAllProducts()
-      this.setState({ products: res.data })
+      const res = await getAllProducts();
+      this.setState({ products: res.data });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   otherPreviewImage = (id) => {
-    this.setState({ hoveredProductId: id })
+    this.setState({ hoveredProductId: id });
   }
 
   backToMainProductImage = () => {
-    this.setState({ hoveredProductId: '' })
+    this.setState({ hoveredProductId: '' });
   }
 
   render() {
     return (
-      <div className="products-section">
+      <div className="products-page">
         <div className="product-container">
           {this.state.products.slice(0).reverse().map(product => {
             return <Link to={`/products/${product._id}`} key={product._id}>
               <div className="product-wrapper" onMouseEnter={() => {
-                this.otherPreviewImage(product._id)
+                this.otherPreviewImage(product._id);
               }}
               onMouseLeave={this.backToMainProductImage}>
                 <div className="product-preview-image"
@@ -46,13 +46,13 @@ class AllProducts extends React.Component {
                   }
                 </div>
               </div>
-            </Link>
+            </Link>;
           })}
         </div>
       </div>
-    )
+    );
   }
 }
 
 
-export default AllProducts
+export default AllProducts;

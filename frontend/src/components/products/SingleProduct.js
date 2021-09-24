@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { getSingleProduct, addToBasket, basketLength } from '../../lib/api'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { getSingleProduct, addToBasket, basketLength } from '../../lib/api';
 
 
 class SingleProduct extends React.Component {
@@ -20,83 +20,83 @@ class SingleProduct extends React.Component {
 
   async componentDidMount() {
     try {
-      const productId = this.props.match.params.id
-      const res = await getSingleProduct(productId)
-      const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0] }
-      const totalQuantityArray = []
+      const productId = this.props.match.params.id;
+      const res = await getSingleProduct(productId);
+      const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0] };
+      const totalQuantityArray = [];
       for (let i = 1; i <= res.data.quantity; i++) {
-        totalQuantityArray.push(i)
+        totalQuantityArray.push(i);
       }
-      this.setState({ product: res.data, bigImage: res.data.images[0], totalQuantity: totalQuantityArray, formData })
+      this.setState({ product: res.data, bigImage: res.data.images[0], totalQuantity: totalQuantityArray, formData });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   hideOverflow = () => {
-    const bod = document.querySelector('body')
-    bod.style.overflowY = 'hidden'
+    const bod = document.querySelector('body');
+    bod.style.overflowY = 'hidden';
     setTimeout(() => {
-      bod.style.overflowY = 'visible'
+      bod.style.overflowY = 'visible';
     }, 1000);
   }
 
   handleBasket = async () => {
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true });
     try {
-      const productId = this.props.match.params.id
-      const res = await addToBasket(productId, this.state.formData)
-      this.hideOverflow()
-      this.setState({ addedToBasket: true, isLoading: false })
-      this.props.basket()
+      const productId = this.props.match.params.id;
+      const res = await addToBasket(productId, this.state.formData);
+      this.hideOverflow();
+      this.setState({ addedToBasket: true, isLoading: false });
+      this.props.basket();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   handleChange = event => {
     if (event.target.name === "quantity") {
-      const formData = { ...this.state.formData, [event.target.name]: Number(event.target.value) }
-      this.setState({ formData })
+      const formData = { ...this.state.formData, [event.target.name]: Number(event.target.value) };
+      this.setState({ formData });
     } else {
-      const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-      this.setState({ formData })
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value };
+      this.setState({ formData });
     }
   }
 
   continueShopping = () => {
-    this.setState({ addedToBasket: false })
+    this.setState({ addedToBasket: false });
   }
 
   changeBigImage = (image) => {
-    this.setState({ bigImage: image })
+    this.setState({ bigImage: image });
   }
 
   choosingSize = (chosenSize) => {
-    const formData = { ...this.state.formData, size: chosenSize }
-    this.setState({ formData })
+    const formData = { ...this.state.formData, size: chosenSize };
+    this.setState({ formData });
   }
 
   choosingColor = (chosenColor) => {
-    const formData = { ...this.state.formData, color: chosenColor }
-    this.setState({ formData })
+    const formData = { ...this.state.formData, color: chosenColor };
+    this.setState({ formData });
   }
 
   increaseQuantity = () => {
-    const formData = { ...this.state.formData, quantity: this.state.formData.quantity + 1 }
-    this.setState({ formData })
+    const formData = { ...this.state.formData, quantity: this.state.formData.quantity + 1 };
+    this.setState({ formData });
   }
 
   decreaseQuantity = () => {
     if (this.state.formData.quantity > 1) {
-      const formData = { ...this.state.formData, quantity: this.state.formData.quantity - 1 }
-      this.setState({ formData })
+      const formData = { ...this.state.formData, quantity: this.state.formData.quantity - 1 };
+      this.setState({ formData });
     }
   }
 
   render() {
-    const { product } = this.state
-    if (!product) return null
+    const { product } = this.state;
+    if (!product) return null;
     return (
       <div className="single-product-section">
         <div className="single-product-wrapper">
@@ -106,9 +106,9 @@ class SingleProduct extends React.Component {
                 return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
                   backgroundImage: `url(${image})`,
                 }}
-                  onClick={() => {
-                    this.changeBigImage(image)
-                  }} key={image}></div>
+                onClick={() => {
+                  this.changeBigImage(image);
+                }} key={image}></div>;
               })}
             </div>
             <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
@@ -126,19 +126,19 @@ class SingleProduct extends React.Component {
             </div>
             <div className="product-size-container">
               {product.sizes.map(size => {
-              return <div className={`product-size-wrapper ${this.state.formData.size === size ? "chosen-size" : ""}`} onClick={() => {
-                this.choosingSize(size)
-              }}
-                key={size}>{size}</div>
-            })}</div>
+                return <div className={`product-size-wrapper ${this.state.formData.size === size ? "chosen-size" : ""}`} onClick={() => {
+                  this.choosingSize(size);
+                }}
+                key={size}>{size}</div>;
+              })}</div>
             <div className="product-size">Size: {this.state.formData.size}</div>
             {this.state.formData.color &&
               <>
                 <div className="product-colors-container">{product.colors.map(color => {
                   return <div className={`product-color-wrapper ${this.state.formData.color === color ? "chosen-color" : ""}`} onClick={() => {
-                    this.choosingColor(color)
+                    this.choosingColor(color);
                   }}
-                    key={color}>{color}</div>
+                  key={color}>{color}</div>;
                 })}</div>
                 <div className="product-size">Color: {this.state.formData.color}</div>
               </>
@@ -149,7 +149,7 @@ class SingleProduct extends React.Component {
                 <label>Quantity:</label>
                 <select name="quantity" onChange={this.handleChange}>
                   {this.state.totalQuantity.map(item => {
-                    return <option key={item} value={item}>{item}</option>
+                    return <option key={item} value={item}>{item}</option>;
                   })}
                 </select>
               </div>
@@ -163,7 +163,7 @@ class SingleProduct extends React.Component {
                   Add to basket
                 </div>
               }
-              </div>
+            </div>
 
           </div>
         </div>
@@ -180,10 +180,10 @@ class SingleProduct extends React.Component {
           </div>
         }
       </div>
-    )
+    );
   }
 }
 
 
 
-export default SingleProduct
+export default SingleProduct;

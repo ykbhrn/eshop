@@ -65,9 +65,6 @@
     "no-console": "off",
     "no-fallthrough": "warn",
     "prefer-const": "warn",
-    "semi": [
-      "warn"
-    ], 
     "react/prop-types": [
       0
     ],

@@ -1,6 +1,6 @@
-import React from 'react'
-import { getMyProfile, pendingOrder } from '../../lib/api'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { getMyProfile, pendingOrder } from '../../lib/api';
+import { Link } from 'react-router-dom';
 
 
 class Checkout extends React.Component {
@@ -45,96 +45,96 @@ class Checkout extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await getMyProfile()
-      let priceSum = 0
-      let basketSize = 0
+      const res = await getMyProfile();
+      let priceSum = 0;
+      let basketSize = 0;
       res.data.basket.map(item => {
-        priceSum = priceSum + (item.chosenQuantity * item.price)
-        basketSize = basketSize + Number(item.chosenQuantity)
-      })
+        priceSum = priceSum + (item.chosenQuantity * item.price);
+        basketSize = basketSize + Number(item.chosenQuantity);
+      });
       if (res.data.pendingOrder) {
-        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.pendingOrder })
+        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.pendingOrder });
       } else {
-        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize })
+        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize });
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   handleChange = event => {
-    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-    const errors = { ...this.state.errors, [event.target.name]: '' }
-    this.setState({ formData, errors })
+    const formData = { ...this.state.formData, [event.target.name]: event.target.value };
+    const errors = { ...this.state.errors, [event.target.name]: '' };
+    this.setState({ formData, errors });
   }
 
   handleBillingChange = event => {
     const formData = { ...this.state.formData, billingAdress: {
-      ...this.state.formData.billingAdress, [event.target.name]: event.target.value }}
-    const errors = { ...this.state.errors, [event.target.name]: '' }
-    this.setState({ formData, errors})
+      ...this.state.formData.billingAdress, [event.target.name]: event.target.value }};
+    const errors = { ...this.state.errors, [event.target.name]: '' };
+    this.setState({ formData, errors});
   }
 
   makeOrder = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     try {
-     const res = await pendingOrder(this.state.formData)
-     if (res.status === 201) {
-        this.props.history.push('/shipping')
-     } else if (res.status === 422) {
-       throw new Error()
-     }
+      const res = await pendingOrder(this.state.formData);
+      if (res.status === 201) {
+        this.props.history.push('/shipping');
+      } else if (res.status === 422) {
+        throw new Error();
+      }
 
     } catch (err) {
-      this.handleErrors(err.response.data)
+      this.handleErrors(err.response.data);
     }
   }
 
   handleErrors = (errors) => {
-    const errorShipping = errors.errors.pendingOrder.errors
-    let name = ''
-    let adressOne = ''
-    let town = ''
-    let postcode = ''
-    let country = ''
-    let billingName = ''
-    let billingAdressOne = ''
-    let billingTown = ''
-    let billingPostcode = ''
-    let billingCountry = ''
+    const errorShipping = errors.errors.pendingOrder.errors;
+    let name = '';
+    let adressOne = '';
+    let town = '';
+    let postcode = '';
+    let country = '';
+    let billingName = '';
+    let billingAdressOne = '';
+    let billingTown = '';
+    let billingPostcode = '';
+    let billingCountry = '';
 
     if (errorShipping.name) {
-      name = "Your Full Name is Required"
+      name = "Your Full Name is Required";
     }
     if (errorShipping.adressOne) {
-      adressOne = "Your Adress is Required"
+      adressOne = "Your Adress is Required";
     }
     if (errorShipping.town) {
-      town = 'Your City/Town is Required'
+      town = 'Your City/Town is Required';
     }
     if (errorShipping.postcode) {
-      postcode = 'Your Postcode is Required'
+      postcode = 'Your Postcode is Required';
     }
     if (errorShipping.country) {
-      country = 'Your Country is Required'
+      country = 'Your Country is Required';
     }
     if ( errors.errors.pendingOrder.errors.billingAdress) {
-      const errorBilling = errors.errors.pendingOrder.errors.billingAdress.errors
+      const errorBilling = errors.errors.pendingOrder.errors.billingAdress.errors;
 
       if (errorBilling.name) {
-        billingName = "Your Full Name is Required"
+        billingName = "Your Full Name is Required";
       }
       if (errorBilling.adressOne) {
-        billingAdressOne = "Your Adress is Required"
+        billingAdressOne = "Your Adress is Required";
       }
       if (errorBilling.town) {
-        billingTown = 'Your City/Town is Required'
+        billingTown = 'Your City/Town is Required';
       }
       if (errorBilling.postcode) {
-        billingPostcode = 'Your Postcode is Required'
+        billingPostcode = 'Your Postcode is Required';
       }
       if (errorBilling.country) {
-        billingCountry = 'Your Country is Required'
+        billingCountry = 'Your Country is Required';
       }
     }
 
@@ -144,111 +144,111 @@ class Checkout extends React.Component {
       town: billingTown,
       postcode: billingPostcode,
       country: billingCountry
-    } } })
+    } } });
   }
 
   render() {
-    if (!this.state.user) return null
-    const { user, formData, errors } = this.state
+    if (!this.state.user) return null;
+    const { user, formData, errors } = this.state;
     return (
       <div className="checkout-page">
 
         <div className="forms-wrapper">
-        <h2>Shipping Adress:</h2>
-        <form className="checkout-form">
-          <label>Full Name:</label>
-          <input
-            className={`${errors.name ? 'error-input' : ''}`}
-            name="name"
-            onChange={this.handleChange}
-            value={formData.name}
-          />
-          {errors.name ? <small className="error-message">{errors.name}</small> : ''}
+          <h2>Shipping Adress:</h2>
+          <form className="checkout-form">
+            <label>Full Name:</label>
+            <input
+              className={`${errors.name ? 'error-input' : ''}`}
+              name="name"
+              onChange={this.handleChange}
+              value={formData.name}
+            />
+            {errors.name ? <small className="error-message">{errors.name}</small> : ''}
 
-          <label>Company (Optional):</label>
-          <input
-            name="company"
-            onChange={this.handleChange}
-            value={formData.company}
-          />
+            <label>Company (Optional):</label>
+            <input
+              name="company"
+              onChange={this.handleChange}
+              value={formData.company}
+            />
 
-          <label>Adress Line 1:</label>
-          <input
-            className={`${errors.adressOne ? 'error-input' : ''}`}
-            name="adressOne"
-            onChange={this.handleChange}
-            value={formData.adressOne}
-          />
-          {errors.adressOne ? <small className="error-message">{errors.adressOne}</small> : ''}
+            <label>Adress Line 1:</label>
+            <input
+              className={`${errors.adressOne ? 'error-input' : ''}`}
+              name="adressOne"
+              onChange={this.handleChange}
+              value={formData.adressOne}
+            />
+            {errors.adressOne ? <small className="error-message">{errors.adressOne}</small> : ''}
 
-          <label>Adress Line 2 (optional):</label>
-          <input
-            name="adressTwo"
-            onChange={this.handleChange}
-            value={formData.adressTwo}
-          />
+            <label>Adress Line 2 (optional):</label>
+            <input
+              name="adressTwo"
+              onChange={this.handleChange}
+              value={formData.adressTwo}
+            />
 
-          <label>City/Town:</label>
-          <input
-            className={`${errors.town ? 'error-input' : ''}`}
-            name="town"
-            onChange={this.handleChange}
-            value={formData.town}
-          />
-          {errors.town ? <small className="error-message">{errors.town}</small> : ''}
+            <label>City/Town:</label>
+            <input
+              className={`${errors.town ? 'error-input' : ''}`}
+              name="town"
+              onChange={this.handleChange}
+              value={formData.town}
+            />
+            {errors.town ? <small className="error-message">{errors.town}</small> : ''}
           
-          <label>Postcode:</label>
-          <input
-            className={`${errors.postcode ? 'error-input' : ''}`}
-            name="postcode"
-            onChange={this.handleChange}
-            value={formData.postcode}
-          />
-          {errors.postcode ? <small className="error-message">{errors.postcode}</small> : ''}
-
-          <label>Country:</label>
-          <input
-            className={`${errors.country ? 'error-input' : ''}`}
-            name="country"
-            onChange={this.handleChange}
-            value={formData.country}
-          />
-          {errors.country ? <small className="error-message">{errors.country}</small> : ''}
-
-          <label>Phone number (optional):</label>
-          <input
-            name="phone"
-            onChange={this.handleChange}
-            value={formData.phone}
-          />
-        </form>
-
-        <div className="billing-radio">
-          <h2>Billing Adress:</h2>
-          <div>
-          <input
-              name="isBillingAdress"
-              type="radio"
-              value="no"
+            <label>Postcode:</label>
+            <input
+              className={`${errors.postcode ? 'error-input' : ''}`}
+              name="postcode"
               onChange={this.handleChange}
-              checked={formData.isBillingAdress === "no"}
+              value={formData.postcode}
             />
-            <label>Same as shipping adress:</label>
+            {errors.postcode ? <small className="error-message">{errors.postcode}</small> : ''}
+
+            <label>Country:</label>
+            <input
+              className={`${errors.country ? 'error-input' : ''}`}
+              name="country"
+              onChange={this.handleChange}
+              value={formData.country}
+            />
+            {errors.country ? <small className="error-message">{errors.country}</small> : ''}
+
+            <label>Phone number (optional):</label>
+            <input
+              name="phone"
+              onChange={this.handleChange}
+              value={formData.phone}
+            />
+          </form>
+
+          <div className="billing-radio">
+            <h2>Billing Adress:</h2>
+            <div>
+              <input
+                name="isBillingAdress"
+                type="radio"
+                value="no"
+                onChange={this.handleChange}
+                checked={formData.isBillingAdress === "no"}
+              />
+              <label>Same as shipping adress:</label>
+            </div>
+
+            <div>
+              <input
+                name="isBillingAdress"
+                type="radio"
+                value="yes"
+                onChange={this.handleChange}
+                checked={formData.isBillingAdress === "yes"}
+              />
+              <label>Use diffent one:</label>
+            </div>
           </div>
 
-          <div>
-          <input
-              name="isBillingAdress"
-              type="radio"
-              value="yes"
-              onChange={this.handleChange}
-              checked={formData.isBillingAdress === "yes"}
-            />
-            <label>Use diffent one:</label>
-          </div>
-        </div>
-
-        {this.state.formData.isBillingAdress === "yes" &&
+          {this.state.formData.isBillingAdress === "yes" &&
           <form className="checkout-form">
             <label>Full Name:</label>
             <input
@@ -302,21 +302,21 @@ class Checkout extends React.Component {
             />
             {errors.billingAdress.country ? <small className="error-message">{errors.billingAdress.country}</small> : ''}
 
-          <label>Phone number (optional):</label>
-          <input
-            name="phone"
-            onChange={this.handleBillingChange}
-          />
+            <label>Phone number (optional):</label>
+            <input
+              name="phone"
+              onChange={this.handleBillingChange}
+            />
           </form>
-        }
+          }
         </div>
 
         <div className="basket-preview">
           {user.basket.map(item => {            
             return <div key={item.id} className="image-checkout-wrapper"> 
-             <div className="image-checkout" style={{
-              backgroundImage: `url(${item.images[0]})`
-            }}>
+              <div className="image-checkout" style={{
+                backgroundImage: `url(${item.images[0]})`
+              }}>
               </div>  
               <div className="image-checkout-name">
                 {item.name}
@@ -326,7 +326,7 @@ class Checkout extends React.Component {
                   Quantity: {item.chosenQuantity}
                 </div>
               </div>
-            </div>
+            </div>;
           })}
           <div className="total-price-checkout-wrapper">
             ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
@@ -335,12 +335,12 @@ class Checkout extends React.Component {
             <Link to="/basket">
               <button className="left">Go Back To Basket</button>
             </Link>
-              <button className="right" onClick={this.makeOrder}>Continue To Shipping</button>
+            <button className="right" onClick={this.makeOrder}>Continue To Shipping</button>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Checkout
+export default Checkout;

@@ -1,4 +1,4 @@
-$main-font: 'Indie Flower', cursive;
+$main-font: 'Gluten', cursive;
 $logo-font: "Galindo", cursive;
 $first-color: #FF1510;
 $second-color: #FFE400;
@@ -10,6 +10,7 @@ body {
   font-family: $main-font;
   overflow-x: hidden;
   color: $dark-color;
+  font-weight: 200;
 }
 
 * { margin: 0; padding: 0; }
@@ -18,6 +19,7 @@ body {
 .basket-page{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   .basket-container{
     width: 70%;
     display: flex;
@@ -25,16 +27,42 @@ body {
   }
   .basket-item-wrapper{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
     margin: 30px;
     border-top: 1px solid $dark-color;
-    border-bottom: 1px name $dark-color;
+    border-bottom: 1px solid $dark-color;
     padding: 20px 0;
+  }
+  .basket-subtotal-remove{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .basket-remove{
+    cursor: pointer;
+    color: $first-color;
+  }
+  .basket-subtotal{
+    font-size: 21px;
+    font-weight: 300;
+  }
+  .basket-item{
+    display: flex;
+    justify-content: space-between;
+    .basket-price{
+      font-weight: 300;
+      font-size: 18px;
+    }
     img{
       width: 80px;
       height: 80px;
       margin-right: 30px;
     }
+  }
+  select{
+    margin-left: 7px;
   }
   .checkout-button-total-price{
     display: flex;
@@ -49,11 +77,13 @@ body {
   }
   .chekout-button{
     background: $dark-color;
+    font-size: 20px;
+    font-weight: 300;
     color: $second-color; 
     border-radius: 10px;
     text-align: center;
     width: 15vw;
-    padding: 5px 10px;
+    padding: 10px 19px;
     cursor: pointer;
   }
   .chekout-button:hover{
@@ -65,6 +95,7 @@ body {
   }
   h1{
     font-size: 23px;
+    font-weight: 300;
   }
   .basket-image-title{
     display: flex;
@@ -85,19 +116,20 @@ body {
 .basket-icon-wrapper{
   display: block;
   position: absolute;
-  top: 22px;
+  top: 27px;
   right: 30px;
   cursor: pointer;
   img{
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
   }
   .basket-number{
-    font-size: 21px;
+    font-size: 16px;
+    font-weight: 400;
     color: $first-color;
     position: absolute;
     right: 13px;
-    top: -3px;
+    top: 7px;
   }
 }
 .basket-icon-wrapper:hover{
@@ -115,9 +147,34 @@ body {
   padding: 5%;
   justify-content: space-around;
   align-items: center;
+  h2{
+    font-weight: 300;
+  }
   .basket-preview{
     margin-bottom: -60px;
   }
+}
+.shipping-radio{
+  width: 40%;
+}
+.shipping-option{
+  border: 1px solid $dark-color;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.shipping-option-name-radio{
+  display: flex;
+  align-items: flex-start;
+  input{
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+.shipping-description{
+  color: gray;
+  font-size: 15px;
 }
 
 //Payment page
@@ -127,13 +184,16 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  h2{
+    font-weight: 300;
+  }
   .payment-radio{
     display: flex;
     flex-direction: column;
     width: 30%;
   }
   input{
-    margin-right: 8px;
+    margin: 0 8px 10px 0;
   }
   .payment-option{
     margin: 15px 0;
@@ -152,13 +212,22 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  h2{
+    font-weight: 300;
+  }
 }
 .total-price-checkout-wrapper{
   border: 1px solid $dark-color;
-  padding: 10px;
+  padding: 16px 0;
   font-size: 19px;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
+  .total-text{
+    margin-bottom: 10px;
+  }
+  :nth-child(3){
+    margin-bottom: 0px;
+  }
 }
 .size{
   padding-right: 20px;
@@ -180,7 +249,7 @@ h2{
     margin-top: 30px;
     button{
       font-family: $main-font;
-      font-weight: bold;
+      font-weight: 300;
       font-size: 16px;
     }
     .right, .left{
@@ -213,37 +282,17 @@ h2{
     width: 40vw;
     padding-right: 20px;
     input{
-      margin-bottom: 5px;
+      margin-bottom: 9px;
     }
   }
-  .shipping-radio{
-    width: 40%;
-  }
-  .shipping-option{
-    border: 1px solid $dark-color;
-    padding: 10px 30px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-  }
-  .shipping-option-name-radio{
-    display: flex;
-    align-items: flex-start;
-    input{
-      margin-right: 10px;
-      margin-top: 5px;
-    }
-  }
-  .shipping-description{
-    color: gray;
-    font-size: 15px;
-  }
+  
   .billing-radio{
     display: flex;
     flex-direction: column;
     padding-top: 20px;
+    margin-bottom: 17px;
     input{
-      margin-right: 10px;
+      margin: 0 10px 10px 0;
     }
   }
   .image-checkout-wrapper{
@@ -564,7 +613,6 @@ $turquoise: #1abc9c;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 700;
   &:hover,
   &:focus {
     color: #fff;
@@ -584,7 +632,7 @@ $turquoise: #1abc9c;
 }
 
 //Products
-.products-section {
+.products-page {
   display: flex;
   justify-content: center;
 
@@ -620,7 +668,9 @@ $turquoise: #1abc9c;
     max-height: 90px;
     overflow: hidden;
     padding: 3px 8px;
-    font-size: 23px;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
   }
   .product-preview-price-wrapper{
     display: flex;
@@ -628,7 +678,7 @@ $turquoise: #1abc9c;
     align-items: center;
   .product-preview-price{
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 400;
   }
   .product-preview-discount{
     display: flex;
@@ -639,7 +689,7 @@ $turquoise: #1abc9c;
     width: 60px;
     height: 24px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 300;
     color: white;
   }
 }
@@ -657,6 +707,7 @@ $turquoise: #1abc9c;
 }
 h1{
   font-size: 26px;
+  font-weight: 400;
 }
 .single-product-images-wrapper{
   display: flex;
@@ -692,6 +743,7 @@ h1{
 }
 .single-product-name{
   width: 70%;
+  margin-bottom: 30px;
 }
 .product-price-wrapper{
   display: flex;
@@ -699,7 +751,7 @@ h1{
   align-items: center;
 .product-price{
   font-size: 37px;
-  font-weight: bold;
+  font-weight: 400;
   margin-right: 30px;
 }
 .product-discount{
@@ -711,7 +763,7 @@ h1{
   width: 60px;
   height: 24px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 300;
   color: white;
 }
 }
@@ -728,7 +780,7 @@ h1{
   margin-right: 15px;
 }
 .product-size{
-  margin-top: 15px;
+  margin: 7px 0 16px 0;
   font-size: 26px;
 }
 .chosen-size{
@@ -739,19 +791,17 @@ h1{
   filter: brightness(1);
 }
 .product-colors-container{
-  margin-left: 30px;
   display: flex;
+  margin-top: 20px;
 }
 .product-color-wrapper{
-  margin-left: 10px;
+  margin-right: 10px;
   border: 1px solid $dark-color;
   padding: 10px 20px;
-  background: $first-color;
-  filter: brightness(0.5);
   cursor: pointer;
 }
 .chosen-color{
-  filter: brightness(1);
+  background: $first-color;
 }
 .number{
   width: 47px;
@@ -805,6 +855,10 @@ h1{
 .product-description{
   width: 70vw;
   margin-top: 40px;
+  h1{
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
 }
 .basket-added-wrapper{
   width: 60vw;
@@ -856,11 +910,12 @@ h1{
     padding: 10px;
     border-radius: 10px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 300;
     cursor: pointer;
     .description{
       font-size: 13px;
-      color: gray;
+      color: $gray-color;
+      font-weight: 100;
     }
     img{
       width: 80px;
