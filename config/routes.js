@@ -14,6 +14,9 @@ router.route('/profile')
 router.route('/profile/:id')
   .get(user.otherUsersProfile)
 
+router.route('/user-update')
+  .put(secureRoute, user.update)
+
 router.route('/register')
   .post(auth.register)
 

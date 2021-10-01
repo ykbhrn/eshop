@@ -45,17 +45,19 @@ class Checkout extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await getMyProfile();
-      let priceSum = 0;
-      let basketSize = 0;
+      const res = await getMyProfile()
+      let priceSum = 0
+      let basketSize = 0
       res.data.basket.map(item => {
-        priceSum = priceSum + (item.chosenQuantity * item.price);
-        basketSize = basketSize + Number(item.chosenQuantity);
-      });
+        priceSum = priceSum + (item.chosenQuantity * item.price)
+        basketSize = basketSize + Number(item.chosenQuantity)
+      })
       if (res.data.pendingOrder) {
         this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.pendingOrder });
+      } else if (res.data.paidOrders.length > 0){
+        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.paidOrders[0] });
       } else {
-        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize });
+        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize })
       }
     } catch (err) {
       console.log(err);
@@ -255,6 +257,7 @@ class Checkout extends React.Component {
               className={`${errors.billingAdress.name ? 'error-input' : ''}`}
               name="name"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.name : ""}
             />
             {errors.billingAdress.name ? <small className="error-message">{errors.billingAdress.name}</small> : ''}
 
@@ -262,6 +265,7 @@ class Checkout extends React.Component {
             <input
               name="company"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.company : ""}
             />
 
             <label>Adress Line 1:</label>
@@ -269,6 +273,7 @@ class Checkout extends React.Component {
               className={`${errors.billingAdress.adressOne ? 'error-input' : ''}`}
               name="adressOne"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.adressOne : ""}
             />
             {errors.billingAdress.adressOne ? <small className="error-message">{errors.billingAdress.adressOne}</small> : ''}
 
@@ -276,6 +281,7 @@ class Checkout extends React.Component {
             <input
               name="adressTwo"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.adressTwo : ""}
             />
 
             <label>City/Town:</label>
@@ -283,6 +289,7 @@ class Checkout extends React.Component {
               className={`${errors.billingAdress.town ? 'error-input' : ''}`}
               name="town"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.town : ""}
             />
             {errors.billingAdress.town ? <small className="error-message">{errors.billingAdress.town}</small> : ''}
 
@@ -291,6 +298,7 @@ class Checkout extends React.Component {
               className={`${errors.billingAdress.postcode ? 'error-input' : ''}`}
               name="postcode"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.postcode : ""}
             />
             {errors.billingAdress.postcode ? <small className="error-message">{errors.billingAdress.postcode}</small> : ''}
 
@@ -299,6 +307,7 @@ class Checkout extends React.Component {
               className={`${errors.billingAdress.country ? 'error-input' : ''}`}
               name="country"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.country : ""}
             />
             {errors.billingAdress.country ? <small className="error-message">{errors.billingAdress.country}</small> : ''}
 
@@ -306,6 +315,7 @@ class Checkout extends React.Component {
             <input
               name="phone"
               onChange={this.handleBillingChange}
+              value={formData.billingAdress ? formData.billingAdress.phone : ""}
             />
           </form>
           }

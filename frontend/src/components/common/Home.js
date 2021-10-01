@@ -149,7 +149,7 @@ class Home extends React.Component {
                     <div className="home-menu-button-text">{this.state.mainButton}</div>
                   }
                   {!this.state.mainButton &&
-                    <i className="fas fa-peace"></i>
+                    <div><i className="fas fa-peace"></i></div>
                   }
                 </Link>
               </li>

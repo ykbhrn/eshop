@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
-import { basketLength } from '../../lib/api'
 
 const BasketIcon = ({ basketLength }) => (
   <Link to="/basket">

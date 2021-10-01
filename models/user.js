@@ -39,9 +39,10 @@ const orderSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true, maxlength: 20, unique: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String, required: true, minlength: 6 },
   bio: { type: String, required: false, maxlength: 300 },
   profileImage: { type: String, required: false },
+  phone: { type: Number, required: false },
   basket: [productSchema],
   pendingOrder: orderSchema,
   paidOrders: [orderSchema],

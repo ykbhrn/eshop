@@ -4,7 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 18, ../sass/screen.scss */
 .home-menu {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Gluten', cursive;
   display: flex;
   position: absolute;
   top: 50%;
@@ -12,16 +12,17 @@
   margin-left: -100px;
   margin-top: -100px;
 }
-/* line 27, ../sass/screen.scss */
+/* line 29, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
   font-size: 7px;
   color: #474747;
+  font-weight: 400;
 }
-/* line 32, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 .home-menu a {
   text-decoration: none;
 }
-/* line 36, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 .home-menu ul {
   -moz-transform: scale(0.2);
   -ms-transform: scale(0.2);
@@ -40,7 +41,7 @@
   height: 200px;
   transform: scale(1.8);
 }
-/* line 49, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 .home-menu ul li {
   position: absolute;
   width: 100px;
@@ -49,7 +50,7 @@
   overflow: hidden;
   display: none;
 }
-/* line 56, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 .home-menu ul li a {
   color: #FFE400;
   display: block;
@@ -60,11 +61,11 @@
   background: #FF1510;
   font-size: 25px;
 }
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
   background: #474747;
 }
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) {
   display: block;
   -moz-transform: rotate(60deg) skew(30deg);
@@ -72,7 +73,7 @@
   -webkit-transform: rotate(60deg) skew(30deg);
   transform: rotate(60deg) skew(30deg);
 }
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -80,12 +81,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a:hover {
   background: #f60500;
   color: white;
 }
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) {
   display: block;
   -moz-transform: rotate(120deg) skew(30deg);
@@ -93,7 +94,7 @@
   -webkit-transform: rotate(120deg) skew(30deg);
   transform: rotate(120deg) skew(30deg);
 }
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -101,12 +102,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a:hover {
   background: #f60500;
   color: white;
 }
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) {
   display: block;
   -moz-transform: rotate(180deg) skew(30deg);
@@ -114,7 +115,7 @@
   -webkit-transform: rotate(180deg) skew(30deg);
   transform: rotate(180deg) skew(30deg);
 }
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -122,12 +123,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a:hover {
   background: #f60500;
   color: white;
 }
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) {
   display: block;
   -moz-transform: rotate(240deg) skew(30deg);
@@ -135,7 +136,7 @@
   -webkit-transform: rotate(240deg) skew(30deg);
   transform: rotate(240deg) skew(30deg);
 }
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -143,12 +144,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a:hover {
   background: #f60500;
   color: white;
 }
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) {
   display: block;
   -moz-transform: rotate(300deg) skew(30deg);
@@ -156,7 +157,7 @@
   -webkit-transform: rotate(300deg) skew(30deg);
   transform: rotate(300deg) skew(30deg);
 }
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -164,12 +165,12 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a:hover {
   background: #f60500;
   color: white;
 }
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) {
   display: block;
   -moz-transform: rotate(360deg) skew(30deg);
@@ -177,7 +178,7 @@
   -webkit-transform: rotate(360deg) skew(30deg);
   transform: rotate(360deg) skew(30deg);
 }
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -185,16 +186,16 @@
   -webkit-transform: skew(-30deg) rotate(-60deg);
   transform: skew(-30deg) rotate(-60deg);
 }
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a:hover {
   background: #f60500;
   color: white;
 }
-/* line 90, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
-  background: url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg");
   background-position: 0 0;
   background-size: cover;
   animation: moving 10s linear infinite;
@@ -212,8 +213,15 @@
   -webkit-transition: ease-in-out 0.3s all;
   transition: ease-in-out 0.3s all;
   transform-origin: 50% 50%;
+  display: flex;
 }
-/* line 106, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
+.home-menu ul li.close .fas {
+  position: absolute;
+  left: 6%;
+  top: 5%;
+}
+/* line 113, ../sass/screen.scss */
 .home-menu ul li.close a {
   background: none;
   width: 50px;
@@ -221,14 +229,14 @@
   line-height: 50px;
   font-size: 45px;
 }
-/* line 116, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 .home-menu ul.active {
   -moz-transform: scale(1.5);
   -ms-transform: scale(1.5);
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
 }
-/* line 118, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 .home-menu ul.active .close {
   -moz-transform: rotate(0deg) scale(2);
   -ms-transform: rotate(0deg) scale(2);

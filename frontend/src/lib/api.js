@@ -27,6 +27,10 @@ export const getPublicProfile = id => {
   return axios.get(`/api/profile/${id}`)
 }
 
+export const updateUserAccount = formData => {
+  return axios.put('/api/user-update', formData, withHeaders())
+}
+
 export const registerUser = formData => {
   return axios.post('/api/register/', formData)
 }

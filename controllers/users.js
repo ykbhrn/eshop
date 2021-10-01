@@ -30,8 +30,23 @@ async function otherUsersProfile(req, res, next) {
   }
 }
 
+async function userUpdate(req, res) {
+  const userId = req.currentUser._id
+  try {
+    const user = await User.findByIdAndUpdate(userId)
+    if (!user) throw new Error('Not Found')
+    Object.assign(user, req.body)
+    await user.save()
+    res.status(202).json(user)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+}
+
+
 module.exports = {
   profile: userProfile,
   otherUsersProfile,
-  allUsers
+  allUsers,
+  update: userUpdate
 }

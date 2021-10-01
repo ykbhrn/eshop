@@ -29,35 +29,42 @@ class Profile extends React.Component {
     return (
       <div className="profile-page">
         <div className="profile-icons-wrapper">
-          <div className="profile-icon">
-            <img src="./images/orders.png" />
-            <div className="profile-icon-decription">
-              <div>Your Orders</div>
-              <div className="description">
+
+          <Link to="/profile/orders">
+            <div className="profile-icon">
+              <img src="./images/orders.png" />
+              <div className="profile-icon-decription">
+                <div>Your Orders</div>
+                <div className="description">
             Check your previous orders or buy it again
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="profile-icon">
-            <img src="./images/profile.png" />
-            <div className="profile-icon-description">
-              <div>Your Account</div>
-              <div className="description">
-            Edit your login details
+          <Link to="/profile/edit">
+            <div className="profile-icon">
+              <img src="./images/profile.png" />
+              <div className="profile-icon-description">
+                <div>Your Account</div>
+                <div className="description">
+                Edit your login details
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="profile-icon">
-            <img src="./images/map.png" />
-            <div className="profile-icon-description">
-              <div>Your Adress</div>
-              <div className="description">
+          <Link to="/profile/adress">
+            <div className="profile-icon">
+              <img src="./images/map.png" />
+              <div className="profile-icon-description">
+                <div>Your Adress</div>
+                <div className="description">
             Edit your shipping and billing adress
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div onClick={this.handleLogout} className="logout-wrapper">

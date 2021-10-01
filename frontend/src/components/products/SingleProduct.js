@@ -1,3 +1,4 @@
+import bodyParser from 'body-parser';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getSingleProduct, addToBasket, basketLength } from '../../lib/api';
@@ -35,10 +36,13 @@ class SingleProduct extends React.Component {
 
   hideOverflow = () => {
     const bod = document.querySelector('body');
-    bod.style.overflowY = 'hidden';
-    setTimeout(() => {
-      bod.style.overflowY = 'visible';
-    }, 1000);
+    
+    if (window.innerHeight > bod.scrollHeight || window.innerHeight === bod.scrollHeight) {
+      bod.style.overflowY = 'hidden';
+      setTimeout(() => {
+        bod.style.overflowY = 'visible';
+      }, 1000);
+    }
   }
 
   handleBasket = async () => {
@@ -65,7 +69,20 @@ class SingleProduct extends React.Component {
   }
 
   continueShopping = () => {
-    this.setState({ addedToBasket: false });
+    const added = document.querySelector('.basket-added-wrapper')
+    added.style.animation = "0.5s added-hide linear"
+    const bod = document.querySelector('body')
+    if (window.innerHeight < bod.scrollHeight) {
+      setTimeout(() => {
+        this.setState({ addedToBasket: false });
+      }, 400);
+    } else if (window.innerHeight > bod.scrollHeight || window.innerHeight === bod.scrollHeight) {
+      bod.style.overflowY = "hidden"
+      setTimeout(() => {
+        this.setState({ addedToBasket: false });
+        bod.style.overflowY = "visible"
+      }, 400);
+    }
   }
 
   changeBigImage = (image) => {
@@ -173,10 +190,13 @@ class SingleProduct extends React.Component {
         </div>
         {this.state.addedToBasket &&
           <div className="basket-added-wrapper">
-            <div className="basket-added-continue" onClick={this.continueShopping}>Continue Shopping</div>
-            <Link to="/basket">
-              <div className="basket-added-proceed">Proceed to chekout</div>
-            </Link>
+            <h1>Item was added to your basket</h1>
+            <div className="basket-added-buttons">
+              <div className="basket-added-continue" onClick={this.continueShopping}>Continue Shopping</div>
+              <Link to="/basket">
+                <div className="basket-added-proceed">Proceed to chekout</div>
+              </Link>
+            </div>
           </div>
         }
       </div>

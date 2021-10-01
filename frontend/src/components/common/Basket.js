@@ -107,14 +107,22 @@ class Basket extends React.Component {
           })}
         </div>
 
-        <div className="checkout-button-total-price">
-          <div className="total-price">
-            Total ({this.state.totalQuantity} Items): £{this.state.totalPrice}
-          </div>
-          <Link to="/checkout">
-            <div className="chekout-button">Proceed to Chekout</div>
-          </Link>
+        {user.basket.length < 1 && 
+        <div className="empty-basket">
+          <h1>Your Basket is Empty</h1>
         </div>
+        } 
+
+        {user.basket.length > 0 &&
+         <div className="checkout-button-total-price">
+           <div className="total-price">
+           Total ({this.state.totalQuantity} Items): £{this.state.totalPrice}
+           </div>
+           <Link to="/checkout">
+             <div className="chekout-button">Proceed to Chekout</div>
+           </Link>
+         </div>
+        }
       </div>
     );
   }

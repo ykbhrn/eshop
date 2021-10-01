@@ -16,23 +16,24 @@ $unrotate: - (90 - $deg)/2;
 $skew: 90 - $deg;
 
 .home-menu{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Gluten', cursive;
   display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-left: -100px;
   margin-top: -100px;
+.fas{
 
+}
   .home-menu-button-text{
     font-size: 7px;
     color: #474747;
+    font-weight: 400;
   }
-
   a{
     text-decoration: none;
   }
-
 ul {
   @include transform(scale(0.2));
   @include transition(.3s ease-out all);
@@ -90,7 +91,7 @@ ul {
     &.close {
       width: 50px;
       height: 50px;
-      background: url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg");
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg");
       background-position: 0 0;
       background-size: cover;
       animation: moving 10s linear infinite;
@@ -102,7 +103,13 @@ ul {
       @include transform(scale(4.1) rotate(23deg));
       @include transition(.3s ease-in-out all);
       transform-origin: 50% 50%;
-      
+      display: flex;
+      .fas{
+        position: absolute;
+        left: 6%;
+        top: 5%;
+      }
+
       a {
         background: none;
         width: 50px;

@@ -28,7 +28,7 @@ class Register extends React.Component {
     let email = ''
     let password = ''
     let passwordConfirmation = ''
-    let sports = ''
+    const sports = ''
 
     if (errors.errors.name) {
       if (errors.errors.name.kind === "unique") {
@@ -91,30 +91,26 @@ class Register extends React.Component {
         {this.renderRedirect()}
         <h1>All we are saying is give us a chance</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="register-input-top-wrapper">
-            <label>Nickname:</label>
-            <div className="input-wrapper">
-              <input
-                className={`${errors.name ? 'error-input' : ''}`}
-                placeholder="name"
-                name="name"
-                onChange={this.handleChange}
-                value={formData.name}
-              />
-              {errors.name ? <small className="error-message">{errors.name}</small> : ''}
-            </div>
+          <label>Username:</label>
+          <div className="input-wrapper">
+            <input
+              className={`${errors.name ? 'error-input' : ''}`}
+              name="name"
+              onChange={this.handleChange}
+              value={formData.name}
+            />
+            {errors.name ? <small className="error-message">{errors.name}</small> : ''}
+          </div>
 
-            <label>Email:</label>
-            <div className="input-wrapper">
-              <input
-                className={`${errors.email ? 'error-input' : ''}`}
-                placeholder="Email"
-                name="email"
-                onChange={this.handleChange}
-                value={formData.email}
-              />
-              {errors.email ? <small className="error-message">{errors.email}</small> : ''}
-            </div>
+          <label>Email:</label>
+          <div className="input-wrapper">
+            <input
+              className={`${errors.email ? 'error-input' : ''}`}
+              name="email"
+              onChange={this.handleChange}
+              value={formData.email}
+            />
+            {errors.email ? <small className="error-message">{errors.email}</small> : ''}
           </div>
 
           <label>Password:</label>
@@ -122,7 +118,6 @@ class Register extends React.Component {
             <input
               className={`${errors.password ? 'error-input' : ''}`}
               type="password"
-              placeholder="Password"
               name="password"
               onChange={this.handleChange}
               value={formData.password}
@@ -135,14 +130,13 @@ class Register extends React.Component {
             <input
               className={`${errors.passwordConfirmation ? 'error-input' : ''}`}
               type="password"
-              placeholder="Password Confirmation"
               name="passwordConfirmation"
               onChange={this.handleChange}
               value={formData.passwordConfirmation}
             />
             {errors.passwordConfirmation && <small className="error-message">{errors.passwordConfirmation}</small>}
           </div>
-          <button type="submit" className="btn third">Register</button>
+          <button type="submit" className="auth-btn">Register</button>
         </form>
       </section>
 

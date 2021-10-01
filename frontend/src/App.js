@@ -6,7 +6,10 @@ import Home from './components/common/Home'
 import AllProducts from './components/products/AllProducts'
 import SingleProduct from './components/products/SingleProduct'
 import Authorization from './components/auth/Authorization'
-import Profile from './components/common/Profile'
+import Profile from './components/profile/Profile'
+import EditAccount from './components/profile/EditAccount'
+import EditAdress from './components/profile/EditAdress'
+import YourOrders from './components/profile/YourOrders'
 import Navbar from './components/common/Navbar'
 import Basket from './components/common/Basket'
 import BasketIcon from './components/common/BasketIcon'
@@ -58,6 +61,9 @@ class App extends React.Component {
           <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
           <Route path="/products" component={AllProducts} />
           <Route path="/entering" component={Authorization} />
+          <Route path="/profile/edit" component={EditAccount} />
+          <Route path="/profile/adress" component={EditAdress} />
+          <Route path="/profile/orders" component={YourOrders} />
           <Route path="/profile" component={Profile} />
           <Route path='/shipping' component={Shipping} />
           <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
