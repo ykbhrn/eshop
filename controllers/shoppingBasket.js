@@ -76,9 +76,26 @@ async function addShipping (req, res) {
   }
 }
 
+async function removeFromBasket (req, res) {
+  try {
+    const user = req.currentUser
+    const productId = req.params.id
+
+    const newBasket = user.basket.filter(item => {
+      return item.id !== productId || item.chosenSize !== req.body.size || item.chosenColor !== req.body.color
+    })
+    user.basket = newBasket
+    await user.save()
+    res.status(204).json(user)
+  } catch (err) {
+    res.json(err)
+  }
+}
+
 module.exports = {
   addToBasket,
   updateBasket,
   addShipping,
-  pendingOrder
+  pendingOrder,
+  remove: removeFromBasket
 }

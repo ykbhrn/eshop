@@ -5,6 +5,7 @@ $second-color: #FFE400;
 $third-color: #14A76C;
 $dark-color: #474747;
 $gray-color: #747474;
+$navbar-height: 80px;
 
 body {
   font-family: $main-font;
@@ -130,7 +131,7 @@ button{
 .basket-icon-wrapper{
   display: block;
   position: absolute;
-  top: 27px;
+  top: 23px;
   right: 30px;
   cursor: pointer;
   img{
@@ -331,6 +332,75 @@ h2{
   font-family: $logo-font;
   margin-bottom: 15px;
   background: $dark-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+.products-navbar{
+  display: flex;
+  color: $second-color;
+  position: absolute;
+  font-family: $main-font!important;
+  font-weight: 300;
+  font-size: 17px;
+  left: 30px;
+  .active{
+    background: $second-color;
+    color: $first-color;
+  }
+}
+.gender-navbar-part-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.gender-navbar-part{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  padding:20px;
+  font-weight: 200;
+  font-size: 15px;
+}
+h3{
+  font-size: 15px;
+  font-weight: 400;
+  border-bottom: 1px solid $dark-color;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+.small-item{
+  margin: 5px 0;
+  cursor: pointer;
+}
+h3:hover, .small-item:hover{
+  color: $first-color;
+}
+.products-navbar-item{
+    margin-right: 30px;
+    cursor: pointer;
+    height: $navbar-height;
+    line-height: $navbar-height;
+    padding: 0 10px;
+}
+.products-navbar-item:hover{
+  background: $second-color;
+  color: $first-color;
+}
+.hover-products-menu{
+  position: absolute;
+  top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $second-color;
+  color: $dark-color;
+  width: 400px;
+  height: 300px;
+  z-index: 4;
+  transition: 0.5s linear;
 }
 .logo {
   display: flex;
@@ -341,44 +411,64 @@ h2{
   text-decoration: none;
   color: $first-color;
 }
-
-.footer {
 }
 
-.flower-container {
+//Title revealing
+.header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+}
+.header .static-txt {
+  font-size: 49px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.header .dynamic-txts {
+  margin-left: 15px;
+  height: $navbar-height;
+  line-height: $navbar-height;
+  overflow: hidden;
+}
+.dynamic-txts li {
+  list-style: none;
+  color: $second-color;
+  font-size: 43px;
+  font-weight: 500;
+  position: relative;
+  top: 0;
+  animation: slide 12s steps(4) infinite;
+}
+@keyframes slide {
+  100% {
+    top: -360px;
+  }
+}
+.dynamic-txts li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 90px;
+}
+.dynamic-txts li span::after {
+  content: "";
   position: absolute;
+  left: 0;
+  height: 100%;
+  margin-top: 10px;
+  width: 100%;
+  background: $dark-color;
+  border-left: 2px solid $first-color;
+  animation: typing 3s steps(10) infinite;
 }
-.flower-container.one {
-  left: 20px;
-  top: 80px;
-}
-.flower-container.two {
-  right: 20px;
-  top: 80px;
-}
-.flowerProductImage {
-  height: 220px;
-  width: 220px;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  opacity: 0;
-}
-.flowerProductImage:hover {
-  display: flex;
-  border-radius: 0%;
-  opacity: 1;
-  height: 320px;
-  width: 320px;
-  transition-duration: 800ms;
-  transition-delay: 150ms;
-  box-shadow: 0px 4px 30px 2px rgba($second-color, 0.92);
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 30px);
+  }
+  100% {
+    left: 0;
+  }
 }
 
 // Flower
@@ -487,70 +577,47 @@ h2{
   grid-row: 1/3;
   transform: rotate(135deg) translate(1.7rem, -1.7rem);
 }
+.flower-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+}
+.flower-container.one {
+  left: 20px;
+  top: 80px;
+}
+.flower-container.two {
+  right: 20px;
+  top: 80px;
+}
+.flowerProductImage {
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 0;
+}
+.flowerProductImage:hover {
+  display: flex;
+  border-radius: 0%;
+  opacity: 1;
+  height: 320px;
+  width: 320px;
+  transition-duration: 800ms;
+  transition-delay: 150ms;
+  box-shadow: 0px 4px 30px 2px rgba($second-color, 0.92);
+}
 @keyframes showPetals {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
-  }
-}
-
-//Title revealing
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.header .static-txt {
-  font-size: 60px;
-  font-weight: 400;
-  cursor: pointer;
-}
-.header .dynamic-txts {
-  margin-left: 15px;
-  height: 90px;
-  line-height: 90px;
-  overflow: hidden;
-}
-.dynamic-txts li {
-  list-style: none;
-  color: $second-color;
-  font-size: 50px;
-  font-weight: 500;
-  position: relative;
-  top: 0;
-  animation: slide 12s steps(4) infinite;
-}
-@keyframes slide {
-  100% {
-    top: -360px;
-  }
-}
-.dynamic-txts li span {
-  position: relative;
-  margin: 5px 0;
-  line-height: 90px;
-}
-.dynamic-txts li span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 100%;
-  margin-top: 10px;
-  width: 100%;
-  background: $dark-color;
-  border-left: 2px solid $first-color;
-  animation: typing 3s steps(10) infinite;
-}
-@keyframes typing {
-  40%,
-  60% {
-    left: calc(100% + 30px);
-  }
-  100% {
-    left: 0;
   }
 }
 

@@ -8,6 +8,12 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
+const categorySchema = new mongoose.Schema({
+  gender: {type: String, required: true},
+  type: [{type: String, required: true}],
+  isAccesory: {type: Boolean, required: true}
+})
+
 const productSchema = new mongoose.Schema({
   name: {type: String, required: true},
   images: [{type: String, required: false}],
@@ -20,6 +26,7 @@ const productSchema = new mongoose.Schema({
   chosenColor: {type: String, required: false},
   quantity: {type: Number, required: false},
   chosenQuantity: {type: Number, required: false},
+  categories: categorySchema,
   user: {type: Object, required: true},
   comments: [commentSchema]
 }, {

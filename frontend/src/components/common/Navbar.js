@@ -8,7 +8,8 @@ class Navbar extends React.Component {
   state = {
     some: null,
     hideBasket: true,
-    mainButton: ""
+    mainButton: "",
+    isClothing: null
   }
 
   changeMainButton = (hoveredItem) => {
@@ -19,9 +20,93 @@ class Navbar extends React.Component {
     this.setState({ mainButton: "" })
   }
 
+  productsMenuHover = (item) => {
+    const menuItems = document.querySelectorAll(".products-navbar-item")
+    const productsHoverMenu = document.querySelector(".hover-products-menu")
+
+    productsHoverMenu.style.display = "flex"
+    if (item === "clothing") {
+      menuItems[0].classList.add("active")
+      menuItems[1].classList.remove("active")
+      this.setState({isClothing: true})
+    } else if (item === "accesories") {
+      menuItems[1].classList.add("active")
+      menuItems[0].classList.remove("active")
+      this.setState({isClothing: false})
+    }  
+  }
+
+  productsMenuLeave = () => {
+    const menuItems = document.querySelectorAll(".products-navbar-item")
+    const productsHoverMenu = document.querySelector(".hover-products-menu")
+
+    productsHoverMenu.style.display = "none"
+    menuItems[0].classList.remove("active")
+    menuItems[1].classList.remove("active")
+  }
+
   render() {
     return (
       <header className="navbar">
+        {/* <style>
+          {'\
+          .hover-products-menu{\
+            display: none;\
+          }\
+          '}
+        </style> */}
+        <div className="products-navbar">
+          <div className="products-navbar-item" onMouseEnter={() => {
+            this.productsMenuHover("clothing")
+          }}>Clothing</div>
+          <div className="products-navbar-item" onMouseEnter={() => {
+            this.productsMenuHover("accesories")
+          }}>Accesories</div>
+          <div className="hover-products-menu" onMouseLeave={() => {
+            this.productsMenuLeave()
+          }}>
+            {this.state.isClothing &&
+            <div className="gender-navbar-part-wrapper">
+              <div className="gender-navbar-part">
+                <h3>Men&apos;s Clothing</h3>
+                <div className="small-item">T-Shirts</div>
+                <div className="small-item">Hoodies</div>
+                <div className="small-item">Sweatshirts</div>
+                <div className="small-item">Trousers</div>
+              </div>
+
+              <div className="gender-navbar-part">
+                <h3>Women&apos;s Clothing</h3>
+                <div className="small-item">T-Shirts</div>
+                <div className="small-item">Hoodies</div>
+                <div className="small-item">Sweatshirts</div>
+                <div className="small-item">Trousers</div>
+              </div>
+            </div>
+            }
+
+            {!this.state.isClothing &&
+            <div className="gender-navbar-part-wrapper">
+              <div className="gender-navbar-part">
+                <h3>Men&apos;s Accesories</h3>
+                <div className="small-item">T-Shirts</div>
+                <div className="small-item">Hoodies</div>
+                <div className="small-item">Sweatshirts</div>
+                <div className="small-item">Trousers</div>
+              </div>
+
+              <div className="gender-navbar-part">
+                <h3>Women&apos;s Accesories</h3>
+                <div className="small-item">T-Shirts</div>
+                <div className="small-item">Hoodies</div>
+                <div className="small-item">Sweatshirts</div>
+                <div className="small-item">Trousers</div>
+              </div>
+            </div>
+            }
+
+          </div>
+        </div>
         <div className="header">
           <a href="/" className="link-no-underline">
             <div className="static-txt">Peacefully <span>&#174;</span> </div>

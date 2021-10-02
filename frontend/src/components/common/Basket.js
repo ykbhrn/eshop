@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMyProfile, updateBasket } from '../../lib/api';
+import { getMyProfile, updateBasket, removeFromBasket } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
 
@@ -66,6 +66,15 @@ class Basket extends React.Component {
       console.log(err);
     }
   }
+  removeItem = async (id, size, color) => {
+    try {
+      const formData = { size: size, color: color}
+      const res = await removeFromBasket(id, formData)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
 
   render() {
@@ -85,6 +94,8 @@ class Basket extends React.Component {
                     <h1>{item.name}</h1>
                   </a>
                 </div>
+                <div>{item.chosenColor}</div>
+                <div>{item.chosenSize}</div>
 
                 <div className="quantity-basket-wrapper">
                   <form>
@@ -100,7 +111,9 @@ class Basket extends React.Component {
               </div>
               
               <div className="basket-subtotal-remove">
-                <div className="basket-remove">Remove</div>
+                <div className="basket-remove" onClick={() => {
+                  this.removeItem(item._id, item.chosenSize, item.chosenColor)
+                }}>Remove</div>
                 <div className="basket-subtotal">Subtotal: £{item.chosenQuantity * item.price}</div>
               </div>
             </div>;

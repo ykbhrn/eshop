@@ -35,6 +35,9 @@ router.route('/basket/:id')
   .post(secureRoute, basket.addToBasket)
   .put(secureRoute, basket.updateBasket)
 
+router.route('/basket/remove/:id')
+  .put(secureRoute, basket.remove)
+
 router.route('/order')
   .post(secureRoute, basket.pendingOrder)
   

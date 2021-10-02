@@ -44,7 +44,11 @@ export const addToBasket = (id, formData) => {
 }
 
 export const updateBasket = (id, formData) => {
-  return axios.put(`/api/basket/${id}/`, formData, withHeaders())
+  return axios.put(`/api/basket/${id}`, formData, withHeaders())
+}
+
+export const removeFromBasket = (id, formData) => {
+  return axios.put(`/api/basket/remove/${id}`, formData, withHeaders())
 }
 
 export const pendingOrder = (formData) => {
