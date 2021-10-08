@@ -58,6 +58,12 @@ class Home extends React.Component {
           .main-menu-wrapper{\
             display: none;\
           }\
+          .products-navbar-item{\
+            display: none;\
+          }\
+          .hover-products-menu{\
+            display: none;\
+          }\
           '}
           </style>
           <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>

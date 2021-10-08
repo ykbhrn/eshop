@@ -326,7 +326,6 @@ h2{
     }
   }
 
-
 .navbar {
   width: 100vw;
   font-family: $logo-font;
@@ -335,6 +334,11 @@ h2{
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4;
+  a{
+    text-decoration: none;
+    color: $second-color;
+  }
 
 .products-navbar{
   display: flex;
@@ -358,8 +362,7 @@ h2{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35%;
-  padding:20px;
+  padding: 0 20px;
   font-weight: 200;
   font-size: 15px;
 }
@@ -367,12 +370,12 @@ h3{
   font-size: 15px;
   font-weight: 400;
   border-bottom: 1px solid $dark-color;
-  width: 120px;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 7px;
 }
 .small-item{
-  margin: 5px 0;
+  margin: 8px 0;
   cursor: pointer;
 }
 h3:hover, .small-item:hover{
@@ -389,19 +392,6 @@ h3:hover, .small-item:hover{
   background: $second-color;
   color: $first-color;
 }
-.hover-products-menu{
-  position: absolute;
-  top: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $second-color;
-  color: $dark-color;
-  width: 400px;
-  height: 300px;
-  z-index: 4;
-  transition: 0.5s linear;
-}
 .logo {
   display: flex;
   justify-content: center;
@@ -412,6 +402,34 @@ h3:hover, .small-item:hover{
   color: $first-color;
 }
 }
+
+.hover-products-menu{
+  position: absolute;
+  top: 80px;
+  display: flex;
+  justify-content: center;
+  background: $second-color;
+  color: $dark-color;
+  width: 440px;
+  z-index: 4;
+  border-radius: 0 0 10px 10px;
+  padding: 30px 0;
+  a{
+    color: $dark-color;
+  }
+}
+
+@keyframes menu-in{
+  0% { left: -170% ;}
+  100% { left: 0px; }
+}
+
+@keyframes menu-out {
+  0% { left:  0px;}
+  50% { left: -170%; }
+  100% { left: -170%; }
+}
+
 
 //Title revealing
 .header {
@@ -715,12 +733,10 @@ button{
 .products-page {
   display: flex;
   justify-content: center;
-
   a{
     text-decoration: none;
     color: inherit;
   }
-
   .product-container {
     display: flex;
     justify-content: center;
@@ -728,12 +744,10 @@ button{
     width: 80vw;
     flex-wrap: wrap;
   }
-
   .product-wrapper {
     cursor: pointer;
     margin: 20px;
   }
-
   .product-preview-image {
     width: 280px;
     height: 320px;
@@ -742,7 +756,6 @@ button{
     background-position: center;
     transition: 0.4s linear;
   }
-
   .product-preview-name {
     width: 280px;
     max-height: 90px;
@@ -770,9 +783,33 @@ button{
     height: 24px;
     font-size: 20px;
     font-weight: 300;
-    color: white;
+    color: $dark-color;
   }
 }
+}
+
+//categorizied products
+.cat-nav{
+  display: flex;
+  align-self: flex-start;
+  margin-left: 20px;
+  a{
+    text-decoration: none;
+    color: $dark-color;
+    margin-right: 10px;
+  }
+  .sign{
+    margin-right: 10px;
+  }
+  a:hover{
+    color: $first-color;
+  }
+  .cat-nav-item:last-child{
+      color: $first-color;
+  }
+  .symbol{
+    margin: 0 12px 0 5px;
+  }
 }
 
 //Single Product
@@ -844,7 +881,7 @@ h1{
   height: 24px;
   font-size: 20px;
   font-weight: 300;
-  color: white;
+  color: $dark-color;
 }
 }
 .product-size-container{
@@ -1058,6 +1095,7 @@ h1{
     color: $first-color;
   }
 }
+
 
 // Edit account page
 .edit-account-page, .edit-adress-page{

@@ -10,8 +10,8 @@ const commentSchema = new mongoose.Schema({
 
 const categorySchema = new mongoose.Schema({
   gender: {type: String, required: true},
-  type: [{type: String, required: true}],
-  isAccesory: {type: Boolean, required: true}
+  types: [{type: String, required: true}],
+  subCategory: {type: String, required: true}
 })
 
 const productSchema = new mongoose.Schema({

@@ -112,8 +112,8 @@ class SingleProduct extends React.Component {
   }
 
   render() {
-    const { product } = this.state;
-    if (!product) return null;
+    const { product } = this.state
+    if (!product) return null
     return (
       <div className="single-product-section">
         <div className="single-product-wrapper">

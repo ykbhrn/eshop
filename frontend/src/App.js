@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { getMyProfile } from './lib/api'
 
 import Home from './components/common/Home'
+import CategoriziedProducts from './components/products/CategoriziedProducts'
 import AllProducts from './components/products/AllProducts'
 import SingleProduct from './components/products/SingleProduct'
 import Authorization from './components/auth/Authorization'
@@ -58,6 +59,7 @@ class App extends React.Component {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
           <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
           <Route path="/products" component={AllProducts} />
           <Route path="/entering" component={Authorization} />

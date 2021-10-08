@@ -25,6 +25,7 @@ class Navbar extends React.Component {
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
     productsHoverMenu.style.display = "flex"
+    productsHoverMenu.style.animation = "0.5s menu-in linear"
     if (item === "clothing") {
       menuItems[0].classList.add("active")
       menuItems[1].classList.remove("active")
@@ -34,53 +35,60 @@ class Navbar extends React.Component {
       menuItems[0].classList.remove("active")
       this.setState({isClothing: false})
     }  
+    console.log()
   }
 
   productsMenuLeave = () => {
     const menuItems = document.querySelectorAll(".products-navbar-item")
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
-    productsHoverMenu.style.display = "none"
+    productsHoverMenu.style.animation = "0.5s menu-out linear"
     menuItems[0].classList.remove("active")
     menuItems[1].classList.remove("active")
+    productsHoverMenu.style.display = "none"
+
   }
 
   render() {
     return (
-      <header className="navbar">
-        {/* <style>
-          {'\
+      <header className="navbar" onMouseLeave ={() => {
+        this.productsMenuLeave()
+      }}>
+        <style>
+          {/* {'\
           .hover-products-menu{\
             display: none;\
           }\
-          '}
-        </style> */}
+          '} */}
+        </style>
         <div className="products-navbar">
-          <div className="products-navbar-item" onMouseEnter={() => {
+          <Link to="/products/clothing/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
             this.productsMenuHover("clothing")
           }}>Clothing</div>
-          <div className="products-navbar-item" onMouseEnter={() => {
+          </Link>
+          <Link to="/products/accesories/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
             this.productsMenuHover("accesories")
           }}>Accesories</div>
-          <div className="hover-products-menu" onMouseLeave={() => {
+          </Link>
+          <div className="hover-products-menu" onMouseLeave ={() => {
             this.productsMenuLeave()
           }}>
             {this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
               <div className="gender-navbar-part">
-                <h3>Men&apos;s Clothing</h3>
-                <div className="small-item">T-Shirts</div>
-                <div className="small-item">Hoodies</div>
-                <div className="small-item">Sweatshirts</div>
-                <div className="small-item">Trousers</div>
+                <Link to="/products/clothing/men/all"><h3>Men&apos;s Clothing</h3></Link>
+                <Link to="/products/clothing/men/t-shirts"><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/clothing/men/hoodies"><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/clothing/men/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/clothing/men/trousers"><div className="small-item">Trousers</div></Link>
               </div>
 
               <div className="gender-navbar-part">
-                <h3>Women&apos;s Clothing</h3>
-                <div className="small-item">T-Shirts</div>
-                <div className="small-item">Hoodies</div>
-                <div className="small-item">Sweatshirts</div>
-                <div className="small-item">Trousers</div>
+                <Link to="/products/clothing/women/all"><h3>Women&apos;s Clothing</h3></Link>
+                <Link to="/products/clothing/women/t-shirts"><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/clothing/women/hoodies"><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/clothing/women/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/clothing/women/trousers"><div className="small-item">Trousers</div></Link>
               </div>
             </div>
             }
