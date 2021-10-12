@@ -7,6 +7,7 @@ import CategoriziedProducts from './components/products/CategoriziedProducts'
 import AllProducts from './components/products/AllProducts'
 import SingleProduct from './components/products/SingleProduct'
 import Authorization from './components/auth/Authorization'
+import Forgot from './components/auth/Forgot'
 import Profile from './components/profile/Profile'
 import EditAccount from './components/profile/EditAccount'
 import EditAdress from './components/profile/EditAdress'
@@ -17,6 +18,7 @@ import BasketIcon from './components/common/BasketIcon'
 import Checkout from './components/common/Checkout'
 import Shipping from './components/common/Shipping'
 import Payment from './components/common/Payment'
+import Contact from './components/common/Contact'
 import Done from './components/common/Done'
 
 class App extends React.Component {
@@ -63,6 +65,7 @@ class App extends React.Component {
           <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
           <Route path="/products" component={AllProducts} />
           <Route path="/entering" component={Authorization} />
+          <Route path="/forgot" component={Forgot} />
           <Route path="/profile/edit" component={EditAccount} />
           <Route path="/profile/adress" component={EditAdress} />
           <Route path="/profile/orders" component={YourOrders} />
@@ -71,6 +74,7 @@ class App extends React.Component {
           <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/payment" component={Payment} />
+          <Route path="/contact" component={Contact} />
           <Route path="/done" component={Done} />
         </Switch>
       </BrowserRouter>

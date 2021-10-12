@@ -50,8 +50,8 @@ const userSchema = new mongoose.Schema({
   newNotification: { type: Boolean, default: false },
   newChat: { type: Boolean, default: false },
   userChats: [],
-  userType: { type: Number, required: true }
-
+  userType: { type: Number, required: true },
+  resetToken: { data: String, default: '' }
 })
 
 userSchema.virtual('userProducts', {

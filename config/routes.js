@@ -23,6 +23,12 @@ router.route('/register')
 router.route('/login')
   .post(auth.login)
 
+router.route('/forgot-password')
+  .put(auth.forgotPassword)
+
+router.route('/reset-password')
+  .put(auth.resetPassword)
+
 router.route('/products')
   .get(product.allProducts)
   .post(secureRoute, product.create)
