@@ -76,6 +76,19 @@ async function addShipping (req, res) {
   }
 }
 
+async function completingOrder (req, res) {
+  try {
+    const user = req.currentUser
+    user.paidOrders.push(user.pendingOrder)
+    user.pendingOrder = null
+    user.basket = []
+    await user.save()
+    res.status(201).json(user)
+  } catch (err) {
+    res.json(err)
+  }
+}
+
 async function removeFromBasket (req, res) {
   try {
     const user = req.currentUser
@@ -97,5 +110,6 @@ module.exports = {
   updateBasket,
   addShipping,
   pendingOrder,
-  remove: removeFromBasket
+  remove: removeFromBasket,
+  completingOrder
 }

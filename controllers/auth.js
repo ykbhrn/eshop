@@ -50,7 +50,7 @@ async function forgotPassword (req, res) {
         subject: 'Reset Password Link',
         html: `
             <h2>Please click on given link to reset your password   </h2>
-            <p>${process.env.CLIENT_URL}/reset-password/${token}</p>  `
+            <a href="${process.env.CLIENT_URL}/reset-password/${token}">${process.env.CLIENT_URL}/reset-password/${token}</a>  `
       }
 
       mg.messages().send(data, function (error, body) {
@@ -78,7 +78,7 @@ async function forgotPassword (req, res) {
 }
 
 async function resetPassword (req,res) {
-  const {resetToken, newPass} = req.body
+  const {resetToken, password, passwordConfirmation} = req.body
   try {
     if (resetToken) {
       jwt.verify(resetToken, process.env.RESET_PASSWORD_KEY, function(error, decodedData) {
@@ -89,18 +89,18 @@ async function resetPassword (req,res) {
         }
         User.findOne({resetToken}, (err, user) => {
           if (err || !user) {
-            return res.status(400).json({error: 'User with this token does not exist.'})
+            return res.status(400).json({error: 'Reset Link is Expired or Incorrect'})
           }
           const formData = {
-            password: newPass,
-            passwordConfirmation: newPass,
+            password: password,
+            passwordConfirmation: passwordConfirmation,
             resetToken: ''
           }
 
           user = _.extend(user, formData)
           user.save((err, result) => {
             if (err) {
-              return res.status(400).json({error: 'reset password error'})
+              return res.status(400).json({error: 'Password must have at least 6 characters and password confirmation must match'})
             } else {
               return res.status(200).json({message: 'Your password has been changed.'})
             }

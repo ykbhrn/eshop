@@ -7,7 +7,8 @@ import CategoriziedProducts from './components/products/CategoriziedProducts'
 import AllProducts from './components/products/AllProducts'
 import SingleProduct from './components/products/SingleProduct'
 import Authorization from './components/auth/Authorization'
-import Forgot from './components/auth/Forgot'
+import ForgotPassword from './components/auth/ForgotPassword'
+import ResetPassword from './components/auth/ResetPassword'
 import Profile from './components/profile/Profile'
 import EditAccount from './components/profile/EditAccount'
 import EditAdress from './components/profile/EditAdress'
@@ -19,6 +20,7 @@ import Checkout from './components/common/Checkout'
 import Shipping from './components/common/Shipping'
 import Payment from './components/common/Payment'
 import Contact from './components/common/Contact'
+import About from './components/common/About'
 import Done from './components/common/Done'
 
 class App extends React.Component {
@@ -64,8 +66,10 @@ class App extends React.Component {
           <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
           <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
           <Route path="/products" component={AllProducts} />
+          <Route path="/entering/:id" component={Authorization} />
           <Route path="/entering" component={Authorization} />
-          <Route path="/forgot" component={Forgot} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <Route path="/reset-password/:token" component={ResetPassword} />
           <Route path="/profile/edit" component={EditAccount} />
           <Route path="/profile/adress" component={EditAdress} />
           <Route path="/profile/orders" component={YourOrders} />
@@ -75,6 +79,7 @@ class App extends React.Component {
           <Route path="/checkout" component={Checkout} />
           <Route path="/payment" component={Payment} />
           <Route path="/contact" component={Contact} />
+          <Route path="/about" component={About} />
           <Route path="/done" component={Done} />
         </Switch>
       </BrowserRouter>

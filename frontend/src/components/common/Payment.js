@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMyProfile } from '../../lib/api';
+import { getMyProfile, completeOrder } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
 
@@ -43,6 +43,15 @@ class Payment extends React.Component {
       this.setState({ creditCard: false, paypal: true, bankTransfer: false });
     } else if (event.target.name === "bank transfer") {
       this.setState({ creditCard: false, paypal: false, bankTransfer: true });
+    }
+  }
+
+  async completeOrder () {
+    try {
+      const res = await completeOrder()
+      return window.location.assign('/done')
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -152,7 +161,7 @@ class Payment extends React.Component {
             <Link to="/shipping">
               <button className="left">Go Back To Shipping</button>
             </Link>
-            <button className="right">Complete Your Order</button>
+            <button className="right" onClick={this.completeOrder}>Complete Your Order</button>
           </div>
         </div>
       </div>

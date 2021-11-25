@@ -1,7 +1,7 @@
-import bodyParser from 'body-parser';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { getSingleProduct, addToBasket, basketLength } from '../../lib/api';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { isAuthenticated } from '../../lib/auth'
+import { getSingleProduct, addToBasket } from '../../lib/api'
 
 
 class SingleProduct extends React.Component {
@@ -48,13 +48,13 @@ class SingleProduct extends React.Component {
   handleBasket = async () => {
     this.setState({ isLoading: true });
     try {
-      const productId = this.props.match.params.id;
-      const res = await addToBasket(productId, this.state.formData);
-      this.hideOverflow();
-      this.setState({ addedToBasket: true, isLoading: false });
-      this.props.basket();
+      const productId = this.props.match.params.id
+      const res = await addToBasket(productId, this.state.formData)
+      this.hideOverflow()
+      this.setState({ addedToBasket: true, isLoading: false })
+      this.props.basket()
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   }
 
@@ -171,14 +171,25 @@ class SingleProduct extends React.Component {
                 </select>
               </div>
               {this.state.isLoading &&
-                <div className="add-to-basket-wrapper">
+                <div className="classic-btn">
                   <img src='/images/loading.svg' className='loading-image' />
                 </div>
               }
               {!this.state.isLoading &&
-                <div className="add-to-basket-wrapper" onClick={this.handleBasket}>
+              <>
+                {isAuthenticated() &&
+                <div className="classic-btn" onClick={this.handleBasket}>
                   Add to basket
                 </div>
+                }
+                {!isAuthenticated() &&
+                <Link to={`/entering/${product._id}`}>
+                  <div className="classic-btn">
+                    Add to basket
+                  </div>
+                </Link>
+                }
+              </>
               }
             </div>
 
@@ -200,7 +211,7 @@ class SingleProduct extends React.Component {
           </div>
         }
       </div>
-    );
+    )
   }
 }
 

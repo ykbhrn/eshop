@@ -114,7 +114,7 @@ class EditAccount extends React.Component {
           <div className="edit-line"><span className="bold">Username:</span> {user.name}</div>
           <div className="edit-line"><span className="bold">Phone Number:</span> {user.phone}</div>
           <div className="edit-line"><span className="bold">Password:</span> *****</div>
-          <button className="edit-account-button" onClick={this.showEdit}>Edit</button>
+          <button className="classic-btn" onClick={this.showEdit}>Edit</button>
         </div>
         }
 
@@ -163,7 +163,7 @@ class EditAccount extends React.Component {
               onChange={this.handleChange}
             /> 
             {errors.passwordConfirmation ? <small className="error-message">{errors.passwordConfirmation}</small> : ''}
-            <button className="edit-account-button" onClick={this.handleSubmit}>Done</button>
+            <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Done</button>
           </form>
         </div>
         }

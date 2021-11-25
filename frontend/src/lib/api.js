@@ -39,12 +39,24 @@ export const loginUser = formData => {
   return axios.post('/api/login/', formData)
 }
 
+export const forgotPassword = formData => {
+  return axios.put('/api/forgot-password', formData)
+}
+
+export const resetPassword = formData => {
+  return axios.put('/api/reset-password', formData)
+}
+
 export const addToBasket = (id, formData) => {
   return axios.post(`/api/basket/${id}/`, formData, withHeaders())
 }
 
 export const updateBasket = (id, formData) => {
   return axios.put(`/api/basket/${id}`, formData, withHeaders())
+}
+
+export const completeOrder = (formData) => {
+  return axios.put('/api/complete', formData, withHeaders())
 }
 
 export const removeFromBasket = (id, formData) => {

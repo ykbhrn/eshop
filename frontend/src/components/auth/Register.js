@@ -28,7 +28,6 @@ class Register extends React.Component {
     let email = ''
     let password = ''
     let passwordConfirmation = ''
-    const sports = ''
 
     if (errors.errors.name) {
       if (errors.errors.name.kind === "unique") {
@@ -55,6 +54,7 @@ class Register extends React.Component {
   }
 
   handleChange = event => {
+    console.log(this.props.id)
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }
     const errors = { ...this.state.errors, [event.target.name]: '' }
     this.setState({ formData, errors })
@@ -80,16 +80,20 @@ class Register extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to="/done" />
+      if (this.props.id) {
+        return window.location.assign(`/products/${this.props.id}`)
+      } else {
+        return <Redirect to="/done" />
+      }
     }
   }
 
   render() {
     const { formData, errors } = this.state
     return (
-      <section className="register">
+      <div className="register">
         {this.renderRedirect()}
-        <h1>All we are saying is give us a chance</h1>
+        <h1>Jump on our Peace Train</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Username:</label>
           <div className="input-wrapper">
@@ -136,9 +140,9 @@ class Register extends React.Component {
             />
             {errors.passwordConfirmation && <small className="error-message">{errors.passwordConfirmation}</small>}
           </div>
-          <button type="submit" className="auth-btn">Register</button>
+          <button type="submit" className="classic-btn">Register</button>
         </form>
-      </section>
+      </div>
 
     )
   }

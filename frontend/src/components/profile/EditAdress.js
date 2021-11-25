@@ -185,10 +185,10 @@ class EditAdress extends React.Component {
                 {formData.phone && <div className="edit-line"><span className="bold">Phone Number:</span> {formData.phone}</div>}
 
                 {formData.isBillingAdress === "no" &&
-              <>
+              <div className="isBilling">
                 <h2>Billing Adress:</h2>
                 <div>Same as Shipping Adress</div>
-              </>
+              </div>
                 }
               </div>
 
@@ -198,7 +198,7 @@ class EditAdress extends React.Component {
                   <h2>Billing Adress:</h2>
                   <div className="edit-line"><span className="bold">Name:</span> {formData.billingAdress.name}</div>
                   <div className="edit-line"><span className="bold">Adress Line 1:</span> {formData.billingAdress.adressOne}</div>
-                  {formData.billingAdress.adressTwo && <div className="edit-line"><span className="bold">Adress Line 1:</span> {formData.billingAdress.adressTwo}</div>}
+                  {formData.billingAdress.adressTwo && <div className="edit-line"><span className="bold">Adress Line 2:</span> {formData.billingAdress.adressTwo}</div>}
                   <div className="edit-line"><span className="bold">Town/City:</span> {formData.billingAdress.town}</div>
                   <div className="edit-line"><span className="bold">Postcode:</span> {formData.billingAdress.postcode}</div>
                   <div className="edit-line"><span className="bold">Country:</span> {formData.billingAdress.country}</div>
@@ -207,7 +207,7 @@ class EditAdress extends React.Component {
                 }
               </div>
             </div>
-            <button className="edit-account-button" onClick={this.showEdit}>Edit</button>
+            <button className="classic-btn" onClick={this.showEdit}>Edit</button>
           </div>
         }
 
@@ -378,7 +378,7 @@ class EditAdress extends React.Component {
                 </form>
               }
             </div>
-            <button className="edit-account-button" onClick={this.addAdress}>Done</button>
+            <button className="classic-btn" onClick={this.addAdress}>Done</button>
           </>
         }
 

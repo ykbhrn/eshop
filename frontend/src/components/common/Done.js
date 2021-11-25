@@ -29,17 +29,15 @@ class Done extends React.Component {
 
   render() {
     return (
-      <section className="hero is-light is-fullheight-with-navbar">
-        {/* Dont redirect if user just booked the slot */}
+      <div className="done-page">
         {this.renderRedirect()}
-        <div className="hero-body done">
+        <div className="progress-wrapper">
           <h1 className="title is-1"> 
-            Váš účet bol úspešne vytvorený. Vitajte
-            {/* Check what kind of request we want */}
+            Your acount was created. Welcome
           </h1>
-          <progress className="progress is-large is-link" value={this.state.progress} max="100"></progress>
+          <progress value={this.state.progress} max="100"></progress>
         </div>
-      </section>
+      </div>
     )
   }
 }

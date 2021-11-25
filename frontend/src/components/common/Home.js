@@ -49,7 +49,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <section className="home">
+        <div className="home-page">
           <style>
             {'\
           .basket-icon-wrapper{\
@@ -126,19 +126,19 @@ class Home extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link to="#" onMouseEnter={() => {
-                  this.changeMainButton("Everything");
-                }}
-                onMouseLeave={this.mainButtonBack}>
-                  <i className="fa fa-sitemap"></i>
-                </Link>
-              </li>
-              <li>
-                <Link to="#" onMouseEnter={() => {
+                <Link to="/about" onMouseEnter={() => {
                   this.changeMainButton("About Us");
                 }}
                 onMouseLeave={this.mainButtonBack}>
-                  <i className="fa fa-tags"></i>
+                  <i className="fab fa-angellist flip"></i>
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" onMouseEnter={() => {
+                  this.changeMainButton("Contact Us");
+                }}
+                onMouseLeave={this.mainButtonBack}>
+                  <i className="fas fa-envelope-open-text"></i>
                 </Link>
               </li>
               <li>
@@ -181,10 +181,10 @@ class Home extends React.Component {
                     <div className="small-petal small-petal8"></div>
                   </div>
                 </div>
-              </Link>;
+              </Link>
             })}
           </div>
-        </section>
+        </div>
       </>
     );
   }

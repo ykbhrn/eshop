@@ -14,11 +14,52 @@ body {
   font-weight: 200;
 }
 
+input, textarea{
+  padding: 5px 6px;
+  margin-top: 4px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 2px solid $dark-color;
+}
+input:focus, textarea:focus{
+  outline: $first-color;
+  border: 2px solid $second-color;
+}
+
 button{
   z-index: 3;
 }
 
+.classic-btn{
+  border: 1px solid $dark-color;
+  background: $dark-color;
+  color: $second-color;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 300;
+  height: 45px;
+  width: 190px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+  .loading-image{
+    width: 44px;
+    height: 44px;
+  }
+}
+.classic-btn:hover{
+  transform: scale(1.04);
+  color: $first-color;
+}
+
 * { margin: 0; padding: 0; }
+
+//Home page
+.home-page{
+  .flip{
+    transform: rotate(180deg);
+  }
+}
 
 //Basket page
 .basket-page{
@@ -43,7 +84,6 @@ button{
   .basket-item-wrapper{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     margin: 30px;
     border-top: 1px solid $dark-color;
     border-bottom: 1px solid $dark-color;
@@ -271,6 +311,7 @@ h2{
       border: none;
       color: $second-color;
       background: $dark-color;
+      margin-left: 20px;
     }
     .right:hover{
       transform: scale(1.02);
@@ -279,6 +320,7 @@ h2{
     .left{
       background: white;
       border: 1px solid $dark-color;
+      margin-right: 20px;
     }
   }
   .forms-wrapper{
@@ -311,6 +353,9 @@ h2{
     .image-checkout-name{
       width: 60%;
       font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
     .image-checkout-description{
       color: gray;
@@ -406,14 +451,17 @@ h3:hover, .small-item:hover{
 .hover-products-menu{
   position: absolute;
   top: 80px;
+  left: -2px;
   display: flex;
   justify-content: center;
   background: $second-color;
   color: $dark-color;
   width: 440px;
   z-index: 4;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 5px 5px;
   padding: 30px 0;
+  border: 2px solid $dark-color;
+  border-top: none;
   a{
     color: $dark-color;
   }
@@ -650,28 +698,13 @@ h3:hover, .small-item:hover{
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  margin-right: 50px;
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
 }
 button{
   font-family: $main-font;
   font-weight: 300;
-}
-.auth-btn{
-  border: 1px solid $dark-color;
-  margin-top: 20px;
-  background: $dark-color;
-  color: $second-color;
-  border-radius: 10px;
-  font-size: 20px;
-  height: 45px;
-  width: 190px;
-  line-height: 45px;
-  text-align: center;
-  cursor: pointer;
-  .loading-image{
-    width: 44px;
-    height: 44px;
-  }
 }
 .auth-btn:hover{
   transform: scale(1.04);
@@ -699,6 +732,12 @@ button{
   align-items: center;
 }
 
+.auth-side, .authorization-wrapper, .register{
+  .classic-btn{
+    margin-top: 10px;
+  }
+}
+
 //Register
 .register {
   display: flex;
@@ -707,6 +746,11 @@ button{
   flex-direction: column;
   form{
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  button{
+    align-self: center;
   }
   input {
     width: 300px;
@@ -725,8 +769,92 @@ button{
 .error-input {
   border: 2px red solid;
 }
+
 .error-message {
   color: red;
+}
+
+.login-bttn-wrapper{
+  display: flex;
+  align-items: center;
+  .forgot{
+    margin-top: 10px;
+    margin-left: 60px;
+    color: $first-color;
+    cursor: pointer;
+  }
+  a{
+    text-decoration: none;
+  }
+  .forgot:hover{
+    transform: scale(1.03);
+  }
+}
+
+//Forgot page 
+.forgot-page, .reset-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .classic-btn{
+    margin-top: 10px;
+  }
+  h1{
+    margin: 50px 0 100px 0;
+  }
+  button{
+    font-family: $main-font;
+  }
+  input{
+    margin: 6px 0;
+  }
+}
+
+//Done page
+.done-page{
+  .progress-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+  }
+  progress {
+    display:inline-block;
+    width: 290px;
+    height: 30px;
+    margin-top: 50px;
+    border-radius: 0px;
+    text-align: left;
+    position:relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+  }
+  progress::-webkit-progress-bar {
+    height: 30px;
+    width: 290px;
+  }
+  progress::-webkit-progress-value {
+    display:inline-block;
+    float: left;
+    height: 30px;
+    width: 290px;
+    margin:0px -10px 0 0;
+    background: $second-color;
+  }
+  // progress:after {
+  //   margin:-26px 0 0 -7px;
+  //   padding:0;
+  //   display:inline-block;
+  //   float:left;
+  // }
 }
 
 //Products
@@ -932,6 +1060,9 @@ h1{
 .quantity-add-wrapper{
   display: flex;
   align-items: center;
+  a{
+    text-decoration: none;
+  }
 }
 .quantity-bar{
   font-size: 26px;
@@ -948,24 +1079,7 @@ h1{
     margin-right: 7px;
   }
 }
-.add-to-basket-wrapper{
-  border: 1px solid $dark-color;
-  background: $dark-color;
-  color: $second-color;
-  border-radius: 10px;
-  font-size: 22px;
-  font-weight: 300;
-  height: 45px;
-  width: 190px;
-  line-height: 45px;
-  text-align: center;
-  cursor: pointer;
-  .loading-image{
-    width: 44px;
-    height: 44px;
-  }
-}
-.add-to-basket-wrapper:hover{
+.classic-btn:hover{
   transform: scale(1.04);
   transition: 0.2s;
   color: $first-color;
@@ -1078,21 +1192,34 @@ h1{
   right: 30px;
   bottom: 20px;
 }
+.logout-wrapper:hover{
+  transform: scale(1.04);
+}
 .account-nav{
   display: flex;
   align-self: flex-start;
   color: $first-color;
   margin-left: 20px;
+  .auth{
+    cursor: pointer;
+    color: $dark-color;
+  }
+  .auth:hover{
+    color: $first-color;
+  }
   a{
     text-decoration: none;
     color: $dark-color;
     margin-right: 10px;
   }
+  a:hover{
+    color: $first-color;
+  }
   .sign{
     margin-right: 10px;
   }
-  a:hover{
-    color: $first-color;
+  .sign-auth{
+    margin-right: 3px;
   }
 }
 
@@ -1115,7 +1242,7 @@ h1{
       border: 1px solid $dark-color;
       background: $dark-color;
       color: $second-color;
-      border-radius: 10px;
+      border-radius: 20px;
       font-size: 22px;
       font-weight: 300;
       height: 45px;
@@ -1124,22 +1251,37 @@ h1{
       text-align: center;
       cursor: pointer;
       font-family: $main-font;
+      margin-top: 10px;
       .loading-image{
         width: 44px;
         height: 44px;
       }
     }
+    button:hover{
+      color: $first-color;
+      transform: scale(1.04);
+    }
+  }
+  input, textarea{
+    margin-bottom: 10px;
   }
 }
 
 // Edit account page
+.edit-adress-page, .edit-account-page{
+  margin-bottom: 100px;
+}
+
 .edit-account-page, .edit-adress-page{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  .edit-btn{
+    margin: 7px auto;
+  }
   .edit-line-container{
-    margin-top: 10%;
+    margin-top: 5vh;
   }
   .edit-line{
     font-size: 22px;
@@ -1157,7 +1299,6 @@ h1{
     min-width: 30vw;
   }
   input{
-    margin-bottom: 15px;
     font-size: 17px;
     font-weight: 200;
     font-family: $main-font;
@@ -1166,7 +1307,8 @@ h1{
     font-family: $main-font;
   }
   label{
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: 15px;
   }
   .edit-account-button{
     border: 1px solid $dark-color;
@@ -1196,8 +1338,11 @@ h1{
   .shipping-billing-edit{
     display: flex;
   }
-  .shipping-edit-container, .billing-edit-container{
-    margin: 0 35px;
+  .billing-edit-container{
+    margin-left: 70px;
+  }
+  .isBilling{
+    margin-top: 40px;
   }
 }
 

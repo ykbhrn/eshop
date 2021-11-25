@@ -142,7 +142,7 @@ class Navbar extends React.Component {
             <li className='slice'>
               <Link to="/contact">
                 <div onMouseEnter={() => {
-                  this.changeMainButton("About us")
+                  this.changeMainButton("Contact us")
                 }}
                 onMouseLeave={this.mainButtonBack}><i className="fas fa-envelope-open-text"></i>
                 </div>
@@ -150,11 +150,13 @@ class Navbar extends React.Component {
             </li>
 
             <li className='slice'>
-              <div onMouseEnter={() => {
-                this.changeMainButton("accessories")
-              }}
-              onMouseLeave={this.mainButtonBack}><i className="fab fa-redhat"></i>
-              </div>
+              <Link to="/products/accesories/uni/all">
+                <div onMouseEnter={() => {
+                  this.changeMainButton("accessories")
+                }}
+                onMouseLeave={this.mainButtonBack}><i className="fab fa-redhat"></i>
+                </div>
+              </Link>
             </li>
 
             <li className='slice'>
@@ -168,11 +170,13 @@ class Navbar extends React.Component {
             </li>
 
             <li className='slice'>
-              <div onMouseEnter={() => {
-                this.changeMainButton("slice")
-              }}
-              onMouseLeave={this.mainButtonBack} >✿
-              </div>
+              <Link to="/about">
+                <div onMouseEnter={() => {
+                  this.changeMainButton("About Us")
+                }}
+                onMouseLeave={this.mainButtonBack} ><i className="fab fa-angellist"></i>
+                </div>
+              </Link>
             </li>
 
             {isAuthenticated() &&

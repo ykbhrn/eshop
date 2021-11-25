@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import { setToken } from '../../lib/auth'
 import { Redirect, Link } from 'react-router-dom'
-import { loginUser, registerUser } from '../../lib/api'
 
 class Contact extends React.Component {
   state = {
@@ -12,6 +11,7 @@ class Contact extends React.Component {
     },
     rediterect: false,
     isLoading: false,
+    isSent: false,
     error: ''
   }
 
@@ -24,10 +24,8 @@ class Contact extends React.Component {
     event.preventDefault()
     try {
       this.setState({ loading: true })
-      const res = await loginUser(this.state.formData)
-      setToken(res.data.token)
-      this.setState({ redirect: true })
 
+      this.setState({ isSent: true })
     } catch (err) {
       this.setState({ error: 'Invalid Credentials', loading: false })
     }
@@ -46,7 +44,7 @@ class Contact extends React.Component {
         {this.renderRedirect()}
         <div className="form-wrapper">
           <h2>Contact Us</h2>
-          <form action="https://formspree.io/f/xoqybbwz"
+          <form action="https://formspree.io/f/mknkdgqb" onClick={this.handleSubmit}
             method="POST">
             <input className="email" type="email" name="email" placeholder="your email" />
             <input className="subject" type="text" name="subject" placeholder="subject" />

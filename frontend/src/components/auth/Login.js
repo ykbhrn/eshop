@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import { setToken } from '../../lib/auth'
 import { Redirect, Link } from 'react-router-dom'
-import { loginUser, registerUser } from '../../lib/api'
+import { loginUser } from '../../lib/api'
 
 class Login extends React.Component {
   state = {
@@ -38,6 +37,15 @@ class Login extends React.Component {
       return window.location.assign('/products')
     }
   }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      if (this.props.id) {
+        return window.location.assign(`/products/${this.props.id}`)
+      } else {
+        return window.location.assign('/products')
+      }
+    }
+  }
 
   render() {
     const { formData, error, loading } = this.state
@@ -51,7 +59,6 @@ class Login extends React.Component {
           <div className="input-wrapper">
             <input
               className={`${error ? 'error-input' : ''}`}
-              placeholder="Email"
               name="email"
               onChange={this.handleChange}
               value={formData.email}
@@ -63,14 +70,18 @@ class Login extends React.Component {
             <input
               className={`${error ? 'error-input' : ''}`}
               type="password"
-              placeholder="Password"
               name="password"
               onChange={this.handleChange}
               value={formData.password}
             />
           </div>
           {error && <small className="error-message">{error}</small>}
-          <button type="submit" className="auth-btn">Login</button>
+          <div className="login-bttn-wrapper">
+            <button type="submit" className="classic-btn">Login</button>
+            <Link to="/forgot-password">
+              <div className="forgot">Forgot your password?</div>
+            </Link>
+          </div>
         </form>
       </section>
 

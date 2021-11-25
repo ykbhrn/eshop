@@ -96,6 +96,13 @@ class Basket extends React.Component {
                 </div>
                 <div>{item.chosenColor}</div>
                 <div>{item.chosenSize}</div>
+                <div className="basket-price">Price: £{item.price}</div>
+              </div>
+              
+              <div className="basket-subtotal-remove">
+                <div className="basket-remove" onClick={() => {
+                  this.removeItem(item._id, item.chosenSize, item.chosenColor)
+                }}>Remove</div>
 
                 <div className="quantity-basket-wrapper">
                   <form>
@@ -107,13 +114,7 @@ class Basket extends React.Component {
                     </select>
                   </form>
                 </div>
-                <div className="basket-price">Price: £{item.price}</div>
-              </div>
-              
-              <div className="basket-subtotal-remove">
-                <div className="basket-remove" onClick={() => {
-                  this.removeItem(item._id, item.chosenSize, item.chosenColor)
-                }}>Remove</div>
+                
                 <div className="basket-subtotal">Subtotal: £{item.chosenQuantity * item.price}</div>
               </div>
             </div>;
