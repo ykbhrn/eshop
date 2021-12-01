@@ -21,6 +21,7 @@ import Shipping from './components/common/Shipping'
 import Payment from './components/common/Payment'
 import Contact from './components/common/Contact'
 import About from './components/common/About'
+import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
 
 class App extends React.Component {
@@ -60,6 +61,7 @@ class App extends React.Component {
         <BasketIcon
           basketLength={this.state.basketLength}
         />
+        <PopupDiscount />
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />

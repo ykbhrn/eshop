@@ -127,7 +127,7 @@ class Home extends React.Component {
               </li>
               <li>
                 <Link to="/about" onMouseEnter={() => {
-                  this.changeMainButton("About Us");
+                  this.changeMainButton("About Us")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fab fa-angellist flip"></i>
@@ -135,15 +135,15 @@ class Home extends React.Component {
               </li>
               <li>
                 <Link to="/contact" onMouseEnter={() => {
-                  this.changeMainButton("Contact Us");
+                  this.changeMainButton("Contact Us")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fas fa-envelope-open-text"></i>
                 </Link>
               </li>
               <li>
-                <Link to="#" onMouseEnter={() => {
-                  this.changeMainButton("Accessories");
+                <Link to="/products/accesories/uni/all" onMouseEnter={() => {
+                  this.changeMainButton("Accessories")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fab fa-redhat"></i>
