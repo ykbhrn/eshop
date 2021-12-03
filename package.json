@@ -17,6 +17,7 @@
     "lodash": "^4.17.21",
     "mailgun-js": "^0.22.0",
     "mongoose": "^5.12.14",
-    "mongoose-unique-validator": "^2.0.3"
+    "mongoose-unique-validator": "^2.0.3",
+    "node-cron": "3.0.0"
   }
 }

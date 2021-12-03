@@ -3,6 +3,7 @@ const user = require('../controllers/users')
 const auth = require('../controllers/auth')
 const product = require('../controllers/products')
 const basket = require('../controllers/shoppingBasket')
+const discount = require('../controllers/discount')
 const secureRoute = require('../lib/secureRoute')
 
 router.route('/users')
@@ -52,5 +53,10 @@ router.route('/order')
   
 router.route('/shipping')
   .put(secureRoute, basket.addShipping)
+
+router.route('/discount')
+  .post(secureRoute, discount.createDiscount)
+  .get(discount.allDiscounts)
+
 
 module.exports = router

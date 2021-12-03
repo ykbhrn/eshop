@@ -70,3 +70,7 @@ export const pendingOrder = (formData) => {
 export const addShipping = (formData) => {
   return axios.put('/api/shipping', formData, withHeaders())
 }
+
+export const getAllDiscounts = () => {
+  return axios.get('/api/discount')
+}

@@ -50,7 +50,7 @@ async function productDelete(req, res) {
   try {
     const productToDelete = await Product.findById(productId)
     if (!productToDelete) throw new Error('Not Found')
-    if (!productToDelete.user._id.equals(req.currentUser._id)) throw new Error('No tFound')
+    if (!productToDelete.user._id.equals(req.currentUser._id)) throw new Error('Not Found')
     await productToDelete.remove()
     res.sendStatus(204)
   } catch (err) {
