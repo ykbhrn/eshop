@@ -31,20 +31,26 @@ class PopupDiscount extends React.Component {
     try {
       const res = await getAllDiscounts()
       this.setState({discountTime: res.data[0].time})
-      console.log(res.data[0].time)
     } catch (err) {
       console.log(err)
     }
   }
 
+  slap = () => {
+    const discount = document.querySelector('.discount-popup-wrapper')
+    discount.style.animation = "cursor 0.2s linear"
+    setTimeout(() => {
+      discount.style.animation = "none"
+    }, 210);
+  }
+
   render() {
     return (
       <div>
-        {this.state.showDiscount &&
-        <h1>
-        no co ako sa mamem? 
-        </h1>
-        }
+        {/* {this.state.showDiscount && */}
+        <div className="discount-popup-wrapper" onClick={this.slap}>
+        </div>
+        {/* // } */}
       </div>
     )
   }
