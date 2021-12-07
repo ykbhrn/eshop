@@ -7,8 +7,8 @@ $dark-color: #474747;
 $gray-color: #747474;
 $navbar-height: 80px;
 
-html {
-  cursor: url('./images/frames/1.gif'), auto!important;
+html, body{
+  height: 100%;
 }
 
 body {
@@ -1522,15 +1522,27 @@ a.ctrl, .ctrl div {
 }
 
 //Discount popup
+.show-discount{
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 5;
+  cursor: url('./images/frames/1.gif'), auto;
+}
+
 .discount-popup-wrapper{
   background-image: url("./images/nazi.png");
   background-size: contain;
   width: 200px;
   height: 200px;
   position: absolute;
-  top: 500px;
-  left: 500px;
+  top: -400px;
+  left: -400px;
+  transition: 0.3s;
+  filter: brightness(0.7);
+  visibility: hidden;
 }
+
 
 @keyframes cursor {
   0% {
