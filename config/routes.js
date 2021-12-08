@@ -57,6 +57,7 @@ router.route('/shipping')
 router.route('/discount')
   .post(secureRoute, discount.createDiscount)
   .get(discount.allDiscounts)
+  .put(secureRoute, discount.changeUserDiscount)
 
 
 module.exports = router

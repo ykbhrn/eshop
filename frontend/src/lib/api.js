@@ -20,7 +20,7 @@ export const createProduct = () => {
 }
 
 export const getMyProfile = () => {
-  return axios.get('/api/profile/', withHeaders())
+  return axios.get('/api/profile', withHeaders())
 }
 
 export const getPublicProfile = id => {
@@ -73,4 +73,8 @@ export const addShipping = (formData) => {
 
 export const getAllDiscounts = () => {
   return axios.get('/api/discount')
+}
+
+export const addDiscount = (formData) => {
+  return axios.put('/api/discount', formData, withHeaders())
 }

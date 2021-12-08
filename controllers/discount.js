@@ -41,7 +41,24 @@ async function allDiscounts (req, res) {
   }
 }
 
+async function changeUserDiscount (req, res) {
+  try {
+    const user = req.currentUser
+    if (user.discount < req.body.discount) {
+      user.discount = req.body.discount
+    }
+    if (req.body.discount >= 40) {
+      user.discount = 40
+    }
+    await user.save()
+    res.status(202).json(user)
+  } catch (err) {
+    res.json(err)
+  }
+}
+
 module.exports = {
   createDiscount,
-  allDiscounts
+  allDiscounts,
+  changeUserDiscount
 }

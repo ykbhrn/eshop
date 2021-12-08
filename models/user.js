@@ -44,6 +44,7 @@ const userSchema = new mongoose.Schema({
   profileImage: { type: String, required: false },
   phone: { type: Number, required: false },
   basket: [productSchema],
+  discount: { type: Number, default: 0 },
   pendingOrder: orderSchema,
   paidOrders: [orderSchema],
   notifications: [notificationSchema],
