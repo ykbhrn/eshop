@@ -1,7 +1,6 @@
 import React from 'react'
-import { setToken } from '../../lib/auth'
 import { Redirect, Link } from 'react-router-dom'
-import { forgotPassword, resetPassword } from '../../lib/api'
+import { forgotPassword } from '../../lib/api'
 
 class ForgotPassword extends React.Component {
   state = {
@@ -13,6 +12,14 @@ class ForgotPassword extends React.Component {
     isLoading: false,
     error: '',
     showResponse: false,
+  }
+
+  async componentDidMount () {
+    try {
+      window.scrollTo(0, 0)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   handleChange = event => {

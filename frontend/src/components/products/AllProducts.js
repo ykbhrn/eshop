@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../../lib/api';
+import { getAllProducts } from '../../lib/api'
 
 class AllProducts extends React.Component {
   state = {
@@ -10,6 +10,7 @@ class AllProducts extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getAllProducts();
       this.setState({ products: res.data });
     } catch (err) {

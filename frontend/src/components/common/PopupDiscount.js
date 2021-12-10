@@ -15,13 +15,7 @@ class PopupDiscount extends React.Component {
   async componentDidMount () {
     const res = await getAllDiscounts()
     const resTwo = await getMyProfile()
-    const now = new Date()
     this.setState({discountTime: res.data[0].time, user: resTwo.data})
-
-    if (now.getMinutes() === res.data[0].time && this.state.discountCounter === 0) {
-      this.showHand()
-      this.discountAnimationEnd()
-    }
 
     this.changeDiscountTime()
 
@@ -121,7 +115,7 @@ class PopupDiscount extends React.Component {
         {this.state.discountHighScore && 
         <div className="score-window">
           <h2>
-            <span className="highlighted">Congratulations </span>, You Slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s </span> 
+            <span className="highlighted">Congratulations </span>, You Have Slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s </span> 
             which means we are giving you <span className="highlighted">{this.state.user.discount}% discount </span>
           on your order
           </h2>

@@ -2,7 +2,6 @@ import React from 'react';
 import { getMyProfile, pendingOrder } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
-
 class Checkout extends React.Component {
   state = {
     user: null,
@@ -45,6 +44,7 @@ class Checkout extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile()
       let priceSum = 0
       let basketSize = 0

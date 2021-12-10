@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 import { getSingleProduct, addToBasket } from '../../lib/api'
 
-
 class SingleProduct extends React.Component {
   state = {
     formData: {
@@ -21,6 +20,7 @@ class SingleProduct extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const productId = this.props.match.params.id;
       const res = await getSingleProduct(productId);
       const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0] };

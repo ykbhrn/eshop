@@ -1,7 +1,4 @@
 import React from 'react'
-import axios from 'axios'
-import { setToken } from '../../lib/auth'
-import { Redirect, Link } from 'react-router-dom'
 import { resetPassword } from '../../lib/api'
 
 class ResetPassword extends React.Component {
@@ -14,6 +11,14 @@ class ResetPassword extends React.Component {
     loading: false,
     error: '',
     showResponse: false,
+  }
+
+  async componentDidMount () {
+    try {
+      window.scrollTo(0, 0)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   handleChange = event => {

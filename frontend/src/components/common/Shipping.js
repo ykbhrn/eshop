@@ -11,6 +11,7 @@ class Shipping extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile();
       let priceSum = 0;
       let basketSize = 0;

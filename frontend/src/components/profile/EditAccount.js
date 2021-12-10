@@ -26,6 +26,7 @@ class EditAccount extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile()
       const formData = { ...this.state.formData, email: res.data.email, name: res.data.name, phone: res.data.phone }
       this.setState({ user: res.data, formData })

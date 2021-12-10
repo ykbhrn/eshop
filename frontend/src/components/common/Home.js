@@ -13,6 +13,7 @@ class Home extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getAllProducts();
       this.setState({ products: res.data });
       this.renderingFlowers();

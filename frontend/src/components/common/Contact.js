@@ -1,7 +1,4 @@
 import React from 'react'
-import axios from 'axios'
-import { setToken } from '../../lib/auth'
-import { Redirect, Link } from 'react-router-dom'
 
 class Contact extends React.Component {
   state = {
@@ -13,6 +10,14 @@ class Contact extends React.Component {
     isLoading: false,
     isSent: false,
     error: ''
+  }
+
+  async componentDidMount () {
+    try {
+      window.scrollTo(0, 0)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   handleChange = event => {

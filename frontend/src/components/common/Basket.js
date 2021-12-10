@@ -2,7 +2,6 @@ import React from 'react';
 import { getMyProfile, updateBasket, removeFromBasket } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
-
 class Basket extends React.Component {
   state = {
     user: null,
@@ -12,6 +11,7 @@ class Basket extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile();
       let priceSum = 0;
       let basketSize = 0;
@@ -82,6 +82,11 @@ class Basket extends React.Component {
     const { user } = this.state;
     return (
       <div className="basket-page">
+        {user.basket.length < 1 && 
+          <div className="empty-basket">
+            <h1>Your Basket is Empty</h1>
+          </div>
+        } 
         <div className="basket-container">
           {user.basket.map(item => {
             return <div className="basket-item-wrapper" key={item._id}>
@@ -120,12 +125,6 @@ class Basket extends React.Component {
             </div>;
           })}
         </div>
-
-        {user.basket.length < 1 && 
-        <div className="empty-basket">
-          <h1>Your Basket is Empty</h1>
-        </div>
-        } 
 
         {user.basket.length > 0 &&
          <div className="checkout-button-total-price">

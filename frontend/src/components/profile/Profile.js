@@ -3,7 +3,6 @@ import { logout } from '../../lib/auth';
 import { getMyProfile } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
-
 class Profile extends React.Component {
   state = {
     user: null,
@@ -11,6 +10,7 @@ class Profile extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile();
       this.setState({ user: res.data });
     } catch (err) {

@@ -10,6 +10,14 @@ class Authorization extends React.Component {
     register: false
   }
 
+  async componentDidMount () {
+    try {
+      window.scrollTo(0, 0)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  
   showRegisterOrLogin = (thing) => {
     if (thing === "login") {
       this.setState({ login: true, register: false })

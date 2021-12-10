@@ -20,6 +20,7 @@ import Checkout from './components/common/Checkout'
 import Shipping from './components/common/Shipping'
 import Payment from './components/common/Payment'
 import Contact from './components/common/Contact'
+import Footer from './components/common/Footer'
 import About from './components/common/About'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
@@ -27,16 +28,18 @@ import Done from './components/common/Done'
 class App extends React.Component {
   state = {
     basketLength: null,
+    showFooter: false
   }
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile()
       let basketSize = 0
       res.data.basket.map(item => {
         basketSize = basketSize + Number(item.chosenQuantity)
       })
-      this.setState({ basketLength: basketSize })
+      this.setState({ basketLength: basketSize, showFooter: true })
     } catch (err) {
       console.log(err)
     }
@@ -58,32 +61,37 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <BasketIcon
-          basketLength={this.state.basketLength}
-        />
-        <PopupDiscount />
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
-          <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
-          <Route path="/products" component={AllProducts} />
-          <Route path="/entering/:id" component={Authorization} />
-          <Route path="/entering" component={Authorization} />
-          <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/reset-password/:token" component={ResetPassword} />
-          <Route path="/profile/edit" component={EditAccount} />
-          <Route path="/profile/adress" component={EditAdress} />
-          <Route path="/profile/orders" component={YourOrders} />
-          <Route path="/profile" component={Profile} />
-          <Route path='/shipping' component={Shipping} />
-          <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/payment" component={Payment} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/about" component={About} />
-          <Route path="/done" component={Done} />
-        </Switch>
+        <div className="whole-page">
+          <BasketIcon
+            basketLength={this.state.basketLength}
+          />
+          <PopupDiscount />
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
+            <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
+            <Route path="/products" component={AllProducts} />
+            <Route path="/entering/:id" component={Authorization} />
+            <Route path="/entering" component={Authorization} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/reset-password/:token" component={ResetPassword} />
+            <Route path="/profile/edit" component={EditAccount} />
+            <Route path="/profile/adress" component={EditAdress} />
+            <Route path="/profile/orders" component={YourOrders} />
+            <Route path="/profile" component={Profile} />
+            <Route path='/shipping' component={Shipping} />
+            <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/payment" component={Payment} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
+            <Route path="/done" component={Done} />
+          </Switch>
+        </div>
+        {this.state.showFooter &&
+          <Footer />
+        }
       </BrowserRouter>
     )
   }

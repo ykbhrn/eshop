@@ -3,7 +3,6 @@ import { logout } from '../../lib/auth';
 import { getMyProfile, updateUserAccount } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
-
 class YourOrders extends React.Component {
   state = {
     formData: {
@@ -26,6 +25,7 @@ class YourOrders extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile()
       const formData = { ...this.state.formData, email: res.data.email, name: res.data.name, phone: res.data.phone }
       this.setState({ user: res.data, formData })

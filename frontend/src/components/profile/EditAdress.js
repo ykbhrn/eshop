@@ -45,6 +45,7 @@ class EditAdress extends React.Component {
 
   async componentDidMount() {
     try {
+      window.scrollTo(0, 0)
       const res = await getMyProfile()
       if (res.data.paidOrders.length > 0) {
         this.setState({ user: res.data, formData: res.data.paidOrders[0] })
