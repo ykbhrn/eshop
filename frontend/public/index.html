@@ -17,9 +17,12 @@
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
   <script>$(document).ready(function () {
-      $('.close').mouseover(function () {
+    $('.home-logo').addClass('change-image');
+    $('.flower').addClass('bright');
+      $('.close').mouseenter(function () {
         $('.home-menu-ul').addClass('active');
         $('.home-title').addClass('title-color');
+        $('.home-logo').removeClass('change-image');
 
         $('.flower').removeClass("bright")
       })
@@ -27,6 +30,7 @@
         $('.home-menu-ul').toggleClass('active');
         $('.home-title').toggleClass('title-color');
         $('.flower').toggleClass('bright');
+        $('.home-logo').toggleClass('change-image');
       })
     
       $('html').click(function (event) {

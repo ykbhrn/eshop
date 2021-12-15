@@ -17,9 +17,6 @@ class Home extends React.Component {
       const res = await getAllProducts();
       this.setState({ products: res.data });
       this.renderingFlowers();
-      const flower = document.querySelector(".flower")
-      flower.classList.add("bright")
-
     } catch (err) {
       console.log(err);
     }
@@ -81,7 +78,7 @@ class Home extends React.Component {
             {this.state.flowerProducts.map(product => {
               return <Link to={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
-                  <div className="flower">
+                  <div className="flower bright">
                     <img src={product.images[0]} className="flowerProductImage" />
                     <div className="big-petal big-petal1"></div>
                     <div className="big-petal big-petal2"></div>
@@ -166,7 +163,7 @@ class Home extends React.Component {
                     <div className="home-menu-button-text">{this.state.mainButton}</div>
                   }
                   {!this.state.mainButton &&
-                    <div><i className="fas"><img className="home-logo" src="./images/icon-logo.png"/></i></div>
+                    <div><i className="fas"><div className="home-logo"></div></i></div>
                   }
                 </Link>
               </li>
@@ -176,7 +173,7 @@ class Home extends React.Component {
             {this.state.flowerProducts.map(product => {
               return <Link to={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
-                  <div className="flower">
+                  <div className="flower bright">
                     <img src={product.images[0]} className="flowerProductImage" />
                     <div className="big-petal big-petal1"></div>
                     <div className="big-petal big-petal2"></div>

@@ -75,8 +75,15 @@ button{
     transform: rotate(180deg);
   }
   .home-logo{
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
+      background-image: url("./images/logo.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+  }
+  .change-image{
+    background-image: url("./images/logo-white.png");
   }
   .home-title-wrapper{
     display: flex;
@@ -175,7 +182,7 @@ button{
   }
   .chekout-button:hover{
     transform: scale(1.03);
-    color: $dark-color;    
+    color: $third-color;    
   }
   .total-price{
     text-align: center;
@@ -347,7 +354,7 @@ h2{
     }
     .right:hover{
       transform: scale(1.02);
-      color: $dark-color;
+      color: $third-color;
     }
     .left{
       background: white;
@@ -501,7 +508,7 @@ h3:hover, .small-item:hover{
   padding-bottom: 20px;
 }
 .logo{
-  background-image: url("./images/logo.png");
+  background-image: url("./images/logo2.png");
   background-repeat: no-repeat;
   width: 150px;
   height: 150px;
@@ -1081,7 +1088,7 @@ h1{
   background: $third-color; 
 }
 .chosen-side-image{
-  border: 1px solid $text-color;
+  border: 1px solid $third-color;
   filter: brightness(1);
 }
 .product-colors-container{

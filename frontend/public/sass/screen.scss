@@ -5,9 +5,9 @@
 /* line 18, ../sass/screen.scss */
 
 //First Color Variant
-$first-color:#FF1510;
+$first-color:rgb(82,193,199);
 $second-color: rgb(80,29,89);
-$third-color: rgb(82,193,199);
+$third-color: #FF1510;
 $fourth-color: #FFE400;
 
 // Second Color Variant
@@ -27,6 +27,9 @@ $fourth-color: #FFE400;
   font-size: 7px;
   color: $second-color;
   font-weight: 400;
+}
+.home-menu-button-text{
+  margin-top: -4px;
 }
 /* line 34, ../sass/screen.scss */
 .home-menu a {
@@ -228,15 +231,15 @@ $fourth-color: #FFE400;
 /* line 107, ../sass/screen.scss */
 .home-menu ul li.close .fas {
   position: absolute;
-  left: 19%;
-  top: 5%;
+  left: 13%;
+  top: 17%;
 }
 /* line 113, ../sass/screen.scss */
 .home-menu ul li.close a {
   background: none;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
   font-size: 45px;
 }
 /* line 123, ../sass/screen.scss */
