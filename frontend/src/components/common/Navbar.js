@@ -117,13 +117,13 @@ class Navbar extends React.Component {
         </div>
         <div className="header">
           <a href="/" className="link-no-underline">
-            <div className="static-txt">Peacefully <span>&#174;</span> </div>
+            <div className="logo"></div>
           </a>
-          <ul className="dynamic-txts">
+          {/* <ul className="dynamic-txts">
             <li><span>bring</span></li>
             <li><span>hippies</span></li>
             <li><span>back</span></li>
-          </ul>
+          </ul> */}
         </div>
 
         <div className="main-menu-wrapper">

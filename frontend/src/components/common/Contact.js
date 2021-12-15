@@ -55,7 +55,7 @@ class Contact extends React.Component {
             <input className="subject" type="text" name="subject" placeholder="subject" />
             <textarea className="message" name="message" id="" cols="50" rows="7" placeholder="..."></textarea>
             <div className="status"></div>
-            <button className="button" type="submit">Send</button>
+            <button className="classic-btn" type="submit">Send</button>
           </form>
         </div>
       </div>

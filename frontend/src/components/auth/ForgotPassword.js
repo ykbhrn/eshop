@@ -6,7 +6,6 @@ class ForgotPassword extends React.Component {
   state = {
     formData: {
       email: '',
-      password: '',
     },
     redirect: false,
     isLoading: false,

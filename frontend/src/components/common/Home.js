@@ -17,6 +17,9 @@ class Home extends React.Component {
       const res = await getAllProducts();
       this.setState({ products: res.data });
       this.renderingFlowers();
+      const flower = document.querySelector(".flower")
+      flower.classList.add("bright")
+
     } catch (err) {
       console.log(err);
     }
@@ -33,6 +36,7 @@ class Home extends React.Component {
   renderingFlowers = () => {
     const newProductsArray = [];
     const randomNumberArray = [];
+
     if (this.state.products.length > 0) {
       for (let i = 0; i < 4; i++) {
         const randomNumber = Math.floor(Math.random() * 10);
@@ -44,6 +48,7 @@ class Home extends React.Component {
         }
       }
     }
+
     this.setState({ flowerProducts: newProductsArray });
   }
 
@@ -51,22 +56,27 @@ class Home extends React.Component {
     return (
       <>
         <div className="home-page">
+
           <style>
             {'\
           .basket-icon-wrapper{\
             display: none;\
           }\
-          .main-menu-wrapper{\
-            display: none;\
-          }\
-          .products-navbar-item{\
-            display: none;\
-          }\
-          .hover-products-menu{\
+          .navbar{\
             display: none;\
           }\
           '}
           </style>
+
+          <div className="home-title-wrapper"><div className="home-title">Nu Hippies Movement</div></div>
+          <div className="header">
+            <ul className="dynamic-txts">
+              <li><span>bring</span></li>
+              <li><span>hippies</span></li>
+              <li><span>back</span></li>
+            </ul>
+          </div>
+          
           <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
               return <Link to={`/products/${product._id}`} key={product._id}>
@@ -91,7 +101,7 @@ class Home extends React.Component {
             })}
           </div>
           <div className="home-menu">
-            <ul>
+            <ul className="home-menu-ul">
               <li>
                 <Link to="/products" onMouseEnter={() => {
                   this.changeMainButton("Clothes");
@@ -156,7 +166,7 @@ class Home extends React.Component {
                     <div className="home-menu-button-text">{this.state.mainButton}</div>
                   }
                   {!this.state.mainButton &&
-                    <div><i className="fas fa-peace"></i></div>
+                    <div><i className="fas"><img className="home-logo" src="./images/icon-logo.png"/></i></div>
                   }
                 </Link>
               </li>

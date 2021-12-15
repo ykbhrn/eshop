@@ -1,11 +1,18 @@
 $main-font: 'Gluten', cursive;
 $logo-font: "Galindo", cursive;
-$first-color: #FF1510;
-$second-color: #FFE400;
-$third-color: #14A76C;
-$dark-color: #474747;
+// $dark-color: #FF1510;
+// $second-color: rgb(250,203,82);
+// $third-color: rgb(82,193,199);
+// $dark-color: rgb(82,193,199);
 $gray-color: #747474;
 $navbar-height: 80px;
+
+//Second Color Variant
+$dark-color: rgb(80,29,89);
+$second-color: rgb(250,203,82);
+$third-color: rgb(82,193,199);
+$fourth-color: #FF1510;
+$text-color: #474747;
 
 html, body{
   height: 100%;
@@ -14,7 +21,7 @@ html, body{
 body {
   font-family: $main-font;
   overflow-x: hidden;
-  color: $dark-color;
+  color: $text-color;
   font-weight: 200;
 }
 
@@ -27,10 +34,10 @@ input, textarea{
   margin-top: 4px;
   font-size: 15px;
   border-radius: 5px;
-  border: 2px solid $dark-color;
+  border: 2px solid $text-color;
 }
 input:focus, textarea:focus{
-  outline: $first-color;
+  outline: $second-color;
   border: 2px solid $second-color;
 }
 
@@ -57,7 +64,7 @@ button{
 }
 .classic-btn:hover{
   transform: scale(1.04);
-  color: $first-color;
+  color: $third-color;
 }
 
 * { margin: 0; padding: 0; }
@@ -66,6 +73,23 @@ button{
 .home-page{
   .flip{
     transform: rotate(180deg);
+  }
+  .home-logo{
+      width: 30px;
+      height: 30px;
+  }
+  .home-title-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100vw
+  }
+  .home-title{
+    padding-top: 30px;
+    font-size: 42px;
+    font-weight: 400;
+  }
+  .title-color{
+    color: $dark-color;
   }
 }
 
@@ -105,7 +129,7 @@ button{
   }
   .basket-remove{
     cursor: pointer;
-    color: $first-color;
+    color: $dark-color;
   }
   .basket-subtotal{
     font-size: 21px;
@@ -151,7 +175,7 @@ button{
   }
   .chekout-button:hover{
     transform: scale(1.03);
-    color: $first-color;    
+    color: $dark-color;    
   }
   .total-price{
     text-align: center;
@@ -188,8 +212,8 @@ button{
   }
   .basket-number{
     font-size: 16px;
-    font-weight: 400;
-    color: $first-color;
+    font-weight: 500;
+    color: $third-color;
     position: absolute;
     right: 13px;
     top: 7px;
@@ -323,7 +347,7 @@ h2{
     }
     .right:hover{
       transform: scale(1.02);
-      color: $first-color;
+      color: $dark-color;
     }
     .left{
       background: white;
@@ -379,31 +403,32 @@ h2{
     }
   }
 
+
+
 .navbar {
   width: 100vw;
   font-family: $logo-font;
+  font-size: 30px;
   margin-bottom: 15px;
-  background: $dark-color;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 4;
   a{
     text-decoration: none;
-    color: $second-color;
   }
 
 .products-navbar{
   display: flex;
-  color: $second-color;
+  color: $dark-color;
   position: absolute;
   font-family: $main-font!important;
   font-weight: 300;
   font-size: 17px;
   left: 30px;
   .active{
-    background: $second-color;
-    color: $first-color;
+    background: white;
+    color: $dark-color;
   }
 }
 .gender-navbar-part-wrapper{
@@ -432,7 +457,7 @@ h3{
   cursor: pointer;
 }
 h3:hover, .small-item:hover{
-  color: $first-color;
+  color: $dark-color;
 }
 .products-navbar-item{
     margin-right: 30px;
@@ -443,16 +468,11 @@ h3:hover, .small-item:hover{
 }
 .products-navbar-item:hover{
   background: $second-color;
-  color: $first-color;
-}
-.logo {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
+  color: $dark-color;
 }
 .link-no-underline {
   text-decoration: none;
-  color: $first-color;
+  color: $dark-color;
 }
 }
 
@@ -462,7 +482,7 @@ h3:hover, .small-item:hover{
   left: -2px;
   display: flex;
   justify-content: center;
-  background: $second-color;
+  background: white;
   color: $dark-color;
   width: 440px;
   z-index: 4;
@@ -473,6 +493,26 @@ h3:hover, .small-item:hover{
   a{
     color: $dark-color;
   }
+}
+
+.logo-wrapper{
+  width: 100px;
+  height: 100px;
+  padding-bottom: 20px;
+}
+.logo{
+  background-image: url("./images/logo.png");
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-position: center;
+}
+.logo:hover{
+  transform: scale(1.04);
+}
+.colored{
+  color: $third-color;
 }
 
 @keyframes menu-in{
@@ -501,15 +541,15 @@ h3:hover, .small-item:hover{
 }
 .header .dynamic-txts {
   margin-left: 15px;
-  height: $navbar-height;
-  line-height: $navbar-height;
+  height: 80px;
+  line-height: 80px;
   overflow: hidden;
 }
 .dynamic-txts li {
   list-style: none;
   color: $second-color;
-  font-size: 43px;
-  font-weight: 500;
+  font-size: 37px;
+  font-weight: 300;
   position: relative;
   top: 0;
   animation: slide 12s steps(4) infinite;
@@ -529,10 +569,10 @@ h3:hover, .small-item:hover{
   position: absolute;
   left: 0;
   height: 100%;
-  margin-top: 10px;
+  margin-top: 28px;
   width: 100%;
-  background: $dark-color;
-  border-left: 2px solid $first-color;
+  background: white;
+  border-left: 2px solid $dark-color;
   animation: typing 3s steps(10) infinite;
 }
 @keyframes typing {
@@ -556,6 +596,9 @@ h3:hover, .small-item:hover{
   position: relative;
   cursor: pointer;
 }
+.bright{
+  filter: brightness(0.7);
+}
 .flower {
   display: grid;
   grid-template-columns: repeat(6, 50px);
@@ -564,7 +607,7 @@ h3:hover, .small-item:hover{
 }
 .big-petal {
   animation: 1000ms showPetals linear forwards;
-  background: linear-gradient(to bottom, rgba(231, 249, 33, 0.536), rgba(255, 251, 213, 0.2));
+  background: linear-gradient(to bottom, rgba(231, 249, 33, 0.536), rgba(204, 193, 99, 0.2));
   opacity: 0;
 }
 .small-petal {
@@ -717,7 +760,7 @@ button{
 .auth-btn:hover{
   transform: scale(1.04);
   transition: 0.2s;
-  color: $first-color;
+  color: $dark-color;
 }
 .authorization-section{
   display: flex;
@@ -788,7 +831,7 @@ button{
   .forgot{
     margin-top: 10px;
     margin-left: 60px;
-    color: $first-color;
+    color: $dark-color;
     cursor: pointer;
   }
   a{
@@ -937,10 +980,10 @@ button{
     margin-right: 10px;
   }
   a:hover{
-    color: $first-color;
+    color: $dark-color;
   }
   .cat-nav-item:last-child{
-      color: $first-color;
+      color: $dark-color;
   }
   .symbol{
     margin: 0 12px 0 5px;
@@ -1016,7 +1059,6 @@ h1{
   height: 24px;
   font-size: 20px;
   font-weight: 300;
-  color: $dark-color;
 }
 }
 .product-size-container{
@@ -1026,7 +1068,7 @@ h1{
   margin-top: 30px;
 }
 .product-size-wrapper{
-  border: 1px solid $dark-color;
+  border: 1px solid $text-color;
   padding: 5px 20px;
   cursor: pointer;
   margin-right: 15px;
@@ -1036,10 +1078,10 @@ h1{
   font-size: 26px;
 }
 .chosen-size{
-  background: $first-color; 
+  background: $third-color; 
 }
 .chosen-side-image{
-  border: 1px solid $first-color;
+  border: 1px solid $text-color;
   filter: brightness(1);
 }
 .product-colors-container{
@@ -1048,12 +1090,12 @@ h1{
 }
 .product-color-wrapper{
   margin-right: 10px;
-  border: 1px solid $dark-color;
+  border: 1px solid $text-color;
   padding: 10px 20px;
   cursor: pointer;
 }
 .chosen-color{
-  background: $first-color;
+  background: $third-color;
 }
 .number{
   width: 47px;
@@ -1085,11 +1127,6 @@ h1{
   label{
     margin-right: 7px;
   }
-}
-.classic-btn:hover{
-  transform: scale(1.04);
-  transition: 0.2s;
-  color: $first-color;
 }
 .product-description{
   width: 70vw;
@@ -1201,19 +1238,19 @@ h1{
   z-index: 3;
 }
 .logout-wrapper:hover{
-  color: $first-color;
+  color: $dark-color;
 }
 .account-nav{
   display: flex;
   align-self: flex-start;
-  color: $first-color;
+  color: $dark-color;
   margin-left: 20px;
   .auth{
     cursor: pointer;
     color: $dark-color;
   }
   .auth:hover{
-    color: $first-color;
+    color: $dark-color;
   }
   a{
     text-decoration: none;
@@ -1221,7 +1258,7 @@ h1{
     margin-right: 10px;
   }
   a:hover{
-    color: $first-color;
+    color: $dark-color;
   }
   .sign{
     margin-right: 10px;
@@ -1265,7 +1302,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    button{
+    .classic-btn{
       border: 1px solid $dark-color;
       background: $dark-color;
       color: $second-color;
@@ -1285,7 +1322,7 @@ h1{
       }
     }
     button:hover{
-      color: $first-color;
+      color: $dark-color;
       transform: scale(1.04);
     }
   }
@@ -1300,8 +1337,8 @@ h1{
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  .edit-btn{
-    margin: 7px auto;
+  .classic-btn{
+    margin: 17px;
   }
   .edit-line-container{
     margin-top: 5vh;
@@ -1373,7 +1410,7 @@ h1{
 .main-menu-wrapper{
   display: block;
   #ctrl-button{
-    background: $dark-color;
+    background: $second-color;
     width: 60px;
     height: 60px;
     line-height: 60px;
@@ -1383,7 +1420,7 @@ h1{
     opacity: 0.8;
   }
   #ctrl-button:hover{
-    background: $first-color;
+    background: $third-color;
     transform: scale(1.1);
     opacity: 1;
   }
@@ -1394,13 +1431,13 @@ h1{
   width: 370px;
   margin-left: -164px;
   margin-top: -10px;
-  border: 5px solid $first-color;
+  border: 5px solid $dark-color;
   border-radius: 15px;
   transform: scale(0.4);
 }
 .fa-plus, .fa-minus{
   font-size: 35px;
-  color: $second-color;
+  color: $dark-color;
 }
 .ctrl {
 	position: fixed;
@@ -1411,13 +1448,13 @@ h1{
 }
 a.ctrl, .ctrl div {
 	display: block;
-	color: $second-color;
+	color: $dark-color;
 	text-align: center;
 	text-decoration: none;
   cursor: pointer;
 }
 .ctrl div:hover{
-  color: $first-color;
+  color: $third-color;
 }
 .button {
 	z-index: 2;
@@ -1441,7 +1478,7 @@ a.ctrl, .ctrl div {
 	position: absolute;
 	top: 32.5%;
 	width: .3em; height: 15.2%;
-	background: $second-color;
+	background: $dark-color;
 	content: '';
 }
 .tip:before {
@@ -1503,7 +1540,7 @@ a.ctrl, .ctrl div {
 		transparent 50%, white 50%, transparent 54%) no-repeat 63.5% 0,
 		/* make sure inner part is transparent */
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
-					rgba(255,255,255,.3) 0%, $dark-color 50%);
+					rgba(255,255,255,.3) 0%, $second-color 50%);
     background-size: 17% 17%, 17% 17%, cover;
 	line-height: 1.7;
 }
@@ -1564,7 +1601,7 @@ a.ctrl, .ctrl div {
     font-weight: 400;
   }
   .highlighted{
-    color: $first-color;
+    color: $dark-color;
   }
 .classic-btn{
   margin-top: 40px;
@@ -1727,7 +1764,7 @@ a.ctrl, .ctrl div {
 
 //footer 
 .footer-wrapper {
-  border-top: 5px solid $dark-color;
+  border-top: 1px solid $dark-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1743,7 +1780,7 @@ a.ctrl, .ctrl div {
   }
   .footer-menu-wrapper li:hover{
     transform: scale(1.05);
-    color: $first-color;
+    color: $dark-color;
   }
   .social-media-icons{
     margin-right: 40px;
@@ -1753,29 +1790,66 @@ a.ctrl, .ctrl div {
       cursor: pointer;
     }
     .fab:hover{
-      color: $first-color;
+      color: $dark-color;
     }
+  }
+  .logo{
+    width: 130px;
+    height: 130px;
   }
   .header{
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  transform: scale(0.4);
-  margin-left: -40px;
+  justify-content: center;
+  transform: scale(0.6);
   }
-.static-txt {
-  font-size: 49px;
-  font-weight: 400;
-  cursor: pointer;
-  color: $first-color;
-}
 a {
   text-decoration: none;
 }
 .dynamic-txts li span::after {
-  height: 150%;
+  height: 100%;
   width: 100%;
   background: white;
 }
+}
+
+
+.order-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  .main-part{
+    display: flex;
+  }
+.order{
+  width: 600px;
+  height: 400px;
+  background: $second-color;
+  .top{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 50px;
+    background: $dark-color;
+    color: $second-color;
+    font-weight: 400;
+  }
+}
+.strong{
+  font-weight: 300;
+}
+.first, .second{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 50%;
+  padding: 5px;
+}
+// .second{
+//   display: flex;
+//   flex-direction: column;
+// }
 }
 

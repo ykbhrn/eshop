@@ -7,7 +7,7 @@ const Footer = () => (
   <div className="footer-wrapper">
     <div className="header">
       <a href="/" className="link-no-underline">
-        <div className="static-txt">Peacefully <span>&#174;</span> </div>
+        <div className="logo"></div>
       </a>
       <ul className="dynamic-txts">
         <li><span>bring</span></li>
@@ -20,7 +20,7 @@ const Footer = () => (
       <ul className="footer-menu">
         <li>About US</li>
         <li>Contact Us</li>
-        <li>Terms and Conditions</li>
+        <Link to="/terms"><li>Terms and Conditions</li></Link>
         <li>Privacy Policy</li>
         <li>Delivery</li>
         <li>Returns</li>

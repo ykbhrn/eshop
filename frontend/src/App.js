@@ -22,6 +22,8 @@ import Payment from './components/common/Payment'
 import Contact from './components/common/Contact'
 import Footer from './components/common/Footer'
 import About from './components/common/About'
+import Terms from './components/common/Terms'
+import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
 
@@ -34,12 +36,13 @@ class App extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+      this.setState({showFooter: true})
       const res = await getMyProfile()
       let basketSize = 0
       res.data.basket.map(item => {
         basketSize = basketSize + Number(item.chosenQuantity)
       })
-      this.setState({ basketLength: basketSize, showFooter: true })
+      this.setState({ basketLength: basketSize })
     } catch (err) {
       console.log(err)
     }
@@ -86,6 +89,8 @@ class App extends React.Component {
             <Route path="/payment" component={Payment} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
+            <Route path="/terms" component={Terms} />
+            <Route path="/privacy" component={Privacy} />
             <Route path="/done" component={Done} />
           </Switch>
         </div>

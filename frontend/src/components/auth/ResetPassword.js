@@ -79,7 +79,7 @@ class ResetPassword extends React.Component {
               </div>
 
               {error && <small className="error-message">{error}</small>}
-              <button type="submit" className="forgot-btn">Submit</button>
+              <button type="submit" className="classic-btn">Submit</button>
             </form>
           </>
           }

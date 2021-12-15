@@ -3,6 +3,16 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 18, ../sass/screen.scss */
+
+//First Color Variant
+$first-color:#FF1510;
+$second-color: rgb(80,29,89);
+$third-color: rgb(82,193,199);
+$fourth-color: #FFE400;
+
+// Second Color Variant
+
+
 .home-menu {
   font-family: 'Gluten', cursive;
   display: flex;
@@ -15,7 +25,7 @@
 /* line 29, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
   font-size: 7px;
-  color: #474747;
+  color: $second-color;
   font-weight: 400;
 }
 /* line 34, ../sass/screen.scss */
@@ -52,18 +62,18 @@
 }
 /* line 57, ../sass/screen.scss */
 .home-menu ul li a {
-  color: #FFE400;
+  color: $fourth-color;
   display: block;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   text-align: center;
-  background: #FF1510;
+  background: $first-color;
   font-size: 25px;
 }
 /* line 68, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
-  background: #474747;
+  background: $second-color;
 }
 /* line 75, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) {
@@ -83,7 +93,7 @@
 }
 /* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a:hover {
-  background: #f60500;
+  background: $third-color;
   color: white;
 }
 /* line 75, ../sass/screen.scss */
@@ -104,7 +114,7 @@
 }
 /* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a:hover {
-  background: #f60500;
+  background: $third-color;
   color: white;
 }
 /* line 75, ../sass/screen.scss */
@@ -125,7 +135,7 @@
 }
 /* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a:hover {
-  background: #f60500;
+  background: $third-color;
   color: white;
 }
 /* line 75, ../sass/screen.scss */
@@ -146,7 +156,7 @@
 }
 /* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a:hover {
-  background: #f60500;
+  background: $third-color;
   color: white;
 }
 /* line 75, ../sass/screen.scss */
@@ -167,7 +177,7 @@
 }
 /* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a:hover {
-  background: #f60500;
+  background: $third-color;
   color: white;
 }
 /* line 75, ../sass/screen.scss */
@@ -188,14 +198,14 @@
 }
 /* line 83, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a:hover {
-  background: #f60500;
+  background: $third-color;
   color: white;
 }
 /* line 91, ../sass/screen.scss */
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://static5.depositphotos.com/1032903/410/v/950/depositphotos_4104560-stock-illustration-vector-seamless-texture-60s.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1506057278219-795838d4c2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGlwcGllfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
   background-position: 0 0;
   background-size: cover;
   animation: moving 10s linear infinite;
@@ -204,10 +214,10 @@
   left: calc(50% - 25px);
   top: calc(50% - 25px);
   display: block;
-  -moz-transform: scale(4.1) rotate(23deg);
-  -ms-transform: scale(4.1) rotate(23deg);
-  -webkit-transform: scale(4.1) rotate(23deg);
-  transform: scale(4.1) rotate(23deg);
+  -moz-transform: scale(4.1);
+  -ms-transform: scale(4.1);
+  -webkit-transform: scale(4.1);
+  transform: scale(4.1);
   -moz-transition: ease-in-out 0.3s all;
   -o-transition: ease-in-out 0.3s all;
   -webkit-transition: ease-in-out 0.3s all;
@@ -218,7 +228,7 @@
 /* line 107, ../sass/screen.scss */
 .home-menu ul li.close .fas {
   position: absolute;
-  left: 6%;
+  left: 19%;
   top: 5%;
 }
 /* line 113, ../sass/screen.scss */
