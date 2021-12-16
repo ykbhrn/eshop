@@ -99,7 +99,7 @@ class EditAccount extends React.Component {
   }
 
   render() {
-    const { user, formData, errors } = this.state
+    const { user, formData, errors, isLoading } = this.state
     if (!user) return null
     return (
       <div className="edit-account-page">
@@ -164,7 +164,14 @@ class EditAccount extends React.Component {
               onChange={this.handleChange}
             /> 
             {errors.passwordConfirmation ? <small className="error-message">{errors.passwordConfirmation}</small> : ''}
-            <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Done</button>
+            {!isLoading &&
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+            }
+            {isLoading &&
+              <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Done</button>
+            }
           </form>
         </div>
         }

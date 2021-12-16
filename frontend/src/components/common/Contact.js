@@ -29,8 +29,8 @@ class Contact extends React.Component {
     event.preventDefault()
     try {
       this.setState({ loading: true })
+      this.setState({ loading: false })
 
-      this.setState({ isSent: true })
     } catch (err) {
       this.setState({ error: 'Invalid Credentials', loading: false })
     }
@@ -43,19 +43,25 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { formData, error, loading } = this.state
+    const { formData, error, isLoading } = this.state
     return (
       <div className="contact-page">
         {this.renderRedirect()}
         <div className="form-wrapper">
           <h2>Contact Us</h2>
-          <form action="https://formspree.io/f/mknkdgqb" onClick={this.handleSubmit}
-            method="POST">
+          <form action="https://formspree.io/f/mknkdgqb" method="POST">
             <input className="email" type="email" name="email" placeholder="your email" />
             <input className="subject" type="text" name="subject" placeholder="subject" />
             <textarea className="message" name="message" id="" cols="50" rows="7" placeholder="..."></textarea>
             <div className="status"></div>
-            <button className="classic-btn" type="submit">Send</button>
+            {isLoading &&
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+            }
+            {!isLoading &&
+                <button type="submit" className="classic-btn">Send</button>  
+            }
           </form>
         </div>
       </div>

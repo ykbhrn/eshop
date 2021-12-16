@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Shipping extends React.Component {
   state = {
     user: null,
-    shipping: false
+    shipping: 3.99
   }
 
   async componentDidMount() {

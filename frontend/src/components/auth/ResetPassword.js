@@ -1,5 +1,6 @@
 import React from 'react'
 import { resetPassword } from '../../lib/api'
+import { Link } from 'react-router-dom'
 
 class ResetPassword extends React.Component {
   state = {
@@ -8,7 +9,7 @@ class ResetPassword extends React.Component {
       password: '',
     },
     redirect: false,
-    loading: false,
+    isLoading: false,
     error: '',
     showResponse: false,
   }
@@ -30,12 +31,12 @@ class ResetPassword extends React.Component {
   handleSubmit = async event => {
     event.preventDefault()
     try {
-      this.setState({ loading: true })
+      this.setState({ isLoading: true })
       const res = await resetPassword(this.state.formData)
-      this.setState({ showResponse: true, loading: false })
+      this.setState({ showResponse: true, isLoading: false })
       console.log(res)
     } catch (err) {
-      this.setState({ error: err.response.data.error, loading: false })
+      this.setState({ error: err.response.data.error, isLoading: false })
     }
   }
 
@@ -46,10 +47,15 @@ class ResetPassword extends React.Component {
   }
 
   render() {
-    const { formData, error, loading } = this.state
+    const { formData, error, isLoading } = this.state
     return (
       <div className="reset-page">
         {this.renderRedirect()}
+
+        <div className="account-nav">
+          <Link to="/entering"><span className="sign">&#60; </span>Back</Link>
+        </div>
+          
         <div className="forgot-wrapper">
 
           {!this.state.showResponse &&
@@ -79,7 +85,14 @@ class ResetPassword extends React.Component {
               </div>
 
               {error && <small className="error-message">{error}</small>}
-              <button type="submit" className="classic-btn">Submit</button>
+              {isLoading &&
+                <div className="classic-btn  btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+              }
+              {!isLoading &&
+                <button type="submit" className="classic-btn">Submit</button>  
+              }
             </form>
           </>
           }

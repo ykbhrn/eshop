@@ -163,7 +163,7 @@ class EditAdress extends React.Component {
 
   render() {
     if (!this.state.user) return null
-    const { user, formData, errors } = this.state
+    const { user, formData, errors, isLoading } = this.state
     return (
       <div className="edit-adress-page">
         <div className="account-nav">
@@ -379,7 +379,14 @@ class EditAdress extends React.Component {
                 </form>
               }
             </div>
+            {!isLoading &&
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+            }
+            {isLoading &&
             <button className="classic-btn" onClick={this.addAdress}>Done</button>
+            }
           </>
         }
 

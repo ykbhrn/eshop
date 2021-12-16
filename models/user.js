@@ -33,7 +33,11 @@ const orderSchema = new mongoose.Schema({
   phone: { type: Number, required: false },
   shipping: { type: Number, default: 0 },
   isBillingAdress: { type: String, default: 'no' },
-  billingAdress: billingAdressSchema
+  billingAdress: billingAdressSchema,
+  items: [],
+  sumPrice: { type: Number },
+  discount: { type: Number },
+  totalPrice: { type: Number }
 })
 
 const userSchema = new mongoose.Schema({
@@ -44,8 +48,11 @@ const userSchema = new mongoose.Schema({
   profileImage: { type: String, required: false },
   phone: { type: Number, required: false },
   basket: [productSchema],
+  sumPrice: { type: Number, default: 0 },
   discount: { type: Number, default: 0 },
+  totalPrice: { type: Number, default: 0 },
   pendingOrder: orderSchema,
+  finishedOrder: orderSchema,
   paidOrders: [orderSchema],
   notifications: [notificationSchema],
   newNotification: { type: Boolean, default: false },

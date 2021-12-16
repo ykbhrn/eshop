@@ -22,13 +22,12 @@ class Login extends React.Component {
   handleSubmit = async event => {
     event.preventDefault()
     try {
-      this.setState({ loading: true })
+      this.setState({ isLoading: true })
       const res = await loginUser(this.state.formData)
       setToken(res.data.token)
       this.setState({ redirect: true })
-
     } catch (err) {
-      this.setState({ error: 'Invalid Credentials', loading: false })
+      this.setState({ error: 'Invalid Credentials', isLoading: false })
     }
   }
 
@@ -48,7 +47,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { formData, error, loading } = this.state
+    const { formData, error, isLoading } = this.state
     return (
       <section className="register">
         {this.renderRedirect()}
@@ -77,7 +76,14 @@ class Login extends React.Component {
           </div>
           {error && <small className="error-message">{error}</small>}
           <div className="login-bttn-wrapper">
-            <button type="submit" className="classic-btn">Login</button>
+            {isLoading &&
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+            }
+            {!isLoading &&
+                <button type="submit" className="classic-btn">Login</button>  
+            }
             <Link to="/forgot-password">
               <div className="forgot">Forgot your password?</div>
             </Link>

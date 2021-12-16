@@ -89,7 +89,7 @@ class Register extends React.Component {
   }
 
   render() {
-    const { formData, errors } = this.state
+    const { formData, errors, isLoading } = this.state
     return (
       <div className="register">
         {this.renderRedirect()}
@@ -140,7 +140,14 @@ class Register extends React.Component {
             />
             {errors.passwordConfirmation && <small className="error-message">{errors.passwordConfirmation}</small>}
           </div>
-          <button type="submit" className="classic-btn">Register</button>
+          {isLoading &&
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+          }
+          {!isLoading &&
+            <button type="submit" className="classic-btn">Register</button>  
+          }
         </form>
       </div>
 

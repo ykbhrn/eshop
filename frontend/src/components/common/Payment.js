@@ -114,7 +114,7 @@ class Payment extends React.Component {
               onChange={this.radioChange}
               checked={this.state.paypal}
             />
-            <label><img className="paypal-icon" src="./images/paypal.png" /></label>
+            <label><img className="paypal-icon" src="https://res.cloudinary.com/nuhippies/image/upload/v1639598403/Nu%20Hippies/icons/paypal_aowslf.png" /></label>
           </div>
           {this.state.paypal &&
             <div>After completing your order you will be redirected to paypal page for payment.</div>

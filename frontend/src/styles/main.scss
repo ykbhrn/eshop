@@ -5,7 +5,7 @@ $logo-font: "Galindo", cursive;
 // $third-color: rgb(82,193,199);
 // $dark-color: rgb(82,193,199);
 $gray-color: #747474;
-$navbar-height: 80px;
+$navbar-height: 150px;
 
 //Second Color Variant
 $dark-color: rgb(80,29,89);
@@ -62,6 +62,9 @@ button{
     height: 44px;
   }
 }
+.btn-loading{
+  align-self: center;
+}
 .classic-btn:hover{
   transform: scale(1.04);
   color: $third-color;
@@ -77,13 +80,13 @@ button{
   .home-logo{
       width: 35px;
       height: 35px;
-      background-image: url("./images/logo.png");
+      background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597824/Nu%20Hippies/icons/logo_h5vng1.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
   }
   .change-image{
-    background-image: url("./images/logo-white.png");
+    background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
   }
   .home-title-wrapper{
     display: flex;
@@ -410,8 +413,6 @@ h2{
     }
   }
 
-
-
 .navbar {
   width: 100vw;
   font-family: $logo-font;
@@ -427,16 +428,11 @@ h2{
 
 .products-navbar{
   display: flex;
-  color: $dark-color;
   position: absolute;
   font-family: $main-font!important;
   font-weight: 300;
   font-size: 17px;
   left: 30px;
-  .active{
-    background: white;
-    color: $dark-color;
-  }
 }
 .gender-navbar-part-wrapper{
   display: flex;
@@ -454,7 +450,7 @@ h2{
 h3{
   font-size: 15px;
   font-weight: 400;
-  border-bottom: 1px solid $dark-color;
+  border-bottom: 1px solid $text-color;
   text-align: center;
   cursor: pointer;
   margin-bottom: 7px;
@@ -464,7 +460,7 @@ h3{
   cursor: pointer;
 }
 h3:hover, .small-item:hover{
-  color: $dark-color;
+  color: $third-color;
 }
 .products-navbar-item{
     margin-right: 30px;
@@ -474,31 +470,31 @@ h3:hover, .small-item:hover{
     padding: 0 10px;
 }
 .products-navbar-item:hover{
-  background: $second-color;
-  color: $dark-color;
+  background: $third-color;
+  color: $text-color;
 }
 .link-no-underline {
   text-decoration: none;
-  color: $dark-color;
+  color: $text-color;
 }
 }
 
 .hover-products-menu{
   position: absolute;
-  top: 80px;
+  top: $navbar-height;
   left: -2px;
   display: flex;
   justify-content: center;
-  background: white;
-  color: $dark-color;
+  background: $third-color;
+  color: $text-color;
   width: 440px;
   z-index: 4;
   border-radius: 0 0 5px 5px;
   padding: 30px 0;
-  border: 2px solid $dark-color;
-  border-top: none;
+  // border: 2px solid $text-color;
+  // border-top: none;
   a{
-    color: $dark-color;
+    color: $text-color;
   }
 }
 
@@ -508,7 +504,7 @@ h3:hover, .small-item:hover{
   padding-bottom: 20px;
 }
 .logo{
-  background-image: url("./images/logo2.png");
+  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597863/Nu%20Hippies/icons/logo2_mog4wx.png");
   background-repeat: no-repeat;
   width: 150px;
   height: 150px;
@@ -987,7 +983,7 @@ button{
     margin-right: 10px;
   }
   a:hover{
-    color: $dark-color;
+    color: $third-color;
   }
   .cat-nav-item:last-child{
       color: $dark-color;
@@ -1064,6 +1060,7 @@ h1{
   padding: auto;
   width: 60px;
   height: 24px;
+  line-height: 24px;
   font-size: 20px;
   font-weight: 300;
 }
@@ -1150,11 +1147,13 @@ h1{
   width: 60vw;
   height: 70vh;
   border: 1px solid $dark-color;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
   position: absolute;
   bottom: 0%;
   right: 50%;
   margin-right: -30vw;
-  background: $second-color;
+  background: $third-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1169,12 +1168,20 @@ h1{
   .basket-added-buttons{
     display: flex;
   }
-  .basket-added-continue, .basket-added-proceed{
+  .basket-added-btn{
     padding: 10px 20px;
-    background: gray;
+    font-size: 20px;
+    font-weight: 300;
+    background: $dark-color;
     border: 1px solid $dark-color;
+    border-radius: 10px;
+    color: $second-color;
     cursor: pointer;
     margin: 30px;
+  }
+  .basket-added-btn:hover{
+    color: $third-color;
+    transform: scale(1.04);
   }
   a {
     text-decoration: none;
@@ -1257,7 +1264,7 @@ h1{
     color: $dark-color;
   }
   .auth:hover{
-    color: $dark-color;
+    color: $third-color;
   }
   a{
     text-decoration: none;
@@ -1265,7 +1272,7 @@ h1{
     margin-right: 10px;
   }
   a:hover{
-    color: $dark-color;
+    color: $third-color;
   }
   .sign{
     margin-right: 10px;
@@ -1309,29 +1316,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    .classic-btn{
-      border: 1px solid $dark-color;
-      background: $dark-color;
-      color: $second-color;
-      border-radius: 20px;
-      font-size: 22px;
-      font-weight: 300;
-      height: 45px;
-      width: 190px;
-      line-height: 45px;
-      text-align: center;
-      cursor: pointer;
-      font-family: $main-font;
-      margin-top: 10px;
-      .loading-image{
-        width: 44px;
-        height: 44px;
-      }
-    }
-    button:hover{
-      color: $dark-color;
-      transform: scale(1.04);
-    }
+    
   }
   input, textarea{
     margin-bottom: 10px;
@@ -1576,7 +1561,7 @@ a.ctrl, .ctrl div {
 }
 
 .discount-popup-wrapper{
-  background-image: url("./images/nazi.png");
+  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639599163/Nu%20Hippies/icons/nazi_osdpkq.png");
   background-size: contain;
   width: 200px;
   height: 200px;
@@ -1603,7 +1588,7 @@ a.ctrl, .ctrl div {
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 3;
+  z-index: 6;
   h2{
     font-weight: 400;
   }
@@ -1797,7 +1782,7 @@ a.ctrl, .ctrl div {
       cursor: pointer;
     }
     .fab:hover{
-      color: $dark-color;
+      color: $third-color;
     }
   }
   .logo{

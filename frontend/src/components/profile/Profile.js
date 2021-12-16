@@ -32,7 +32,7 @@ class Profile extends React.Component {
 
           <Link to="/profile/orders">
             <div className="profile-icon">
-              <img src="./images/orders.png" />
+              <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598032/Nu%20Hippies/icons/orders_xit6y1.png" />
               <div className="profile-icon-decription">
                 <div>Your Orders</div>
                 <div className="description">
@@ -44,7 +44,7 @@ class Profile extends React.Component {
 
           <Link to="/profile/edit">
             <div className="profile-icon">
-              <img src="./images/profile.png" />
+              <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598187/Nu%20Hippies/icons/profile_fwkd3p.png" />
               <div className="profile-icon-description">
                 <div>Your Account</div>
                 <div className="description">
@@ -53,10 +53,10 @@ class Profile extends React.Component {
               </div>
             </div>
           </Link>
-
+          
           <Link to="/profile/adress">
             <div className="profile-icon">
-              <img src="./images/map.png" />
+              <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598159/Nu%20Hippies/icons/map_ratocx.png" />
               <div className="profile-icon-description">
                 <div>Your Adress</div>
                 <div className="description">

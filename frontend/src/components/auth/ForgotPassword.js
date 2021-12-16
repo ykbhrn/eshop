@@ -62,8 +62,8 @@ class ForgotPassword extends React.Component {
               </div>
               {error && <small className="error-message">{error}</small>}
               {isLoading &&
-                <div className="classic-btn">
-                  <img src='/images/loading.svg' className='loading-image' />
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
                 </div>
               }
               {!isLoading &&
