@@ -153,9 +153,11 @@ class Payment extends React.Component {
             </div>;
           })}
           <div className="total-price-checkout-wrapper">
-            <div className="total-text">({this.state.totalQuantity} Items): £{this.state.totalPrice}</div>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
+            <div>Your Discount: {user.discount}% (£{((user.discount / 100) * user.sumPrice)})</div>
             <div className="total-text">Shipping: £{user.pendingOrder.shipping}</div>
-            <div className="total-text">Total price: £{this.state.totalPrice + user.pendingOrder.shipping}</div>
+            <div>Total Price: £{user.totalPrice + user.pendingOrder.shipping}</div>
+
           </div>
           <div className="checkout-buttons">
             <Link to="/shipping">

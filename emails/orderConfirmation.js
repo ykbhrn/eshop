@@ -1,3 +1,5 @@
+const url = process.env.CLIENT_URL
+
 function emailOrderConfirmation (user) {
   return  `<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -446,9 +448,21 @@ ${user.finishedOrder.items.map(item => {
   <tbody>
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 45px 10px 10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
+
+      <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+      <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Price:</span> £${user.finishedOrder.sumPrice}</span></p>
+    </div>
+
+      <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Discount:</span> ${user.finishedOrder.discount}% (£${user.finishedOrder.sumPrice * (user.finishedOrder.discount / 100)})</span></p>
+  </div>
+
+      <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Shipping:</span>  £${user.finishedOrder.shipping}</span></p>
+  </div>
+
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;">Total &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;$36</span></p>
+    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Total:</span> £${user.finishedOrder.pricePlusShipping}</span></p>
   </div>
 
       </td>
@@ -563,7 +577,7 @@ ${user.finishedOrder.items.map(item => {
 
   <!--[if (mso)|(IE)]><td style="padding:5px 50px"><![endif]-->
   
-    <a href="#" target="_self" style="padding:5px 50px;display:inline-block;color:rgb(80,29,89);font-family:arial black,avant garde,arial;font-size:16px;text-decoration:none"  class="v-padding">
+    <a href=${url} target="_self" style="padding:5px 50px;display:inline-block;color:rgb(80,29,89);font-family:arial black,avant garde,arial;font-size:16px;text-decoration:none"  class="v-padding">
       HOME
     </a>
   
@@ -572,7 +586,7 @@ ${user.finishedOrder.items.map(item => {
 
   <!--[if (mso)|(IE)]><td style="padding:5px 50px"><![endif]-->
   
-    <a href="#" target="_self" style="padding:5px 50px;display:inline-block;color:rgb(80,29,89);font-family:arial black,avant garde,arial;font-size:16px;text-decoration:none"  class="v-padding">
+    <a href=${`${url}/about`} target="_self" style="padding:5px 50px;display:inline-block;color:rgb(80,29,89);font-family:arial black,avant garde,arial;font-size:16px;text-decoration:none"  class="v-padding">
       ABOUT
     </a>
   
@@ -581,7 +595,7 @@ ${user.finishedOrder.items.map(item => {
 
   <!--[if (mso)|(IE)]><td style="padding:5px 50px"><![endif]-->
   
-    <a href="#" target="_self" style="padding:5px 50px;display:inline-block;color:rgb(80,29,89);font-family:arial black,avant garde,arial;font-size:16px;text-decoration:none"  class="v-padding">
+    <a href=${`${url}/contact`} target="_self" style="padding:5px 50px;display:inline-block;color:rgb(80,29,89);font-family:arial black,avant garde,arial;font-size:16px;text-decoration:none"  class="v-padding">
       CONTACT
     </a>
   

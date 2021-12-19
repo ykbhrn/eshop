@@ -2,6 +2,7 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const secret = 'muie'
+const newUser = require('../emails/newUser')
 const _ = require('lodash')
 const mailgun = require('mailgun-js')
 const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
@@ -10,9 +11,35 @@ const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN})
 async function register(req, res) {
   try {
     const user = await User.create(req.body)
+    newUserEmail(user)
     res.status(201).json({message: `${user.email} has been registered`})
   } catch (err) {
     res.status(422).json(err)
+  }
+}
+
+async function newUserEmail (user, req, res) {
+  const { email } = { email: user.email }
+
+  try {
+    User.findOne({ email }, (err, user) => {
+      if (err || !user) {
+        return res.status(400).json({ error: 'User with this email does not exists' })
+      }
+
+      const data = {
+        from: 'noreply@email.com',
+        to: email,
+        subject: `Welcome To Nu Hippies Movement ${user.name}`,
+        html: newUser.newUser(user)
+      }
+
+      mg.messages().send(data, function (error, body) {
+        console.log(body)
+      })
+    })
+  } catch (err) {
+    res.status(401).json({ message: 'User with this email does not exists' })
   }
 }
 

@@ -13,13 +13,13 @@ class Shipping extends React.Component {
     try {
       window.scrollTo(0, 0)
       const res = await getMyProfile();
-      let priceSum = 0;
       let basketSize = 0;
       res.data.basket.map(item => {
-        priceSum = priceSum + (item.chosenQuantity * item.price);
         basketSize = basketSize + Number(item.chosenQuantity);
       });
-      this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, shipping: res.data.pendingOrder.shipping });
+      if (res.data.pendingOrder) {
+        this.setState({ user: res.data, totalQuantity: basketSize, shipping: res.data.pendingOrder.shipping });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -29,8 +29,7 @@ class Shipping extends React.Component {
     const formData = { shipping: event.target.value };
     try {
       await addShipping(formData);
-      this.componentDidMount();
-      this.setState({ expressShipping: this.state.expressShipping === true ? false : true });
+      this.componentDidMount()
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +48,7 @@ class Shipping extends React.Component {
                 type="radio"
                 value={3.99}
                 onChange={this.handleShipping}
-                checked={this.state.shipping === 3.99}
+                checked={this.state.shipping == 3.99}
               />
               <div className="shipping-option-name">
                 <label>Royal Mail Standard</label>
@@ -65,7 +64,7 @@ class Shipping extends React.Component {
                 type="radio"
                 value={6.99}
                 onChange={this.handleShipping}
-                checked={this.state.shipping === 6.99}
+                checked={this.state.shipping == 6.99}
               />
               <div className="shipping-option-name">
                 <label>Royal Mail Express</label>
@@ -94,9 +93,10 @@ class Shipping extends React.Component {
             </div>;
           })}
           <div className="total-price-checkout-wrapper">
-            <div className="total-text">({this.state.totalQuantity} Items): £{this.state.totalPrice}</div>
-            <div className="total-text">Shipping: £{user.pendingOrder.shipping}</div>
-            <div className="total-text">Total price: £{this.state.totalPrice + user.pendingOrder.shipping}</div>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
+            <div>Your Discount: {user.discount}% (£{((user.discount / 100) * user.sumPrice)})</div>
+            <div className="total-text">Shipping: £{this.state.shipping}</div>
+            <div>Total Price: £{user.totalPrice + Number(this.state.shipping)}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/checkout">

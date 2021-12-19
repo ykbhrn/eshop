@@ -251,7 +251,7 @@
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1506057278219-795838d4c2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGlwcGllfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://res.cloudinary.com/nuhippies/image/upload/v1639872055/Nu%20Hippies/icons/hippie-van_ygn0gp.jpg");
   background-position: 0 0;
   background-size: cover;
   animation: moving 10s linear infinite;

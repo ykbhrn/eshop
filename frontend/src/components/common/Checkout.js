@@ -15,6 +15,7 @@ class Checkout extends React.Component {
       country: null,
       phone: null,
       isBillingAdress: "no",
+      shipping: 3.99,
       billingAdress: {
         name: null,
         company: null,
@@ -46,18 +47,16 @@ class Checkout extends React.Component {
     try {
       window.scrollTo(0, 0)
       const res = await getMyProfile()
-      let priceSum = 0
       let basketSize = 0
       res.data.basket.map(item => {
-        priceSum = priceSum + (item.chosenQuantity * item.price)
         basketSize = basketSize + Number(item.chosenQuantity)
       })
       if (res.data.pendingOrder) {
-        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.pendingOrder });
-      } else if (res.data.paidOrders.length > 0){
-        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize, formData: res.data.paidOrders[0] });
+        this.setState({ user: res.data, totalQuantity: basketSize, formData: res.data.pendingOrder });
+      } else if (res.data.finishedOrder){
+        this.setState({ user: res.data, totalQuantity: basketSize, formData: res.data.finishedOrder });
       } else {
-        this.setState({ user: res.data, totalPrice: priceSum, totalQuantity: basketSize })
+        this.setState({ user: res.data, totalQuantity: basketSize })
       }
     } catch (err) {
       console.log(err);
@@ -80,7 +79,8 @@ class Checkout extends React.Component {
   makeOrder = async (event) => {
     event.preventDefault();
     try {
-      const res = await pendingOrder(this.state.formData);
+      const formData = { ...this.state.formData, shipping: 3.99 };
+      const res = await pendingOrder(formData);
       if (res.status === 201) {
         this.props.history.push('/shipping');
       } else if (res.status === 422) {
@@ -339,7 +339,9 @@ class Checkout extends React.Component {
             </div>;
           })}
           <div className="total-price-checkout-wrapper">
-            ({this.state.totalQuantity} Items): £{this.state.totalPrice} <br/>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
+            <div>Your Discount: {user.discount}% (£{((user.discount / 100) * user.sumPrice)})</div>
+            <div>Total Price: £{user.totalPrice}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/basket">

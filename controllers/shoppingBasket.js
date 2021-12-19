@@ -35,7 +35,7 @@ async function addToBasket (req, res) {
     }
 
     await user.save()
-    calculatePrice()
+    calculatePrice(user)
     res.status(201).json(user)
   } catch (err) {
     res.json(err)
@@ -59,24 +59,25 @@ async function updateBasket (req, res) {
     })
 
     await user.save()
-    calculatePrice()
+    calculatePrice(user)
     res.status(202).json(user)
   } catch (err) {
     res.json(err)
   }
 }
 
-async function calculatePrice (req, res) {
+async function calculatePrice (user, req, res) {
   try {
-    const user = req.currentUser
     let price = 0
     
-    await user.basket.map(item => {
+    user.basket.map(item => {
       price = price + (item.chosenQuantity * item.price)
     })
-
+    
     user.sumPrice = price
-    user.totalPrice = user.sumPrice - (user.sumPrice * user.discount)
+    
+    user.totalPrice = user.sumPrice - (user.sumPrice * (user.discount / 100))
+
 
     await user.save()
     res.status(202).json(user)
@@ -94,6 +95,7 @@ async function pendingOrder (req, res) {
     user.pendingOrder = req.body
     user.pendingOrder.items = user.basket
     await user.save()
+    calculatePrice(user)
     res.status(201).json(user)
   } catch (err) {
     res.status(422).json(err)
@@ -104,7 +106,7 @@ async function addShipping (req, res) {
   try {
     const user = req.currentUser
     user.pendingOrder.shipping = req.body.shipping
-    user.totalPrice = user.sumPrice - (user.sumPrice * user.discount) + req.body.shipping
+    user.totalPrice = user.sumPrice - (user.sumPrice * (user.discount / 100))
     await user.save()
     res.status(202).json(user)
   } catch (err) {
@@ -120,6 +122,7 @@ async function completingOrder (req, res) {
     user.finishedOrder.discount = user.discount
     user.finishedOrder.sumPrice = user.sumPrice
     user.finishedOrder.totalPrice = user.totalPrice
+    user.finishedOrder.pricePlusShipping = user.totalPrice + user.pendingOrder.shipping
 
     user.pendingOrder = null
     user.discount = 0
@@ -146,7 +149,7 @@ async function orderConfirmationEmail (user, req, res) {
       const data = {
         from: 'noreply@email.com',
         to: email,
-        subject: 'Order Confirmation Link',
+        subject: 'Order Confirmation',
         html: order.emailOrderConfirmation(user)
       }
 
@@ -169,6 +172,7 @@ async function removeFromBasket (req, res) {
     })
     user.basket = newBasket
     await user.save()
+    calculatePrice(user)
     res.status(204).json(user)
   } catch (err) {
     res.json(err)

@@ -31,13 +31,14 @@ const orderSchema = new mongoose.Schema({
   postcode: { type: String, required: true },
   country: { type: String, required: true },
   phone: { type: Number, required: false },
-  shipping: { type: Number, default: 0 },
+  shipping: { type: Number },
   isBillingAdress: { type: String, default: 'no' },
   billingAdress: billingAdressSchema,
   items: [],
   sumPrice: { type: Number },
-  discount: { type: Number },
-  totalPrice: { type: Number }
+  discount: { type: Number, default: 0 },
+  totalPrice: { type: Number },
+  pricePlusShipping: { type: Number, default: 0 }
 })
 
 const userSchema = new mongoose.Schema({
