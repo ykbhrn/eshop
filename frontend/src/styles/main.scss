@@ -321,6 +321,9 @@ button{
     margin-bottom: 0px;
   }
 }
+.total-price-checkout-wrapper div{
+  padding-bottom: 6px;
+}
 .size{
   padding-right: 20px;
 }
@@ -413,6 +416,19 @@ h2{
     }
   }
 
+  //Order Confirmation Page
+  .confirmation-page{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    .total-price-checkout-wrapper{
+      width: 100%;
+    }
+  }
+
+  //Navbar
 .navbar {
   width: 100vw;
   font-family: $logo-font;
@@ -420,10 +436,13 @@ h2{
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 4;
   a{
     text-decoration: none;
+  }
+  a .active{
+    color: $third-color;
   }
 
 .products-navbar{
@@ -432,10 +451,15 @@ h2{
   font-family: $main-font!important;
   font-weight: 300;
   font-size: 17px;
+  padding-top: 14px;
   left: 30px;
+  a {
+    z-index:5;
+  }
 }
 .gender-navbar-part-wrapper{
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .gender-navbar-part{
@@ -445,12 +469,15 @@ h2{
   align-items: center;
   padding: 0 20px;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 25px;
+  margin-bottom: 50px;
 }
 h3{
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 400;
   border-bottom: 1px solid $text-color;
+  padding-bottom: 4px;
+  color: $text-color;
   text-align: center;
   cursor: pointer;
   margin-bottom: 7px;
@@ -463,37 +490,36 @@ h3:hover, .small-item:hover{
   color: $third-color;
 }
 .products-navbar-item{
-    margin-right: 30px;
     cursor: pointer;
-    height: $navbar-height;
-    line-height: $navbar-height;
+    height: 30px;
+    line-height: 30px;
     padding: 0 10px;
-}
-.products-navbar-item:hover{
-  background: $third-color;
-  color: $text-color;
+    font-size: 17px;
+    border-radius: 5px;
+    color: $dark-color;
+    text-align: center;
 }
 .link-no-underline {
   text-decoration: none;
-  color: $text-color;
+  color: $dark-color;
 }
 }
 
 .hover-products-menu{
   position: absolute;
-  top: $navbar-height;
-  left: -2px;
+  top: 0px;
+  left: -30px;
   display: flex;
   justify-content: center;
-  background: $third-color;
+  background: white;
+  border-right: 2px solid $text-color;
   color: $text-color;
-  width: 440px;
+  width: 250px;
+  height: 100vh;
   z-index: 4;
   border-radius: 0 0 5px 5px;
   padding: 30px 0;
-  // border: 2px solid $text-color;
-  // border-top: none;
-  a{
+  a {
     color: $text-color;
   }
 }
@@ -519,14 +545,13 @@ h3:hover, .small-item:hover{
 }
 
 @keyframes menu-in{
-  0% { left: -170% ;}
-  100% { left: 0px; }
+  0% { left: -280px ;}
+  100% { left: -30px; }
 }
 
 @keyframes menu-out {
-  0% { left:  0px;}
-  50% { left: -170%; }
-  100% { left: -170%; }
+  0% { left:  -30px;}
+  100% { left: -280px; }
 }
 
 
@@ -1556,7 +1581,8 @@ a.ctrl, .ctrl div {
   position: absolute;
   width: 100vw;
   min-height: 100vh;
-  z-index: 5;
+  z-index: 7;
+  background: white;
   cursor: url('./images/frames/1.gif'), auto;
 }
 

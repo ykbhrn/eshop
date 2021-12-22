@@ -25,7 +25,7 @@ class Navbar extends React.Component {
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
     productsHoverMenu.style.display = "flex"
-    productsHoverMenu.style.animation = "0.5s menu-in linear"
+    productsHoverMenu.style.animation = "0.2s menu-in linear"
     if (item === "clothing") {
       menuItems[0].classList.add("active")
       menuItems[1].classList.remove("active")
@@ -42,11 +42,12 @@ class Navbar extends React.Component {
     const menuItems = document.querySelectorAll(".products-navbar-item")
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
-    productsHoverMenu.style.animation = "0.5s menu-out linear"
+    productsHoverMenu.style.animation = "0.2s menu-out linear"
     menuItems[0].classList.remove("active")
     menuItems[1].classList.remove("active")
-    productsHoverMenu.style.display = "none"
-
+    setTimeout(() => {
+      productsHoverMenu.style.display = "none"
+    }, 195);
   }
 
   render() {
@@ -61,7 +62,9 @@ class Navbar extends React.Component {
           }\
           '}
         </style>
-        <div className="products-navbar">
+        <div className="products-navbar" onMouseLeave ={() => {
+          this.productsMenuLeave()
+        }}>
           <Link to="/products/clothing/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
             this.productsMenuHover("clothing")
           }}>Clothing</div>
@@ -70,9 +73,7 @@ class Navbar extends React.Component {
             this.productsMenuHover("accesories")
           }}>Accesories</div>
           </Link>
-          <div className="hover-products-menu" onMouseLeave ={() => {
-            this.productsMenuLeave()
-          }}>
+          <div className="hover-products-menu">
             {this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
               <div className="gender-navbar-part">

@@ -19,6 +19,7 @@ import BasketIcon from './components/common/BasketIcon'
 import Checkout from './components/common/Checkout'
 import Shipping from './components/common/Shipping'
 import Payment from './components/common/Payment'
+import Confirmation from './components/common/Confirmation'
 import Contact from './components/common/Contact'
 import Footer from './components/common/Footer'
 import About from './components/common/About'
@@ -87,6 +88,7 @@ class App extends React.Component {
             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/payment" component={Payment} />
+            <Route path="/confirmation/:type" component={Confirmation} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/terms" component={Terms} />

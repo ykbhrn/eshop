@@ -232,7 +232,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: center;"><strong><span style="color: rgb(82,193,199); font-size: 20px; line-height: 28px;">ORDER ID :&nbsp;678-648-7464</span></strong></p>
+    <p style="font-size: 14px; line-height: 140%; text-align: center;"><strong><span style="color: rgb(82,193,199); font-size: 20px; line-height: 28px;">ORDER ID :&nbsp;${user.finishedOrder.orderId}</span></strong></p>
   </div>
 
       </td>

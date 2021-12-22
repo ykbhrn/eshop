@@ -3,6 +3,7 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const secret = 'muie'
 const newUser = require('../emails/newUser')
+const resetPasswordEmail = require('../emails/resetPassword')
 const _ = require('lodash')
 const mailgun = require('mailgun-js')
 const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
@@ -75,9 +76,7 @@ async function forgotPassword (req, res) {
         from: 'noreply@email.com',
         to: email,
         subject: 'Reset Password Link',
-        html: `
-            <h2>Please click on given link to reset your password   </h2>
-            <a href="${process.env.CLIENT_URL}/reset-password/${token}">${process.env.CLIENT_URL}/reset-password/${token}</a>  `
+        html: resetPasswordEmail.resetPasswordEmail(token, user)
       }
 
       mg.messages().send(data, function (error, body) {

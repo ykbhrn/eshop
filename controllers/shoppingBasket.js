@@ -1,11 +1,32 @@
 const Product = require('../models/product')
 const User = require('../models/user')
+const Order = require('../models/order')
 const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 const order = require('../emails/orderConfirmation')
 const mailgun = require('mailgun-js')
 const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
 const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
+
+async function allCompletedOrders (req, res) {
+  try {
+    if (req.currentUser.name !== 'Administrator') throw new Error('Not Found')
+    const orders = await Order.find()
+    res.status(200).json(orders)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+async function orderCreate(req, res) {
+  try {
+    delete req.body._id
+    const createOrder = await Order.create(req.body)
+    res.status(201).json(createOrder)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+}
 
 async function addToBasket (req, res) {
   try { 
@@ -74,9 +95,9 @@ async function calculatePrice (user, req, res) {
       price = price + (item.chosenQuantity * item.price)
     })
     
-    user.sumPrice = price
+    user.sumPrice = Math.round(price * 100) / 100
     
-    user.totalPrice = user.sumPrice - (user.sumPrice * (user.discount / 100))
+    user.totalPrice = Math.floor((user.sumPrice - (user.sumPrice * (user.discount / 100))) * 100) / 100
 
 
     await user.save()
@@ -116,6 +137,7 @@ async function addShipping (req, res) {
 
 async function completingOrder (req, res) {
   try {
+    const num = Math.floor(Math.random() * 1000000)
     const user = req.currentUser
     user.finishedOrder = user.pendingOrder
     user.finishedOrder.items = user.basket
@@ -123,15 +145,17 @@ async function completingOrder (req, res) {
     user.finishedOrder.sumPrice = user.sumPrice
     user.finishedOrder.totalPrice = user.totalPrice
     user.finishedOrder.pricePlusShipping = user.totalPrice + user.pendingOrder.shipping
+    user.finishedOrder.orderId = num
 
     user.pendingOrder = null
     user.discount = 0
     user.sumPrice = 0
     user.totalPrice = 0
     user.basket = []
+
     await user.save()
     orderConfirmationEmail(user)
-    res.status(201).json(user)
+    res.status(201).json(user.finishedOrder)
   } catch (err) {
     res.json(err)
   }
@@ -185,5 +209,8 @@ module.exports = {
   addShipping,
   pendingOrder,
   remove: removeFromBasket,
-  completingOrder
+  completingOrder,
+  calculatePrice,
+  allCompletedOrders,
+  orderCreate
 }

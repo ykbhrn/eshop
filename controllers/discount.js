@@ -1,6 +1,7 @@
 const Discount = require('../models/popupDiscount')
 const User = require('../models/user')
 const cron = require('node-cron')
+const calculate = require('./shoppingBasket')
 
 async function createDiscount (req, res) {
   try {
@@ -51,6 +52,7 @@ async function changeUserDiscount (req, res) {
       user.discount = 40
     }
     await user.save()
+    calculate.calculatePrice(user)
     res.status(202).json(user)
   } catch (err) {
     res.json(err)

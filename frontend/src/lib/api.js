@@ -59,6 +59,10 @@ export const completeOrder = (formData) => {
   return axios.put('/api/complete', formData, withHeaders())
 }
 
+export const createOrder = (formData) => {
+  return axios.post('/api/orders/create', formData)
+}
+
 export const removeFromBasket = (id, formData) => {
   return axios.put(`/api/basket/remove/${id}`, formData, withHeaders())
 }

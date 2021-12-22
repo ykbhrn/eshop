@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const { productSchema } = require('./product')
+const { orderSchema } = require('./order')
 
 const notificationSchema = new mongoose.Schema({ 
   notificationType: String,
@@ -9,36 +10,6 @@ const notificationSchema = new mongoose.Schema({
   userId: String,
   portfolioId: String,
   url: String
-})
-
-const billingAdressSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  company: { type: String, required: false },
-  adressOne: { type: String, required: true },
-  adressTwo: { type: String, required: false },
-  town: { type: String, required: true },
-  postcode: { type: String, required: true },
-  country: { type: String, required: true },
-  phone: { type: Number, required: false }
-})
-
-const orderSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  company: { type: String, required: false },
-  adressOne: { type: String, required: true },
-  adressTwo: { type: String, required: false },
-  town: { type: String, required: true },
-  postcode: { type: String, required: true },
-  country: { type: String, required: true },
-  phone: { type: Number, required: false },
-  shipping: { type: Number },
-  isBillingAdress: { type: String, default: 'no' },
-  billingAdress: billingAdressSchema,
-  items: [],
-  sumPrice: { type: Number },
-  discount: { type: Number, default: 0 },
-  totalPrice: { type: Number },
-  pricePlusShipping: { type: Number, default: 0 }
 })
 
 const userSchema = new mongoose.Schema({

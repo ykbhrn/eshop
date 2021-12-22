@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMyProfile, completeOrder } from '../../lib/api';
+import { getMyProfile, completeOrder, createOrder } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
 class Payment extends React.Component {
@@ -17,7 +17,8 @@ class Payment extends React.Component {
     billingAdress: false,
     creditCard: true,
     paypal: false,
-    bankTransfer: false
+    bankTransfer: false,
+    paymentType: "credit-card"
   }
 
   async componentDidMount() {
@@ -38,18 +39,20 @@ class Payment extends React.Component {
 
   radioChange = (event) => {
     if (event.target.name === "credit card") {
-      this.setState({ creditCard: true, paypal: false, bankTransfer: false });
+      this.setState({ creditCard: true, paypal: false, bankTransfer: false, paymentType: "credit-card" });
     } else if (event.target.name === "paypal") {
-      this.setState({ creditCard: false, paypal: true, bankTransfer: false });
+      this.setState({ creditCard: false, paypal: true, bankTransfer: false, paymentType: "paypal" });
     } else if (event.target.name === "bank transfer") {
-      this.setState({ creditCard: false, paypal: false, bankTransfer: true });
+      this.setState({ creditCard: false, paypal: false, bankTransfer: true, paymentType: "bank-transfer" });
     }
   }
 
-  async completeOrder () {
+  async completeOrder (type) {
     try {
       const res = await completeOrder()
-      return window.location.assign('/done')
+      console.log(res.data)
+      const resTwo = await createOrder(res.data)
+      window.location.assign(`/confirmation/${type}`)
     } catch (err) {
       console.log(err)
     }
@@ -58,6 +61,7 @@ class Payment extends React.Component {
   render() {
     if (!this.state.user) return null;
     const { user, formData } = this.state;
+    console.log(this.state.paymentType)
     return (
       <div className="payment-page">
 
@@ -152,18 +156,21 @@ class Payment extends React.Component {
               </div>
             </div>;
           })}
+
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
-            <div>Your Discount: {user.discount}% (£{((user.discount / 100) * user.sumPrice)})</div>
+            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
             <div className="total-text">Shipping: £{user.pendingOrder.shipping}</div>
             <div>Total Price: £{user.totalPrice + user.pendingOrder.shipping}</div>
-
           </div>
+
           <div className="checkout-buttons">
             <Link to="/shipping">
               <button className="left">Go Back To Shipping</button>
             </Link>
-            <button className="right" onClick={this.completeOrder}>Complete Your Order</button>
+            <button className="right" onClick={() => {
+              this.completeOrder(this.state.paymentType)
+            }}>Complete Your Order</button>
           </div>
         </div>
       </div>

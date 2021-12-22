@@ -15,19 +15,28 @@ class PopupDiscount extends React.Component {
   async componentDidMount () {
     const res = await getAllDiscounts()
     const resTwo = await getMyProfile()
+    const now = new Date()
     this.setState({discountTime: res.data[0].time, user: resTwo.data})
 
-    this.changeDiscountTime()
-
-    setInterval(() => {
-      const now = new Date()
-      if (now.getMinutes() === this.state.discountTime) {
+    setTimeout(() => {
+      if (now.getMinutes() === res.data[0].time && this.state.discountCounter === 0) {
         this.showHand()
         this.discountAnimationEnd()
       }
+
       this.changeDiscountTime()
-    }, 60000)
+
+      setInterval(() => {
+        const now = new Date()
+        if (now.getMinutes() === this.state.discountTime) {
+          this.showHand()
+          this.discountAnimationEnd()
+        }
+        this.changeDiscountTime()
+      }, 60000)
+    }, 30000)
   }
+
 
   discountAnimationEnd = async () => {
     setTimeout( async () => {
@@ -103,7 +112,7 @@ class PopupDiscount extends React.Component {
   }
 
   closeScorePage = () => {
-    this.setState({discountHighScore: false, discountLowScore: false})
+    window.location.reload()
   }
 
   render() {

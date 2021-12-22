@@ -94,7 +94,7 @@ class Shipping extends React.Component {
           })}
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
-            <div>Your Discount: {user.discount}% (£{((user.discount / 100) * user.sumPrice)})</div>
+            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
             <div className="total-text">Shipping: £{this.state.shipping}</div>
             <div>Total Price: £{user.totalPrice + Number(this.state.shipping)}</div>
           </div>

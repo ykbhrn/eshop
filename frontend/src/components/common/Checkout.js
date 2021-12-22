@@ -340,7 +340,7 @@ class Checkout extends React.Component {
           })}
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
-            <div>Your Discount: {user.discount}% (£{((user.discount / 100) * user.sumPrice)})</div>
+            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
             <div>Total Price: £{user.totalPrice}</div>
           </div>
           <div className="checkout-buttons">
