@@ -14,6 +14,7 @@ const categorySchema = new mongoose.Schema({
   subCategory: {type: String, required: true}
 })
 
+
 const productSchema = new mongoose.Schema({
   name: {type: String, required: true},
   images: [{type: String, required: false}],
@@ -24,7 +25,7 @@ const productSchema = new mongoose.Schema({
   chosenSize: {type: String, required: false},
   colors: [{type: String, required: false}],
   chosenColor: {type: String, required: false},
-  quantity: {type: Number, required: false},
+  quantities: [[{type: String}, {type: String}, {type: Number}]],
   chosenQuantity: {type: Number, required: false},
   categories: categorySchema,
   user: {type: Object, required: true},

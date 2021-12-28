@@ -171,6 +171,10 @@ button{
     height: 150px;
     margin-top: 30px;
     font-size: 22px;
+    padding: 8px;
+  }
+  .checkout-button-total-price div{
+    margin-top: 10px;
   }
   .chekout-button{
     background: $dark-color;
@@ -322,7 +326,7 @@ button{
   }
 }
 .total-price-checkout-wrapper div{
-  padding-bottom: 6px;
+  margin-top: 9px;
 }
 .size{
   padding-right: 20px;
@@ -1577,12 +1581,21 @@ a.ctrl, .ctrl div {
 }
 
 //Discount popup
+.discount-page{
+  display: flex;
+  justify-content: center;
+  h1{
+    margin-top: 50px;
+  }
+}
+
 .show-discount{
   position: absolute;
   width: 100vw;
   min-height: 100vh;
   z-index: 7;
-  background: white;
+  // background: url('https://ih1.redbubble.net/image.867359441.0147/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg') no-repeat;
+  background-size: contain;
   cursor: url('./images/frames/1.gif'), auto;
 }
 

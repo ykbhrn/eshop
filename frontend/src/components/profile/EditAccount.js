@@ -164,12 +164,12 @@ class EditAccount extends React.Component {
               onChange={this.handleChange}
             /> 
             {errors.passwordConfirmation ? <small className="error-message">{errors.passwordConfirmation}</small> : ''}
-            {!isLoading &&
+            {isLoading &&
                 <div className="classic-btn btn-loading">
                   <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
                 </div>
             }
-            {isLoading &&
+            {!isLoading &&
               <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Done</button>
             }
           </form>

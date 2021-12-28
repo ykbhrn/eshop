@@ -65,6 +65,7 @@
   display: none;
 }
 
+
 /* line 57, ../sass/screen.scss */
 /* line 67, ../sass/screen.scss */
 .home-menu ul li a {
@@ -251,7 +252,7 @@
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://res.cloudinary.com/nuhippies/image/upload/v1639872055/Nu%20Hippies/icons/hippie-van_ygn0gp.jpg");
+  background: url("https://res.cloudinary.com/nuhippies/image/upload/v1640145838/Nu%20Hippies/Backgrounds/hippie-van2_dytv6s.jpg") white;
   background-position: 0 0;
   background-size: cover;
   animation: moving 10s linear infinite;
@@ -297,6 +298,7 @@
   -ms-transform: scale(1.5);
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
+  
 }
 
 /* line 125, ../sass/screen.scss */

@@ -4,6 +4,7 @@ const Order = require('../models/order')
 const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 const order = require('../emails/orderConfirmation')
+const paymentInstructions = require('../emails/paymentInstructions')
 const mailgun = require('mailgun-js')
 const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
 const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
@@ -97,7 +98,7 @@ async function calculatePrice (user, req, res) {
     
     user.sumPrice = Math.round(price * 100) / 100
     
-    user.totalPrice = Math.floor((user.sumPrice - (user.sumPrice * (user.discount / 100))) * 100) / 100
+    user.totalPrice = Math.round((user.sumPrice - (user.sumPrice * (user.discount / 100))) * 100) / 100
 
 
     await user.save()
@@ -127,7 +128,7 @@ async function addShipping (req, res) {
   try {
     const user = req.currentUser
     user.pendingOrder.shipping = req.body.shipping
-    user.totalPrice = user.sumPrice - (user.sumPrice * (user.discount / 100))
+    user.totalPrice = Math.round((user.sumPrice - (user.sumPrice * (user.discount / 100))) * 100) / 100
     await user.save()
     res.status(202).json(user)
   } catch (err) {
@@ -139,12 +140,13 @@ async function completingOrder (req, res) {
   try {
     const num = Math.floor(Math.random() * 1000000)
     const user = req.currentUser
+    user.finishedOrder.paymentType = req.body.paymentType
     user.finishedOrder = user.pendingOrder
     user.finishedOrder.items = user.basket
     user.finishedOrder.discount = user.discount
     user.finishedOrder.sumPrice = user.sumPrice
     user.finishedOrder.totalPrice = user.totalPrice
-    user.finishedOrder.pricePlusShipping = user.totalPrice + user.pendingOrder.shipping
+    user.finishedOrder.pricePlusShipping = Math.round((user.totalPrice + user.pendingOrder.shipping) * 100) / 100
     user.finishedOrder.orderId = num
 
     user.pendingOrder = null
@@ -154,14 +156,47 @@ async function completingOrder (req, res) {
     user.basket = []
 
     await user.save()
-    orderConfirmationEmail(user)
+
+    orderConfirmationFunction(user)
+
+    if (req.body.paymentType === 'bank-transfer') {
+      setTimeout(() => {
+        paymentInstructionFunction(user)
+      }, 15000)
+    }
+
     res.status(201).json(user.finishedOrder)
   } catch (err) {
     res.json(err)
   }
 }
 
-async function orderConfirmationEmail (user, req, res) {
+async function paymentInstructionFunction (user, req, res) {
+  const { email } = { email: user.email }
+
+  try {
+    User.findOne({ email }, (err, user) => {
+      if (err || !user) {
+        return res.status(400).json({ error: 'User with this email does not exists' })
+      }
+
+      const data = {
+        from: 'noreply@email.com',
+        to: email,
+        subject: 'Payment Instructions',
+        html: paymentInstructions.paymentInstructionsEmail(user)
+      }
+
+      mg.messages().send(data, function (error, body) {
+        console.log(body)
+      })
+    })
+  } catch (err) {
+    res.status(401).json({ message: 'User with this email does not exists' })
+  }
+}
+
+async function orderConfirmationFunction (user, req, res) {
   const { email } = { email: user.email }
 
   try {

@@ -25,13 +25,25 @@ class SingleProduct extends React.Component {
       const res = await getSingleProduct(productId);
       const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0] };
       const totalQuantityArray = [];
-      for (let i = 1; i <= res.data.quantity; i++) {
+      for (let i = 1; i <= res.data.quantities[0][2]; i++) {
         totalQuantityArray.push(i);
       }
-      this.setState({ product: res.data, bigImage: res.data.images[0], totalQuantity: totalQuantityArray, formData });
+      this.setState({ product: res.data, bigImage: res.data.images[0], formData, totalQuantity: totalQuantityArray });
     } catch (err) {
       console.log(err);
     }
+  }
+
+  settingQuantity = (formData) => {
+    const totalQuantityArray = [];
+    const newArray = this.state.product.quantities.find(item => {
+      return item[0] == formData.color && item[1] == formData.size
+    })
+    console.log(newArray)
+    for (let i = 1; i <= newArray[2]; i++) {
+      totalQuantityArray.push(i);
+    }
+    this.setState({totalQuantity: totalQuantityArray})
   }
 
   hideOverflow = () => {
@@ -62,9 +74,11 @@ class SingleProduct extends React.Component {
     if (event.target.name === "quantity") {
       const formData = { ...this.state.formData, [event.target.name]: Number(event.target.value) };
       this.setState({ formData });
+      this.settingQuantity(formData)
     } else {
       const formData = { ...this.state.formData, [event.target.name]: event.target.value };
       this.setState({ formData });
+      this.settingQuantity(formData)
     }
   }
 
@@ -92,27 +106,18 @@ class SingleProduct extends React.Component {
   choosingSize = (chosenSize) => {
     const formData = { ...this.state.formData, size: chosenSize };
     this.setState({ formData });
+    this.settingQuantity(formData)
   }
 
   choosingColor = (chosenColor) => {
     const formData = { ...this.state.formData, color: chosenColor };
     this.setState({ formData });
-  }
-
-  increaseQuantity = () => {
-    const formData = { ...this.state.formData, quantity: this.state.formData.quantity + 1 };
-    this.setState({ formData });
-  }
-
-  decreaseQuantity = () => {
-    if (this.state.formData.quantity > 1) {
-      const formData = { ...this.state.formData, quantity: this.state.formData.quantity - 1 };
-      this.setState({ formData });
-    }
+    this.settingQuantity(formData)
   }
 
   render() {
     const { product } = this.state
+    console.log(product)
     if (!product) return null
     return (
       <div className="single-product-section">

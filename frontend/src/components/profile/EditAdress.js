@@ -379,12 +379,12 @@ class EditAdress extends React.Component {
                 </form>
               }
             </div>
-            {!isLoading &&
+            {isLoading &&
                 <div className="classic-btn btn-loading">
                   <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
                 </div>
             }
-            {isLoading &&
+            {!isLoading &&
             <button className="classic-btn" onClick={this.addAdress}>Done</button>
             }
           </>

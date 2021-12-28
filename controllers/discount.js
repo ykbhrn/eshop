@@ -7,7 +7,7 @@ async function createDiscount (req, res) {
   try {
     const now = new Date()
     const randomNumber = Math.floor(Math.random() * 60)
-    if (req.currentUser.name !== 'Administrator') throw new Error('Not Found')
+    if (req.currentUser.name !== 'admin') throw new Error('Not Found')
     const createdDiscount = await Discount.create({ time: randomNumber })
     res.status(201).json(createdDiscount)
   } catch (err) {

@@ -49,7 +49,8 @@ class Payment extends React.Component {
 
   async completeOrder (type) {
     try {
-      const res = await completeOrder()
+      const formData = { paymentType: type }
+      const res = await completeOrder(formData)
       console.log(res.data)
       const resTwo = await createOrder(res.data)
       window.location.assign(`/confirmation/${type}`)
@@ -161,7 +162,7 @@ class Payment extends React.Component {
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
             <div className="total-text">Shipping: £{user.pendingOrder.shipping}</div>
-            <div>Total Price: £{user.totalPrice + user.pendingOrder.shipping}</div>
+            <div>Total Price: £{Math.round((user.totalPrice + user.pendingOrder.shipping) * 100) / 100}</div>
           </div>
 
           <div className="checkout-buttons">

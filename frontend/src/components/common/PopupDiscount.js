@@ -15,11 +15,11 @@ class PopupDiscount extends React.Component {
   async componentDidMount () {
     const res = await getAllDiscounts()
     const resTwo = await getMyProfile()
-    const now = new Date()
     this.setState({discountTime: res.data[0].time, user: resTwo.data})
 
     setTimeout(() => {
-      if (now.getMinutes() === res.data[0].time && this.state.discountCounter === 0) {
+      const now = new Date()
+      if (now.getMinutes() === res.data[0].time) {
         this.showHand()
         this.discountAnimationEnd()
       }
@@ -34,6 +34,7 @@ class PopupDiscount extends React.Component {
         }
         this.changeDiscountTime()
       }, 60000)
+
     }, 30000)
   }
 
@@ -88,6 +89,7 @@ class PopupDiscount extends React.Component {
       }
     }, 900);
     discountPage.classList.add("show-discount")
+    window.scrollTo(0, 0)
   }
 
   slap = () => {
@@ -119,8 +121,12 @@ class PopupDiscount extends React.Component {
     if (!this.state.user) return null
     return (
       <div className="discount-page" onClick={this.slap}>
+
+        {/* <h1>Slap That Nazi</h1> */}
+
         <div className="discount-popup-wrapper" onClick={this.slapped}>
         </div>
+        
         {this.state.discountHighScore && 
         <div className="score-window">
           <h2>

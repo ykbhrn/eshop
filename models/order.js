@@ -28,7 +28,8 @@ const orderSchema = new mongoose.Schema({
   discount: { type: Number, default: 0 },
   totalPrice: { type: Number },
   pricePlusShipping: { type: Number, default: 0 },
-  orderId: { type: Number }
+  orderId: { type: Number },
+  paymentType: { type: String }
 })
 
 module.exports = (mongoose.model('Order', orderSchema))

@@ -120,7 +120,7 @@ class Basket extends React.Component {
                   </form>
                 </div>
                 
-                <div className="basket-subtotal">Subtotal: £{item.chosenQuantity * item.price}</div>
+                <div className="basket-subtotal">Subtotal: £{Math.round( item.chosenQuantity * item.price * 100) / 100}</div>
               </div>
             </div>;
           })}
