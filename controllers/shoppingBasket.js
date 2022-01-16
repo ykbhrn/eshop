@@ -36,6 +36,11 @@ async function addToBasket (req, res) {
     const productId = req.params.id
     const product = await Product.findById(productId)
 
+    const newArray = product.quantities.find(item => {
+      return item[0] == req.body.color && item[1] == req.body.size
+    })
+    const totalQuantity = newArray[2]
+
     if (!product) throw new Error({ message: 'notFound' })
 
     if (user.basket.filter(item => item.id === productId && item.chosenSize === req.body.size && item.chosenColor === req.body.color).length > 0) {
@@ -44,8 +49,8 @@ async function addToBasket (req, res) {
 
         if (item.id === productId && item.chosenSize === req.body.size && item.chosenColor === req.body.color) {
           item.chosenQuantity = item.chosenQuantity + req.body.quantity
-          if (item.chosenQuantity > product.quantity) {
-            item.chosenQuantity = product.quantity
+          if (item.chosenQuantity > totalQuantity) {
+            item.chosenQuantity = totalQuantity
           }
         } 
       })
@@ -136,11 +141,84 @@ async function addShipping (req, res) {
   }
 }
 
+async function minusProductQuantity (order, req, res) {
+  try {
+    console.log('co ti jebe')
+    const idArray = []
+    order.items.map(item => {
+      idArray.push(item._id)
+    })
+    for (let i = 0; i < order.items.length; i++) {
+      if (!idArray.includes(order.items[0])) {
+        idArray.push(order.items[i]._id)
+      }
+    }
+    // const newArray = []
+    // order.items.map((orderedProduct) => {
+    //   const filteredArray = order.items
+    // })
+    // const idArray = [] 
+    // const sameValuesArray = []
+    // const same = []
+    // let sameValues = []
+    // let finalNumber = 0
+    // order.items.map((orderedProduct) => {
+    //   idArray.push(orderedProduct._id)
+    // })
+
+    // order.items.map((orderedProduct) => {
+
+    //   sameValues = idArray.filter(item => {
+    //     return item._id == orderedProduct._id
+    //   })
+
+    //   same.push(sameValues[0])
+
+    //   let counter = 0
+    //   finalNumber = finalNumber + orderedProduct.chosenQuantity
+
+    //   orderedProduct.quantities.map(async (item) => { 
+        
+    //     if (item[0] == orderedProduct.chosenColor && item[1] == orderedProduct.chosenSize) {  
+
+    //       orderedProduct.quantities[counter][2] = item[2] - item.chosenQuantity
+
+    //       saveProduct(orderedProduct, counter, sameValuesArray)
+
+    //     }
+    //     counter++
+    //   })
+    // })
+
+    // if (same.length > 1) {
+    //   sameValuesArray.push(sameValues[0])
+    // }
+
+    // if (sameValuesArray.length > 0) {
+      
+    // }
+    console.log('pozeraj tu kkt a poriadne', idArray )
+  
+  } catch (err) {
+    res.json(err)
+  }
+}
+
+async function saveProduct (item, counter, sameOrders, req, res) {
+  try {
+    const product = await Product.findById(item._id)
+    product.quantities = item.quantities
+    await product.save()
+  } catch (err) {
+    res.json(err)
+  }
+}
+
 async function completingOrder (req, res) {
   try {
+    const paymentType = req.params.type
     const num = Math.floor(Math.random() * 1000000)
     const user = req.currentUser
-    user.finishedOrder.paymentType = req.body.paymentType
     user.finishedOrder = user.pendingOrder
     user.finishedOrder.items = user.basket
     user.finishedOrder.discount = user.discount
@@ -164,6 +242,8 @@ async function completingOrder (req, res) {
         paymentInstructionFunction(user)
       }, 15000)
     }
+
+    minusProductQuantity(user.finishedOrder)
 
     res.status(201).json(user.finishedOrder)
   } catch (err) {

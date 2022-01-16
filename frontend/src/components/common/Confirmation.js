@@ -18,6 +18,10 @@ class Confirmation extends React.Component {
     }
   }
 
+  continue = () => {
+    window.location.reload()
+  }
+
   render() {
     if (!this.state.user) return null;
     const {user} = this.state
@@ -32,7 +36,7 @@ class Confirmation extends React.Component {
           <div className="total-text">Shipping: £{user.finishedOrder.shipping}</div>
           <div>Total Price: £{user.finishedOrder.totalPrice + user.finishedOrder.shipping}</div>
         </div>
-       
+        <button>Continue</button>
       </div>
     )
   }

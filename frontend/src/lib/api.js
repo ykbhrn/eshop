@@ -55,8 +55,8 @@ export const updateBasket = (id, formData) => {
   return axios.put(`/api/basket/${id}`, formData, withHeaders())
 }
 
-export const completeOrder = (formData) => {
-  return axios.put('/api/complete', formData, withHeaders())
+export const completeOrder = (paymentType, formData) => {
+  return axios.put(`/api/complete/${paymentType}`, formData, withHeaders())
 }
 
 export const createOrder = (formData) => {

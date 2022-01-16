@@ -16,6 +16,7 @@ class SingleProduct extends React.Component {
     bigImage: '',
     addedToBasket: false,
     isLoading: false,
+    chosenColor: "",
   }
 
   async componentDidMount() {
@@ -28,11 +29,11 @@ class SingleProduct extends React.Component {
       for (let i = 1; i <= res.data.quantities[0][2]; i++) {
         totalQuantityArray.push(i);
       }
-      this.setState({ product: res.data, bigImage: res.data.images[0], formData, totalQuantity: totalQuantityArray });
+      this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, totalQuantity: totalQuantityArray, imagesArray: res.data.images[0].images });
     } catch (err) {
       console.log(err);
     }
-  }
+  } 
 
   settingQuantity = (formData) => {
     const totalQuantityArray = [];
@@ -62,6 +63,7 @@ class SingleProduct extends React.Component {
     try {
       const productId = this.props.match.params.id
       const res = await addToBasket(productId, this.state.formData)
+      console.log(res.data)
       this.hideOverflow()
       this.setState({ addedToBasket: true, isLoading: false })
       this.props.basket()
@@ -110,27 +112,46 @@ class SingleProduct extends React.Component {
   }
 
   choosingColor = (chosenColor) => {
-    const formData = { ...this.state.formData, color: chosenColor };
-    this.setState({ formData });
-    this.settingQuantity(formData)
+    this.state.product.images.map(image => {
+      if (image.color == chosenColor) {
+        console.log(image)
+        const formData = { ...this.state.formData, color: chosenColor };
+        this.setState({ formData, chosenColor: chosenColor, imagesArray: image.images, bigImage: image.images[0] });
+        this.settingQuantity(formData)
+      }
+    })
+  }
+
+  showImages = () => {
+    this.state.product.images[0].images.map(image => {
+      
+      return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
+        backgroundImage: `url(${image})`,
+      }}
+      onClick={() => {
+        this.changeBigImage(image);
+      }} key={image}></div>
+    })
+    
   }
 
   render() {
     const { product } = this.state
-    console.log(product)
     if (!product) return null
+    console.log(product)
     return (
       <div className="single-product-section">
         <div className="single-product-wrapper">
           <div className="single-product-images-wrapper">
             <div className="side-images-container">
-              {product.images.map(image => {
+              {this.state.imagesArray.map(image => {
+      
                 return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
                   backgroundImage: `url(${image})`,
                 }}
                 onClick={() => {
                   this.changeBigImage(image);
-                }} key={image}></div>;
+                }} key={image}></div>
               })}
             </div>
             <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>

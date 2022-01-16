@@ -46,14 +46,18 @@ class Basket extends React.Component {
     }
   }
 
-  quantityBar = (totalQuantity, chosenQuantity) => {
-    const quantity = [];
-    for (let i = 1; i <= totalQuantity; i++) {
-      quantity.push(i);
+  quantityBar = (item, color, size) => {
+    const totalQuantityArray = [];
+    const newArray = item.quantities.find(item => {
+      return item[0] == color && item[1] == size
+    })
+    console.log(newArray)
+    for (let i = 1; i <= newArray[2]; i++) {
+      totalQuantityArray.push(i);
     }
-    return quantity.map(item => {
-      return <option key={item} value={item}>{item}</option>;
-    });
+    return totalQuantityArray.map(thing => {
+      return <option key={thing} value={thing}>{thing}</option>
+    })
   }
 
   updateBasketItem = async (event, id, size, color) => {
@@ -115,7 +119,7 @@ class Basket extends React.Component {
                     <select value={item.chosenQuantity} onChange={() => {
                       this.updateBasketItem(event, item._id, item.chosenSize, item.chosenColor)
                     }}>
-                      {this.quantityBar(item.quantity, item.chosenQuantity)} 
+                      {this.quantityBar(item, item.chosenColor, item.chosenSize)} 
                     </select>
                   </form>
                 </div>

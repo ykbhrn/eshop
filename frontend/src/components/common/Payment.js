@@ -49,8 +49,8 @@ class Payment extends React.Component {
 
   async completeOrder (type) {
     try {
-      const formData = { paymentType: type }
-      const res = await completeOrder(formData)
+      const formData = {paymentType: type}
+      const res = await completeOrder(type, formData)
       console.log(res.data)
       const resTwo = await createOrder(res.data)
       window.location.assign(`/confirmation/${type}`)

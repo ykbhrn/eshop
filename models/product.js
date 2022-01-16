@@ -14,10 +14,14 @@ const categorySchema = new mongoose.Schema({
   subCategory: {type: String, required: true}
 })
 
+const colorSchema = new mongoose.Schema({
+  color: {type: String, required: true},
+  images: [{type: String, required: true}]
+})
 
 const productSchema = new mongoose.Schema({
   name: {type: String, required: true},
-  images: [{type: String, required: false}],
+  images: [colorSchema],
   description: {type: String, required: true},
   price: {type: Number, required: true},
   discount: {type: Number, required: false},
@@ -25,8 +29,8 @@ const productSchema = new mongoose.Schema({
   chosenSize: {type: String, required: false},
   colors: [{type: String, required: false}],
   chosenColor: {type: String, required: false},
-  quantities: [[{type: String}, {type: String}, {type: Number}]],
-  chosenQuantity: {type: Number, required: false},
+  quantities: [[{type: String}, {type: String}, {type: Number, required: false}]],
+  chosenQuantity: {type: Number},
   categories: categorySchema,
   user: {type: Object, required: true},
   comments: [commentSchema]

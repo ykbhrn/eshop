@@ -45,7 +45,7 @@ router.route('/basket/:id')
 router.route('/basket/remove/:id')
   .put(secureRoute, basket.remove)
 
-router.route('/complete')
+router.route('/complete/:type')
   .put(secureRoute, basket.completingOrder)
 
 router.route('/order')
