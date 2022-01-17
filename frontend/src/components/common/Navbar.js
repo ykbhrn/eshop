@@ -13,7 +13,9 @@ class Navbar extends React.Component {
   }
 
   changeMainButton = (hoveredItem) => {
-    this.setState({ mainButton: hoveredItem })
+    if (!window.matchMedia("(pointer: coarse)").matches) {
+      this.setState({ mainButton: hoveredItem })
+    }
   }
 
   mainButtonBack = () => {
@@ -126,7 +128,7 @@ class Navbar extends React.Component {
             <li><span>back</span></li>
           </ul> */}
         </div>
-
+        
         <div className="main-menu-wrapper">
           <Link to="#" className='button ctrl' tabIndex='1'>
             {this.state.mainButton &&

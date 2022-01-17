@@ -19,7 +19,7 @@
   <script>$(document).ready(function () {
     $('.home-logo').addClass('change-image');
       $('.close').mouseenter(function () {
-        if (window.innerwidth > 800) {
+        if (!window.matchMedia("(pointer: coarse)").matches) {
           $('.home-menu-ul').addClass('active');
         $('.home-title').addClass('title-color');
         $('.home-logo').removeClass('change-image');
@@ -34,7 +34,7 @@
         $('.home-logo').toggleClass('change-image');
       })
     
-      $('html').click(function (event) {
+      $('html').on('click touchstart', function (event) {
         if (event.target.id !== "ctrl-button") {
           return $('ul').removeClass('show-tip');
         }

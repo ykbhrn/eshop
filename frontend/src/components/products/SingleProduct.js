@@ -24,7 +24,7 @@ class SingleProduct extends React.Component {
       window.scrollTo(0, 0)
       const productId = this.props.match.params.id;
       const res = await getSingleProduct(productId);
-      const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.colors[0] };
+      const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.images[0].color };
       const totalQuantityArray = [];
       for (let i = 1; i <= res.data.quantities[0][2]; i++) {
         totalQuantityArray.push(i);
