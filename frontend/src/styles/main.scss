@@ -20,7 +20,7 @@ html, body{
 
 body {
   font-family: $main-font;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   color: $text-color;
   font-weight: 200;
 }
@@ -97,6 +97,7 @@ button{
     padding-top: 30px;
     font-size: 42px;
     font-weight: 400;
+    text-align: center;
   }
   .title-color{
     color: $dark-color;
@@ -1799,7 +1800,7 @@ a.ctrl, .ctrl div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   width: 100%;
   height: 200px;
   padding-bottom: 30px;
@@ -1884,3 +1885,37 @@ a {
 // }
 }
 
+//RESPONSIVE DESIGN
+
+@media only screen and (max-width: 1030px) {
+  .home-page .home-title{
+    font-size: 28px;
+    padding-top: 8px;
+  }
+  .dynamic-txts li{
+    font-size: 25px;
+  }
+  .header .dynamic-txts {
+    line-height: 70px;
+    height: 70px;
+  }
+  .dynamic-txts li span::after {
+    margin-top: 33px;
+  }
+  .flower-container{
+    display: none;
+  }
+  .home-menu{
+    // margin-top: 80px;
+  }
+  .home-menu ul{
+    transform: scale(1.4);
+  }
+  .footer-wrapper{
+  flex-direction: column;
+  }
+  .social-media-icons{
+    padding: 30px 0;
+    margin-right: 0px!important;
+  }
+}

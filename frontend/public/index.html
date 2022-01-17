@@ -19,11 +19,13 @@
   <script>$(document).ready(function () {
     $('.home-logo').addClass('change-image');
       $('.close').mouseenter(function () {
-        $('.home-menu-ul').addClass('active');
+        if (window.innerwidth > 800) {
+          $('.home-menu-ul').addClass('active');
         $('.home-title').addClass('title-color');
         $('.home-logo').removeClass('change-image');
 
         $('.flower').removeClass("bright")
+        }
       })
       $('.close').click(function () {
         $('.home-menu-ul').toggleClass('active');

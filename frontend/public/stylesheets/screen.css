@@ -7,34 +7,36 @@
 .home-menu {
   font-family: 'Gluten', cursive;
   display: flex;
+  justify-content: center;
+  width: 100vw;
   position: absolute;
+  height: 300px;
+  margin-top: -80px;
   top: 50%;
-  left: 50%;
-  margin-left: -100px;
-  margin-top: -100px;
+  z-index: 5;
 }
 
 /* line 29, ../sass/screen.scss */
-/* line 26, ../sass/screen.scss */
+/* line 28, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
   font-size: 7px;
   color: #501d59;
   font-weight: 400;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 33, ../sass/screen.scss */
 .home-menu-button-text {
   margin-top: -4px;
 }
 
 /* line 34, ../sass/screen.scss */
-/* line 35, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 .home-menu a {
   text-decoration: none;
 }
 
 /* line 37, ../sass/screen.scss */
-/* line 39, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 .home-menu ul {
   -moz-transform: scale(0.2);
   -ms-transform: scale(0.2);
@@ -55,7 +57,7 @@
 }
 
 /* line 50, ../sass/screen.scss */
-/* line 58, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 .home-menu ul li {
   position: absolute;
   width: 100px;
@@ -65,9 +67,8 @@
   display: none;
 }
 
-
 /* line 57, ../sass/screen.scss */
-/* line 67, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 .home-menu ul li a {
   color: #FFE400;
   display: block;
@@ -80,13 +81,13 @@
 }
 
 /* line 68, ../sass/screen.scss */
-/* line 78, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
   background: #501d59;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 82, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) {
   display: block;
   -moz-transform: rotate(60deg) skew(30deg);
@@ -96,7 +97,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 90, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -106,14 +107,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 98, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 103, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) {
   display: block;
   -moz-transform: rotate(120deg) skew(30deg);
@@ -123,7 +124,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 111, ../sass/screen.scss */
+/* line 113, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -133,14 +134,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 119, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 124, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) {
   display: block;
   -moz-transform: rotate(180deg) skew(30deg);
@@ -150,7 +151,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 132, ../sass/screen.scss */
+/* line 134, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -160,14 +161,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 140, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 145, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) {
   display: block;
   -moz-transform: rotate(240deg) skew(30deg);
@@ -177,7 +178,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 153, ../sass/screen.scss */
+/* line 155, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -187,14 +188,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 161, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 166, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) {
   display: block;
   -moz-transform: rotate(300deg) skew(30deg);
@@ -204,7 +205,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 174, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -214,14 +215,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 182, ../sass/screen.scss */
+/* line 184, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 187, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) {
   display: block;
   -moz-transform: rotate(360deg) skew(30deg);
@@ -231,7 +232,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 195, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -241,18 +242,18 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 203, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 91, ../sass/screen.scss */
-/* line 208, ../sass/screen.scss */
+/* line 210, ../sass/screen.scss */
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
-  background: url("https://res.cloudinary.com/nuhippies/image/upload/v1640145838/Nu%20Hippies/Backgrounds/hippie-van2_dytv6s.jpg") white;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://res.cloudinary.com/nuhippies/image/upload/v1639872055/Nu%20Hippies/icons/hippie-van_ygn0gp.jpg");
   background-position: 0 0;
   background-size: cover;
   animation: moving 10s linear infinite;
@@ -274,7 +275,7 @@
 }
 
 /* line 107, ../sass/screen.scss */
-/* line 232, ../sass/screen.scss */
+/* line 234, ../sass/screen.scss */
 .home-menu ul li.close .fas {
   position: absolute;
   left: 13%;
@@ -282,7 +283,7 @@
 }
 
 /* line 113, ../sass/screen.scss */
-/* line 238, ../sass/screen.scss */
+/* line 240, ../sass/screen.scss */
 .home-menu ul li.close a {
   background: none;
   width: 60px;
@@ -292,17 +293,16 @@
 }
 
 /* line 123, ../sass/screen.scss */
-/* line 246, ../sass/screen.scss */
+/* line 248, ../sass/screen.scss */
 .home-menu ul.active {
   -moz-transform: scale(1.5);
   -ms-transform: scale(1.5);
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
-  
 }
 
 /* line 125, ../sass/screen.scss */
-/* line 253, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 .home-menu ul.active .close {
   -moz-transform: rotate(0deg) scale(2);
   -ms-transform: rotate(0deg) scale(2);
