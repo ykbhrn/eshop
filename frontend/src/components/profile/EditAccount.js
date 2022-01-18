@@ -170,15 +170,12 @@ class EditAccount extends React.Component {
                 </div>
             }
             {!isLoading &&
-              <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Done</button>
+              <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Change</button>
             }
           </form>
         </div>
         }
-
-        <div onClick={this.handleLogout} className="logout-wrapper">
-          <i className="fas fa-sign-out-alt"></i>
-        </div>
+        
       </div>
     );
   }

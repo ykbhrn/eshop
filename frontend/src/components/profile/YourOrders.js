@@ -108,9 +108,6 @@ class YourOrders extends React.Component {
           <div>Your Orders</div>
         </div>
 
-        <div onClick={this.handleLogout} className="logout-wrapper">
-          <i className="fas fa-sign-out-alt"></i>
-        </div>
       </div>
     )
   }

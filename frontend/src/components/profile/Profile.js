@@ -28,13 +28,13 @@ class Profile extends React.Component {
     console.log(this.state.user);
     return (
       <div className="profile-page">
-        <div className="profile-icons-wrapper">
+        <div className="profile-icons-container">
 
           <Link to="/profile/orders">
             <div className="profile-icon">
               <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598032/Nu%20Hippies/icons/orders_xit6y1.png" />
               <div className="profile-icon-decription">
-                <div>Your Orders</div>
+                <div className="profile-icon-text">Your Orders</div>
                 <div className="description">
             Check your previous orders or buy it again
                 </div>
@@ -46,7 +46,7 @@ class Profile extends React.Component {
             <div className="profile-icon">
               <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598187/Nu%20Hippies/icons/profile_fwkd3p.png" />
               <div className="profile-icon-description">
-                <div>Your Account</div>
+                <div className="profile-icon-text">Your Account</div>
                 <div className="description">
                 Edit your login details
                 </div>
@@ -58,7 +58,7 @@ class Profile extends React.Component {
             <div className="profile-icon">
               <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598159/Nu%20Hippies/icons/map_ratocx.png" />
               <div className="profile-icon-description">
-                <div>Your Adress</div>
+                <div className="profile-icon-text">Your Adress</div>
                 <div className="description">
             Edit your shipping and billing adress
                 </div>

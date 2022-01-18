@@ -385,14 +385,11 @@ class EditAdress extends React.Component {
                 </div>
             }
             {!isLoading &&
-            <button className="classic-btn" onClick={this.addAdress}>Done</button>
+            <button className="classic-btn" onClick={this.addAdress}>Change</button>
             }
           </>
         }
 
-        <div onClick={this.handleLogout} className="logout-wrapper">
-          <i className="fas fa-sign-out-alt"></i>
-        </div>
       </div>
     );
   }

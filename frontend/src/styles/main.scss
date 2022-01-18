@@ -1251,7 +1251,7 @@ h1{
   }
   display: flex;
   justify-content: center;
-  .profile-icons-wrapper{
+  .profile-icons-container{
     width: 95vw;
     display: flex;
     justify-content: center;
@@ -1269,10 +1269,18 @@ h1{
     font-size: 18px;
     font-weight: 300;
     cursor: pointer;
+    .profile-icon-text{
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .profile-icon-description{
+      width: 100%;
+    }
     .description{
       font-size: 13px;
       color: $gray-color;
       font-weight: 100;
+      text-align: center;
     }
     img{
       width: 80px;
@@ -1432,12 +1440,16 @@ h1{
   }
   .shipping-billing-edit{
     display: flex;
+    flex-direction: column;
   }
   .billing-edit-container{
     margin-left: 70px;
   }
   .isBilling{
     margin-top: 40px;
+  }
+  h2{
+    margin: 30px 0 10px 0;
   }
 }
 
@@ -2033,6 +2045,59 @@ a {
     .basket-added-btn{
       font-size: 12px!important;
       padding: 5px 10px!important;
+    }
+  }
+  .profile-page{
+    flex-direction: column;
+    align-items: center;
+    .profile-icon{
+      font-size: 15px;
+      margin: 0 0 30px 0;
+      .profile-icon-text{
+        margin-bottom: 10px;
+      }
+      img{
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+  .logout-wrapper{
+    position: absolute;
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .forms-wrapper{
+    align-items: center;
+  }
+  .edit-account-page, .edit-adress-page{
+
+}
+.basket-page{
+  flex-direction: column;  
+  align-items: center; 
+.basket-container{
+  h1{
+    font-size: 12px;
+  }
+}
+.basket-subtotal-remove{
+  flex-direction: column;
+  font-size: 14px;
+}
+.basket-remove{
+  margin-bottom: 13px;
+  font-size: 12px;
+}
+.basket-subtotal{
+  margin-top: 13px;
+  font-size: 15px;
+    }
+    select{
+      font-size: 12px;
     }
   }
 }
