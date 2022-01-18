@@ -97,7 +97,7 @@ class Basket extends React.Component {
               <div className="basket-item">
                 <div className="basket-image-title">
                   <a href={`/products/${item._id}`} target="_blank" rel="noreferrer">
-                    <img src={item.images[0]} />
+                    <img src={item.images[0].images[0]} />
                   </a>
                   <a href={`/products/${item._id}`} target="_blank" rel="noreferrer">
                     <h1>{item.name}</h1>

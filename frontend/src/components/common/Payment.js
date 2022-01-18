@@ -144,7 +144,7 @@ class Payment extends React.Component {
           {user.basket.map(item => {
             return <div key={item.id} className="image-checkout-wrapper">
               <div className="image-checkout" style={{
-                backgroundImage: `url(${item.images[0]})`
+                backgroundImage: `url(${item.images[0].images[0]})`
               }}>
               </div>
               <div className="image-checkout-name">

@@ -781,6 +781,7 @@ h3:hover, .small-item:hover{
 .auth-btn-wrapper{
   display: flex;
   flex-direction: column;
+  align-items: center;
   align-self: flex-end;
   position: absolute;
   bottom: 40px;
@@ -828,6 +829,10 @@ button{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  h1 {
+    padding: 20px 30px 0px 30px;
+    text-align: center;
+  }
   form{
     margin-top: 30px;
     display: flex;
@@ -945,6 +950,7 @@ button{
 .products-page {
   display: flex;
   justify-content: center;
+  margin-top: -60px;
   a{
     text-decoration: none;
     color: inherit;
@@ -975,6 +981,7 @@ button{
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 10px;
+    text-align: center;
   }
   .product-preview-price-wrapper{
     display: flex;
@@ -1032,10 +1039,12 @@ button{
 .single-product-wrapper{
   width: 80vw;
   display: flex;
+  flex-wrap: wrap;
 }
 h1{
   font-size: 26px;
   font-weight: 400;
+  text-align: center;
 }
 .single-product-images-wrapper{
   display: flex;
@@ -1108,7 +1117,7 @@ h1{
   margin-right: 15px;
 }
 .product-size{
-  margin: 7px 0 16px 0;
+  margin: 13px 0 16px 0;
   font-size: 26px;
 }
 .chosen-size{
@@ -1179,7 +1188,7 @@ h1{
   border: 1px solid $dark-color;
   border-bottom: none;
   border-radius: 10px 10px 0 0;
-  position: absolute;
+  position: fixed;
   bottom: 0%;
   right: 50%;
   margin-right: -30vw;
@@ -1208,6 +1217,10 @@ h1{
     color: $second-color;
     cursor: pointer;
     margin: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .basket-added-btn:hover{
     color: $third-color;
@@ -1487,7 +1500,7 @@ a.ctrl, .ctrl div {
 
 /* circular menu */
 .tip {
-	z-index: 1;
+	z-index: 10;
 	margin: -5em;
 	width: 10em; height: 10em;
 	transform: scale(.001);
@@ -1805,6 +1818,9 @@ a.ctrl, .ctrl div {
   height: 200px;
   padding-bottom: 30px;
   margin-top: 50px;
+  .footer-menu-wrapper{
+    text-align: center;
+  }
   .footer-menu-wrapper li{
     list-style-type: none;
     margin-bottom: 5px;
@@ -1928,9 +1944,16 @@ a {
   .logo{
     margin-top: 30px;
   }
-  .basket-icon-wrapper img{
+  .basket-icon-wrapper{
+    img {
     width: 28px;
     height: 28px;
+    }
+    .basket-number{
+      top: 3px;
+      right: 8px;
+      font-size: 12px;
+    }
   }
   .show-tip{
     transform: scale(0.8)!important;
@@ -1940,5 +1963,76 @@ a {
   }
   .product-wrapper{
     transform: scale(0.8);
+  }
+  .single-product-section .product-color-wrapper, .single-product-section .product-size-wrapper {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  .product-price{
+    font-size: 27px!important;
+  }
+  .single-product-section h1{
+    font-size: 22px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .product-discount{
+    font-size: 17px!important;
+  }
+  .quantity-add-wrapper{
+    flex-direction: column;
+  }
+  .quantity-bar{
+    margin-bottom: 20px;
+  }
+  .single-product-image{
+    width: 200px!important;
+    height: 250px!important;
+  }
+  .product-size, .quantity-bar{
+    font-size: 20px!important;
+  }
+  .single-product-images-wrapper{
+    margin: 0 auto!important;
+  }
+  .name-price-wrapper{
+    align-items: center!important;
+  }
+  .authorization-wrapper{
+    font-size: 19px!important;
+    .classic-btn{
+      width: 160px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  .register{
+    h1{
+    font-size: 20px;
+  }
+}
+  .auth-btn-wrapper{
+    position: static!important;
+    align-self: center!important;
+    margin-top: 30px;
+  }
+  .login-bttn-wrapper{
+    flex-direction: column;
+    .forgot{
+      margin: 20px 0 30px 0;
+    }
+  }
+  .basket-added-wrapper{
+    height: 50vh!important;
+    width: 100vw!important;
+    right: 0%!important;
+    margin-right: 0px!important;
+    h1{
+      font-size: 20px;
+    }
+    .basket-added-btn{
+      font-size: 12px!important;
+      padding: 5px 10px!important;
+    }
   }
 }
