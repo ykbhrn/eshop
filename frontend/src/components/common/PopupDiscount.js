@@ -87,7 +87,7 @@ class PopupDiscount extends React.Component {
       if (this.state.discountCounter > 0) {
         clearInterval(popupInterval)
       }
-    }, 900);
+    }, 700);
     discountPage.classList.add("show-discount")
     window.scrollTo(0, 0)
   }

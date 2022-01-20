@@ -103,9 +103,11 @@ class Basket extends React.Component {
                     <h1>{item.name}</h1>
                   </a>
                 </div>
-                <div>{item.chosenColor}</div>
-                <div>{item.chosenSize}</div>
-                <div className="basket-price">Price: £{item.price}</div>
+                <div className="color-size-price">
+                  <div>{item.chosenColor}</div>
+                  <div>{item.chosenSize}</div>
+                  <div className="basket-price">{item.price}</div>
+                </div>
               </div>
               
               <div className="basket-subtotal-remove">
@@ -138,7 +140,7 @@ class Basket extends React.Component {
              <div>Total Price: £{user.totalPrice}</div>
            </div>
            <Link to="/checkout">
-             <div className="chekout-button">Proceed to Chekout</div>
+             <div className="checkout-button">Proceed to Chekout</div>
            </Link>
          </div>
         }

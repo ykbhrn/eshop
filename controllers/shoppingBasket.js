@@ -243,7 +243,7 @@ async function completingOrder (req, res) {
       }, 15000)
     }
 
-    minusProductQuantity(user.finishedOrder)
+    // minusProductQuantity(user.finishedOrder)
 
     res.status(201).json(user.finishedOrder)
   } catch (err) {

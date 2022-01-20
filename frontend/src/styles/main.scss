@@ -177,7 +177,7 @@ button{
   .checkout-button-total-price div{
     margin-top: 10px;
   }
-  .chekout-button{
+  .checkout-button{
     background: $dark-color;
     font-size: 20px;
     font-weight: 300;
@@ -188,7 +188,7 @@ button{
     padding: 10px 19px;
     cursor: pointer;
   }
-  .chekout-button:hover{
+  .checkout-button:hover{
     transform: scale(1.03);
     color: $third-color;    
   }
@@ -202,6 +202,11 @@ button{
   .basket-image-title{
     display: flex;
     max-width: 60%;
+  }
+  .color-size-price{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
   }
   .number{
     width: 19px;
@@ -272,6 +277,7 @@ button{
 .shipping-description{
   color: gray;
   font-size: 15px;
+  margin-top: 5px;
 }
 
 //Payment page
@@ -1639,12 +1645,12 @@ a.ctrl, .ctrl div {
 }
 
 .score-window{
-  position: absolute;
+  position: fixed;
   width: 500px;
   height: 500px;
-  margin-top: -260px;
+  margin-bottom: -260px;
   margin-left: -260px;
-  top: 50%;
+  bottom: 50%;
   left: 50%;
   background: $second-color;
   padding: 10px;
@@ -2085,8 +2091,12 @@ a {
   }
 }
 .basket-subtotal-remove{
+  align-items: center;
   flex-direction: column;
   font-size: 14px;
+}
+.basket-remove{
+  align-self: flex-start;
 }
 .basket-remove{
   margin-bottom: 13px;
@@ -2099,5 +2109,102 @@ a {
     select{
       font-size: 12px;
     }
+.basket-image-title{
+  flex-direction: column;
+}
+.color-size-price{
+  flex-direction: column;
+  font-size: 12px;
+  width: 40px;
+  .basket-price{
+    font-size: 14px;
   }
+}
+.checkout-button-total-price{
+  width: 70vw;
+  font-size: 17px;
+}
+.checkout-button{
+  font-size: 17px;
+  width: 50vw;
+}
+.basket-item{
+  // display: flex;
+  justify-content: space-around;
+}
+.basket-image-title{
+  text-align: center;
+}
+  }
+  .shipping-page{
+    flex-direction: column;
+    h2{
+      font-size: 19px;
+    }
+  }
+  .shipping-option{
+    font-size: 15px;
+  }
+  .shipping-description{
+    font-size: 13px;
+  }
+  .shipping-radio{
+    width: 100%;
+  }
+  .payment-page{
+    input{
+      // width: 100%;
+    }
+    h2{
+      font-size: 19px;
+    }
+    .payment-option{
+      width: 70vw;
+    }
+    .payment-radio{
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .total-price-checkout-wrapper{
+    font-size: 17px;
+  }
+  .image-checkout-wrapper{
+    .image-checkout-name{
+      font-size: 12px;
+    }
+  }
+  .checkout-buttons{
+    button{
+      font-size: 15px;
+    }
+  }
+  .contact-page{
+    textarea{
+      width: 20em;
+      height: 9em;
+    }
+  }
+  .score-window{
+    width: 100vw;
+    height: 50vh;
+    margin-bottom: 0px;
+    margin-left: -53vw;
+    bottom: 0%; 
+    .classic-btn{
+      font-size: 18px;
+      width: 140px;
+    }
+    h2{
+      font-size: 15px;
+      padding: 0 30px;
+    }
+  }.discount-popup-wrapper{
+    width: 80px;
+    height: 80px;
+  }
+.checkout-form{
+  width: 70vw;
+  padding-right: 0px;
+}
 }

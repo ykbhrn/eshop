@@ -62,7 +62,6 @@ class Payment extends React.Component {
   render() {
     if (!this.state.user) return null;
     const { user, formData } = this.state;
-    console.log(this.state.paymentType)
     return (
       <div className="payment-page">
 
