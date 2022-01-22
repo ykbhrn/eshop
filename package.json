@@ -2,6 +2,9 @@
   "name": "eshop",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "14.3.0"
+  },
   "repository": "git@github.com:ykbhrn/eshop.git",
   "author": "ykbhrn <jakub.horun@gmail.com>",
   "license": "MIT",
