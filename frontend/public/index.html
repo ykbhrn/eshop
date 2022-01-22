@@ -12,40 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="./stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <link href="./stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-  <script>$(document).ready(function () {
-    $('.home-logo').addClass('change-image');
-      $('.close').mouseenter(function () {
-        if (!window.matchMedia("(pointer: coarse)").matches) {
-          $('.home-menu-ul').addClass('active');
-        $('.home-title').addClass('title-color');
-        $('.home-logo').removeClass('change-image');
-
-        $('.flower').removeClass("bright")
-        }
-      })
-      $('.close').click(function () {
-        $('.home-menu-ul').toggleClass('active');
-        $('.home-title').toggleClass('title-color');
-        $('.flower').toggleClass('bright');
-        $('.home-logo').toggleClass('change-image');
-      })
-    
-      $('html').on('click touchstart', function (event) {
-        if (event.target.id !== "ctrl-button") {
-          return $('ul').removeClass('show-tip');
-        }
-      })
-
-      $('.button.ctrl').click(function () {
-      $('#main-menu-ul').toggleClass('show-tip');
-    })
-    
-    })
-    </script>
   <title>Nu Hippies</title>
 </head>
 
