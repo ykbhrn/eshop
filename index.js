@@ -27,5 +27,5 @@ app.use('/api', router)
 app.use('/*', (req, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
 
 
-app.listen(port, () => console.log(`Up and running on port ${port}`))
+app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
 
