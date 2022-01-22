@@ -15,6 +15,7 @@ mongoose.connect(
     console.log('Mongo is Connected')
   }
 )
+app.use(express.static(`${__dirname}/frontend/build`))
 
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }))
@@ -23,5 +24,8 @@ app.use(logger)
 
 app.use('/api', router)
 
-app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
+app.use('/*', (req, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
+
+
+app.listen(port, () => console.log(`Up and running on port ${port}`))
 
