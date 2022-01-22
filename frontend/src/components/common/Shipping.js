@@ -76,22 +76,25 @@ class Shipping extends React.Component {
         </div>
 
         <div className="basket-preview">
-          {user.basket.map(item => {            
-            return <div key={item.id} className="image-checkout-wrapper"> 
-              <div className="image-checkout" style={{
-                backgroundImage: `url(${item.images[0].images[0]})`
-              }}>
-              </div>  
-              <div className="image-checkout-name">
-                {item.name}
-                <div className="image-checkout-description">
-                  <span className="size">Size: {item.chosenSize}</span>
-                  <span className="color">Color: {item.chosenColor}</span>
+          <div className="order-items-container">
+            {user.basket.map(item => {            
+              return <div key={item.id} className="image-checkout-wrapper"> 
+                <div className="image-checkout" style={{
+                  backgroundImage: `url(${item.images[0].images[0]})`
+                }}>
+                </div>  
+                <div className="image-checkout-name">
+                  {item.name}
+                  <div className="image-checkout-description">
+                    <span className="size">Size: {item.chosenSize}</span>
+                    <span className="color">Color: {item.chosenColor}</span>
                   Quantity: {item.chosenQuantity}
+                  </div>
                 </div>
-              </div>
-            </div>;
-          })}
+              </div>;
+            })}
+          </div>
+          
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>

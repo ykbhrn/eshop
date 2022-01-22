@@ -45,11 +45,34 @@ button{
   z-index: 3;
 }
 
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    -webkit-overflow-scrolling: scroll!important;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+}
 .classic-btn{
   border: 1px solid $dark-color;
   background: $dark-color;
   color: $second-color;
-  border-radius: 10px;
+  border-radius: 17px;
   font-size: 22px;
   font-weight: 300;
   height: 45px;
@@ -332,6 +355,13 @@ button{
     margin-bottom: 0px;
   }
 }
+.order-items-container{
+  max-height: 230px;
+  overflow-y: scroll;
+}
+.order-confirmation-details{
+  margin-left: 40px;
+}
 .total-price-checkout-wrapper div{
   margin-top: 9px;
 }
@@ -434,8 +464,22 @@ h2{
     width: 100vw;
     justify-content: center;
     align-items: center;
+    h2{
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    h3{
+      text-align: center;
+    }
+    .classic-btn{
+      margin-top: 30px;
+    }
     .total-price-checkout-wrapper{
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
     }
   }
 
@@ -472,6 +516,7 @@ h2{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 30px;
 }
 .gender-navbar-part{
   display: flex;
@@ -526,10 +571,9 @@ h3:hover, .small-item:hover{
   border-right: 2px solid $text-color;
   color: $text-color;
   width: 250px;
-  height: 100vh;
   z-index: 4;
   border-radius: 0 0 5px 5px;
-  padding: 30px 0;
+  padding: 30px 0 0 0;
   a {
     color: $text-color;
   }
@@ -1013,10 +1057,16 @@ button{
 }
 
 //categorizied products
+.products-page.categorized{
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
 .cat-nav{
   display: flex;
-  align-self: flex-start;
-  margin-left: 20px;
+  // position: absolute;
+  // left: 20px;
+  // top: 80px;
   a{
     text-decoration: none;
     color: $dark-color;
@@ -1516,7 +1566,7 @@ a.ctrl, .ctrl div {
 	border-radius: 50%;
 }
 
-/* circular menu */
+// /* circular menu */
 .tip {
 	z-index: 10;
 	margin: -5em;
@@ -1526,7 +1576,7 @@ a.ctrl, .ctrl div {
 	opacity: 0;
 }
 
-/* the ends of the menu */
+// /* the ends of the menu */
 .tip:before, .tip:after {
 	position: absolute;
 	top: 32.5%;
@@ -1553,7 +1603,7 @@ a.ctrl, .ctrl div {
 	opacity: 1;
   border-radius: 50%;
 }
-/* slices of the circular menu */
+// /* slices of the circular menu */
 .slice {
 	overflow: hidden;
 	position: absolute;
@@ -1561,12 +1611,11 @@ a.ctrl, .ctrl div {
 	transform-origin: 100% 100%;
 }
 
-.slice:first-child { transform: rotate(-45deg) skewY(60deg); }
+.slice:nth-child(1) { transform: rotate(-45deg) skewY(60deg); }
 .slice:nth-child(2) { transform: rotate(-15deg) skewY(60deg); }
 .slice:nth-child(3) { transform: rotate(15deg) skewY(60deg); }
 .slice:nth-child(4) { transform: rotate(45deg) skewY(60deg); }
-.slice:last-child { transform: rotate(75deg) skewY(60deg); }
-
+.slice:nth-child(5) { transform: rotate(75deg) skewY(60deg); }
 
 .slice:after {
 	position: absolute;
@@ -1578,7 +1627,7 @@ a.ctrl, .ctrl div {
 	content: '';
 }
 
-/* menu links */
+// /* menu links */
 .slice div {
 	width: 200%; height: 200%;
 	border-radius: 50%;
@@ -1598,7 +1647,7 @@ a.ctrl, .ctrl div {
 	line-height: 1.7;
 }
 
-/* arrow for middle link */
+// /* arrow for middle link */
 .slice:nth-child(3) div:after {
 	position: absolute;
 	top: 15.1%; left: 50%;
@@ -1958,11 +2007,32 @@ a {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 0px;
+    .products-navbar{
+      left: 5px;
+      padding-top: 10px;
+    }
+    .products-navbar-item{
+      font-size: 14px;
+    }
+    h3{
+      font-size: 17px;
+    }
+    .small-item{
+      font-size: 13px;
+    }
+    .gender-navbar-part-wrapper{
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
   }
   .logo{
     margin-top: 30px;
+    width: 120px;
+    height: 120px;
   }
   .basket-icon-wrapper{
+    top: 12px;
+    right: 15px;
     img {
     width: 28px;
     height: 28px;
@@ -2207,4 +2277,18 @@ a {
   width: 70vw;
   padding-right: 0px;
 }
+.confirmation-page{
+  .total-price-checkout-wrapper{
+    flex-direction: column;
+  }
+  .order-items-container{
+    border-bottom: 1px solid black;
+  }
+}
+.products-page.categorized{
+  .product-container{
+    margin-top: -30px;
+  }
+}
+
 }

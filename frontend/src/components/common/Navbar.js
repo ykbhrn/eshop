@@ -79,19 +79,19 @@ class Navbar extends React.Component {
             {this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
               <div className="gender-navbar-part">
-                <Link to="/products/clothing/men/all"><h3>Men&apos;s Clothing</h3></Link>
-                <Link to="/products/clothing/men/t-shirts"><div className="small-item">T-Shirts</div></Link>
-                <Link to="/products/clothing/men/hoodies"><div className="small-item">Hoodies</div></Link>
-                <Link to="/products/clothing/men/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
-                <Link to="/products/clothing/men/trousers"><div className="small-item">Trousers</div></Link>
+                <Link to="/products/clothing/men/all" onClick={this.productsMenuLeave}><h3>Men&apos;s Clothing</h3></Link>
+                <Link to="/products/clothing/men/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/clothing/men/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/clothing/men/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/clothing/men/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
               </div>
 
               <div className="gender-navbar-part">
-                <Link to="/products/clothing/women/all"><h3>Women&apos;s Clothing</h3></Link>
-                <Link to="/products/clothing/women/t-shirts"><div className="small-item">T-Shirts</div></Link>
-                <Link to="/products/clothing/women/hoodies"><div className="small-item">Hoodies</div></Link>
-                <Link to="/products/clothing/women/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
-                <Link to="/products/clothing/women/trousers"><div className="small-item">Trousers</div></Link>
+                <Link to="/products/clothing/women/all" onClick={this.productsMenuLeave}><h3>Women&apos;s Clothing</h3></Link>
+                <Link to="/products/clothing/women/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/clothing/women/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/clothing/women/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/clothing/women/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
               </div>
             </div>
             }
@@ -99,19 +99,19 @@ class Navbar extends React.Component {
             {!this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
               <div className="gender-navbar-part">
-                <h3>Men&apos;s Accesories</h3>
-                <div className="small-item">T-Shirts</div>
-                <div className="small-item">Hoodies</div>
-                <div className="small-item">Sweatshirts</div>
-                <div className="small-item">Trousers</div>
+                <Link to="/products/accesories/men/all" onClick={this.productsMenuLeave}><h3>Men&apos;s Accesories</h3></Link>
+                <Link to="/products/accesories/men/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/accesories/men/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/accesories/men/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/accesories/men/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
               </div>
 
               <div className="gender-navbar-part">
-                <h3>Women&apos;s Accesories</h3>
-                <div className="small-item">T-Shirts</div>
-                <div className="small-item">Hoodies</div>
-                <div className="small-item">Sweatshirts</div>
-                <div className="small-item">Trousers</div>
+                <Link to="/products/accesories/women/all" onClick={this.productsMenuLeave}><h3>Women&apos;s Accesories</h3></Link>
+                <Link to="/products/accesories/women/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/accesories/women/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/accesories/women/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/accesories/women/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
               </div>
             </div>
             }
@@ -157,7 +157,7 @@ class Navbar extends React.Component {
                 <div onMouseEnter={() => {
                   this.changeMainButton("accessories")
                 }}
-                onMouseLeave={this.mainButtonBack}><i className="fab fa-redhat"></i>
+                onMouseLeave={this.mainButtonBack}><i className="fas fa-hat-cowboy"></i>
                 </div>
               </Link>
             </li>

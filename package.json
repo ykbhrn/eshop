@@ -5,6 +5,11 @@
   "repository": "git@github.com:ykbhrn/eshop.git",
   "author": "ykbhrn <jakub.horun@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "serve": "webpack-dev-server --mode=development",
+    "build": "webpack -p",
+    "start": "node index"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",

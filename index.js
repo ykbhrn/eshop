@@ -23,5 +23,5 @@ app.use(logger)
 
 app.use('/api', router)
 
-app.listen(port, () => console.log(`Up and running on port ${port}`))
+app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
 

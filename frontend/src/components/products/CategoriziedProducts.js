@@ -29,7 +29,7 @@ class CategoriziedProducts extends React.Component {
   render() {
     const {subcategory, gender, type} = this.props.match.params
     return (
-      <div className="products-page">
+      <div className="products-page categorized">
         <div className="cat-nav">
           <Link className="cat-nav-item" to={`/products/${subcategory}/uni/all`}>          
             <div>{subcategory}</div>
@@ -57,7 +57,7 @@ class CategoriziedProducts extends React.Component {
               }}
               onMouseLeave={this.backToMainProductImage}>
                 <div className="product-preview-image"
-                  style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[1] : product.images[0]})` }}>
+                  style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
                 </div>
                 <div className="product-preview-name">{product.name}</div>
                 <div className="product-preview-price-wrapper">

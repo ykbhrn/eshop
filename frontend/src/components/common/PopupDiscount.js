@@ -132,7 +132,7 @@ class PopupDiscount extends React.Component {
           <h2>
             <span className="highlighted">Congratulations </span>, You Have Slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s </span> 
             which means we are giving you <span className="highlighted">{this.state.user.discount}% discount </span>
-          on your order
+          on your next order
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
         </div>
