@@ -12,6 +12,7 @@ class AllProducts extends React.Component {
     try {
       window.scrollTo(0, 0)
       const res = await getAllProducts();
+      console.log(res.data)
       this.setState({ products: res.data });
     } catch (err) {
       console.log(err);

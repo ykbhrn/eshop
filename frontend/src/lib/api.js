@@ -32,11 +32,11 @@ export const updateUserAccount = formData => {
 }
 
 export const registerUser = formData => {
-  return axios.post('/api/register/', formData)
+  return axios.post('/api/register', formData)
 }
 
 export const loginUser = formData => {
-  return axios.post('/api/login/', formData)
+  return axios.post('/api/login', formData)
 }
 
 export const forgotPassword = formData => {
