@@ -57,7 +57,7 @@ class Confirmation extends React.Component {
             <div>Sum ({} Items): £{user.finishedOrder.sumPrice}</div>
             <div>Your Discount: {user.finishedOrder.discount}% (£{ Math.round(((user.finishedOrder.discount / 100) * user.finishedOrder.sumPrice * 100)) / 100})</div>
             <div className="total-text">Shipping: £{user.finishedOrder.shipping}</div>
-            <div>Total Price: £{user.finishedOrder.totalPrice + user.finishedOrder.shipping}</div>
+            <div>Total Price: £{Math.round((user.finishedOrder.totalPrice + user.finishedOrder.shipping) * 100) / 100}</div>
           </div>
         </div>
       
