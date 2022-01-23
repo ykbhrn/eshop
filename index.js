@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const { port, dbURI } = require('./config/environment')
 
 mongoose.connect(
-  dbURI,
+  process.env.MONGODB_URI || 'mongodb://localhost/eshop-database2',
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   (err) => {
     if (err) return console.log(err)
