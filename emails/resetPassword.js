@@ -1,4 +1,4 @@
-const url = process.env.BUILD_URL
+const url = 'https://nu-hippies.herokuapp.com'
 
 function resetPasswordEmail (token, user) {
   return  `
