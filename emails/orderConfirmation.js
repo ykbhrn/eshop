@@ -346,7 +346,7 @@ ${user.finishedOrder.items.map(item => {
     <tr>
       <td style="padding-right: 0px;padding-left: 0px;" align="center">
         
-        <img align="center" border="0" src=${item.images[0]} alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 176px;" width="176"/>
+        <img align="center" border="0" src=${item.images[0].images[0]} alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 176px;" width="176"/>
         
       </td>
     </tr>
