@@ -1,4 +1,4 @@
-const url = process.env.CLIENT_URL
+const url = process.env.BUILD_URL
 
 function resetPasswordEmail (token, user) {
   return  `
