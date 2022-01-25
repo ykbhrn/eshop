@@ -82,3 +82,7 @@ export const getAllDiscounts = () => {
 export const addDiscount = (formData) => {
   return axios.put('/api/discount', formData, withHeaders())
 }
+
+export const createCheckoutSession = (formData) => {
+  return axios.post('/api/payment', formData)
+}

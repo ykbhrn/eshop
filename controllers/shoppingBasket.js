@@ -204,15 +204,15 @@ async function minusProductQuantity (order, req, res) {
   }
 }
 
-async function saveProduct (item, counter, sameOrders, req, res) {
-  try {
-    const product = await Product.findById(item._id)
-    product.quantities = item.quantities
-    await product.save()
-  } catch (err) {
-    res.json(err)
-  }
-}
+// async function saveProduct (item, counter, sameOrders, req, res) {
+//   try {
+//     const product = await Product.findById(item._id)
+//     product.quantities = item.quantities
+//     await product.save()
+//   } catch (err) {
+//     res.json(err)
+//   }
+// }
 
 async function completingOrder (req, res) {
   try {

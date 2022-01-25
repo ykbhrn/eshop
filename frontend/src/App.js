@@ -1,6 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { getMyProfile } from './lib/api'
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+import { createCheckoutSession } from './lib/api';
 
 import Home from './components/common/Home'
 import CategoriziedProducts from './components/products/CategoriziedProducts'
@@ -27,6 +30,7 @@ import Terms from './components/common/Terms'
 import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
+import PaymentPage from './components/payment/PaymentPage';
 
 class App extends React.Component {
   state = {
@@ -62,6 +66,17 @@ class App extends React.Component {
     }
   }
 
+  handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      const formData = {}
+      const res = await createCheckoutSession(formData)
+      console.log(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -71,6 +86,7 @@ class App extends React.Component {
           />
           <PopupDiscount />
           <Navbar />
+          <PaymentPage />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
