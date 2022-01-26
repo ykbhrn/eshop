@@ -45,7 +45,7 @@ export default function PaymentForm() {
         const {id} = paymentMethod
         const response = await createCheckoutSession({
           amount: 3,
-          payment_method: "card",
+          id,
           currency: 'EUR'
         })
 
