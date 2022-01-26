@@ -79,7 +79,7 @@ class Checkout extends React.Component {
   makeOrder = async (event) => {
     event.preventDefault();
     try {
-      const formData = { ...this.state.formData, shipping: 3.99 };
+      const formData = { ...this.state.formData, shipping: 399 };
       const res = await pendingOrder(formData);
       if (res.status === 201) {
         this.props.history.push('/shipping');
@@ -341,15 +341,15 @@ class Checkout extends React.Component {
             })}
           </div>
           <div className="total-price-checkout-wrapper">
-            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
-            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
-            <div>Total Price: £{user.totalPrice}</div>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
+            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice)) / 100})</div>
+            <div>Total Price: £{user.totalPrice / 100}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/basket">
               <button className="left">Go Back To Basket</button>
             </Link>
-            <button className="right" onClick={this.makeOrder}>Continue To Shipping</button>
+            <button className="right" onClick={this.makeOrder}>Continue</button>
           </div>
         </div>
       </div>

@@ -24,6 +24,8 @@ const CARD_OPTIONS = {
   }
 }
 
+
+
 export default function PaymentForm() {
   const [success, setSuccess ] = useState(false)
   const stripe = useStripe()
@@ -58,6 +60,7 @@ export default function PaymentForm() {
     } else {
       console.log(error.message)
     }
+
   }
 
   return (
@@ -67,6 +70,7 @@ export default function PaymentForm() {
           <fieldset className="FormGroup">
             <div className="FormRow">
               <CardElement options={CARD_OPTIONS}/>
+              
             </div>
           </fieldset>
           <button>Pay</button>

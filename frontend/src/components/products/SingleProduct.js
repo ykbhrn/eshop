@@ -162,7 +162,7 @@ class SingleProduct extends React.Component {
               <h1>{product.name}</h1>
             </div>
             <div className="product-price-wrapper">
-              <div className="product-price">£{product.price}</div>
+              <div className="product-price">£{product.price / 100}</div>
               {product.discount &&
                 <div className="product-discount">-{product.discount}%</div>
               }

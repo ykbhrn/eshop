@@ -61,7 +61,7 @@ class CategoriziedProducts extends React.Component {
                 </div>
                 <div className="product-preview-name">{product.name}</div>
                 <div className="product-preview-price-wrapper">
-                  <div className="product-preview-price">£{product.price}</div>
+                  <div className="product-preview-price">£{product.price / 100}</div>
                   {product.discount &&
                     <div className="product-preview-discount">-{product.discount}%</div>
                   }

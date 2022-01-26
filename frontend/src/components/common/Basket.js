@@ -106,7 +106,7 @@ class Basket extends React.Component {
                 <div className="color-size-price">
                   <div>{item.chosenColor}</div>
                   <div>{item.chosenSize}</div>
-                  <div className="basket-price">{item.price}</div>
+                  <div className="basket-price">{item.price / 100}</div>
                 </div>
               </div>
               
@@ -126,7 +126,7 @@ class Basket extends React.Component {
                   </form>
                 </div>
                 
-                <div className="basket-subtotal">Subtotal: £{Math.round( item.chosenQuantity * item.price * 100) / 100}</div>
+                <div className="basket-subtotal">Subtotal: £{(item.chosenQuantity * item.price) / 100}</div>
               </div>
             </div>;
           })}
@@ -135,9 +135,9 @@ class Basket extends React.Component {
         {user.basket.length > 0 &&
          <div className="checkout-button-total-price">
            <div className="total-price">
-             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
-             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
-             <div>Total Price: £{user.totalPrice}</div>
+             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
+             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice)) / 100})</div>
+             <div>Total Price: £{user.totalPrice / 100}</div>
            </div>
            <Link to="/checkout">
              <div className="checkout-button">Proceed to Chekout</div>

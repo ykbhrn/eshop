@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Shipping extends React.Component {
   state = {
     user: null,
-    shipping: 3.99
+    shipping: 399
   }
 
   async componentDidMount() {
@@ -46,9 +46,9 @@ class Shipping extends React.Component {
             <div className="shipping-option-name-radio">
               <input
                 type="radio"
-                value={3.99}
+                value={399}
                 onChange={this.handleShipping}
-                checked={this.state.shipping == 3.99}
+                checked={this.state.shipping == 399}
               />
               <div className="shipping-option-name">
                 <label>Royal Mail Standard</label>
@@ -62,9 +62,9 @@ class Shipping extends React.Component {
             <div className="shipping-option-name-radio">
               <input
                 type="radio"
-                value={6.99}
+                value={699}
                 onChange={this.handleShipping}
-                checked={this.state.shipping == 6.99}
+                checked={this.state.shipping == 699}
               />
               <div className="shipping-option-name">
                 <label>Royal Mail Express</label>
@@ -88,7 +88,7 @@ class Shipping extends React.Component {
                   <div className="image-checkout-description">
                     <span className="size">Size: {item.chosenSize}</span>
                     <span className="color">Color: {item.chosenColor}</span>
-                  Quantity: {item.chosenQuantity}
+                      Quantity: {item.chosenQuantity}
                   </div>
                 </div>
               </div>;
@@ -96,17 +96,17 @@ class Shipping extends React.Component {
           </div>
           
           <div className="total-price-checkout-wrapper">
-            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
-            <div className="total-text">Shipping: £{this.state.shipping}</div>
-            <div>Total Price: £{Math.round((user.totalPrice + Number(this.state.shipping)) * 100) / 100}</div>
+            <div className="total-text">Shipping: £{this.state.shipping / 100}</div>
+            <div>Total Price: £{(user.totalPrice + this.state.shipping) / 100}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/checkout">
               <button className="left">Go Back To Shipping Adress</button>
             </Link>
             <Link to="/payment">
-              <button className="right">Continue To Payment</button>
+              <button className="right">Continue</button>
             </Link>
           </div>
         </div>

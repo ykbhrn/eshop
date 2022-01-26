@@ -101,9 +101,9 @@ async function calculatePrice (user, req, res) {
       price = price + (item.chosenQuantity * item.price)
     })
     
-    user.sumPrice = Math.round(price * 100) / 100
+    user.sumPrice = price
     
-    user.totalPrice = Math.round((user.sumPrice - (user.sumPrice * (user.discount / 100))) * 100) / 100
+    user.totalPrice = Math.round((user.sumPrice - (user.sumPrice * (user.discount / 100))) )
 
 
     await user.save()
@@ -224,7 +224,7 @@ async function completingOrder (req, res) {
     user.finishedOrder.discount = user.discount
     user.finishedOrder.sumPrice = user.sumPrice
     user.finishedOrder.totalPrice = user.totalPrice
-    user.finishedOrder.pricePlusShipping = Math.round((user.totalPrice + user.pendingOrder.shipping) * 100) / 100
+    user.finishedOrder.pricePlusShipping = (user.totalPrice + user.pendingOrder.shipping)
     user.finishedOrder.orderId = num
 
     user.pendingOrder = null

@@ -8,6 +8,7 @@ const PUBLIC_KEY = 'pk_test_51KLZIEKAzVkc5rRlKgRvQay1fxsWZzXKyehAt936Okc1kzXGka6
 const stripeTestPromise = loadStripe(PUBLIC_KEY)
 
 export default function StripeContainer() {
+
   return (
     <Elements stripe={stripeTestPromise}>
       <PaymentForm /> 

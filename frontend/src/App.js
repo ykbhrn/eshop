@@ -86,7 +86,6 @@ class App extends React.Component {
           />
           <PopupDiscount />
           <Navbar />
-          <PaymentPage />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
@@ -104,6 +103,7 @@ class App extends React.Component {
             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/payment" component={Payment} />
+            <Route path="/payment-getaway" component={PaymentPage} />
             <Route path="/confirmation/:type" component={Confirmation} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />

@@ -16,7 +16,6 @@ class Payment extends React.Component {
     },
     billingAdress: false,
     creditCard: true,
-    paypal: false,
     bankTransfer: false,
     paymentType: "credit-card"
   }
@@ -39,11 +38,9 @@ class Payment extends React.Component {
 
   radioChange = (event) => {
     if (event.target.name === "credit card") {
-      this.setState({ creditCard: true, paypal: false, bankTransfer: false, paymentType: "credit-card" });
-    } else if (event.target.name === "paypal") {
-      this.setState({ creditCard: false, paypal: true, bankTransfer: false, paymentType: "paypal" });
+      this.setState({ creditCard: true, bankTransfer: false, paymentType: "credit-card" });
     } else if (event.target.name === "bank transfer") {
-      this.setState({ creditCard: false, paypal: false, bankTransfer: true, paymentType: "bank-transfer" });
+      this.setState({ creditCard: false, bankTransfer: true, paymentType: "bank-transfer" });
     }
   }
 
@@ -53,7 +50,11 @@ class Payment extends React.Component {
       const res = await completeOrder(type, formData)
       console.log(res.data)
       const resTwo = await createOrder(res.data)
-      window.location.assign(`/confirmation/${type}`)
+      if (type === 'credit-card') {
+        window.location.assign('/payment-getaway')
+      } else {
+        window.location.assign(`/confirmation/${type}`)
+      }
     } catch (err) {
       console.log(err)
     }
@@ -112,20 +113,6 @@ class Payment extends React.Component {
 
           <div className="payment-option">
             <input
-              name="paypal"
-              type="radio"
-              value="2"
-              onChange={this.radioChange}
-              checked={this.state.paypal}
-            />
-            <label><img className="paypal-icon" src="https://res.cloudinary.com/nuhippies/image/upload/v1639598403/Nu%20Hippies/icons/paypal_aowslf.png" /></label>
-          </div>
-          {this.state.paypal &&
-            <div>After completing your order you will be redirected to paypal page for payment.</div>
-          }
-
-          <div className="payment-option">
-            <input
               name="bank transfer"
               type="radio"
               value="2"
@@ -160,19 +147,28 @@ class Payment extends React.Component {
           </div>
 
           <div className="total-price-checkout-wrapper">
-            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice}</div>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
-            <div className="total-text">Shipping: £{user.pendingOrder.shipping}</div>
-            <div>Total Price: £{Math.round((user.totalPrice + user.pendingOrder.shipping) * 100) / 100}</div>
+            <div className="total-text">Shipping: £{user.pendingOrder.shipping / 100}</div>
+            <div>Total Price: £{(user.totalPrice + user.pendingOrder.shipping) / 100}</div>
           </div>
 
           <div className="checkout-buttons">
             <Link to="/shipping">
               <button className="left">Go Back To Shipping</button>
             </Link>
-            <button className="right" onClick={() => {
-              this.completeOrder(this.state.paymentType)
-            }}>Complete Your Order</button>
+            {this.state.bankTransfer &&
+              <button className="right" onClick={() => {
+                this.completeOrder(this.state.paymentType)
+              }}>Complete Your Order</button>
+            }
+
+            {this.state.creditCard &&
+              <button className="right" onClick={() => {
+                this.completeOrder(this.state.paymentType)
+              }}>Continue to Payment</button>
+            }
+            
           </div>
         </div>
       </div>
