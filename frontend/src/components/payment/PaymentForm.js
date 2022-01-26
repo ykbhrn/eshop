@@ -44,7 +44,7 @@ export default function PaymentForm() {
       try {
         const {id} = paymentMethod
         const response = await createCheckoutSession({
-          amount: 3,
+          amount: 1000,
           id,
           currency: 'EUR'
         })
@@ -77,7 +77,7 @@ export default function PaymentForm() {
         </form>
         :
         <div>
-          <h2>You just bought a Lorem Ipsum</h2>
+          <h2>You just bought a sweet spatula congrats this is the best decision of your life</h2>
         </div> 
       }
             
