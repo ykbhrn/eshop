@@ -7,10 +7,10 @@ async function checkoutSession(req, res) {
   const { amount, id } = req.body
   try {
     const payment = await stripe.paymentIntents.create({
-      amount,
+      amount: 5,
       currency: 'EUR',
       description: 'Muie',
-      payment_method: id,
+      payment_method: 'card',
       confirm: true
     })
     console.log('Payment', payment)

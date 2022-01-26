@@ -8,7 +8,7 @@ function PaymentPage() {
   const [showItem, setShowItem] = useState(false);
   return (
     <div className='payment'>
-      <h1>The Spatula Store</h1>
+      <h1>Nu Hippies</h1>
       <StripeContainer />
     </div>
   );
