@@ -83,6 +83,10 @@ export const addDiscount = (formData) => {
   return axios.put('/api/discount', formData, withHeaders())
 }
 
-export const createCheckoutSession = (formData) => {
+export const createPayment = (formData) => {
   return axios.post('/api/payment', formData)
+}
+
+export const createInvoice = () => {
+  return axios.post('/api/invoice')
 }

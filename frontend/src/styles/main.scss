@@ -1009,7 +1009,7 @@ button{
 .products-page {
   display: flex;
   justify-content: center;
-  margin-top: -60px;
+  margin-top: -30px;
   a{
     text-decoration: none;
     color: inherit;
@@ -1079,7 +1079,7 @@ button{
   a{
     text-decoration: none;
     color: $dark-color;
-    margin-right: 10px;
+    padding-right: 10px;
   }
   .sign{
     margin-right: 10px;
@@ -2379,9 +2379,7 @@ h3 {
   }
 }
 .products-page.categorized{
-  .product-container{
     margin-top: -30px;
-  }
 }
 .done-page{
   h1{

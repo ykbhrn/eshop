@@ -1,9 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { getMyProfile } from './lib/api'
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
-import { createCheckoutSession } from './lib/api';
 
 import Home from './components/common/Home'
 import CategoriziedProducts from './components/products/CategoriziedProducts'
@@ -61,17 +58,6 @@ class App extends React.Component {
         basketSize = basketSize + Number(item.chosenQuantity)
       })
       this.setState({ basketLength: basketSize })
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  handleSubmit = async (event) => {
-    event.preventDefault()
-    try {
-      const formData = {}
-      const res = await createCheckoutSession(formData)
-      console.log(res.data)
     } catch (err) {
       console.log(err)
     }

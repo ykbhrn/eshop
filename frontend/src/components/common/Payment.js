@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMyProfile, completeOrder, createOrder } from '../../lib/api';
+import { getMyProfile, completeOrder, createOrder, createInvoice } from '../../lib/api';
 import { Link } from 'react-router-dom';
 
 class Payment extends React.Component {
@@ -47,8 +47,9 @@ class Payment extends React.Component {
   async completeOrder (type) {
     try {
       const formData = {paymentType: type}
+      const resInvoice = await createInvoice()
       const res = await completeOrder(type, formData)
-      console.log(res.data)
+      console.log(resInvoice.data)
       const resTwo = await createOrder(res.data)
       if (type === 'credit-card') {
         window.location.assign('/payment-getaway')

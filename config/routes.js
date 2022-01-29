@@ -67,7 +67,9 @@ router.route('/discount')
   .put(secureRoute, discount.changeUserDiscount)
 
 router.route('/payment')
-  .post(payment.checkoutSession)
+  .post(payment.paymentSession)
 
+router.route('/invoice')
+  .post(payment.sendInvoice)
 
 module.exports = router

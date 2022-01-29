@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
-import { createCheckoutSession } from "../../lib/api"
+import { createPayment, getMyProfile } from "../../lib/api"
 
 
 const CARD_OPTIONS = {
@@ -27,13 +27,22 @@ const CARD_OPTIONS = {
 
 
 export default function PaymentForm() {
+  
   const [success, setSuccess ] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
 
+  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const res = await getMyProfile()
+    let basketSize = 0;
+    const user = res.data
+    user.finishedOrder.items.map(item => {
+      basketSize = basketSize + Number(item.chosenQuantity);
+    });
     const {error, paymentMethod} = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -43,10 +52,10 @@ export default function PaymentForm() {
     if (!error) {
       try {
         const {id} = paymentMethod
-        const response = await createCheckoutSession({
-          amount: 1000,
+        const response = await createPayment({
+          amount: user.finishedOrder.pricePlusShipping,
+          quantity: basketSize,
           id,
-          currency: 'EUR'
         })
 
         if (response.data.success) {
@@ -70,7 +79,6 @@ export default function PaymentForm() {
           <fieldset className="FormGroup">
             <div className="FormRow">
               <CardElement options={CARD_OPTIONS}/>
-              
             </div>
           </fieldset>
           <button>Pay</button>
