@@ -48,7 +48,7 @@ async function paymentSession(req, res) {
 }
 
 async function sendInvoice(req, res) {
-  const { totalPrice, customerId } = req.body
+  const { totalPrice, customerId, username, userEmail } = req.body
   try {
     const product = await stripe.products.create({ name: 'Shirt Muie' })
 
@@ -58,8 +58,11 @@ async function sendInvoice(req, res) {
       currency: 'gbp'
     })
 
-    const customer = await stripe.customers.retrieve(
-      customerId
+    const customer = await stripe.customers.update(
+      customerId,
+      { name: username,
+        email: userEmail
+      }
     )
 
     const invoiceItem = await stripe.invoiceItems.create({

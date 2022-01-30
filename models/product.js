@@ -33,7 +33,8 @@ const productSchema = new mongoose.Schema({
   chosenQuantity: {type: Number},
   categories: categorySchema,
   user: {type: Object, required: true},
-  comments: [commentSchema]
+  comments: [commentSchema],
+  stripeId: {type: String, required: true}
 }, {
   timestamps: true
 })

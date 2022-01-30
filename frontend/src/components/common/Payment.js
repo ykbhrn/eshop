@@ -44,7 +44,7 @@ class Payment extends React.Component {
         totalPrice: resOrder.data.pricePlusShipping,
         username: resOrder.data.name,
         userEmail: resOrder.data.email,
-        customerId: "cus_L3qEXUkGSc7Imu"
+        customerId: this.state.user.stripeId
       })
       console.log(resInvoice.data)
       if (type === 'credit-card') {

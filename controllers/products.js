@@ -1,5 +1,8 @@
 const Product = require('../models/product')
 const User = require('../models/user')
+const stripe = require('stripe')(
+  process.env.STRIPE_SECRET_KEY
+)
 
 async function allProducts(req, res) {
   try {
@@ -13,7 +16,18 @@ async function allProducts(req, res) {
 async function productCreate(req, res) {
   try {
     req.body.user = req.currentUser
+    const product = await stripe.products.create({ 
+      name: req.body.name,
+      type: 'good',
+      images: [req.body.images[0].images[0]]
+    })
+    req.body.stripeId = product.id
     const createProduct = await Product.create(req.body)
+    const price = await stripe.prices.create({
+      product: 'prod_L3WD17zb3R4skK',
+      unit_amount: createProduct.price,
+      currency: 'gbp'
+    })
     res.status(201).json(createProduct)
   } catch (err) {
     res.status(422).json(err)
