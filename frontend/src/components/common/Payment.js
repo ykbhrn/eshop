@@ -5,16 +5,6 @@ import { Link } from 'react-router-dom';
 class Payment extends React.Component {
   state = {
     user: null,
-    formData: {
-      fullName: null,
-      company: null,
-      adressLineOne: null,
-      adressLineTwo: null,
-      town: null,
-      postcode: null,
-      country: null
-    },
-    billingAdress: false,
     creditCard: true,
     bankTransfer: false,
     paymentType: "credit-card"
@@ -47,12 +37,18 @@ class Payment extends React.Component {
   async completeOrder (type) {
     try {
       const formData = {paymentType: type}
-      const resInvoice = await createInvoice()
       const res = await completeOrder(type, formData)
+      const resOrder = await createOrder(res.data)
+      console.log(resOrder.data.pricePlusShipping)
+      const resInvoice = await createInvoice({
+        totalPrice: resOrder.data.pricePlusShipping,
+        username: resOrder.data.name,
+        userEmail: resOrder.data.email,
+        customerId: "cus_L3qEXUkGSc7Imu"
+      })
       console.log(resInvoice.data)
-      const resTwo = await createOrder(res.data)
       if (type === 'credit-card') {
-        window.location.assign('/payment-getaway')
+        window.location.assign(resInvoice.data.message)
       } else {
         window.location.assign(`/confirmation/${type}`)
       }
@@ -80,38 +76,6 @@ class Payment extends React.Component {
             <label>Debit or Credit Card</label>
           </div>
 
-          {this.state.creditCard &&
-            <>
-              <label>Card Number:</label>
-              <input
-                name="cardNumber"
-                onChange={this.handleChange}
-                value={formData.fullName}
-              />
-
-              <label>Name on card:</label>
-              <input
-                name="nameOnCard"
-                onChange={this.handleChange}
-                value={formData.company}
-              />
-
-              <label>Expiration data (MM/YY):</label>
-              <input
-                name="expiration"
-                onChange={this.handleChange}
-                value={formData.adressLineOne}
-              />
-
-              <label>Security code:</label>
-              <input
-                name="security"
-                onChange={this.handleChange}
-                value={formData.adressLineTwo}
-              />
-            </>
-          }
-
           <div className="payment-option">
             <input
               name="bank transfer"
@@ -122,9 +86,7 @@ class Payment extends React.Component {
             />
             <label>Bank Transfer</label>
           </div>
-          {this.state.bankTransfer &&
-            <div>We will send you payment instructions in the e-mail.</div>
-          }
+
         </div>
 
         <div className="basket-preview">

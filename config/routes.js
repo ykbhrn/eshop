@@ -56,7 +56,7 @@ router.route('/shipping')
   .put(secureRoute, basket.addShipping)
 
 router.route('/orders/all')
-  .get(secureRoute, basket.allCompletedOrders)
+  .get(basket.allCompletedOrders)
 
 router.route('/orders/create')
   .post(basket.orderCreate)

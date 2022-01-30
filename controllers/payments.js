@@ -48,22 +48,19 @@ async function paymentSession(req, res) {
 }
 
 async function sendInvoice(req, res) {
-  const { amount, id, quantity } = req.body
+  const { totalPrice, customerId } = req.body
   try {
     const product = await stripe.products.create({ name: 'Shirt Muie' })
 
     const price = await stripe.prices.create({
-      product: 'prod_L3WD17zb3R4skK'
-      ,
-      unit_amount: 612,
+      product: 'prod_L3WD17zb3R4skK',
+      unit_amount: totalPrice,
       currency: 'gbp'
     })
 
-    const customer = await stripe.customers.create({
-      name: 'Jakub Horun',
-      email: 'jakub.horun@mail.com',
-      description: 'My first test customer'
-    })
+    const customer = await stripe.customers.retrieve(
+      customerId
+    )
 
     const invoiceItem = await stripe.invoiceItems.create({
       customer: customer.id,
@@ -72,11 +69,16 @@ async function sendInvoice(req, res) {
     const invoice = await stripe.invoices.create({
       customer: customer.id,
       auto_advance: true, // Auto-finalize this draft after ~1 hour
-      collection_method: 'charge_automatically'
+      collection_method: 'send_invoice',
+      days_until_due: 30
     })
 
+    const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
+
+    console.log('2 tu sa pozeraj teraz +++++++++++++++++', finalInvoice.hosted_invoice_url)
+
     res.json({
-      message: 'Invoice was created succesfully',
+      message: finalInvoice.hosted_invoice_url,
       success: true
     })
   } catch (error) {
@@ -87,9 +89,6 @@ async function sendInvoice(req, res) {
     })
   }
 }
-
-
-
 
 module.exports = {
   paymentSession,

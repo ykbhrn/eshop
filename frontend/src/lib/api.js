@@ -87,6 +87,6 @@ export const createPayment = (formData) => {
   return axios.post('/api/payment', formData)
 }
 
-export const createInvoice = () => {
-  return axios.post('/api/invoice')
+export const createInvoice = (formData) => {
+  return axios.post('/api/invoice', formData)
 }

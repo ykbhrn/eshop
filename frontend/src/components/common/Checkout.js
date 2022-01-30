@@ -79,7 +79,7 @@ class Checkout extends React.Component {
   makeOrder = async (event) => {
     event.preventDefault();
     try {
-      const formData = { ...this.state.formData, shipping: 399 };
+      const formData = { ...this.state.formData, shipping: 399, email: this.state.user.email };
       const res = await pendingOrder(formData);
       if (res.status === 201) {
         this.props.history.push('/shipping');

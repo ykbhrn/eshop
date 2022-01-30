@@ -8,10 +8,22 @@ const _ = require('lodash')
 const mailgun = require('mailgun-js')
 const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
 const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN})
+const stripe = require('stripe')(
+  process.env.STRIPE_SECRET_KEY
+)
 
 async function register(req, res) {
   try {
+    const customer = await stripe.customers.create({
+      name: req.body.name,
+      email: req.body.email,
+      description: 'My first test customer'
+    })
+
+    req.body.stripeId = customer.id
+
     const user = await User.create(req.body)
+
     newUserEmail(user)
     res.status(201).json({message: `${user.email} has been registered`})
   } catch (err) {
