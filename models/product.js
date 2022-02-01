@@ -34,7 +34,8 @@ const productSchema = new mongoose.Schema({
   categories: categorySchema,
   user: {type: Object, required: true},
   comments: [commentSchema],
-  stripeId: {type: String, required: true}
+  stripeId: {type: String, required: true},
+  stripePriceId: {type: String, required: true}
 }, {
   timestamps: true
 })

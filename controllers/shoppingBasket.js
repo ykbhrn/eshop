@@ -102,8 +102,10 @@ async function calculatePrice (user, req, res) {
     })
     
     user.sumPrice = price
+
+    user.discountAmount = Math.round(((user.discount / 100) * user.sumPrice))
     
-    user.totalPrice = Math.round((user.sumPrice - (user.sumPrice * (user.discount / 100))) )
+    user.totalPrice = Math.round(user.sumPrice - user.discountAmount)
 
 
     await user.save()
@@ -133,7 +135,6 @@ async function addShipping (req, res) {
   try {
     const user = req.currentUser
     user.pendingOrder.shipping = req.body.shipping
-    user.totalPrice = Math.round((user.sumPrice - (user.sumPrice * (user.discount / 100))) * 100) / 100
     await user.save()
     res.status(202).json(user)
   } catch (err) {
@@ -222,6 +223,7 @@ async function completingOrder (req, res) {
     user.finishedOrder = user.pendingOrder
     user.finishedOrder.items = user.basket
     user.finishedOrder.discount = user.discount
+    user.finishedOrder.discountAmount = user.discountAmount
     user.finishedOrder.sumPrice = user.sumPrice
     user.finishedOrder.totalPrice = user.totalPrice
     user.finishedOrder.pricePlusShipping = (user.totalPrice + user.pendingOrder.shipping)

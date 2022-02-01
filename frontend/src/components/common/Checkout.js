@@ -40,7 +40,8 @@ class Checkout extends React.Component {
         postcode: null,
         country: null,
       }
-    }
+    },
+    isLoading: false
   }
 
   async componentDidMount() {
@@ -77,8 +78,8 @@ class Checkout extends React.Component {
   }
 
   makeOrder = async (event) => {
-    event.preventDefault();
     try {
+      this.setState({ isLoading: true })
       const formData = { ...this.state.formData, shipping: 399, email: this.state.user.email };
       const res = await pendingOrder(formData);
       if (res.status === 201) {
@@ -140,7 +141,7 @@ class Checkout extends React.Component {
       }
     }
 
-    this.setState({ errors: { name, adressOne, town, postcode, country, billingAdress: {
+    this.setState({ errors: { isLoading: false, name, adressOne, town, postcode, country, billingAdress: {
       name: billingName,
       adressOne: billingAdressOne,
       town: billingTown,
@@ -151,7 +152,7 @@ class Checkout extends React.Component {
 
   render() {
     if (!this.state.user) return null;
-    const { user, formData, errors } = this.state;
+    const { user, formData, errors, isLoading } = this.state;
     return (
       <div className="checkout-page">
 
@@ -342,14 +343,23 @@ class Checkout extends React.Component {
           </div>
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice)) / 100})</div>
+            <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
             <div>Total Price: £{user.totalPrice / 100}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/basket">
-              <button className="left">Go Back To Basket</button>
+              <div className="left">Back</div>
             </Link>
-            <button className="right" onClick={this.makeOrder}>Continue</button>
+
+            {isLoading &&
+                <div className="right">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image-checkout' />
+                </div>
+            }
+            {!isLoading &&
+             <div className="right" onClick={this.makeOrder}>Continue</div> 
+            }
+            
           </div>
         </div>
       </div>

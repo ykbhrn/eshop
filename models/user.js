@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
   basket: [productSchema],
   sumPrice: { type: Number, default: 0 },
   discount: { type: Number, default: 0 },
+  discountAmount: { type: Number, default: 0 },
   totalPrice: { type: Number, default: 0 },
   pendingOrder: orderSchema,
   finishedOrder: orderSchema,

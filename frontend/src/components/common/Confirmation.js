@@ -28,7 +28,7 @@ class Confirmation extends React.Component {
     return (
       <div className="confirmation-page">
 
-        <h2>Thank you for your purchase {user.name}</h2>
+        <h2>Thank you for your order {user.name}</h2>
 
         <h3>Order Details:</h3>
         <div className="total-price-checkout-wrapper">
@@ -54,14 +54,24 @@ class Confirmation extends React.Component {
         
           <div className="order-confirmation-details">
             <div>Order ID: {user.finishedOrder.orderId}</div>
-            <div>Sum ({} Items): £{user.finishedOrder.sumPrice}</div>
-            <div>Your Discount: {user.finishedOrder.discount}% (£{ Math.round(((user.finishedOrder.discount / 100) * user.finishedOrder.sumPrice * 100)) / 100})</div>
-            <div className="total-text">Shipping: £{user.finishedOrder.shipping}</div>
-            <div>Total Price: £{Math.round((user.finishedOrder.totalPrice + user.finishedOrder.shipping) * 100) / 100}</div>
+            <div>Sum ({} Items): £{user.finishedOrder.sumPrice / 100}</div>
+            <div>Your Discount: {user.finishedOrder.discount}% ({user.finishedOrder.discountAmount / 100})</div>
+            <div className="total-text">Shipping: £{user.finishedOrder.shipping / 100}</div>
+            <div>Total Price: £{user.finishedOrder.pricePlusShipping / 100}</div>
           </div>
         </div>
-      
-        <div className="classic-btn" onClick={this.continue}>Continue</div>
+
+        <div className="checkout-buttons">
+          <Link to="/shipping">
+            <div className="left" onClick={this.continue}>Continue</div>
+          </Link>
+
+          <a href={user.finishedOrder.stripePaymentUrl} target="_blank" rel="noopener noreferrer" > 
+            <div className="right">Go To Payment</div> 
+          </a>
+            
+        </div>
+
       </div>
     )
   }

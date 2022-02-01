@@ -19,7 +19,7 @@ class Register extends React.Component {
       password: '',
       passwordConfirmation: '',
     },
-    rediterect: false,
+    redirect: false,
     isLoading: false
   }
 

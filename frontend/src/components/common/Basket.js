@@ -136,7 +136,7 @@ class Basket extends React.Component {
          <div className="checkout-button-total-price">
            <div className="total-price">
              <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-             <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice)) / 100})</div>
+             <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
              <div>Total Price: £{user.totalPrice / 100}</div>
            </div>
            <Link to="/checkout">
@@ -148,4 +148,4 @@ class Basket extends React.Component {
     );
   }
 }
-export default Basket;
+export default Basket

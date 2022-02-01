@@ -1,13 +1,14 @@
 import React from 'react';
 import { getMyProfile, completeOrder, createOrder, createInvoice } from '../../lib/api';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Payment extends React.Component {
   state = {
     user: null,
     creditCard: true,
     bankTransfer: false,
-    paymentType: "credit-card"
+    paymentType: "credit-card",
+    isLoading: false
   }
 
   async componentDidMount() {
@@ -36,19 +37,19 @@ class Payment extends React.Component {
 
   async completeOrder (type) {
     try {
+      this.setState({ isLoading: true })
       const formData = {paymentType: type}
       const res = await completeOrder(type, formData)
       const resOrder = await createOrder(res.data)
       console.log(resOrder.data.pricePlusShipping)
       const resInvoice = await createInvoice({
-        totalPrice: resOrder.data.pricePlusShipping,
-        username: resOrder.data.name,
-        userEmail: resOrder.data.email,
-        customerId: this.state.user.stripeId
+        customerId: this.state.user.stripeId,
+        order: resOrder.data
       })
       console.log(resInvoice.data)
       if (type === 'credit-card') {
-        window.location.assign(resInvoice.data.message)
+        // window.open(resInvoice.data.message)
+        window.location.assign(`/confirmation/${type}`)
       } else {
         window.location.assign(`/confirmation/${type}`)
       }
@@ -59,7 +60,7 @@ class Payment extends React.Component {
 
   render() {
     if (!this.state.user) return null;
-    const { user, formData } = this.state;
+    const { user, formData, isLoading } = this.state;
     return (
       <div className="payment-page">
 
@@ -111,28 +112,29 @@ class Payment extends React.Component {
 
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
+            <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
             <div className="total-text">Shipping: £{user.pendingOrder.shipping / 100}</div>
             <div>Total Price: £{(user.totalPrice + user.pendingOrder.shipping) / 100}</div>
           </div>
 
           <div className="checkout-buttons">
             <Link to="/shipping">
-              <button className="left">Go Back To Shipping</button>
+              <div className="left">Back</div>
             </Link>
-            {this.state.bankTransfer &&
-              <button className="right" onClick={() => {
-                this.completeOrder(this.state.paymentType)
-              }}>Complete Your Order</button>
-            }
 
-            {this.state.creditCard &&
-              <button className="right" onClick={() => {
-                this.completeOrder(this.state.paymentType)
-              }}>Continue to Payment</button>
+            {isLoading &&
+                <div className="right">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image-checkout' />
+                </div>
+            }
+            {!isLoading &&
+             <div className="right" onClick={() => {
+               this.completeOrder(this.state.paymentType)
+             }}>Complete Your Order</div> 
             }
             
           </div>
+
         </div>
       </div>
     );

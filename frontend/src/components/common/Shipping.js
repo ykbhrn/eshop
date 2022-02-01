@@ -1,12 +1,13 @@
 import React from 'react';
 import { getMyProfile, addShipping } from '../../lib/api';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 class Shipping extends React.Component {
   state = {
     user: null,
-    shipping: 399
+    shipping: 399,
+    isLoading: false
   }
 
   async componentDidMount() {
@@ -18,7 +19,7 @@ class Shipping extends React.Component {
         basketSize = basketSize + Number(item.chosenQuantity);
       });
       if (res.data.pendingOrder) {
-        this.setState({ user: res.data, totalQuantity: basketSize, shipping: res.data.pendingOrder.shipping });
+        this.setState({ user: res.data, totalQuantity: basketSize, shipping: res.data.pendingOrder.shipping, isLoading: false });
       }
     } catch (err) {
       console.log(err);
@@ -28,6 +29,7 @@ class Shipping extends React.Component {
   handleShipping = async (event) => {
     const formData = { shipping: event.target.value };
     try {
+      this.setState({ isLoading: true })
       await addShipping(formData);
       this.componentDidMount()
     } catch (err) {
@@ -35,9 +37,14 @@ class Shipping extends React.Component {
     }
   }
 
+  continue = () => {
+    this.setState({ isLoading: true })
+    this.props.history.push('/payment')
+  }
+
   render() {
     if (!this.state.user) return null;
-    const { user } = this.state;
+    const { user, isLoading } = this.state;
     return (
       <div className="shipping-page">
         <div className="shipping-radio">
@@ -97,17 +104,25 @@ class Shipping extends React.Component {
           
           <div className="total-price-checkout-wrapper">
             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-            <div>Your Discount: {user.discount}% (£{ Math.round(((user.discount / 100) * user.sumPrice * 100)) / 100})</div>
+            <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
             <div className="total-text">Shipping: £{this.state.shipping / 100}</div>
             <div>Total Price: £{(user.totalPrice + this.state.shipping) / 100}</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/checkout">
-              <button className="left">Go Back To Shipping Adress</button>
+              <div className="left">Back</div>
             </Link>
-            <Link to="/payment">
-              <button className="right">Continue</button>
-            </Link>
+
+            {isLoading &&
+                <div className="right">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image-checkout' />
+                </div>
+            }
+              
+            {!isLoading &&
+             <div className="right" onClick={this.continue}>Continue</div> 
+            }
+
           </div>
         </div>
       </div>

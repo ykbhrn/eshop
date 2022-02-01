@@ -870,14 +870,16 @@ mongoose.connect(dbURI, async (err, db) => {
         type: 'good',
         images: [item.images[0].images[0]]
       })
-      item.stripeId = product.id
-      await Product.create(item)
 
       const price = await stripe.prices.create({
-        product: 'prod_L3WD17zb3R4skK',
+        product: product.id,
         unit_amount: item.price,
         currency: 'gbp'
       })
+
+      item.stripePriceId = price.id
+      item.stripeId = product.id
+      await Product.create(item)
     })
     
   

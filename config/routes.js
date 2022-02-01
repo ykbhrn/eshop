@@ -70,6 +70,6 @@ router.route('/payment')
   .post(payment.paymentSession)
 
 router.route('/invoice')
-  .post(payment.sendInvoice)
+  .post(secureRoute, payment.sendInvoice)
 
 module.exports = router

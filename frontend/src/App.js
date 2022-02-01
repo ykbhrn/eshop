@@ -27,7 +27,6 @@ import Terms from './components/common/Terms'
 import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
-import PaymentPage from './components/payment/PaymentPage';
 
 class App extends React.Component {
   state = {
@@ -89,7 +88,6 @@ class App extends React.Component {
             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/payment" component={Payment} />
-            <Route path="/payment-getaway" component={PaymentPage} />
             <Route path="/confirmation/:type" component={Confirmation} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />

@@ -27,10 +27,11 @@ const orderSchema = new mongoose.Schema({
   items: [],
   sumPrice: { type: Number },
   discount: { type: Number, default: 0 },
-  totalPrice: { type: Number },
+  discountAmount: { type: Number, default: 0 },
   pricePlusShipping: { type: Number, default: 0 },
   orderId: { type: Number },
-  paymentType: { type: String }
+  paymentType: { type: String },
+  stripePaymentUrl: { type: String }
 })
 
 module.exports = (mongoose.model('Order', orderSchema))
