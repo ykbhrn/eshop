@@ -1,6 +1,6 @@
 const User = require('../models/user')
 const stripe = require('stripe')(
-  process.env.STRIPE_SECRET_KEY
+  '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'
 )
 
 async function paymentSession(req, res) {
@@ -67,23 +67,23 @@ async function sendInvoice(req, res) {
     const resolved = await Promise.all(unresolved)
 
     const classicShipping = await stripe.prices.retrieve(
-      'price_1KONUvKAzVkc5rRl8eGG1B3T'
+      'price_1KOSFPKAzVkc5rRlmR9v9y0q'
     )
 
     const expressShipping = await stripe.prices.retrieve(
-      'price_1KONVmKAzVkc5rRlxhR8sZ6i'
+      'price_1KOSEVKAzVkc5rRl3xus8599'
     )
 
     if (order.shipping === classicShipping.unit_amount) {
       const invoiceItem = await stripe.invoiceItems.create({
         customer: customerId,
-        price: 'price_1KONUvKAzVkc5rRl8eGG1B3T',
+        price: 'price_1KOSFPKAzVkc5rRlmR9v9y0q',
         discountable: false
       })
     } else if (order.shipping === expressShipping.unit_amount) {
       const invoiceItem = await stripe.invoiceItems.create({
         customer: customerId,
-        price: 'price_1KONVmKAzVkc5rRlxhR8sZ6i',
+        price: 'price_1KOSEVKAzVkc5rRl3xus8599',
         discountable: false
       })
     }

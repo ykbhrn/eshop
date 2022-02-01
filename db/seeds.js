@@ -4,7 +4,7 @@ const dbURI = 'mongodb+srv://ykbhrn:ZGgF5GQky1XFwULC@nuhippies.w5aks.mongodb.net
 const Product = require('../models/product')
 const User = require('../models/user')
 const stripe = require('stripe')(
-  'sk_test_51KLZIEKAzVkc5rRlc2krtkCcLSjdM7GPwVS7zq0cFF0qgEiVbGeJ9bP1HAO9vBPj3TFNoxzPsyGRsihPbOCllHRS00UIXc2mHx'
+  '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'
 )
 
 mongoose.connect(dbURI, async (err, db) => {

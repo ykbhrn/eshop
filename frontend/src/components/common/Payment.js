@@ -1,6 +1,6 @@
 import React from 'react';
 import { getMyProfile, completeOrder, createOrder, createInvoice } from '../../lib/api';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Payment extends React.Component {
   state = {

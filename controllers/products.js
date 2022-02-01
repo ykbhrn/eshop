@@ -1,7 +1,7 @@
 const Product = require('../models/product')
 const User = require('../models/user')
 const stripe = require('stripe')(
-  process.env.STRIPE_SECRET_KEY
+  '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'
 )
 
 async function allProducts(req, res) {
