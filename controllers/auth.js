@@ -9,7 +9,7 @@ const mailgun = require('mailgun-js')
 const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
 const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN})
 const stripe = require('stripe')(
-  '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'
+  process.env.STRIPE_SECRET_KEY
 )
 
 async function register(req, res) {
