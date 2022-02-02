@@ -66,9 +66,6 @@ router.route('/discount')
   .get(discount.allDiscounts)
   .put(secureRoute, discount.changeUserDiscount)
 
-router.route('/payment')
-  .post(payment.paymentSession)
-
 router.route('/invoice')
   .post(secureRoute, payment.sendInvoice)
 

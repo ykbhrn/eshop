@@ -3,50 +3,6 @@ const stripe = require('stripe')(
   process.env.STRIPE_SECRET_KEY
 )
 
-async function paymentSession(req, res) {
-  const { amount, id, quantity } = req.body
-  try {
-    
-    //   const session = await stripe.checkout.sessions.create({
-    //     line_items: [
-    //       {
-    //         price_data: {
-    //           currency: 'gbp',
-    //           product_data: {
-    //             name: 'T-shirt'
-    //           },
-    //           unit_amount: amount
-    //         },
-    //         quantity: quantity
-    //       }
-    //     ],
-    //     mode: 'payment',
-    //     success_url: 'http://localhost:3000/done',
-    //     cancel_url: 'http://localhost:3000/products'
-    //   })
-
-    const payment = await stripe.paymentIntents.create({
-      amount,
-      currency: 'GBP',
-      description: 'Nu Hippies',
-      payment_method: id,
-      confirm: true
-    })
-
-    console.log('Payment', payment)
-    res.json({
-      message: 'Payment successful',
-      success: true
-    })
-  } catch (error) {
-    console.log('Error', error)
-    res.json({
-      message: 'Payment failed',
-      success: false
-    })
-  }
-}
-
 async function sendInvoice(req, res) {
 
   const { order, customerId } = req.body
@@ -115,6 +71,11 @@ async function sendInvoice(req, res) {
 
       const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
 
+      const paymentIntent = await stripe.paymentIntents.update(
+        finalInvoice.payment_intent,
+        { receipt_email: order.email }
+      )
+
       userToUpdate.finishedOrder.stripePaymentUrl = finalInvoice.hosted_invoice_url
 
       await userToUpdate.save()
@@ -133,6 +94,15 @@ async function sendInvoice(req, res) {
       })
 
       const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
+
+      await stripe.invoices.sendInvoice(
+        finalInvoice.id
+      )
+
+      const paymentIntent = await stripe.paymentIntents.update(
+        finalInvoice.payment_intent,
+        { receipt_email: order.email }
+      )
 
       userToUpdate.finishedOrder.stripePaymentUrl = finalInvoice.hosted_invoice_url
 
@@ -158,7 +128,6 @@ async function sendInvoice(req, res) {
 }
 
 module.exports = {
-  paymentSession,
   sendInvoice
 }
 
