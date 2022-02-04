@@ -45,7 +45,7 @@ class Contact extends React.Component {
   render() {
     const { formData, error, isLoading } = this.state
     return (
-      <div className="contact-page">
+      <div className="contact-page change-brightness">
         {this.renderRedirect()}
         <div className="form-wrapper">
           <h2>Contact Us</h2>

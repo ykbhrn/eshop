@@ -26,7 +26,7 @@ class Confirmation extends React.Component {
     if (!this.state.user) return null;
     const {user} = this.state
     return (
-      <div className="confirmation-page">
+      <div className="confirmation-page change-brightness">
 
         <h2>Thank you for your order {user.name}</h2>
 

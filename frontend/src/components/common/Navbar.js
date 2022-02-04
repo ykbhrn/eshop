@@ -64,7 +64,7 @@ class Navbar extends React.Component {
           }\
           '}
         </style>
-        <div className="products-navbar" onMouseLeave ={() => {
+        <div className="products-navbar change-brightness" onMouseLeave ={() => {
           this.productsMenuLeave()
         }}>
           <Link to="/products/clothing/uni/all"><div className="products-navbar-item" onMouseEnter={() => {

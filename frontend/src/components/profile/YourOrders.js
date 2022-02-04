@@ -101,7 +101,7 @@ class YourOrders extends React.Component {
     const { user } = this.state
     if (!user) return null
     return (
-      <div className="edit-account-page">
+      <div className="edit-account-page change-brightness">
         <div className="account-nav">
           <Link to="/profile">Your Acount</Link>
           <span className="sign">&gt;</span>

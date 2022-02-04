@@ -140,7 +140,7 @@ class SingleProduct extends React.Component {
     if (!product) return null
     console.log(product)
     return (
-      <div className="single-product-section">
+      <div className="single-product-section change-brightness">
         <div className="single-product-wrapper">
           <div className="single-product-images-wrapper">
             <div className="side-images-container">

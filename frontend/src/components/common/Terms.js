@@ -14,7 +14,7 @@ class Terms extends React.Component {
 
   render() {
     return (
-      <div className="about-page">
+      <div className="about-page change-brightness">
         <div className="form-wrapper">
           <h1>Terms and Conditions</h1>
           <p>

@@ -9,7 +9,8 @@ class PopupDiscount extends React.Component {
     discountHighScore: false,
     discountLowScore: false,
     user: null,
-    discountCounter: 0
+    discountCounter: 0,
+    slapped: false
   }
 
   async componentDidMount () {
@@ -39,25 +40,25 @@ class PopupDiscount extends React.Component {
   }
 
 
-  discountAnimationEnd = async () => {
-    setTimeout( async () => {
-      const discountPage = document.querySelector('.discount-page')
-      const discountPopup = document.querySelector('.discount-popup-wrapper')
+    discountAnimationEnd = async () => {
+      setTimeout( async () => {
+        const discountPage = document.querySelector('.discount-page')
+        const discountPopup = document.querySelector('.discount-popup-wrapper')
 
-      discountPopup.style.visibility = "hidden"
-      // discountPopup.style.display = "hidden"
-      discountPage.classList.remove("show-discount")
+        discountPopup.style.visibility = "hidden"
+        // discountPopup.style.display = "hidden"
+        discountPage.classList.remove("show-discount")
       
-      if (this.state.discountScore > this.state.user.discount) {
-        const formData = {discount: this.state.discountScore}
-        await addDiscount(formData)
-        const res = await getMyProfile()
-        this.setState({discountHighScore: true, user: res.data, discountCounter: this.state.discountCounter + 1})
-      } else {
-        this.setState({discountLowScore: true, discountCounter: this.state.discountCounter + 1})
-      }
-    }, 30000);
-  }
+        if (this.state.discountScore > this.state.user.discount) {
+          const formData = {discount: this.state.discountScore}
+          await addDiscount(formData)
+          const res = await getMyProfile()
+          this.setState({discountHighScore: true, user: res.data, discountCounter: this.state.discountCounter + 1})
+        } else {
+          this.setState({discountLowScore: true, discountCounter: this.state.discountCounter + 1})
+        }
+      }, 30000);
+    }
 
   changeDiscountTime = async () => {
     try {
@@ -71,18 +72,28 @@ class PopupDiscount extends React.Component {
   showHand = () => {
     const discountPage = document.querySelector('.discount-page')
     const discountPopup = document.querySelector('.discount-popup-wrapper')
+    const changeBrightness = document.querySelector('.change-brightness')
+    const site = document.body
+
     const availableHeight = window.innerHeight
     const availableWidth = window.innerWidth
 
     discountPopup.style.visibility = "visible"
     discountPopup.style.display = "block"
+    changeBrightness.style.filter = "brightness(0.4)"
+    site.style.background = "gray"
 
     const popupInterval = setInterval(() => {
       const positionX = Math.floor(Math.random() * availableWidth)
       const positionY = Math.floor(Math.random() * availableHeight)
 
-      discountPopup.style.left = positionX + 'px'
-      discountPopup.style.top = positionY + 'px'
+      if (!this.state.slapped) {
+        discountPopup.style.left = positionX + 'px'
+        discountPopup.style.top = positionY + 'px'
+      }
+
+      // discountPopup.style.left = '150px'
+      // discountPopup.style.top = '150px'
 
       if (this.state.discountCounter > 0) {
         clearInterval(popupInterval)
@@ -105,12 +116,14 @@ class PopupDiscount extends React.Component {
 
   slapped = async () => {
     const discountPopup = document.querySelector('.discount-popup-wrapper')
+    const discountPlus = document.querySelector('.discount-plus')
     
-    discountPopup.style.transform = "rotate3d(1, 0, 1, 70deg)"
-    this.setState({discountScore: this.state.discountScore + 5})
+    discountPopup.style.transform = "rotate3d(1, 0, 1, 110deg)"
+    this.setState({discountScore: this.state.discountScore + 5, slapped: true})
     setTimeout(() => {
       discountPopup.style.transform = "none"
-    }, 210);
+      this.setState({slapped: false})
+    }, 1110);
   }
 
   closeScorePage = () => {
@@ -126,6 +139,12 @@ class PopupDiscount extends React.Component {
 
         <div className="discount-popup-wrapper" onClick={this.slapped}>
         </div>
+
+        {this.state.slapped &&
+
+          <div className="discount-plus">+ 5%</div>
+
+        }
         
         {this.state.discountHighScore && 
         <div className="score-window">

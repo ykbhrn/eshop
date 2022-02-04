@@ -29,7 +29,7 @@ class CategoriziedProducts extends React.Component {
   render() {
     const {subcategory, gender, type} = this.props.match.params
     return (
-      <div className="products-page categorized">
+      <div className="products-page categorized change-brightness">
         <div className="cat-nav">
           <Link className="cat-nav-item" to={`/products/${subcategory}/uni/all`}>          
             <div>{subcategory}</div>

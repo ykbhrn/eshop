@@ -6,7 +6,7 @@ const BasketIcon = ({ basketLength }) => (
   <>
     {isAuthenticated() &&
     <Link to="/basket">
-      <div className="basket-icon-wrapper">
+      <div className="basket-icon-wrapper change-brightness">
         <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639597935/Nu%20Hippies/icons/basket_v8tsou.png" />
         <div className="basket-number">{basketLength}</div>
       </div>
@@ -15,7 +15,7 @@ const BasketIcon = ({ basketLength }) => (
 
     {!isAuthenticated() &&
     <Link to="/entering">
-      <div className="basket-icon-wrapper">
+      <div className="basket-icon-wrapper change-brightness">
         <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639597935/Nu%20Hippies/icons/basket_v8tsou.png" />
         <div className="basket-number">{basketLength}</div>
       </div>

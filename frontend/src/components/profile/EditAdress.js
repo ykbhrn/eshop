@@ -165,7 +165,7 @@ class EditAdress extends React.Component {
     if (!this.state.user) return null
     const { user, formData, errors, isLoading } = this.state
     return (
-      <div className="edit-adress-page">
+      <div className="edit-adress-page change-brightness">
         <div className="account-nav">
           <Link to="/profile">Your Acount</Link>
           <span className="sign">&gt;</span>

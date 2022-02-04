@@ -1703,8 +1703,6 @@ a.ctrl, .ctrl div {
   width: 100vw;
   min-height: 100vh;
   z-index: 7;
-  // background: url('https://ih1.redbubble.net/image.867359441.0147/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg') no-repeat;
-  background-size: contain;
   cursor: url('./images/frames/1.gif'), auto;
 }
 
@@ -1719,6 +1717,29 @@ a.ctrl, .ctrl div {
   transition: 0.3s;
   filter: brightness(0.7);
   visibility: hidden;
+  // box-shadow: 0px 0px 1px 5000px rgba(0,0,0,0.8);
+  // border-radius: 50%;
+}
+
+.discount-plus{
+  animation: discount-plus-size 1110ms linear;
+  font-size: 50px;
+  font-weight: 500;
+  color: $second-color;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+
+@keyframes discount-plus-size{
+  0% { transform: scale(1.4) ;}
+  20% { transform: scale(1.8) ;}
+  40% { transform: scale(2.2) ;}
+  60% { transform: scale(2.6) ;}
+  80% { transform: scale(3) ;}
+  100% { transform: scale(3.4) ;}
 }
 
 .score-window{
@@ -1995,86 +2016,6 @@ a {
 //   display: flex;
 //   flex-direction: column;
 // }
-}
-
-//Payment Gateway
-.FormGroup {
-	margin: 0 15px 20px;
-	padding: 0;
-	border-style: none;
-	background-color: #7795f8;
-	will-change: opacity, transform;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
-	border-radius: 4px;
-}
-
-.FormRow {
-	display: -ms-flexbox;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-left: 15px;
-	border-top: 1px solid #819efc;
-}
-
-.StripeElement--webkit-autofill {
-	background: transparent !important;
-  display: flex;
-  flex-direction: column;
-}
-
-.StripeElement {
-	width: 100%;
-	padding: 11px 15px 11px 0;
-  display: flex;
-  flex-direction: column;
-  .InputContainer {
-    display: block;
-  }
-}
-
-.CardField-input-wrapper{
-  display: flex;
-  flex-direction: column;
-}
-#stripe-card-element{
-  display: block;
-  width: 100vw;
-}
-
-.payment{
-  margin-left: 25%;
-	margin-top: 5%;
-	margin-right: 25%;
-  button {
-    display: block;
-    font-size: 16px;
-    width: calc(100% - 30px);
-    height: 40px;
-    margin: 40px 15px 0;
-    background-color: $third-color;
-    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 $third-color;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 100ms ease-in-out;
-    will-change: transform, background-color, box-shadow;
-    border: none;
-  }
-  button:hover{
-    cursor: pointer;
-  }
-  
-  button:active {
-    background-color: #d782d9;
-    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
-    transform: scale(0.99);
-  }
-}
-
-h1,
-h3 {
-	text-align: center;
 }
 
 //RESPONSIVE DESIGN

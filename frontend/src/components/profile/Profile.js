@@ -27,7 +27,7 @@ class Profile extends React.Component {
     if (!this.state.user) return null;
     console.log(this.state.user);
     return (
-      <div className="profile-page">
+      <div className="profile-page change-brightness">
         <div className="profile-icons-container">
 
           <Link to="/profile/orders">

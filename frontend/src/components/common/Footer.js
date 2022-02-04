@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => (
 
-  <div className="footer-wrapper">
+  <div className="footer-wrapper change-brightness">
     <div className="header">
       <a href="/" className="link-no-underline">
         <div className="logo"></div>

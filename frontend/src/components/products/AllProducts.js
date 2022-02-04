@@ -28,7 +28,7 @@ class AllProducts extends React.Component {
 
   render() {
     return (
-      <div className="products-page">
+      <div className="products-page change-brightness">
         <div className="product-container">
           {this.state.products.slice(0).reverse().map(product => {
             return <Link to={`/products/${product._id}`} key={product._id}>

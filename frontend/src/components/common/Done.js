@@ -39,7 +39,7 @@ class Done extends React.Component {
   render() {
     if (!this.state.user) return null
     return (
-      <div className="done-page">
+      <div className="done-page change-brightness">
         {this.renderRedirect()}
         <div className="progress-wrapper">
           <h1> 
