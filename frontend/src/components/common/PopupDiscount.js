@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllDiscounts, addDiscount, getMyProfile } from '../../lib/api'
-
+import { isAuthenticated } from '../../lib/auth'
 
 class PopupDiscount extends React.Component {
   state = {
@@ -8,6 +8,7 @@ class PopupDiscount extends React.Component {
     discountScore: 0,
     discountHighScore: false,
     discountLowScore: false,
+    discountZero: false,
     user: null,
     discountCounter: 0,
     slapped: false
@@ -15,8 +16,13 @@ class PopupDiscount extends React.Component {
 
   async componentDidMount () {
     const res = await getAllDiscounts()
-    const resTwo = await getMyProfile()
-    this.setState({discountTime: res.data[0].time, user: resTwo.data})
+
+    if (isAuthenticated()) {
+      const resTwo = await getMyProfile()
+      this.setState({discountTime: res.data[0].time, user: resTwo.data})
+    }
+    // const discount = localStorage.getItem('discount')
+    // console.log(discount)
 
     setTimeout(() => {
       const now = new Date()
@@ -40,25 +46,69 @@ class PopupDiscount extends React.Component {
   }
 
 
-    discountAnimationEnd = async () => {
-      setTimeout( async () => {
-        const discountPage = document.querySelector('.discount-page')
-        const discountPopup = document.querySelector('.discount-popup-wrapper')
+  discountAnimationEnd = async () => {
 
-        discountPopup.style.visibility = "hidden"
-        // discountPopup.style.display = "hidden"
-        discountPage.classList.remove("show-discount")
-      
+    const discount = localStorage.getItem('discount')
+
+    setTimeout( async () => {
+
+      if (discount) {
+  
+        if (this.state.discountScore > Number(discount)) {
+
+          if (this.state.discountScore > 40) {
+            localStorage.setItem('discount', 40)
+          } else {
+            localStorage.setItem('discount', this.state.discountScore)
+          }
+        }
+        
+      } else {
+  
+        localStorage.setItem('discount', this.state.discountScore) 
+        
+      }
+
+      const discountPage = document.querySelector('.discount-page')
+      const discountPopup = document.querySelector('.discount-popup-wrapper')
+
+      discountPopup.style.visibility = "hidden"
+      discountPopup.style.display = "none"
+      discountPage.classList.remove("show-discount")
+
+      if (this.state.user) {
+
         if (this.state.discountScore > this.state.user.discount) {
+  
           const formData = {discount: this.state.discountScore}
           await addDiscount(formData)
           const res = await getMyProfile()
           this.setState({discountHighScore: true, user: res.data, discountCounter: this.state.discountCounter + 1})
-        } else {
+  
+        } else if (this.state.discountScore !== 0){
+  
           this.setState({discountLowScore: true, discountCounter: this.state.discountCounter + 1})
+            
+        } else {
+          this.setState({discountZero: true, discountCounter: this.state.discountCounter + 1})
         }
-      }, 30000);
-    }
+  
+      } else {
+        if (this.state.discountScore > discount) {
+  
+          this.setState({discountHighScore: true, discountCounter: this.state.discountCounter + 1})
+  
+        } else if (this.state.discountScore !== 0){
+  
+          this.setState({discountLowScore: true, discountCounter: this.state.discountCounter + 1})
+  
+        } else {
+          this.setState({discountZero: true, discountCounter: this.state.discountCounter + 1})
+        }
+      }
+    
+    }, 30000)
+  }
 
   changeDiscountTime = async () => {
     try {
@@ -78,18 +128,19 @@ class PopupDiscount extends React.Component {
     const availableHeight = window.innerHeight
     const availableWidth = window.innerWidth
 
-    discountPopup.style.visibility = "visible"
-    discountPopup.style.display = "block"
-    changeBrightness.style.filter = "brightness(0.4)"
+    changeBrightness.style.filter = "brightness(0.1)"
     site.style.background = "gray"
 
     const popupInterval = setInterval(() => {
+
       const positionX = Math.floor(Math.random() * availableWidth)
       const positionY = Math.floor(Math.random() * availableHeight)
 
       if (!this.state.slapped) {
         discountPopup.style.left = positionX + 'px'
         discountPopup.style.top = positionY + 'px'
+
+        discountPopup.style.visibility = "visible"
       }
 
       // discountPopup.style.left = '150px'
@@ -99,6 +150,7 @@ class PopupDiscount extends React.Component {
         clearInterval(popupInterval)
       }
     }, 700);
+
     discountPage.classList.add("show-discount")
     window.scrollTo(0, 0)
   }
@@ -107,23 +159,33 @@ class PopupDiscount extends React.Component {
     const discountPage = document.querySelector('.discount-page')
 
     if (discountPage.classList.contains("show-discount")) {
-      discountPage.style.animation = "cursor 0.2s linear"
-      setTimeout(() => {
-        discountPage.style.animation = "none"
-      }, 210);
+      if (!this.state.slapped) {
+        discountPage.style.animation = "cursor 0.2s linear"
+        setTimeout(() => {
+          discountPage.style.animation = "none"
+        }, 210);
+      }
     }
   }
 
   slapped = async () => {
     const discountPopup = document.querySelector('.discount-popup-wrapper')
-    const discountPlus = document.querySelector('.discount-plus')
+    const discountImg = document.querySelector('.discount-popup-img')
     
-    discountPopup.style.transform = "rotate3d(1, 0, 1, 110deg)"
-    this.setState({discountScore: this.state.discountScore + 5, slapped: true})
-    setTimeout(() => {
-      discountPopup.style.transform = "none"
-      this.setState({slapped: false})
-    }, 1110);
+    if (!this.state.slapped) {
+        
+      this.setState({slapped: true})
+      discountImg.style.transform = "rotate3d(1, 0, 1, 90deg)"
+
+      setTimeout(() => {
+        discountPopup.style.visibility = "hidden"
+
+        setTimeout(() => {
+          discountImg.style.transform = "none"
+          this.setState({slapped: false, discountScore: this.state.discountScore + 5})
+        }, 1000);
+      }, 1100);
+    }
   }
 
   closeScorePage = () => {
@@ -131,13 +193,22 @@ class PopupDiscount extends React.Component {
   }
 
   render() {
-    if (!this.state.user) return null
+    const discount = localStorage.getItem('discount')
+
+    // if (!this.state.user) return null
     return (
       <div className="discount-page" onClick={this.slap}>
 
         {/* <h1>Slap That Nazi</h1> */}
 
         <div className="discount-popup-wrapper" onClick={this.slapped}>
+
+          {this.state.slapped &&
+          <img className="discount-stars" src="/images/stars.gif"/>
+          }
+
+          <div className="discount-popup-img"></div>
+
         </div>
 
         {this.state.slapped &&
@@ -150,7 +221,7 @@ class PopupDiscount extends React.Component {
         <div className="score-window">
           <h2>
             <span className="highlighted">Congratulations </span>, You Have Slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s </span> 
-            which means we are giving you <span className="highlighted">{this.state.user.discount}% discount </span>
+            which means we are giving you <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% discount </span>
           on your next order
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
@@ -161,10 +232,18 @@ class PopupDiscount extends React.Component {
         <div className="score-window">
           <h2>
         You slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s</span><br />
-        so your current discount of <span className="highlighted">{this.state.user.discount}% remain unchanged</span>
+        so your current discount of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% remain unchanged</span>
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
         </div>
+        }
+        {this.state.discountZero &&
+          <div className="score-window">
+            <h2>
+              You didn&#39;t slap any nazi which means no discount for now, good luck next time 
+            </h2>
+            <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+          </div>
         }
       </div>
     )

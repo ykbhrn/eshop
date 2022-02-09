@@ -79,7 +79,7 @@ class Home extends React.Component {
               return <Link to={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
                   <div className="flower bright">
-                    <img src={product.images[0]} className="flowerProductImage" />
+                    <img src={product.images[0].images[0]} className="flowerProductImage" />
                     <div className="big-petal big-petal1"></div>
                     <div className="big-petal big-petal2"></div>
                     <div className="big-petal big-petal3"></div>
@@ -174,7 +174,7 @@ class Home extends React.Component {
               return <Link to={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
                   <div className="flower bright">
-                    <img src={product.images[0]} className="flowerProductImage" />
+                    <img src={product.images[0].images[0]} className="flowerProductImage" />
                     <div className="big-petal big-petal1"></div>
                     <div className="big-petal big-petal2"></div>
                     <div className="big-petal big-petal3"></div>

@@ -106,7 +106,7 @@ class Basket extends React.Component {
                 <div className="color-size-price">
                   <div>{item.chosenColor}</div>
                   <div>{item.chosenSize}</div>
-                  <div className="basket-price">{item.price / 100}</div>
+                  <div className="basket-price">£{item.price / 100}</div>
                 </div>
               </div>
               
