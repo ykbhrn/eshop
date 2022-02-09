@@ -61,6 +61,12 @@ async function login(req, res) {
     console.log('user wanted: ', req.body)
     const user = await User.findOne({email: req.body.email})
     console.log('user found: ', user)
+
+    if (req.body.discount > user.discount) {
+      user.discount = req.body.discount
+      await user.save()
+    }
+
     if (!user || !user.validatePassword(req.body.password)) {
       throw new Error()
     }

@@ -54,10 +54,16 @@ class Register extends React.Component {
   }
 
   handleChange = event => {
-    console.log(this.props.id)
-    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+    const localDiscount = localStorage.getItem('discount')
     const errors = { ...this.state.errors, [event.target.name]: '' }
-    this.setState({ formData, errors })
+
+    if (localDiscount) {
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value, discount: localDiscount }
+      this.setState({ formData, errors })
+    } else {
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+      this.setState({ formData, errors })
+    }
   }
 
   handleSubmit = async event => {
@@ -69,6 +75,7 @@ class Register extends React.Component {
       if (response.status === 201) {
         const loginResponse = await loginUser(this.state.formData)
         setToken(loginResponse.data.token)
+        localStorage.removeItem('discount')
         this.setState({ redirect: true })
       }
       if (response.status === 422) throw new Error()

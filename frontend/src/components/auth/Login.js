@@ -1,7 +1,7 @@
 import React from 'react'
 import { setToken } from '../../lib/auth'
 import { Redirect, Link } from 'react-router-dom'
-import { loginUser } from '../../lib/api'
+import { loginUser, updateUserAccount } from '../../lib/api'
 
 class Login extends React.Component {
   state = {
@@ -15,8 +15,15 @@ class Login extends React.Component {
   }
 
   handleChange = event => {
-    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-    this.setState({ formData, error: '' })
+    const discount = localStorage.getItem('discount')
+    if (discount) {
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value, discount: discount }
+      this.setState({ formData, error: '' })
+    } else {
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+      this.setState({ formData, error: '' })
+    }
+   
   }
 
   handleSubmit = async event => {
@@ -25,6 +32,7 @@ class Login extends React.Component {
       this.setState({ isLoading: true })
       const res = await loginUser(this.state.formData)
       setToken(res.data.token)
+      localStorage.removeItem('discount')
       this.setState({ redirect: true })
     } catch (err) {
       this.setState({ error: 'Invalid Credentials', isLoading: false })
