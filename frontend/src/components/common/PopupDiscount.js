@@ -21,8 +21,6 @@ class PopupDiscount extends React.Component {
       const resTwo = await getMyProfile()
       this.setState({discountTime: res.data[0].time, user: resTwo.data})
     }
-    // const discount = localStorage.getItem('discount')
-    // console.log(discount)
 
     setTimeout(() => {
       const now = new Date()
@@ -122,13 +120,16 @@ class PopupDiscount extends React.Component {
   showHand = () => {
     const discountPage = document.querySelector('.discount-page')
     const discountPopup = document.querySelector('.discount-popup-wrapper')
-    const changeBrightness = document.querySelector('.change-brightness')
+    const changeBrightness = document.querySelectorAll('.change-brightness')
     const site = document.body
 
     const availableHeight = window.innerHeight
     const availableWidth = window.innerWidth
 
-    changeBrightness.style.filter = "brightness(0.1)"
+    changeBrightness.forEach(item => {
+      item.style.filter = "brightness(0.2)"
+    })
+
     site.style.background = "gray"
 
     const popupInterval = setInterval(() => {
@@ -240,7 +241,7 @@ class PopupDiscount extends React.Component {
         {this.state.discountZero &&
           <div className="score-window">
             <h2>
-              You didn&#39;t slap any nazi which means no discount for now, good luck next time 
+              You didn&#39;t slap any nazi which means no discount for you now, good luck next time 
             </h2>
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
           </div>

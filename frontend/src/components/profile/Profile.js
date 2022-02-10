@@ -19,6 +19,7 @@ class Profile extends React.Component {
   }
 
   handleLogout = () => {
+    localStorage.removeItem('discount')
     logout();
     return window.location.assign('/');
   }

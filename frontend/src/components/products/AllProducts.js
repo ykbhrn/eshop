@@ -30,7 +30,7 @@ class AllProducts extends React.Component {
 
   render() {
     return (
-      <div className="change-brightness products-page">
+      <div className="products-page change-brightness ">
         <div className="product-container change-brightness">
           {this.state.products.slice(0).reverse().map(product => {
             return <Link to={`/products/${product._id}`} key={product._id}>

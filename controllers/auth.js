@@ -1,6 +1,7 @@
 /* eslint-disable object-curly-spacing */
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const basket = require('./shoppingBasket')
 const secret = 'muie'
 const newUser = require('../emails/newUser')
 const resetPasswordEmail = require('../emails/resetPassword')
@@ -23,6 +24,8 @@ async function register(req, res) {
     req.body.stripeId = customer.id
 
     const user = await User.create(req.body)
+
+    basket.calculatePrice(user)
 
     newUserEmail(user)
     res.status(201).json({message: `${user.email} has been registered`})
@@ -65,6 +68,7 @@ async function login(req, res) {
     if (req.body.discount > user.discount) {
       user.discount = req.body.discount
       await user.save()
+      basket.calculatePrice(user)
     }
 
     if (!user || !user.validatePassword(req.body.password)) {
