@@ -9,7 +9,8 @@ class Navbar extends React.Component {
     some: null,
     hideBasket: true,
     mainButton: "",
-    isClothing: null
+    isClothing: null,
+    showProductsNavbar: false
   }
 
   changeMainButton = (hoveredItem) => {
@@ -23,40 +24,37 @@ class Navbar extends React.Component {
   }
 
   productsMenuHover = (item) => {
-    const menuItems = document.querySelectorAll(".products-navbar-item")
+    // const menuItems = document.querySelectorAll(".products-navbar-item")
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
     productsHoverMenu.style.display = "flex"
-    productsHoverMenu.style.animation = "0.2s menu-in linear"
-    if (item === "clothing") {
-      menuItems[0].classList.add("active")
-      menuItems[1].classList.remove("active")
-      this.setState({isClothing: true})
-    } else if (item === "accesories") {
-      menuItems[1].classList.add("active")
-      menuItems[0].classList.remove("active")
-      this.setState({isClothing: false})
-    }  
-    console.log()
+    productsHoverMenu.style.animation = "0.3s menu-in linear"
+    // if (item === "clothing") {
+    //   menuItems[0].classList.add("active")
+    //   menuItems[1].classList.remove("active")
+    //   this.setState({isClothing: true})
+    // } else if (item === "accesories") {
+    //   menuItems[1].classList.add("active")
+    //   menuItems[0].classList.remove("active")
+    //   this.setState({isClothing: false})
+    // }  
   }
 
   productsMenuLeave = () => {
-    const menuItems = document.querySelectorAll(".products-navbar-item")
+    // const menuItems = document.querySelectorAll(".products-navbar-item")
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
-    productsHoverMenu.style.animation = "0.2s menu-out linear"
-    menuItems[0].classList.remove("active")
-    menuItems[1].classList.remove("active")
+    // menuItems[0].classList.remove("active")
+    // menuItems[1].classList.remove("active")
     setTimeout(() => {
       productsHoverMenu.style.display = "none"
     }, 195);
   }
 
   render() {
+    console.log(this.state.showProductsNavbar)
     return (
-      <header className="navbar" onMouseLeave ={() => {
-        this.productsMenuLeave()
-      }}>
+      <header className="navbar">
         <style>
           {'\
           .hover-products-menu{\
@@ -64,34 +62,112 @@ class Navbar extends React.Component {
           }\
           '}
         </style>
-        <div className="products-navbar change-brightness" onMouseLeave ={() => {
-          this.productsMenuLeave()
-        }}>
-          <Link to="/products/clothing/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
+        <div className="products-navbar change-brightness">
+
+          <div className="products-navbar-icon" onClick={() => {
             this.productsMenuHover("clothing")
-          }}>Clothing</div>
-          </Link>
-          <Link to="/products/accesories/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
-            this.productsMenuHover("accesories")
-          }}>Accesories</div>
-          </Link>
+          }} >
+          </div>
+          
           <div className="hover-products-menu">
-            {this.state.isClothing &&
+
+            <div className="products-menu-close" onClick={this.productsMenuLeave}>
+              X
+            </div>
+
+            {/* <div className="products-navbar-item-wrapper">
+              <Link to="/products/clothing/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
+                this.productsMenuHover("clothing")
+              }}>Clothing</div>
+              </Link>
+              <Link to="/products/accesories/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
+                this.productsMenuHover("accesories")
+              }}>Accesories</div>
+              </Link>
+            </div> */}
+
+            {/* Products navbar */}
+            {/* Clothes */}
+            <div className="hover-products-menu-wrapper change-brightness">
+                           
+              <nav><input className="toggle" id="nav" type="checkbox" /><label className="label" htmlFor="nav">
+                <p>Clothes</p><span className="hum"><i className="fa-solid fa-bars"></i></span>
+                <ul className="list">
+                  <li className="list__home"><a href="#0">Uni</a>
+                    <ul className="list__homeItems">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__clients"><a href="#0">Men&apos;s</a>
+                    <ul className="list__clientsItems">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__strauss"><a href="#0">Women&apos;s</a>
+                    <ul className="list__straussItem">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__contact"><a href="#0">Kid&apos;s</a>
+                    <ul className="list__contactItem">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </label></nav>
+
+              {/* Accesories */}
+
+              <nav><input className="toggle" id="nav-two" type="checkbox" /><label className="label" htmlFor="nav-two">
+                <p>Accesories</p><span className="hum"></span>
+                <ul className="list">
+                  <li className="list__home"><a href="#0">Bags</a></li>
+                  <li className="list__about"><a href="#0">Scarfs</a></li>
+                  <li className="list__clients"><a href="#0"><span>Some</span></a>
+                    <ul className="list__clientsItems">
+                      <li><a href="#0">Burger King</a></li>
+                      <li><a href="#0">Southwest Airlines</a></li>
+                      <li><a href="#0">Levi Strauss</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__strauss"><a href="#0"><span>Services</span></a>
+                    <ul className="list__straussItem">
+                      <li><a href="#0">Print Design</a></li>
+                      <li><a href="#0">Web Design</a></li>
+                      <li><a href="#0">Mobile App Development</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__contact"><a href="#0">Contact</a></li>
+                </ul>
+              </label></nav>
+
+            </div>
+              
+            {/* {this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
+            
               <div className="gender-navbar-part">
-                <Link to="/products/clothing/men/all" onClick={this.productsMenuLeave}><h3>Men&apos;s Clothing</h3></Link>
-                <Link to="/products/clothing/men/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
-                <Link to="/products/clothing/men/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
-                <Link to="/products/clothing/men/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
-                <Link to="/products/clothing/men/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
+                <Link to="/products/clothing/men/all"><h3>Men&apos;s Clothing</h3></Link>
+                <Link to="/products/clothing/men/t-shirts"><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/clothing/men/hoodies"><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/clothing/men/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/clothing/men/trousers"><div className="small-item">Trousers</div></Link>
               </div>
 
               <div className="gender-navbar-part">
-                <Link to="/products/clothing/women/all" onClick={this.productsMenuLeave}><h3>Women&apos;s Clothing</h3></Link>
-                <Link to="/products/clothing/women/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
-                <Link to="/products/clothing/women/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
-                <Link to="/products/clothing/women/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
-                <Link to="/products/clothing/women/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
+                <Link to="/products/clothing/women/all"><h3>Women&apos;s Clothing</h3></Link>
+                <Link to="/products/clothing/women/t-shirts"><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/clothing/women/hoodies"><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/clothing/women/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/clothing/women/trousers"><div className="small-item">Trousers</div></Link>
               </div>
             </div>
             }
@@ -99,25 +175,26 @@ class Navbar extends React.Component {
             {!this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
               <div className="gender-navbar-part">
-                <Link to="/products/accesories/men/all" onClick={this.productsMenuLeave}><h3>Men&apos;s Accesories</h3></Link>
-                <Link to="/products/accesories/men/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
-                <Link to="/products/accesories/men/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
-                <Link to="/products/accesories/men/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
-                <Link to="/products/accesories/men/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
+                <Link to="/products/accesories/men/all"><h3>Men&apos;s Accesories</h3></Link>
+                <Link to="/products/accesories/men/t-shirts"><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/accesories/men/hoodies"><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/accesories/men/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/accesories/men/trousers"><div className="small-item">Trousers</div></Link>
               </div>
 
               <div className="gender-navbar-part">
-                <Link to="/products/accesories/women/all" onClick={this.productsMenuLeave}><h3>Women&apos;s Accesories</h3></Link>
-                <Link to="/products/accesories/women/t-shirts" onClick={this.productsMenuLeave}><div className="small-item">T-Shirts</div></Link>
-                <Link to="/products/accesories/women/hoodies" onClick={this.productsMenuLeave}><div className="small-item">Hoodies</div></Link>
-                <Link to="/products/accesories/women/sweatshirts" onClick={this.productsMenuLeave}><div className="small-item">Sweatshirts</div></Link>
-                <Link to="/products/accesories/women/trousers" onClick={this.productsMenuLeave}><div className="small-item">Trousers</div></Link>
+                <Link to="/products/accesories/women/all"><h3>Women&apos;s Accesories</h3></Link>
+                <Link to="/products/accesories/women/t-shirts"><div className="small-item">T-Shirts</div></Link>
+                <Link to="/products/accesories/women/hoodies"><div className="small-item">Hoodies</div></Link>
+                <Link to="/products/accesories/women/sweatshirts"><div className="small-item">Sweatshirts</div></Link>
+                <Link to="/products/accesories/women/trousers"><div className="small-item">Trousers</div></Link>
               </div>
             </div>
-            }
+            } */}
 
           </div>
         </div>
+
         <div className="header">
           <a href="/" className="link-no-underline">
             <div className="logo"></div>
@@ -200,7 +277,8 @@ class Navbar extends React.Component {
                     this.changeMainButton("Register")
                   }}
                   onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i>
-                  </div></Link>
+                  </div>
+                </Link>
               </li>
             }
           </ul>

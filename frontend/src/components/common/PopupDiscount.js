@@ -127,7 +127,7 @@ class PopupDiscount extends React.Component {
     const availableWidth = window.innerWidth
 
     changeBrightness.forEach(item => {
-      item.style.filter = "brightness(0.2)"
+      item.style.filter = "brightness(0.7)"
     })
 
     site.style.background = "gray"

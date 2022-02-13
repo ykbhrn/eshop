@@ -76,7 +76,7 @@ class Home extends React.Component {
           
           <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
-              return <Link to={`/products/${product._id}`} key={product._id}>
+              return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
                   <div className="flower bright">
                     <img src={product.images[0].images[0]} className="flowerProductImage" />
@@ -94,84 +94,84 @@ class Home extends React.Component {
                     <div className="small-petal small-petal8"></div>
                   </div>
                 </div>
-              </Link>;
+              </a>
             })}
           </div>
           <div className="home-menu">
             <ul className="home-menu-ul">
               <li>
-                <Link to="/products" onMouseEnter={() => {
+                <a href="/products" onMouseEnter={() => {
                   this.changeMainButton("Clothes");
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fas fa-tshirt"></i>
-                </Link>
+                </a>
               </li>
               <li>
                 {!isAuthenticated() &&
-                  <Link to="/entering" onMouseEnter={() => {
+                  <a href="/entering" onMouseEnter={() => {
                     this.changeMainButton("Register");
                   }}
                   onMouseLeave={this.mainButtonBack}>
                     <i className="fas fa-user"></i>
-                  </Link>
+                  </a>
                 }
                 {isAuthenticated() &&
-                  <Link to="/profile" onMouseEnter={() => {
+                  <a href="/profile" onMouseEnter={() => {
                     this.changeMainButton("My Account");
                   }}
                   onMouseLeave={this.mainButtonBack}>
                     <i className="fas fa-user"></i>
-                  </Link>
+                  </a>
                 }
               </li>
               <li>
-                <Link to="#" onMouseEnter={() => {
+                <a href="#" onMouseEnter={() => {
                   this.changeMainButton("Nothing");
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fa fa-users"></i>
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/about" onMouseEnter={() => {
+                <a href="/about" onMouseEnter={() => {
                   this.changeMainButton("About Us")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fab fa-angellist flip"></i>
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/contact" onMouseEnter={() => {
+                <a href="/contact" onMouseEnter={() => {
                   this.changeMainButton("Contact Us")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fas fa-envelope-open-text"></i>
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/products/accesories/uni/all" onMouseEnter={() => {
+                <a href="/products/accesories/uni/all" onMouseEnter={() => {
                   this.changeMainButton("Accessories")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fab fa-redhat"></i>
-                </Link>
+                </a>
               </li>
               <li className="close">
-                <Link to="#">
+                <a href="#">
                   {this.state.mainButton &&
                     <div className="home-menu-button-text">{this.state.mainButton}</div>
                   }
                   {!this.state.mainButton &&
                     <div><i className="fas"><div className="home-logo"></div></i></div>
                   }
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
           <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
-              return <Link to={`/products/${product._id}`} key={product._id}>
+              return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
                   <div className="flower bright">
                     <img src={product.images[0].images[0]} className="flowerProductImage" />
@@ -189,7 +189,7 @@ class Home extends React.Component {
                     <div className="small-petal small-petal8"></div>
                   </div>
                 </div>
-              </Link>
+              </a>
             })}
           </div>
         </div>
