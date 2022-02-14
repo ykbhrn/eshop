@@ -10,7 +10,8 @@ class Navbar extends React.Component {
     hideBasket: true,
     mainButton: "",
     isClothing: null,
-    showProductsNavbar: false
+    showProductsNavbar: false,
+    dotMenuText: false
   }
 
   changeMainButton = (hoveredItem) => {
@@ -23,32 +24,35 @@ class Navbar extends React.Component {
     this.setState({ mainButton: "" })
   }
 
-  productsMenuHover = (item) => {
-    // const menuItems = document.querySelectorAll(".products-navbar-item")
+  productsMenuShow = () => {
     const productsHoverMenu = document.querySelector(".hover-products-menu")
 
-    productsHoverMenu.style.display = "flex"
-    productsHoverMenu.style.animation = "0.3s menu-in linear"
-    // if (item === "clothing") {
-    //   menuItems[0].classList.add("active")
-    //   menuItems[1].classList.remove("active")
-    //   this.setState({isClothing: true})
-    // } else if (item === "accesories") {
-    //   menuItems[1].classList.add("active")
-    //   menuItems[0].classList.remove("active")
-    //   this.setState({isClothing: false})
-    // }  
+    if (productsHoverMenu.style.display === "flex") {
+      productsHoverMenu.style.animation = "0.3s menu-out linear" 
+      setTimeout(() => {
+        productsHoverMenu.style.display = "none"
+      }, 295);
+    } else {      
+      productsHoverMenu.style.display = "flex"
+      productsHoverMenu.style.animation = "0.3s menu-in linear" 
+    }
   }
 
-  productsMenuLeave = () => {
-    // const menuItems = document.querySelectorAll(".products-navbar-item")
-    const productsHoverMenu = document.querySelector(".hover-products-menu")
+  openDotsMenu = (item) => {
+    const dot = document.querySelectorAll(".label")
 
-    // menuItems[0].classList.remove("active")
-    // menuItems[1].classList.remove("active")
-    setTimeout(() => {
-      productsHoverMenu.style.display = "none"
-    }, 195);
+    if (item === 0) {
+      dot[0].style.width = dot[0].style.width === '150px' ? '330px' : '150px'
+      dot[0].style.height = dot[0].style.height === '150px' ? '330px' : '150px'
+    } else if (item === 1) {
+      dot[1].style.width = dot[1].style.width === '150px' ? '330px' : '150px'
+      dot[1].style.height = dot[1].style.height === '150px' ? '330px' : '150px'
+    }
+
+  }
+
+  showText = (item) => {
+    this.setState({dotMenuText: item})
   }
 
   render() {
@@ -64,92 +68,122 @@ class Navbar extends React.Component {
         </style>
         <div className="products-navbar change-brightness">
 
-          <div className="products-navbar-icon" onClick={() => {
-            this.productsMenuHover("clothing")
-          }} >
+          <div className="products-navbar-icon" onClick={this.productsMenuShow} >
           </div>
           
           <div className="hover-products-menu">
 
-            <div className="products-menu-close" onClick={this.productsMenuLeave}>
-              X
-            </div>
-
-            {/* <div className="products-navbar-item-wrapper">
-              <Link to="/products/clothing/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
-                this.productsMenuHover("clothing")
-              }}>Clothing</div>
-              </Link>
-              <Link to="/products/accesories/uni/all"><div className="products-navbar-item" onMouseEnter={() => {
-                this.productsMenuHover("accesories")
-              }}>Accesories</div>
-              </Link>
-            </div> */}
-
             {/* Products navbar */}
-            {/* Clothes */}
-            <div className="hover-products-menu-wrapper change-brightness">
-                           
-              <nav><input className="toggle" id="nav" type="checkbox" /><label className="label" htmlFor="nav">
-                <p>Clothes</p><span className="hum"><i className="fa-solid fa-bars"></i></span>
-                <ul className="list">
-                  <li className="list__home"><a href="#0">Uni</a>
-                    <ul className="list__homeItems">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
-                    </ul>
-                  </li>
-                  <li className="list__clients"><a href="#0">Men&apos;s</a>
-                    <ul className="list__clientsItems">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
-                    </ul>
-                  </li>
-                  <li className="list__strauss"><a href="#0">Women&apos;s</a>
-                    <ul className="list__straussItem">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
-                    </ul>
-                  </li>
-                  <li className="list__contact"><a href="#0">Kid&apos;s</a>
-                    <ul className="list__contactItem">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </label></nav>
+            {/* Clothes */}              
+            <nav><input className="toggle" id="nav" type="checkbox" /><label className="label" htmlFor="nav" onClick={() => {
+              this.openDotsMenu(0)
+            }}
+            onMouseEnter={() => {
+              this.showText(0)
+            }}
+            onMouseLeave={() => {
+              this.showText(false)
+            }}
+            >
+              {this.state.dotMenuText === 0 &&
+                <div className="hum-img text">
+                Clothing
+                </div>
+              }
 
-              {/* Accesories */}
+              {this.state.dotMenuText !== 0 &&
+                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644693598/Nu%20Hippies/icons/tshirt_ybntiy.png" />
+              }
+              
+              <ul className="list">
+                <li className="list__home"><a href="#0">Uni</a>
+                  <ul className="list__homeItems">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+                <li className="list__clients"><a href="#0">Men&apos;s</a>
+                  <ul className="list__clientsItems">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+                <li className="list__strauss"><a href="#0">Women&apos;s</a>
+                  <ul className="list__straussItem">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+                <li className="list__contact"><a href="#0">Kid&apos;s</a>
+                  <ul className="list__contactItem">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </label></nav>
 
-              <nav><input className="toggle" id="nav-two" type="checkbox" /><label className="label" htmlFor="nav-two">
-                <p>Accesories</p><span className="hum"></span>
-                <ul className="list">
-                  <li className="list__home"><a href="#0">Bags</a></li>
-                  <li className="list__about"><a href="#0">Scarfs</a></li>
-                  <li className="list__clients"><a href="#0"><span>Some</span></a>
-                    <ul className="list__clientsItems">
-                      <li><a href="#0">Burger King</a></li>
-                      <li><a href="#0">Southwest Airlines</a></li>
-                      <li><a href="#0">Levi Strauss</a></li>
-                    </ul>
-                  </li>
-                  <li className="list__strauss"><a href="#0"><span>Services</span></a>
-                    <ul className="list__straussItem">
-                      <li><a href="#0">Print Design</a></li>
-                      <li><a href="#0">Web Design</a></li>
-                      <li><a href="#0">Mobile App Development</a></li>
-                    </ul>
-                  </li>
-                  <li className="list__contact"><a href="#0">Contact</a></li>
-                </ul>
-              </label></nav>
-
+            <div className="products-menu-close" onClick={this.productsMenuShow}>
+              <img src="https://res.cloudinary.com/nuhippies/image/upload/v1644809706/Nu%20Hippies/icons/error_rvhkbf.png" />
             </div>
+
+            {/* Accesories */}
+
+            <nav><input className="toggle" id="nav-two" type="checkbox" /><label className="label" htmlFor="nav-two" onClick={() => {
+              this.openDotsMenu(1)
+            }}
+            onMouseEnter={() => {
+              this.showText(1)
+            }}
+            onMouseLeave={() => {
+              this.showText(false)
+            }}
+            >
+              {this.state.dotMenuText === 1 &&
+                <div className="hum-img text">
+                Accesories
+                </div>
+              }
+
+              {this.state.dotMenuText !== 1 &&
+                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644800799/Nu%20Hippies/icons/backpack_siqllu.png" />
+              }              <span className="hum"></span>
+              <ul className="list">
+                <li className="list__home"><a href="#0">Uni</a>
+                  <ul className="list__homeItems">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+                <li className="list__clients"><a href="#0">Men&apos;s</a>
+                  <ul className="list__clientsItems">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+                <li className="list__strauss"><a href="#0">Women&apos;s</a>
+                  <ul className="list__straussItem">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+                <li className="list__contact"><a href="#0">Kid&apos;s</a>
+                  <ul className="list__contactItem">
+                    <li><a href="#0">T-Shirts</a></li>
+                    <li><a href="#0">Hoodies</a></li>
+                    <li><a href="#0">Sweatshirts</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </label></nav>
+
               
             {/* {this.state.isClothing &&
             <div className="gender-navbar-part-wrapper">
