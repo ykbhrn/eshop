@@ -75,57 +75,60 @@ class Navbar extends React.Component {
 
             {/* Products navbar */}
             {/* Clothes */}              
-            <nav><input className="toggle" id="nav" type="checkbox" /><label className="label" htmlFor="nav" onClick={() => {
-              this.openDotsMenu(0)
-            }}
-            onMouseEnter={() => {
-              this.showText(0)
-            }}
-            onMouseLeave={() => {
-              this.showText(false)
-            }}
-            >
-              {this.state.dotMenuText === 0 &&
+            <nav>
+              <input className="toggle" id="nav" type="checkbox" onClick={() => {
+                this.openDotsMenu(0)
+              }} />
+              <label className="label" htmlFor="nav"
+                onMouseEnter={() => {
+                  this.showText(0)
+                }}
+                onMouseLeave={() => {
+                  this.showText(false)
+                }}
+              >
+                {this.state.dotMenuText === 0 &&
                 <div className="hum-img text">
                 Clothing
                 </div>
-              }
+                }
 
-              {this.state.dotMenuText !== 0 &&
+                {this.state.dotMenuText !== 0 &&
                 <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644693598/Nu%20Hippies/icons/tshirt_ybntiy.png" />
-              }
+                }
               
-              <ul className="list">
-                <li className="list__home"><a href="#0">Uni</a>
-                  <ul className="list__homeItems">
-                    <li><a href="#0">T-Shirts</a></li>
-                    <li><a href="#0">Hoodies</a></li>
-                    <li><a href="#0">Sweatshirts</a></li>
-                  </ul>
-                </li>
-                <li className="list__clients"><a href="#0">Men&apos;s</a>
-                  <ul className="list__clientsItems">
-                    <li><a href="#0">T-Shirts</a></li>
-                    <li><a href="#0">Hoodies</a></li>
-                    <li><a href="#0">Sweatshirts</a></li>
-                  </ul>
-                </li>
-                <li className="list__strauss"><a href="#0">Women&apos;s</a>
-                  <ul className="list__straussItem">
-                    <li><a href="#0">T-Shirts</a></li>
-                    <li><a href="#0">Hoodies</a></li>
-                    <li><a href="#0">Sweatshirts</a></li>
-                  </ul>
-                </li>
-                <li className="list__contact"><a href="#0">Kid&apos;s</a>
-                  <ul className="list__contactItem">
-                    <li><a href="#0">T-Shirts</a></li>
-                    <li><a href="#0">Hoodies</a></li>
-                    <li><a href="#0">Sweatshirts</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </label></nav>
+                <ul className="list">
+                  <li className="list__home"><a href="#0">Uni</a>
+                    <ul className="list__homeItems">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__clients"><a href="#0">Men&apos;s</a>
+                    <ul className="list__clientsItems">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__strauss"><a href="#0">Women&apos;s</a>
+                    <ul className="list__straussItem">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                  <li className="list__contact"><a href="#0">Kid&apos;s</a>
+                    <ul className="list__contactItem">
+                      <li><a href="#0">T-Shirts</a></li>
+                      <li><a href="#0">Hoodies</a></li>
+                      <li><a href="#0">Sweatshirts</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </label>
+            </nav>
 
             <div className="products-menu-close" onClick={this.productsMenuShow}>
               <img src="https://res.cloudinary.com/nuhippies/image/upload/v1644809706/Nu%20Hippies/icons/error_rvhkbf.png" />
@@ -133,15 +136,16 @@ class Navbar extends React.Component {
 
             {/* Accesories */}
 
-            <nav><input className="toggle" id="nav-two" type="checkbox" /><label className="label" htmlFor="nav-two" onClick={() => {
+            <nav><input className="toggle" id="nav-two" type="checkbox" onClick={() => {
               this.openDotsMenu(1)
-            }}
-            onMouseEnter={() => {
-              this.showText(1)
-            }}
-            onMouseLeave={() => {
-              this.showText(false)
-            }}
+            }}/>
+            <label className="label" htmlFor="nav-two" 
+              onMouseEnter={() => {
+                this.showText(1)
+              }}
+              onMouseLeave={() => {
+                this.showText(false)
+              }}
             >
               {this.state.dotMenuText === 1 &&
                 <div className="hum-img text">
@@ -151,7 +155,7 @@ class Navbar extends React.Component {
 
               {this.state.dotMenuText !== 1 &&
                 <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644800799/Nu%20Hippies/icons/backpack_siqllu.png" />
-              }              <span className="hum"></span>
+              }
               <ul className="list">
                 <li className="list__home"><a href="#0">Uni</a>
                   <ul className="list__homeItems">
@@ -182,7 +186,8 @@ class Navbar extends React.Component {
                   </ul>
                 </li>
               </ul>
-            </label></nav>
+            </label>
+            </nav>
 
               
             {/* {this.state.isClothing &&

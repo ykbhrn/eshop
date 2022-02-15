@@ -1,0 +1,58 @@
+@import "./variables.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.header .static-txt {
+  font-size: 49px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.header .dynamic-txts {
+  margin-left: 15px;
+  height: 80px;
+  line-height: 80px;
+  overflow: hidden;
+}
+.dynamic-txts li {
+  list-style: none;
+  color: $second-color;
+  font-size: 37px;
+  font-weight: 300;
+  position: relative;
+  top: 0;
+  animation: slide 12s steps(4) infinite;
+}
+@keyframes slide {
+  100% {
+    top: -360px;
+  }
+}
+.dynamic-txts li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 90px;
+}
+.dynamic-txts li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  margin-top: 28px;
+  width: 100%;
+  background: white;
+  border-left: 2px solid $dark-color;
+  animation: typing 3s steps(10) infinite;
+}
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 30px);
+  }
+  100% {
+    left: 0;
+  }
+}

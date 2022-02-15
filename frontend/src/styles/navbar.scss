@@ -1,0 +1,116 @@
+@import "./variables.scss";
+
+.navbar {
+  width: 100vw;
+  font-family: $logo-font;
+  font-size: 30px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 4;
+  a{
+    text-decoration: none;
+  }
+  a .active{
+    color: $third-color;
+  }
+
+.products-navbar{
+  display: flex;
+  position: absolute;
+  font-family: $main-font!important;
+  font-weight: 300;
+  font-size: 17px;
+  padding-top: 14px;
+  left: 0px;
+  .products-menu-close{
+    display: flex;
+    align-self: flex-start;
+    position: absolute;
+    cursor: pointer;
+    margin-top: -50px;
+    img{
+      width: 50px;
+      height: 50px;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  }
+  .products-menu-close:hover{
+    color: $third-color;
+  }
+  .products-navbar-icon{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: url('https://res.cloudinary.com/nuhippies/image/upload/v1644803674/Nu%20Hippies/icons/tshirt_1_rtmo2r.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.07);
+    }
+  }
+  a {
+    z-index:5;
+  }
+}
+h3{
+  font-size: 25px;
+  font-weight: 400;
+  border-bottom: 1px solid $text-color;
+  padding-bottom: 4px;
+  color: $text-color;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+}
+
+.hover-products-menu{
+  position: absolute;
+  top: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: $text-color;
+  width: 100vw;
+  height: calc(100vh - 130px);
+  z-index: 4;
+  border-radius: 0 0 5px 5px;
+  padding-top: 50px;
+  a {
+    color: $text-color;
+  }
+}
+
+.logo{
+  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1644812694/Nu%20Hippies/icons/logo2_amylax.png");
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-position: center;
+  margin-top: -15px;
+}
+.logo:hover{
+  transform: scale(1.04);
+  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597863/Nu%20Hippies/icons/logo2_mog4wx.png");
+}
+.colored{
+  color: $third-color;
+}
+
+@keyframes menu-in{
+  0% {left: -100vw}
+  100% {left: 0px}
+}
+
+@keyframes menu-out {
+  0% {left: 0px}
+  100% {left: -100vw}
+}
