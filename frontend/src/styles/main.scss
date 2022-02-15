@@ -1450,6 +1450,9 @@ h1{
   height: 200px;
   padding-bottom: 30px;
   margin-top: 50px;
+  a {
+    color: $text-color;
+  }
   .footer-menu-wrapper{
     text-align: center;
   }
@@ -1494,6 +1497,21 @@ a {
 }
 }
 
+// Privacy
+.privacy-page{
+  display: flex;
+  justify-content: center;
+  td {
+    padding: 0 7px 0 4px;
+    align-items: center;
+  }
+}
+
+//Terms
+.terms-page{
+  display: flex;
+  justify-content: center;
+}
 
 .order-wrapper{
   display: flex;

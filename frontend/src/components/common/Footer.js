@@ -18,12 +18,11 @@ const Footer = () => (
 
     <div className="footer-menu-wrapper">
       <ul className="footer-menu">
-        <li>About US</li>
-        <li>Contact Us</li>
+        <Link to="/about"><li>About US</li></Link>
+        <Link to="/contact"><li>Contact Us</li></Link>
         <Link to="/terms"><li>Terms and Conditions</li></Link>
-        <li>Privacy Policy</li>
+        <Link to="/privacy"><li>Privacy Policy</li></Link>
         <li>Delivery</li>
-        <li>Returns</li>
         <li>Discount Game Rules</li>
       </ul>
     </div>
