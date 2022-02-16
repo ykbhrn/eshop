@@ -1550,6 +1550,15 @@ a {
 
 @import "./responsiveness.scss";
 
+$TOGGLE: $third-color;
+$TOGGLE2: $alternative-dark-color;
+$TOGGLE3: $dark-color;
+$DOT_FONT_SIZE: 27px;
+$BORDER: #555273;
+$FONT: #f2fdff;
+
+$TOGGLE_SIZE: 330px;
+
 @import url("https://fonts.googleapis.com/css?family=Cute+Font&display=swap");
 
 @mixin prefixes($property, $value) {
@@ -2217,4 +2226,3 @@ li {
   }
 }
 }
-
