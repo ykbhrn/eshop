@@ -1557,7 +1557,7 @@ $DOT_FONT_SIZE: 27px;
 $BORDER: #555273;
 $FONT: #f2fdff;
 
-$TOGGLE_SIZE: 330px;
+$SIZE: 330px;
 
 @import url("https://fonts.googleapis.com/css?family=Cute+Font&display=swap");
 
@@ -1716,10 +1716,10 @@ li {
 
 .label {
   position: absolute;
-  top: calc(50% - ($TOGGLE_SIZE / 2));
-  left: calc(50% - ($TOGGLE_SIZE / 2));
-  width: $TOGGLE_SIZE;
-  height: $TOGGLE_SIZE;
+  top: calc(50% - ($SIZE / 2));
+  left: calc(50% - ($SIZE / 2));
+  width: $SIZE;
+  height: $SIZE;
   background-color: $TOGGLE;
   border-radius: 50%;
   z-index: 10;
