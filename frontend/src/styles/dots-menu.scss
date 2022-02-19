@@ -166,10 +166,10 @@ li {
 
 .label {
   position: absolute;
-  // top: calc(50% - ($TOGGLE_SIZE / 2));
-  // left: calc(50% - ($TOGGLE_SIZE / 2));
-  // width: $TOGGLE_SIZE;
-  // height: $TOGGLE_SIZE;
+  top: calc(50% - ($TOGGLE_SIZE / 2));
+  left: calc(50% - ($TOGGLE_SIZE / 2));
+  width: $TOGGLE_SIZE;
+  height: $TOGGLE_SIZE;
   background-color: $TOGGLE;
   border-radius: 50%;
   z-index: 10;
