@@ -36,7 +36,6 @@ class Terms extends React.Component {
               <p className="p14 ft12"><span className="ft4">9.</span><span className="ft11">Privacy Policy means the terms which set out how we will deal with confidential and personal information received from you via the Website;</span></p>
               <p className="p15 ft1"><span className="ft4">10.</span><span className="ft13">Website means our website www.nuhippies.com on which the Goods are advertised.</span></p>
               <p className="p16 ft3">Goods</p>
-              <p className="p17 ft1"><span className="ft4">11.</span><span className="ft13">The description of the Goods is as set out in the Website, catalogues, brochures or other form of advertisement. Any description is for illustrative purposes only and there may be small discrepancies in the size and colour of the Goods supplied.</span></p>
               <p className="p18 ft1"><span className="ft4">12.</span><span className="ft13">In the case of any Goods made to your special requirements, it is your responsibility to ensure that any information or specification you provide is accurate.</span></p>
               <p className="p19 ft1"><span className="ft4">13.</span><span className="ft13">All Goods which appear on the Website are subject to availability.</span></p>
               <p className="p20 ft1"><span className="ft4">14.</span><span className="ft13">We can make changes to the Goods which are necessary to comply with any applicable law or safety requirement. We will notify you of these changes.</span></p>
