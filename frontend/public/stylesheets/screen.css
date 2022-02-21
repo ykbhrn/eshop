@@ -20,7 +20,7 @@
 /* line 28, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
   font-size: 7px;
-  color: #501d59;
+  color: #6a4ba0;
   font-weight: 400;
 }
 
@@ -83,7 +83,7 @@
 /* line 68, ../sass/screen.scss */
 /* line 80, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
-  background: #501d59;
+  background: #6a4ba0;
 }
 
 /* line 75, ../sass/screen.scss */

@@ -94,7 +94,7 @@ class Navbar extends React.Component {
                 }
 
                 {this.state.dotMenuText !== 0 &&
-                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644693598/Nu%20Hippies/icons/tshirt_ybntiy.png" />
+                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1645405366/Nu%20Hippies/icons/tshirt2_egk1xv.png" />
                 }
               
                 <ul className="list">
