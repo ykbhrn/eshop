@@ -47,6 +47,10 @@ export const resetPassword = formData => {
   return axios.put('/api/reset-password', formData)
 }
 
+export const sendEmail = formData => {
+  return axios.post('/api/send-email', formData)
+}
+
 export const addToBasket = (id, formData) => {
   return axios.post(`/api/basket/${id}/`, formData, withHeaders())
 }

@@ -72,6 +72,7 @@ button{
   text-align: center;
   border: 2px solid $second-color;
   cursor: pointer;
+
   .loading-image{
     width: 44px;
     height: 44px;
@@ -555,6 +556,18 @@ button{
     font-weight: bold;
   }
 }
+.error-message {
+  top: 60px;
+}
+}
+
+.input-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
 }
 .error-input {
   border: 2px red solid;
@@ -562,6 +575,8 @@ button{
 
 .error-message {
   color: red;
+  position: absolute;
+  top: 40px;
 }
 
 .login-bttn-wrapper{
@@ -1089,6 +1104,22 @@ h1{
   input, textarea{
     margin-bottom: 10px;
   }
+  .sent-message-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 140px);
+    h2{
+      margin-top: -50px;
+    }
+    a{
+      text-decoration: none;
+    }
+    .classic-btn{
+      margin-top: 100px;
+    }
+  }
 }
 
 // Edit account page
@@ -1183,7 +1214,7 @@ h1{
   position: absolute;
   width: 100vw;
   min-height: 100vh;
-  z-index: 7;
+  z-index: 8;
   cursor: url('./images/frames/1.gif'), auto;
 }
 
@@ -1251,7 +1282,7 @@ h1{
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 6;
+  z-index: 8;
   h2{
     font-weight: 400;
   }

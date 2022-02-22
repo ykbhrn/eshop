@@ -62,8 +62,8 @@ class Login extends React.Component {
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
 
-          <label>Email:</label>
           <div className="input-wrapper">
+            <label>Email:</label>
             <input
               className={`${error ? 'error-input' : ''}`}
               name="email"
@@ -72,8 +72,8 @@ class Login extends React.Component {
             />
           </div>
 
-          <label>Password:</label>
           <div className="input-wrapper">
+            <label>Password:</label>
             <input
               className={`${error ? 'error-input' : ''}`}
               type="password"
@@ -81,8 +81,8 @@ class Login extends React.Component {
               onChange={this.handleChange}
               value={formData.password}
             />
+            {error && <small className="error-message">{error}</small>}
           </div>
-          {error && <small className="error-message">{error}</small>}
           <div className="login-bttn-wrapper">
             {isLoading &&
                 <div className="classic-btn btn-loading">
