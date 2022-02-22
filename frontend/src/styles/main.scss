@@ -1436,7 +1436,7 @@ h1{
   }
   .footer-menu-wrapper li{
     list-style-type: none;
-    margin-bottom: 5px;
+    line-height: 25px;
     cursor: pointer;
   }
   .footer-menu-wrapper li:hover{
@@ -1447,7 +1447,7 @@ h1{
     margin-right: 40px;
     padding-bottom: 60px;
     .fab{
-      margin: 5px 20px 0 0;
+      margin: 5px 20px;
       font-size: 25px;
       cursor: pointer;
     }
@@ -1458,6 +1458,8 @@ h1{
   .logo{
     width: 130px;
     height: 130px;
+    position: relative;
+    margin-bottom: -20px;
   }
   .header{
   display: flex;
@@ -1472,6 +1474,9 @@ a {
   height: 100%;
   width: 100%;
   background: white;
+}
+.dynamic-txts{
+  margin-right: 40px;
 }
 }
 

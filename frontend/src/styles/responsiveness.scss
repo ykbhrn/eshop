@@ -31,11 +31,23 @@
     transform: scale(1.4);
   }
   .footer-wrapper{
-  flex-direction: column;
+    flex-direction: column;
+    .footer-menu-wrapper{
+      margin-top: 30px;
+      order: 1;
+    }
+    .dynamic-txts{
+      margin: 0 0 0 30px;
+    }
+    .header{
+      order: 3;
+      padding-bottom: 80px;
+    }
   }
   .social-media-icons{
-    padding: 30px 0;
-    margin-right: 0px!important;
+    padding-bottom: 0px!important;
+    margin: 30px 0 -20px 0!important;
+    order: 2;
   }
   .navbar{
     flex-direction: column;
