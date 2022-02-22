@@ -240,29 +240,6 @@ button{
   }
 }
 
-.basket-icon-wrapper{
-  display: block;
-  position: absolute;
-  top: 23px;
-  right: 30px;
-  cursor: pointer;
-  img{
-    width: 40px;
-    height: 40px;
-  }
-  .basket-number{
-    font-size: 16px;
-    font-weight: 500;
-    color: $third-color;
-    position: absolute;
-    right: 13px;
-    top: 7px;
-  }
-}
-.basket-icon-wrapper:hover{
-  transform: scale(1.1);
-}
-
 //Shipping page 
 .shipping-page{
   display: flex;

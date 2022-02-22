@@ -196,7 +196,6 @@ class PopupDiscount extends React.Component {
   render() {
     const discount = localStorage.getItem('discount')
 
-    // if (!this.state.user) return null
     return (
       <div className="discount-page" onClick={this.slap}>
 

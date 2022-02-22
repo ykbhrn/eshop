@@ -28,6 +28,35 @@ import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
 
+window.onscroll = function (e) { 
+  const logo = document.querySelector(".logo")
+  const productsNavbarIcon = document.querySelector(".products-navbar-icon")
+  const navbarPart = document.querySelector(".navbar-part")
+  const basketIcon = document.querySelector(".basket-icon-wrapper")
+
+  // if (!window.matchMedia("(pointer: coarse)").matches) {
+  //   this.setState({ mainButton: hoveredItem })
+  // }
+
+  if (document.documentElement.scrollTop > 50) {
+
+    logo.classList.add("logo-scroll")
+    logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1645404144/Nu%20Hippies/icons/logopure_r95ln9.png)"
+    basketIcon.classList.add("basket-icon-scroll")
+    navbarPart.style.boxShadow = "5px -29px 108px 16px #52C1C7"
+    productsNavbarIcon.classList.add("products-navbar-icon-scroll")
+
+  } else if (document.documentElement.scrollTop < 50) {
+
+    logo.classList.remove("logo-scroll")
+    logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1645404007/Nu%20Hippies/icons/logo3_xfs0we.png)"
+    basketIcon.classList.remove("basket-icon-scroll")
+    navbarPart.style.boxShadow = "5px -29px 108px 16px #FACB52"
+    productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
+    
+  }
+}
+
 class App extends React.Component {
   state = {
     basketLength: null,
@@ -62,10 +91,15 @@ class App extends React.Component {
     }
   }
 
+  // scrolling = () => {
+  //   var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+  //   console.log(scrollTop)
+  // }
+
   render() {
     return (
       <BrowserRouter>
-        <div className="whole-page">
+        <div className="whole-page" onScroll={this.scrolling}>
           <BasketIcon
             basketLength={this.state.basketLength}
           />

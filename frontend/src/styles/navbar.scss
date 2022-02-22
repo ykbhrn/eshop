@@ -1,13 +1,19 @@
 @import "./variables.scss";
 
+.navbar-part{
+  position: fixed;
+  width: 100vw;
+  box-shadow: 5px -29px 108px 16px  $second-color;
+  z-index: 7;
+}
+
 .navbar {
   width: 100vw;
+  height: 140px;
   font-family: $logo-font;
   font-size: 30px;
   margin-bottom: 15px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   z-index: 4;
   a{
     text-decoration: none;
@@ -43,13 +49,14 @@
   }
   .products-navbar-icon{
     position: absolute;
-    left: 20px;
-    top: 20px;
+    left: 30px;
+    top: 30px;
     background: url('https://res.cloudinary.com/nuhippies/image/upload/v1645404934/Nu%20Hippies/icons/tshirt_3_w34l7k.png');
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
+    transition: 0.8s;
     &:hover {
       transform: scale(1.07);
     }
@@ -57,16 +64,6 @@
   a {
     z-index:5;
   }
-}
-h3{
-  font-size: 25px;
-  font-weight: 400;
-  border-bottom: 1px solid $text-color;
-  padding-bottom: 4px;
-  color: $text-color;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 7px;
 }
 }
 
@@ -91,18 +88,69 @@ h3{
 .logo{
   background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1645404007/Nu%20Hippies/icons/logo3_xfs0we.png");
   background-repeat: no-repeat;
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   background-size: contain;
   background-position: center;
-  margin-top: -15px;
+  transition: 0.8s;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  margin-left: -80px;
 }
+
 .logo:hover{
   transform: scale(1.04);
   background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597863/Nu%20Hippies/icons/logo2_mog4wx.png");
 }
+
 .colored{
   color: $third-color;
+}
+
+.basket-icon-wrapper{
+  background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1645404307/Nu%20Hippies/icons/basket_nnjkab.png');
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 44px;
+  right: 35px;
+  cursor: pointer;
+  position: fixed;
+  transition: 0.8s;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  .basket-number{
+    font-size: 16px;
+    font-weight: 500;
+    color: $third-color;
+    position: absolute;
+    right: 13px;
+    top: 7px;
+  }
+}
+.basket-icon-wrapper img:hover{
+  transform: scale(1.1);
+}
+
+.logo-scroll{
+  width: 70px;
+  height: 70px;
+  top: -4px;
+  margin-left: -35px;
+}
+
+.basket-icon-scroll{
+  width: 30px;
+  height: 30px;
+  top: 20px;
+}
+
+.products-navbar-icon-scroll{
+  width: 40px!important;
+  height: 40px!important;
+  top: 10px!important;
 }
 
 @keyframes menu-in{

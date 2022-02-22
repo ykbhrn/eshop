@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 18, ../sass/screen.scss */
-/* line 16, ../sass/screen.scss */
+/* line 13, ../sass/screen.scss */
 .home-menu {
   font-family: 'Gluten', cursive;
   display: flex;
@@ -11,37 +11,34 @@
   width: 100vw;
   position: absolute;
   height: 300px;
-  margin-top: -80px;
+  margin-top: 0px;
   top: 50%;
   z-index: 5;
+  transform: scale(1.6);
 }
 
 /* line 29, ../sass/screen.scss */
-/* line 28, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
   font-size: 7px;
   color: #6a4ba0;
   font-weight: 400;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 .home-menu-button-text {
   margin-top: -4px;
 }
 
 /* line 34, ../sass/screen.scss */
-/* line 37, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 .home-menu a {
   text-decoration: none;
 }
 
 /* line 37, ../sass/screen.scss */
-/* line 41, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 .home-menu ul {
-  -moz-transform: scale(0.2);
-  -ms-transform: scale(0.2);
-  -webkit-transform: scale(0.2);
-  transform: scale(0.2);
   -moz-transition: ease-out 0.3s all;
   -o-transition: ease-out 0.3s all;
   -webkit-transition: ease-out 0.3s all;
@@ -53,11 +50,14 @@
   display: inline-block;
   width: 200px;
   height: 200px;
+  animation: spring 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
   transform: scale(1.8);
 }
 
 /* line 50, ../sass/screen.scss */
-/* line 60, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 .home-menu ul li {
   position: absolute;
   width: 100px;
@@ -68,9 +68,9 @@
 }
 
 /* line 57, ../sass/screen.scss */
-/* line 69, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 .home-menu ul li a {
-  color: #FFE400;
+  color: #facb52;
   display: block;
   width: 200px;
   height: 200px;
@@ -81,13 +81,13 @@
 }
 
 /* line 68, ../sass/screen.scss */
-/* line 80, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 .home-menu ul li:nth-child(odd) a {
   background: #6a4ba0;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 84, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) {
   display: block;
   -moz-transform: rotate(60deg) skew(30deg);
@@ -97,7 +97,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 92, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -107,14 +107,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 100, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 .home-menu ul li:nth-child(1) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 105, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) {
   display: block;
   -moz-transform: rotate(120deg) skew(30deg);
@@ -124,7 +124,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 113, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -134,14 +134,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 121, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 .home-menu ul li:nth-child(2) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 126, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) {
   display: block;
   -moz-transform: rotate(180deg) skew(30deg);
@@ -151,7 +151,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 134, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -161,14 +161,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 142, ../sass/screen.scss */
+/* line 143, ../sass/screen.scss */
 .home-menu ul li:nth-child(3) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 147, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) {
   display: block;
   -moz-transform: rotate(240deg) skew(30deg);
@@ -178,7 +178,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 155, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -188,14 +188,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 163, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 .home-menu ul li:nth-child(4) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 168, ../sass/screen.scss */
+/* line 169, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) {
   display: block;
   -moz-transform: rotate(300deg) skew(30deg);
@@ -205,7 +205,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 176, ../sass/screen.scss */
+/* line 177, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -215,14 +215,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 184, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 .home-menu ul li:nth-child(5) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 75, ../sass/screen.scss */
-/* line 189, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) {
   display: block;
   -moz-transform: rotate(360deg) skew(30deg);
@@ -232,7 +232,7 @@
 }
 
 /* line 79, ../sass/screen.scss */
-/* line 197, ../sass/screen.scss */
+/* line 198, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a {
   line-height: 50px;
   -moz-transform: skew(-30deg) rotate(-60deg);
@@ -242,14 +242,14 @@
 }
 
 /* line 83, ../sass/screen.scss */
-/* line 205, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 .home-menu ul li:nth-child(6) a:hover {
   background: #FF1510;
   color: white;
 }
 
 /* line 91, ../sass/screen.scss */
-/* line 210, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .home-menu ul li.close {
   width: 50px;
   height: 50px;
@@ -275,7 +275,7 @@
 }
 
 /* line 107, ../sass/screen.scss */
-/* line 234, ../sass/screen.scss */
+/* line 235, ../sass/screen.scss */
 .home-menu ul li.close .fas {
   position: absolute;
   left: 13%;
@@ -283,7 +283,7 @@
 }
 
 /* line 113, ../sass/screen.scss */
-/* line 240, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 .home-menu ul li.close a {
   background: none;
   width: 60px;
@@ -293,12 +293,11 @@
 }
 
 /* line 123, ../sass/screen.scss */
-/* line 248, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .home-menu ul.active {
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
+  margin-top: -30px;
+  transform: scale(1);
+  animation: none;
 }
 
 /* line 125, ../sass/screen.scss */
@@ -320,5 +319,22 @@
   }
   100% {
     background-position: 0 0;
+  }
+}
+@keyframes spring {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  10% {
+    transform: scale(1.2, 0.6);
+  }
+  30% {
+    transform: scale(0.8, 1.1) translateY(-50px);
+  }
+  50% {
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
