@@ -108,9 +108,11 @@
     width: 35px;
     height: 35px;
     .basket-number{
-      top: 3px;
-      right: 8px;
-      font-size: 12px;
+      font-size: 14px;
+      top: 0px;
+    }
+    .basket-number-scroll{
+      font-size: 10px;
     }
   }
   .basket-icon-scroll{
@@ -126,6 +128,7 @@
   }
   .product-wrapper{
     transform: scale(0.8);
+    margin: 10px 10px 0px 10px!important;
   }
   .single-product-section .product-color-wrapper, .single-product-section .product-size-wrapper {
     padding: 6px 12px;

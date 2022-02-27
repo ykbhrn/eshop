@@ -30,6 +30,14 @@ class AllProducts extends React.Component {
   render() {
     return (
       <div className="products-page change-brightness ">
+        
+        <div className="products-banner">
+          <video autoPlay loop muted>
+            <source src="https://res.cloudinary.com/nuhippies/video/upload/v1645621678/Nu%20Hippies/Backgrounds/gettyimages-915806690-640_adpp_ag6kwm.mp4" type="video/mp4" />
+          </video>
+          <div className="shadow"></div>
+        </div>
+
         <div className="product-container">
           {this.state.products.slice(0).reverse().map(product => {
             return <Link to={`/products/${product._id}`} key={product._id}>

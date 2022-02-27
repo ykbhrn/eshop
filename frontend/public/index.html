@@ -17,21 +17,44 @@
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
   <script>$(document).ready(function () {
+    const videoOne = 'https://res.cloudinary.com/nuhippies/video/upload/v1645582427/Nu%20Hippies/Backgrounds/1071444757-preview_tVDvNS2l_pcdqnv.mp4'
+    const videoTwo = 'https://res.cloudinary.com/nuhippies/video/upload/v1645931174/Nu%20Hippies/Backgrounds/gettyimages-1B03488_0004-640_adpp_tvq1yw.mp4'
+
     $('.home-logo').addClass('change-image');
+
       $('.close').mouseenter(function () {
         if (!window.matchMedia("(pointer: coarse)").matches) {
           $('.home-menu-ul').addClass('active');
         $('.home-title').addClass('title-color');
         $('.home-logo').removeClass('change-image');
-
         $('.flower').removeClass("bright")
-        }
+        $('#left-video-source').attr('src', videoTwo);
+        $('.home-left-banner').css('border', '3px solid #604ba0')
+        $('.home-right-banner').css('border', '3px solid #604ba0')
+        $('#right-video-source').attr('src', videoTwo);
+        $('#left-video')[0].load()
+        $('#right-video')[0].load()
+      }
       })
+
       $('.close').click(function () {
         $('.home-menu-ul').toggleClass('active');
         $('.home-title').toggleClass('title-color');
         $('.flower').toggleClass('bright');
         $('.home-logo').toggleClass('change-image');
+        if (document.getElementById('left-video-source').getAttribute('src') === videoOne) {
+          $('#left-video-source').attr('src', videoTwo);
+          $('#right-video-source').attr('src', videoTwo);
+          $('.home-left-banner').css('border', '3px solid #604ba0')
+          $('.home-right-banner').css('border', '3px solid #604ba0')
+        } else {
+          $('#left-video-source').attr('src', videoOne);
+          $('#right-video-source').attr('src', videoOne);
+          $('.home-left-banner').css('border', 'none')
+          $('.home-right-banner').css('border', 'none')
+        }
+        $('#left-video')[0].load()
+        $('#right-video')[0].load()
       })
     
       $('html').on('click touchstart', function (event) {

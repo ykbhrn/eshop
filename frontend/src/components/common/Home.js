@@ -52,8 +52,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <div className="home-page change-brightness">
-
+        <div className="home-page change-brightness" >
           <style>
             {'\
           .basket-icon-wrapper{\
@@ -73,8 +72,15 @@ class Home extends React.Component {
               <li><span>back</span></li>
             </ul>
           </div>
+
+          <div className="home-left-banner">
+            <video id="left-video" autoPlay loop muted>
+              <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645582427/Nu%20Hippies/Backgrounds/1071444757-preview_tVDvNS2l_pcdqnv.mp4' type="video/mp4" />
+            </video>
+            <div className="shadow"></div>
+          </div>
           
-          <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
+          {/* <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
               return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
@@ -96,7 +102,7 @@ class Home extends React.Component {
                 </div>
               </a>
             })}
-          </div>
+          </div> */}
           <div className="home-menu">
             <ul className="home-menu-ul">
               <li>
@@ -169,7 +175,15 @@ class Home extends React.Component {
               </li>
             </ul>
           </div>
-          <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
+
+          <div className="home-right-banner">
+            <video id="right-video" autoPlay loop muted>
+              <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645582427/Nu%20Hippies/Backgrounds/1071444757-preview_tVDvNS2l_pcdqnv.mp4' type="video/mp4" />
+            </video>
+            <div className="shadow"></div>
+          </div>
+
+          {/* <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
             {this.state.flowerProducts.map(product => {
               return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
@@ -191,7 +205,8 @@ class Home extends React.Component {
                 </div>
               </a>
             })}
-          </div>
+          </div> */}
+
         </div>
       </>
     );

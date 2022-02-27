@@ -28,11 +28,13 @@ import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
 
-window.onscroll = function (e) { 
+window.onscroll = function () { 
   const logo = document.querySelector(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
   const navbarPart = document.querySelector(".navbar-part")
   const basketIcon = document.querySelector(".basket-icon-wrapper")
+  const basketNumber = document.querySelector(".basket-number")
+  const shadow = document.querySelector(".shadow")
 
   // if (!window.matchMedia("(pointer: coarse)").matches) {
   //   this.setState({ mainButton: hoveredItem })
@@ -45,6 +47,8 @@ window.onscroll = function (e) {
     basketIcon.classList.add("basket-icon-scroll")
     navbarPart.style.boxShadow = "5px -29px 108px 16px #52C1C7"
     productsNavbarIcon.classList.add("products-navbar-icon-scroll")
+    basketNumber.classList.add("basket-number-scroll")
+    shadow.classList.add("shadow-scroll")
 
   } else if (document.documentElement.scrollTop < 50) {
 
@@ -53,7 +57,9 @@ window.onscroll = function (e) {
     basketIcon.classList.remove("basket-icon-scroll")
     navbarPart.style.boxShadow = "5px -29px 108px 16px #FACB52"
     productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
-    
+    basketNumber.classList.remove("basket-number-scroll")
+    shadow.classList.remove("shadow-scroll")
+
   }
 }
 
