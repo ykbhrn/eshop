@@ -28,41 +28,6 @@ import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Done from './components/common/Done'
 
-window.onscroll = function () { 
-  const logo = document.querySelector(".logo")
-  const productsNavbarIcon = document.querySelector(".products-navbar-icon")
-  const navbarPart = document.querySelector(".navbar-part")
-  const basketIcon = document.querySelector(".basket-icon-wrapper")
-  const basketNumber = document.querySelector(".basket-number")
-  const shadow = document.querySelector(".shadow")
-
-  // if (!window.matchMedia("(pointer: coarse)").matches) {
-  //   this.setState({ mainButton: hoveredItem })
-  // }
-
-  if (document.documentElement.scrollTop > 50) {
-
-    logo.classList.add("logo-scroll")
-    logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1645404144/Nu%20Hippies/icons/logopure_r95ln9.png)"
-    basketIcon.classList.add("basket-icon-scroll")
-    navbarPart.style.boxShadow = "5px -29px 108px 16px #52C1C7"
-    productsNavbarIcon.classList.add("products-navbar-icon-scroll")
-    basketNumber.classList.add("basket-number-scroll")
-    shadow.classList.add("shadow-scroll")
-
-  } else if (document.documentElement.scrollTop < 50) {
-
-    logo.classList.remove("logo-scroll")
-    logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1645404007/Nu%20Hippies/icons/logo3_xfs0we.png)"
-    basketIcon.classList.remove("basket-icon-scroll")
-    navbarPart.style.boxShadow = "5px -29px 108px 16px #FACB52"
-    productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
-    basketNumber.classList.remove("basket-number-scroll")
-    shadow.classList.remove("shadow-scroll")
-
-  }
-}
-
 class App extends React.Component {
   state = {
     basketLength: null,
@@ -79,6 +44,62 @@ class App extends React.Component {
         basketSize = basketSize + Number(item.chosenQuantity)
       })
       this.setState({ basketLength: basketSize })
+      window.onscroll = function () { 
+        const logo = document.querySelector(".logo")
+        const productsNavbarIcon = document.querySelector(".products-navbar-icon")
+        const navbarPart = document.querySelector(".navbar-part")
+        const basketIcon = document.querySelector(".basket-icon-wrapper")
+        const basketNumber = document.querySelector(".basket-number")
+        const shadow = document.querySelector(".shadow")
+        const flowerElement = document.querySelectorAll(".flower-container")
+
+        // if (!window.matchMedia("(pointer: coarse)").matches) {
+        //   this.setState({ mainButton: hoveredItem })
+        // }
+
+        if (document.documentElement.scrollTop > 50) {
+
+          logo.classList.add("logo-scroll")
+          logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/IconOnly_Transparent_1_pox2bq.png)"
+          basketIcon.classList.add("basket-icon-scroll")
+          navbarPart.style.boxShadow = "5px -29px 108px 16px black"
+          productsNavbarIcon.classList.add("products-navbar-icon-scroll")
+          basketNumber.classList.add("basket-number-scroll")
+          if (shadow) {
+            shadow.classList.add("shadow-scroll")
+          }
+        } else if (document.documentElement.scrollTop < 50) {
+
+          logo.classList.remove("logo-scroll")
+          logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/FullLogo_Transparent_e1l1fn.png)"
+          basketIcon.classList.remove("basket-icon-scroll")
+          navbarPart.style.boxShadow = "none"
+          productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
+          basketNumber.classList.remove("basket-number-scroll")
+          if (shadow) {
+            shadow.classList.remove("shadow-scroll")
+          }
+        }
+
+        if (flowerElement[0]) {
+          if (document.documentElement.scrollTop > 550) {
+            flowerElement[0].style.position = "fixed"
+            flowerElement[1].style.position = "fixed"
+            flowerElement[0].style.left = "3px"
+            flowerElement[1].style.right = "3px"
+            flowerElement[0].style.top = "70px"
+            flowerElement[1].style.top = "70px"
+          } else if (document.documentElement.scrollTop < 550) {
+            flowerElement[0].style.position = "relative"
+            flowerElement[1].style.position = "relative"
+            flowerElement[0].style.left = "15px"
+            flowerElement[1].style.right = "15px"
+            flowerElement[0].style.top = "100px"
+            flowerElement[1].style.top = "100px"
+          }
+        }
+
+      }
     } catch (err) {
       console.log(err)
     }
@@ -97,10 +118,10 @@ class App extends React.Component {
     }
   }
 
-  // scrolling = () => {
-  //   var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-  //   console.log(scrollTop)
-  // }
+  scrolling = () => {
+    var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+    console.log(scrollTop)
+  }
 
   render() {
     return (

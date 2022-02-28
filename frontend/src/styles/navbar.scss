@@ -3,7 +3,7 @@
 .navbar-part{
   position: fixed;
   width: 100vw;
-  box-shadow: 5px -29px 108px 16px  $second-color;
+  // box-shadow: 5px -29px 108px 16px  $second-color;
   z-index: 7;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .logo{
-  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1645404007/Nu%20Hippies/icons/logo3_xfs0we.png");
+  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/FullLogo_Transparent_e1l1fn.png");
   background-repeat: no-repeat;
   width: 160px;
   height: 160px;
@@ -101,7 +101,6 @@
 
 .logo:hover{
   transform: scale(1.04);
-  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597863/Nu%20Hippies/icons/logo2_mog4wx.png");
 }
 
 .colored{

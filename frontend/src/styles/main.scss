@@ -100,7 +100,7 @@ button{
   .home-logo{
       width: 35px;
       height: 35px;
-      background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1645404144/Nu%20Hippies/icons/logopure_r95ln9.png");
+      background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/IconOnly_Transparent_1_pox2bq.png");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
@@ -122,6 +122,9 @@ button{
   .title-color{
     color: $dark-color;
   }
+  // #left-video-two, #right-video-two{
+  //   visibility: hidden;
+  // }
   .home-right-banner{
     position: absolute;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
@@ -707,13 +710,27 @@ button{
   flex-direction: column;
   align-items: center;
   margin-top: -30px;
+  .products-flower-wrapper{
+    display: flex;
+  }
   .products-banner{
     margin-top: 50px;
     width: 100vw;
-    height: 70vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     z-index: 1;
+    // background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1646036118/Nu%20Hippies/Backgrounds/summer-of-love-1967-san-francisco-golden-gate-park-hippies-e6c0566b-cb25-42ba-a95d-36f248f74495_pwcmhg.jpg');
+    // background-size: cover;
+    // background-position: center;
+    // background-attachment: fixed;
+    img {
+      width: 449px;
+      height: 225px;
+      position: absolute;
+      left: -224px;
+    }
+
   }
     video{
       width: 100%;
@@ -727,7 +744,7 @@ button{
     }
     .shadow{
       width: 100%;
-      height: 70vh;
+      height: 50vh;
       position: absolute;
       box-shadow: inset 0px 27px 127px -40px  rgba(250,203,82,1), 0px -42px 103px -27px rgba(250,203,82,1);
       ;
@@ -1520,6 +1537,7 @@ h1{
   height: 200px;
   padding-bottom: 30px;
   margin-top: 50px;
+  z-index: 3;
   a {
     color: $text-color;
   }

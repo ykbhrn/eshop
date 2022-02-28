@@ -1,7 +1,6 @@
 @import "./variables.scss";
 
 .flower-content {
-  // background:linear-gradient(to top right, #000000, #35064f);
   align-items: center;
   display: flex;
   height: 150px;
@@ -9,7 +8,7 @@
   width: 150px;
   position: relative;
   cursor: pointer;
-  z-index: 6;
+  z-index: 1;
 }
 .bright{
   filter: brightness(0.7);
@@ -21,12 +20,12 @@
   transform: scale(0.3);
 }
 .big-petal {
-  animation: 1000ms showPetals linear forwards;
+  animation: 10000ms showPetals linear forwards;
   background: linear-gradient(to bottom, rgba(231, 249, 33, 0.536), rgba(204, 193, 99, 0.2));
   opacity: 0;
 }
 .small-petal {
-  animation: 1000ms showPetals linear forwards;
+  animation: 10000ms showPetals linear forwards;
   background-image: linear-gradient(to left, rgba(255, 255, 21, 0.8) 0%, #FF652F 100%);
   opacity: 0;
 }
@@ -112,16 +111,15 @@
 .flower-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  position: absolute;
+  position: relative;
 }
 .flower-container.one {
-  left: 20px;
-  top: 80px;
+  left: 15px;
+  top: 100px;
 }
 .flower-container.two {
-  right: 20px;
-  top: 80px;
+  right: 15px;
+  top: 100px;
 }
 .flowerProductImage {
   height: 220px;
@@ -131,7 +129,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 1;
   opacity: 0;
 }
 .flowerProductImage:hover {

@@ -5,8 +5,6 @@ import { isAuthenticated } from '../../lib/auth';
 
 class Home extends React.Component {
   state = {
-    products: [],
-    flowerProducts: [],
     images: [],
     mainButton: ""
   }
@@ -16,7 +14,6 @@ class Home extends React.Component {
       window.scrollTo(0, 0)
       const res = await getAllProducts();
       this.setState({ products: res.data });
-      this.renderingFlowers();
     } catch (err) {
       console.log(err);
     }
@@ -28,25 +25,6 @@ class Home extends React.Component {
 
   mainButtonBack = () => {
     this.setState({ mainButton: "" });
-  }
-
-  renderingFlowers = () => {
-    const newProductsArray = [];
-    const randomNumberArray = [];
-
-    if (this.state.products.length > 0) {
-      for (let i = 0; i < 4; i++) {
-        const randomNumber = Math.floor(Math.random() * 10);
-        if (randomNumberArray.includes(randomNumber)) {
-          i--;
-        } else {
-          newProductsArray.push(this.state.products[randomNumber]);
-          randomNumberArray.push(randomNumber);
-        }
-      }
-    }
-
-    this.setState({ flowerProducts: newProductsArray });
   }
 
   render() {
@@ -74,35 +52,18 @@ class Home extends React.Component {
           </div>
 
           <div className="home-left-banner">
+            {/* <img src="./images/video.gif" /> */}
+
             <video id="left-video" autoPlay loop muted>
-              <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645582427/Nu%20Hippies/Backgrounds/1071444757-preview_tVDvNS2l_pcdqnv.mp4' type="video/mp4" />
+              <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645994851/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_jgpos0.mp4' type="video/mp4" />
             </video>
-            <div className="shadow"></div>
+
+            <video id="left-video-two" autoPlay loop muted>
+              <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645993864/Nu%20Hippies/Backgrounds/tt_1_ceeycb.mp4' type="video/mp4" />
+            </video>
+
           </div>
-          
-          {/* <div className="flower-container one" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
-            {this.state.flowerProducts.map(product => {
-              return <a href={`/products/${product._id}`} key={product._id}>
-                <div className="flower-content">
-                  <div className="flower bright">
-                    <img src={product.images[0].images[0]} className="flowerProductImage" />
-                    <div className="big-petal big-petal1"></div>
-                    <div className="big-petal big-petal2"></div>
-                    <div className="big-petal big-petal3"></div>
-                    <div className="big-petal big-petal4"></div>
-                    <div className="small-petal small-petal1"></div>
-                    <div className="small-petal small-petal2"></div>
-                    <div className="small-petal small-petal3"></div>
-                    <div className="small-petal small-petal4"></div>
-                    <div className="small-petal small-petal5"></div>
-                    <div className="small-petal small-petal6"></div>
-                    <div className="small-petal small-petal7"></div>
-                    <div className="small-petal small-petal8"></div>
-                  </div>
-                </div>
-              </a>
-            })}
-          </div> */}
+
           <div className="home-menu">
             <ul className="home-menu-ul">
               <li>
@@ -177,35 +138,15 @@ class Home extends React.Component {
           </div>
 
           <div className="home-right-banner">
-            <video id="right-video" autoPlay loop muted>
-              <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645582427/Nu%20Hippies/Backgrounds/1071444757-preview_tVDvNS2l_pcdqnv.mp4' type="video/mp4" />
+            <video id="right-video" autoPlay loop muted preload="metadata">
+              <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645994851/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_jgpos0.mp4' type="video/mp4" />
             </video>
-            <div className="shadow"></div>
-          </div>
 
-          {/* <div className="flower-container two" onMouseEnter={this.mouseEnterFlowerContainer} onMouseLeave={this.mouseLeaveFlowerContainer}>
-            {this.state.flowerProducts.map(product => {
-              return <a href={`/products/${product._id}`} key={product._id}>
-                <div className="flower-content">
-                  <div className="flower bright">
-                    <img src={product.images[0].images[0]} className="flowerProductImage" />
-                    <div className="big-petal big-petal1"></div>
-                    <div className="big-petal big-petal2"></div>
-                    <div className="big-petal big-petal3"></div>
-                    <div className="big-petal big-petal4"></div>
-                    <div className="small-petal small-petal1"></div>
-                    <div className="small-petal small-petal2"></div>
-                    <div className="small-petal small-petal3"></div>
-                    <div className="small-petal small-petal4"></div>
-                    <div className="small-petal small-petal5"></div>
-                    <div className="small-petal small-petal6"></div>
-                    <div className="small-petal small-petal7"></div>
-                    <div className="small-petal small-petal8"></div>
-                  </div>
-                </div>
-              </a>
-            })}
-          </div> */}
+            <video id="right-video-two" autoPlay loop muted preload="metadata">
+              <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645993864/Nu%20Hippies/Backgrounds/tt_1_ceeycb.mp4' type="video/mp4" />
+            </video>
+
+          </div>
 
         </div>
       </>
