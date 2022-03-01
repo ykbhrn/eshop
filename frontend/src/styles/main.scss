@@ -712,23 +712,24 @@ button{
   margin-top: -30px;
   .products-flower-wrapper{
     display: flex;
+    justify-content: center;
   }
   .products-banner{
     margin-top: 50px;
     width: 100vw;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
+    height: 375px;
     z-index: 1;
-    // background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1646036118/Nu%20Hippies/Backgrounds/summer-of-love-1967-san-francisco-golden-gate-park-hippies-e6c0566b-cb25-42ba-a95d-36f248f74495_pwcmhg.jpg');
-    // background-size: cover;
-    // background-position: center;
-    // background-attachment: fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.wallpaperflare.com/static/588/476/869/psychedelic-colorful-lines-nature-wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
     img {
-      width: 449px;
-      height: 225px;
+      width: 400px;
+      height: 200px;
       position: absolute;
       left: -224px;
+      margin-top: 50px;
+      transition: 1s linear;
     }
 
   }
@@ -1526,9 +1527,15 @@ h1{
   }
 }
 
+.footer-border-img{
+  position: relative;
+  top: 4px;
+  width: 100%;
+  height: 1px;
+}
+
 //footer 
 .footer-wrapper {
-  border-top: 1px solid $dark-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1536,13 +1543,19 @@ h1{
   width: 100%;
   height: 200px;
   padding-bottom: 30px;
-  margin-top: 50px;
   z-index: 3;
+  .footer-background{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    z-index: 1;
+  }
   a {
     color: $text-color;
   }
   .footer-menu-wrapper{
     text-align: center;
+    z-index: 2;
   }
   .footer-menu-wrapper li{
     list-style-type: none;
@@ -1556,6 +1569,7 @@ h1{
   .social-media-icons{
     margin-right: 40px;
     padding-bottom: 60px;
+    z-index: 2;
     .fab{
       margin: 5px 20px;
       font-size: 25px;
@@ -1576,6 +1590,7 @@ h1{
   flex-direction: column;
   justify-content: center;
   transform: scale(0.6);
+  z-index: 2;
   }
 a {
   text-decoration: none;

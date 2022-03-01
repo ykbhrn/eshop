@@ -1,9 +1,26 @@
 @import "./variables.scss";
 
 @media only screen and (max-width: 800px) {
+  .home-left-banner{
+    display: none;
+  }
+  .home-right-banner{
+    display: none;
+  }
+  .products-page{
+  .products-banner{
+    height: 250px;
+    img {
+      width: 140px;
+      height: 70px;
+      left: -70px;
+    }
+  }
+}
   .home-page .home-title{
     font-size: 28px;
     padding-top: 8px;
+    margin-bottom: -20px;
   }
   .dynamic-txts li{
     font-size: 25px;
@@ -24,11 +41,11 @@
   .flower-container{
     display: none;
   }
-  .home-menu{
-    // margin-top: 80px;
+  .home-menu {
+    transform: scale(1.1);
   }
   .home-menu ul{
-    transform: scale(1.4);
+    margin-top: -60px!important;
   }
   .footer-wrapper{
     flex-direction: column;
@@ -69,14 +86,14 @@
       }
       .hover-products-menu{
         padding-top: 0px;
-        top: 80px;
-        height: calc(100vh - 80px);
+        top: 0px;
+        height: 100vh;
         nav {
           transform: scale(0.3);
         }
         .products-menu-close{
           right: 20px;
-          top: 55px;
+          top: 75px;
           img {
           width: 30px;
           height: 30px;
@@ -429,9 +446,6 @@
 .privacy-page{
   transform: scale(0.7);
   transform-origin: top;
-}
-.home-menu {
-  transform: scale(1.4);
 }
 }
 

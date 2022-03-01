@@ -69,7 +69,8 @@
 
 .hover-products-menu{
   position: absolute;
-  top: 130px;
+  top: 150px;
+  left: -5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +79,6 @@
   width: 100vw;
   height: calc(100vh - 130px);
   z-index:6;
-  border-radius: 0 0 5px 5px;
   padding-top: 50px;
   a {
     color: $text-color;
