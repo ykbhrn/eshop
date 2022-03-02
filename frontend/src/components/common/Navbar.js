@@ -197,7 +197,7 @@ class Navbar extends React.Component {
               <div className="logo"></div>
             </a>
             {/* Beta Version */}
-            {/* <h3>This is just Beta version of the website, WE ARE STARTING SOON</h3> */}
+            <h3>This is just Beta version of the website, WE ARE STARTING SOON</h3>
           </div>
         
           <div className="main-menu-wrapper">

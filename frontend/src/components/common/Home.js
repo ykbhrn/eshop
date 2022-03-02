@@ -55,7 +55,7 @@ class Home extends React.Component {
             {/* <img src="./images/video.gif" /> */}
 
             <video id="left-video" autoPlay loop muted>
-              <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645994851/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_jgpos0.mp4' type="video/mp4" />
+              <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />
             </video>
 
             <video id="left-video-two" autoPlay loop muted>
@@ -139,7 +139,7 @@ class Home extends React.Component {
 
           <div className="home-right-banner">
             <video id="right-video" autoPlay loop muted preload="metadata">
-              <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645994851/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_jgpos0.mp4' type="video/mp4" />
+              <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />
             </video>
 
             <video id="right-video-two" autoPlay loop muted preload="metadata">

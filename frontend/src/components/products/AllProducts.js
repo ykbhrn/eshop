@@ -57,7 +57,7 @@ class AllProducts extends React.Component {
       <div className="products-page change-brightness ">
         
         <div className="products-banner">
-          <img id="van-moving" src="https://res.cloudinary.com/nuhippies/image/upload/v1646066544/Nu%20Hippies/Backgrounds/pngegg_yzoovo.png" />
+          <img id="van-moving" src="https://res.cloudinary.com/nuhippies/image/upload/v1646177431/Nu%20Hippies/Backgrounds/pngwing.com_1_ldwbgp.png" />
           {/* <video autoPlay loop muted>
             <source src="https://res.cloudinary.com/nuhippies/video/upload/v1645995711/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_1_1_bwfufy.mp4" type="video/mp4" preload="metadata" />
           </video> */}
