@@ -7,16 +7,18 @@ class SingleProduct extends React.Component {
   state = {
     formData: {
       size: "",
-      color: '',
+      color: "",
       quantity: 1
     },
     totalQuantity: null,
+    quantity: null,
     basketLength: null,
     product: null,
     bigImage: '',
     addedToBasket: false,
     isLoading: false,
     chosenColor: "",
+    productInfo: "description"
   }
 
   async componentDidMount() {
@@ -24,27 +26,39 @@ class SingleProduct extends React.Component {
       window.scrollTo(0, 0)
       const productId = this.props.match.params.id;
       const res = await getSingleProduct(productId);
-      const formData = { ...this.state.formData, size: res.data.sizes[0], color: res.data.images[0].color };
+      const formData = { ...this.state.formData, size: res.data.sizes.length > 0 ? res.data.sizes[0] : "default", 
+        color: res.data.colors.length  > 0 ? res.data.colors[0] : "default" };
       const totalQuantityArray = [];
-      for (let i = 1; i <= res.data.quantities[0][2]; i++) {
-        totalQuantityArray.push(i);
+      const quantityArray = [];
+      if (res.data.quantities.length > 0) {
+        for (let i = 1; i <= res.data.quantities[0][2]; i++) {
+          totalQuantityArray.push(i);
+        }
+        this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, totalQuantity: totalQuantityArray, imagesArray: res.data.images[0].images });
+      } else {
+        for (let i = 1; i <= res.data.quantity; i++) {
+          quantityArray.push(i);
+        }
+        this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, imagesArray: res.data.images[0].images, quantity: quantityArray });
+
       }
-      this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, totalQuantity: totalQuantityArray, imagesArray: res.data.images[0].images });
+
     } catch (err) {
       console.log(err);
     }
   } 
 
   settingQuantity = (formData) => {
-    const totalQuantityArray = [];
-    const newArray = this.state.product.quantities.find(item => {
-      return item[0] == formData.color && item[1] == formData.size
-    })
-    console.log(newArray)
-    for (let i = 1; i <= newArray[2]; i++) {
-      totalQuantityArray.push(i);
+    if (this.state.product.quantities.length > 1) {
+      const totalQuantityArray = [];
+      const newArray = this.state.product.quantities.find(item => {
+        return item[0] == formData.color && item[1] == formData.size
+      })
+      for (let i = 1; i <= newArray[2]; i++) {
+        totalQuantityArray.push(i);
+      }
+      this.setState({totalQuantity: totalQuantityArray})
     }
-    this.setState({totalQuantity: totalQuantityArray})
   }
 
   hideOverflow = () => {
@@ -62,6 +76,7 @@ class SingleProduct extends React.Component {
     this.setState({ isLoading: true });
     try {
       const productId = this.props.match.params.id
+      console.log(productId, this.state.formData)
       const res = await addToBasket(productId, this.state.formData)
       console.log(res.data)
       this.hideOverflow()
@@ -135,10 +150,13 @@ class SingleProduct extends React.Component {
     
   }
 
+  handleProductInfo = (item) => {
+    this.setState({productInfo: item})
+  }
+
   render() {
     const { product } = this.state
     if (!product) return null
-    console.log(product)
     return (
       <div className="single-product-section change-brightness">
         <div className="single-product-wrapper">
@@ -167,15 +185,22 @@ class SingleProduct extends React.Component {
                 <div className="product-discount">-{product.discount}%</div>
               }
             </div>
-            <div className="product-size-container">
-              {product.sizes.map(size => {
-                return <div className={`product-size-wrapper ${this.state.formData.size === size ? "chosen-size" : ""}`} onClick={() => {
-                  this.choosingSize(size);
-                }}
-                key={size}>{size}</div>;
-              })}</div>
-            <div className="product-size">Size: {this.state.formData.size}</div>
-            {this.state.formData.color &&
+
+            {product.sizes.length > 0 &&
+            <>
+              <div className="product-size-container">
+                {product.sizes.map(size => {
+                  return <div className={`product-size-wrapper ${this.state.formData.size === size ? "chosen-size" : ""}`} onClick={() => {
+                    this.choosingSize(size);
+                  }}
+                  key={size}>{size}</div>;
+                })}</div>
+            
+              <div className="product-size">Size: {this.state.formData.size}</div>
+            </>
+            }
+
+            {product.colors.length > 0 &&
               <>
                 <div className="product-colors-container">{product.colors.map(color => {
                   return <div className={`product-color-wrapper ${this.state.formData.color === color ? "chosen-color" : ""}`} onClick={() => {
@@ -183,7 +208,7 @@ class SingleProduct extends React.Component {
                   }}
                   key={color}>{color}</div>;
                 })}</div>
-                <div className="product-size">Color: {this.state.formData.color}</div>
+                <div className="product-size">Type: {this.state.formData.color}</div>
               </>
             }
 
@@ -191,11 +216,25 @@ class SingleProduct extends React.Component {
               <div className="quantity-bar">
                 <label>Quantity:</label>
                 <select name="quantity" onChange={this.handleChange}>
-                  {this.state.totalQuantity.map(item => {
-                    return <option key={item} value={item}>{item}</option>;
-                  })}
+                  {this.state.totalQuantity &&
+                  <>
+                    {this.state.totalQuantity.map(item => {
+                      return <option key={item} value={item}>{item}</option>;
+                    })}
+                  </>
+                  }
+
+                  {!this.state.totalQuantity &&
+                    <>
+                      {this.state.quantity.map(item => {
+                        return <option key={item} value={item}>{item}</option>;
+                      })}
+                    </>
+                  }
+                  
                 </select>
               </div>
+
               {this.state.isLoading &&
                 <div className="classic-btn btn-loading">
                   <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
@@ -221,9 +260,62 @@ class SingleProduct extends React.Component {
 
           </div>
         </div>
+
+        <div className="product-info-container">
+          <div className={`product-info-item ${this.state.productInfo === "description" ? "active" : ""}`} onClick={() => {
+            this.handleProductInfo("description")
+          }}>Description</div>
+          {product.ingredientsText || product.ingredientsImages.length > 0 &&
+            <div className={`product-info-item ${this.state.productInfo === "ingredients" ? "active" : ""}`} onClick={() => {
+              this.handleProductInfo("ingredients")
+            }}>Ingredients</div>
+          }
+
+          {product.usage &&
+          <div className={`product-info-item ${this.state.productInfo === "usage" ? "active" : ""}`} onClick={() => {
+            this.handleProductInfo("usage")
+          }}>Usage</div>
+          }
+        </div>
+
         <div className="product-description">
-          <h1>Product description</h1>
-          {this.state.product.description}
+          {this.state.productInfo === "description" &&
+          <>
+            <h1>Product description</h1>
+            <div dangerouslySetInnerHTML={ { __html: this.state.product.description} }>
+            </div>
+
+            {product.descriptionImages.length > 0 &&
+          <>
+            {product.descriptionImages.map(item => {
+              return <img className="img-description" src={item} key={item}/>
+            })}
+          </>
+            }
+          </>
+          }
+
+          {this.state.productInfo === "ingredients" &&
+          <>
+            {product.ingredientsImages &&
+            <>
+              {product.ingredientsImages.map(item => {
+                return <img className="img-ingredients" src={item} key={item}/>
+              })}
+            </>
+            }
+          </>
+          }
+
+          {this.state.productInfo === "usage" &&
+          <>
+            <h1>Usage</h1>
+            <p>
+              {this.state.product.usage}
+            </p>
+          </>
+          }
+
         </div>
         {this.state.addedToBasket &&
           <div className="basket-added-wrapper">

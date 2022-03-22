@@ -31,7 +31,8 @@ import Done from './components/common/Done'
 window.onscroll = function () { 
   const logo = document.querySelector(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
-  const navbarPart = document.querySelector(".navbar-part")
+  const navbarBottom = document.querySelector(".navbar-bottom")
+  const navbarBottomSecond = document.querySelector(".navbar-bottom-second")
   const basketIcon = document.querySelector(".basket-icon-wrapper")
   const basketNumber = document.querySelector(".basket-number")
   const shadow = document.querySelector(".shadow")
@@ -47,7 +48,8 @@ window.onscroll = function () {
     logo.classList.add("logo-scroll")
     logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     basketIcon.classList.add("basket-icon-scroll")
-    navbarPart.style.boxShadow = "0px 14px 136px 6px  #52C1C7"
+    navbarBottom.style.background = "#0057b7"
+    navbarBottomSecond.style.background = "#ffd700"
     productsNavbarIcon.classList.add("products-navbar-icon-scroll")
     basketNumber.classList.add("basket-number-scroll")
     if (shadow) {
@@ -58,7 +60,8 @@ window.onscroll = function () {
     logo.classList.remove("logo-scroll")
     logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/FullLogo_Transparent_e1l1fn.png)"
     basketIcon.classList.remove("basket-icon-scroll")
-    navbarPart.style.boxShadow = "none"
+    navbarBottom.style.background = "none"
+    navbarBottomSecond.style.background = "none"
     productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
     basketNumber.classList.remove("basket-number-scroll")
     if (shadow) {

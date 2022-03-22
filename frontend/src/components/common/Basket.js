@@ -48,13 +48,22 @@ class Basket extends React.Component {
 
   quantityBar = (item, color, size) => {
     const totalQuantityArray = [];
-    const newArray = item.quantities.find(item => {
-      return item[0] == color && item[1] == size
-    })
-    console.log(newArray)
-    for (let i = 1; i <= newArray[2]; i++) {
-      totalQuantityArray.push(i);
+
+    if ( item.quantities.length > 0 ) {
+      const newArray = item.quantities.find(item => {
+        return item[0] == color && item[1] == size
+      })
+
+      console.log(newArray)
+      for (let i = 1; i <= newArray[2]; i++) {
+        totalQuantityArray.push(i);
+      }
+    } else {
+      for (let i = 1; i <= item.quantity; i++) {
+        totalQuantityArray.push(i);
+      }
     }
+    
     return totalQuantityArray.map(thing => {
       return <option key={thing} value={thing}>{thing}</option>
     })

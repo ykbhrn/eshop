@@ -1,3 +1,4 @@
+const { create } = require('../models/product')
 const Product = require('../models/product')
 const User = require('../models/user')
 const stripe = require('stripe')(
@@ -22,12 +23,16 @@ async function productCreate(req, res) {
       images: [req.body.images[0].images[0]]
     })
     req.body.stripeId = product.id
-    const createProduct = await Product.create(req.body)
     const price = await stripe.prices.create({
-      product: 'prod_L3WD17zb3R4skK',
-      unit_amount: createProduct.price,
+      product: product.id,
+      unit_amount: req.body.price,
       currency: 'gbp'
     })
+
+    req.body.stripePriceId = price.id
+
+    const createProduct = await Product.create(req.body)
+
     res.status(201).json(createProduct)
   } catch (err) {
     res.status(422).json(err)
@@ -50,7 +55,6 @@ async function productUpdate(req, res) {
   try {
     const product = await Product.findByIdAndUpdate(productId)
     if (!product) throw new Error('Not Found')
-    if (!product.user.equals(req.currentUser._id)) throw new Error('Not Found')
     Object.assign(product, req.body)
     await product.save()
     res.status(202).json(product)

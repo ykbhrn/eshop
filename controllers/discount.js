@@ -48,8 +48,8 @@ async function changeUserDiscount (req, res) {
     if (user.discount < req.body.discount) {
       user.discount = req.body.discount
     }
-    if (req.body.discount >= 40) {
-      user.discount = 40
+    if (req.body.discount >= 20) {
+      user.discount = 20
     }
     await user.save()
     calculate.calculatePrice(user)

@@ -89,41 +89,41 @@ class Navbar extends React.Component {
                 >
                   {this.state.dotMenuText === 0 &&
                 <div className="hum-img text">
-                Clothing
+                Accesories
                 </div>
                   }
 
                   {this.state.dotMenuText !== 0 &&
-                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1645405366/Nu%20Hippies/icons/tshirt2_egk1xv.png" />
+                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644800799/Nu%20Hippies/icons/backpack_siqllu.png" />
                   }
               
                   <ul className="list">
-                    <li className="list__home"><a href="#0">Uni</a>
+                    <li className="list__home"><a href="#0">Bags</a>
                       <ul className="list__homeItems">
-                        <li><a href="#0">T-Shirts</a></li>
-                        <li><a href="#0">Hoodies</a></li>
-                        <li><a href="#0">Sweatshirts</a></li>
+                        <li><a href="#0">Hemp Bags</a></li>
+                        <li><a href="#0">Ethnic Bags</a></li>
+                        <li><a href="#0">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__clients"><a href="#0">Men&apos;s</a>
+                    <li className="list__clients"><a href="#0">Home and Garden</a>
                       <ul className="list__clientsItems">
-                        <li><a href="#0">T-Shirts</a></li>
-                        <li><a href="#0">Hoodies</a></li>
-                        <li><a href="#0">Sweatshirts</a></li>
+                        <li><a href="#0">Statuettes</a></li>
+                        <li><a href="#0">Wall Hangings</a></li>
+                        <li><a href="#0">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__strauss"><a href="#0">Women&apos;s</a>
+                    <li className="list__strauss"><a href="#0">Jewellery</a>
                       <ul className="list__straussItem">
-                        <li><a href="#0">T-Shirts</a></li>
-                        <li><a href="#0">Hoodies</a></li>
-                        <li><a href="#0">Sweatshirts</a></li>
+                        <li><a href="#0">Bracelets</a></li>
+                        <li><a href="#0">Earings</a></li>
+                        <li><a href="#0">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__contact"><a href="#0">Kid&apos;s</a>
+                    <li className="list__contact"><a href="#0">Others</a>
                       <ul className="list__contactItem">
-                        <li><a href="#0">T-Shirts</a></li>
-                        <li><a href="#0">Hoodies</a></li>
-                        <li><a href="#0">Sweatshirts</a></li>
+                        <li><a href="#0">Sarongs</a></li>
+                        <li><a href="#0">Incense</a></li>
+                        <li><a href="#0">All</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -149,42 +149,46 @@ class Navbar extends React.Component {
               >
                 {this.state.dotMenuText === 1 &&
                 <div className="hum-img text">
-                Accesories
+                Supplements
                 </div>
                 }
 
                 {this.state.dotMenuText !== 1 &&
-                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1644800799/Nu%20Hippies/icons/backpack_siqllu.png" />
+                <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1647920540/Nu%20Hippies/icons/vitamin_wynbxw.png" />
                 }
                 <ul className="list">
-                  <li className="list__home"><a href="#0">Uni</a>
+                  <li className="list__home"><a href="#0">Immunity</a>
                     <ul className="list__homeItems">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
+                      <li><a href="#0">Superfoods</a></li>
+                      <li><a href="#0">Vitamins &#38; Minerals</a></li>
+                      <li><a href="#0">All</a></li>
                     </ul>
                   </li>
-                  <li className="list__clients"><a href="#0">Men&apos;s</a>
+
+                  <li className="list__clients"><a href="#0">Digestion</a>
                     <ul className="list__clientsItems">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
+                      <li><a href="#0">Probiotics</a></li>
+                      <li><a href="#0">Enzymes</a></li>
+                      <li><a href="#0">All</a></li>
                     </ul>
                   </li>
-                  <li className="list__strauss"><a href="#0">Women&apos;s</a>
+
+                  <li className="list__strauss"><a href="#0">Vegan</a>
                     <ul className="list__straussItem">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
+                      <li><a href="#0">Proteins</a></li>
+                      <li><a href="#0">Vitamins &#38; Minerals</a></li>
+                      <li><a href="#0">All</a></li>
                     </ul>
                   </li>
-                  <li className="list__contact"><a href="#0">Kid&apos;s</a>
+
+                  <li className="list__contact"><a href="#0">Others</a>
                     <ul className="list__contactItem">
-                      <li><a href="#0">T-Shirts</a></li>
-                      <li><a href="#0">Hoodies</a></li>
-                      <li><a href="#0">Sweatshirts</a></li>
+                      <li><a href="#0">Antioxidants</a></li>
+                      <li><a href="#0">Omega Oils</a></li>
+                      <li><a href="#0">All</a></li>
                     </ul>
                   </li>
+
                 </ul>
               </label>
               </nav>
@@ -197,7 +201,7 @@ class Navbar extends React.Component {
               <div className="logo"></div>
             </a>
             {/* Beta Version */}
-            <h3>This is just Beta version of the website, WE ARE STARTING SOON</h3>
+            {/* <h3>This is Beta version of the website, WE ARE STARTING SOON</h3> */}
           </div>
         
           <div className="main-menu-wrapper">
@@ -278,6 +282,8 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </div>
+        <div className="navbar-bottom"></div>
+        <div className="navbar-bottom-second"></div>
       </header>
     )
   }

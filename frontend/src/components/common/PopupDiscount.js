@@ -54,8 +54,8 @@ class PopupDiscount extends React.Component {
   
         if (this.state.discountScore > Number(discount)) {
 
-          if (this.state.discountScore > 40) {
-            localStorage.setItem('discount', 40)
+          if (this.state.discountScore > 20) {
+            localStorage.setItem('discount', 20)
           } else {
             localStorage.setItem('discount', this.state.discountScore)
           }
@@ -69,8 +69,10 @@ class PopupDiscount extends React.Component {
 
       const discountPage = document.querySelector('.discount-page')
       const discountPopup = document.querySelector('.discount-popup-wrapper')
+      const discountPageHeader = document.querySelector('.discount-page h1')
 
       discountPopup.style.visibility = "hidden"
+      discountPageHeader.style.visibility = "hidden"
       discountPopup.style.display = "none"
       discountPage.classList.remove("show-discount")
 
@@ -119,6 +121,7 @@ class PopupDiscount extends React.Component {
 
   showHand = () => {
     const discountPage = document.querySelector('.discount-page')
+    const discountPageHeader = document.querySelector('.discount-page h1')
     const discountPopup = document.querySelector('.discount-popup-wrapper')
     const changeBrightness = document.querySelectorAll('.change-brightness')
     const site = document.body
@@ -153,6 +156,7 @@ class PopupDiscount extends React.Component {
     }, 700);
 
     discountPage.classList.add("show-discount")
+    discountPageHeader.style.visibility = "visible"
     window.scrollTo(0, 0)
   }
 
@@ -172,17 +176,20 @@ class PopupDiscount extends React.Component {
   slapped = async () => {
     const discountPopup = document.querySelector('.discount-popup-wrapper')
     const discountImg = document.querySelector('.discount-popup-img')
+
+    discountImg.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1647315083/Nu%20Hippies/icons/sad-putin-removebg-preview_bsgh82.png)"
     
     if (!this.state.slapped) {
         
       this.setState({slapped: true})
-      discountImg.style.transform = "rotate3d(1, 0, 1, 90deg)"
+      discountImg.style.transform = "rotate3d(1, 0, 1, 40deg)"
 
       setTimeout(() => {
         discountPopup.style.visibility = "hidden"
 
         setTimeout(() => {
           discountImg.style.transform = "none"
+          discountImg.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1647314930/Nu%20Hippies/icons/putin-face-115498498412qs003gfss_eyzlgc-removebg-preview_llwmjt.png)"
           this.setState({slapped: false, discountScore: this.state.discountScore + 5})
         }, 1000);
       }, 1100);
@@ -199,7 +206,7 @@ class PopupDiscount extends React.Component {
     return (
       <div className="discount-page" onClick={this.slap}>
 
-        {/* <h1>Slap That Nazi</h1> */}
+        <h1>Slap The Mad Dictator</h1>
 
         <div className="discount-popup-wrapper" onClick={this.slapped}>
 
@@ -220,9 +227,8 @@ class PopupDiscount extends React.Component {
         {this.state.discountHighScore && 
         <div className="score-window">
           <h2>
-            <span className="highlighted">Congratulations </span>, You Have Slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s </span> 
-            which means we are giving you <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% discount </span>
-          on your next order
+            <span>You Slapped Mad Dictator</span><span className="highlighted">{this.state.discountScore / 5} Times </span> 
+            Which Means We Are Going To Donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of Your Order Amount To Charity Organization To Support Ukraine</span>
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
         </div>
@@ -231,8 +237,8 @@ class PopupDiscount extends React.Component {
         {this.state.discountLowScore &&   
         <div className="score-window">
           <h2>
-        You slapped <span className="highlighted">{this.state.discountScore / 5} nazi&#39;s</span><br />
-        so your current discount of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% remain unchanged</span>
+          You Slapped Mad Dictator <span className="highlighted">{this.state.discountScore / 5} Times</span><br />
+        So Your Current Donation Of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% Remain Unchanged</span>
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
         </div>
@@ -240,7 +246,7 @@ class PopupDiscount extends React.Component {
         {this.state.discountZero &&
           <div className="score-window">
             <h2>
-              You didn&#39;t slap any nazi which means no discount for you now, good luck next time 
+              You didn&#39;t Slap Mad Dictator, Better Luck Next Time
             </h2>
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
           </div>

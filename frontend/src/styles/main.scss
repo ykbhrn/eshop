@@ -719,13 +719,13 @@ button{
     width: 100vw;
     height: 375px;
     z-index: 1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.wallpaperflare.com/static/588/476/869/psychedelic-colorful-lines-nature-wallpaper.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://res.cloudinary.com/nuhippies/image/upload/v1647316878/Nu%20Hippies/Backgrounds/638418_ljavce.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
     img {
-      width: 400px;
-      height: 200px;
+      width: 300px;
+      height: 150px;
       position: absolute;
       left: -224px;
       margin-top: 50px;
@@ -863,7 +863,7 @@ h1{
 .single-product-image{
   width: 310px;
   height: 380px;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -886,6 +886,7 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 .single-product-name{
   width: 70%;
@@ -926,7 +927,7 @@ h1{
   margin: 0 8px;
 }
 .product-size{
-  margin: 13px 0 16px 0;
+  margin: 33px 0 16px 0;
   font-size: 26px;
 }
 .chosen-size{
@@ -980,14 +981,40 @@ h1{
     margin-right: 7px;
   }
 }
+.product-info-container{
+  display: flex;
+  margin-top: 40px;
+  .active{
+    background: $dark-color;
+    color: $second-color;
+  }
+  .product-info-item{
+    padding: 5px 15px;
+    border: 1px solid $dark-color;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+}
 .product-description{
   width: 70vw;
   margin-top: 40px;
-  line-height: 19px;
+  line-height: 22px;
+  p{
+    margin: 20px 0 50px 0;
+    font-weight: 300;
+  }
   h1{
     font-weight: 300;
     margin-bottom: 10px;
   }
+}
+.img-description{
+  max-width: 70vw;
+}
+.img-ingredients{
+  max-width: 70vw;
+  display: flex;
+  align-self: center;
 }
 .added-wrapper-hide{
   animation: .5s added-hide linear;
@@ -1286,6 +1313,12 @@ h1{
   justify-content: center;
   h1{
     margin-top: 50px;
+    color: $second-color;
+    position: absolute;
+    font-size: 70px;
+    margin: 0 auto;
+    top: 50%;
+    visibility: hidden;
   }
 }
 
@@ -1311,8 +1344,9 @@ h1{
 }
 
 .discount-popup-img{
-  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639599163/Nu%20Hippies/icons/nazi_osdpkq.png");
-  background-size: contain;
+  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1647314930/Nu%20Hippies/icons/putin-face-115498498412qs003gfss_eyzlgc-removebg-preview_llwmjt.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 200px;
   height: 200px;
 }

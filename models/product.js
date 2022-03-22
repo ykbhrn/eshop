@@ -9,13 +9,13 @@ const commentSchema = new mongoose.Schema({
 })
 
 const categorySchema = new mongoose.Schema({
-  gender: {type: String, required: true},
+  gender: {type: String, required: false},
   types: [{type: String, required: true}],
   subCategory: {type: String, required: true}
 })
 
 const colorSchema = new mongoose.Schema({
-  color: {type: String, required: true},
+  color: {type: String, required: false},
   images: [{type: String, required: true}]
 })
 
@@ -23,6 +23,10 @@ const productSchema = new mongoose.Schema({
   name: {type: String, required: true},
   images: [colorSchema],
   description: {type: String, required: true},
+  descriptionImages: [{type: String}],
+  ingredientsText: {type: String},
+  ingredientsImages: [{type: String}],
+  usage: {type: String},
   price: {type: Number, required: true},
   discount: {type: Number, required: false},
   sizes: [{type: String, required: false}],
@@ -30,6 +34,7 @@ const productSchema = new mongoose.Schema({
   colors: [{type: String, required: false}],
   chosenColor: {type: String, required: false},
   quantities: [[{type: String}, {type: String}, {type: Number, required: false}]],
+  quantity: {type: Number, required: false},
   chosenQuantity: {type: Number},
   categories: categorySchema,
   user: {type: Object, required: true},

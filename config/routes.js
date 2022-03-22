@@ -38,6 +38,7 @@ router.route('/products')
 
 router.route('/products/:id')
   .get(product.show)
+  .put(secureRoute, product.update)
   .delete(secureRoute, product.delete)
 
 router.route('/basket/:id')

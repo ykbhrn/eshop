@@ -7,6 +7,24 @@
   z-index: 7;
 }
 
+.navbar-bottom{
+  position: fixed;
+  bottom: 20px;
+  width: 100vw;
+  height: 20px;
+  transition: 0.8s linear;
+  opacity: 0.8;
+}
+
+.navbar-bottom-second{
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  height: 20px;
+  transition: 0.8s linear;
+  opacity: 0.8;
+}
+
 .navbar {
   width: 100vw;
   height: 140px;

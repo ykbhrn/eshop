@@ -36,10 +36,17 @@ async function addToBasket (req, res) {
     const productId = req.params.id
     const product = await Product.findById(productId)
 
-    const newArray = product.quantities.find(item => {
-      return item[0] == req.body.color && item[1] == req.body.size
-    })
-    const totalQuantity = newArray[2]
+    let totalQuantity
+
+    if (product.quantities.length > 0) {
+
+      const newArray = product.quantities.find(item => {
+        return item[0] == req.body.color && item[1] == req.body.size
+      })
+      totalQuantity = newArray[2]
+    } else {
+      totalQuantity = product.quantity
+    }
 
     if (!product) throw new Error({ message: 'notFound' })
 
