@@ -41,7 +41,7 @@ async function addToBasket (req, res) {
     if (product.quantities.length > 0) {
 
       const newArray = product.quantities.find(item => {
-        return item[0] == req.body.color && item[1] == req.body.size
+        return (item[0] == req.body.color || req.body.color === 'default') && item[1] == req.body.size
       })
       totalQuantity = newArray[2]
     } else {
@@ -112,7 +112,7 @@ async function calculatePrice (user, req, res) {
 
     user.discountAmount = Math.round(((user.discount / 100) * user.sumPrice))
     
-    user.totalPrice = Math.round(user.sumPrice - user.discountAmount)
+    user.totalPrice = price
 
 
     await user.save()

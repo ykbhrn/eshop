@@ -52,7 +52,7 @@ class SingleProduct extends React.Component {
     if (this.state.product.quantities.length > 1) {
       const totalQuantityArray = [];
       const newArray = this.state.product.quantities.find(item => {
-        return item[0] == formData.color && item[1] == formData.size
+        return (item[0] == formData.color || formData.color === "default") && item[1] == formData.size
       })
       for (let i = 1; i <= newArray[2]; i++) {
         totalQuantityArray.push(i);
@@ -157,6 +157,7 @@ class SingleProduct extends React.Component {
   render() {
     const { product } = this.state
     if (!product) return null
+    console.log(this.state.formData)
     return (
       <div className="single-product-section change-brightness">
         <div className="single-product-wrapper">

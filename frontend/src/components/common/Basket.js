@@ -51,7 +51,7 @@ class Basket extends React.Component {
 
     if ( item.quantities.length > 0 ) {
       const newArray = item.quantities.find(item => {
-        return item[0] == color && item[1] == size
+        return (item[0] == color || color === "default") && item[1] == size
       })
 
       console.log(newArray)
@@ -144,9 +144,8 @@ class Basket extends React.Component {
         {user.basket.length > 0 &&
          <div className="checkout-button-total-price">
            <div className="total-price">
-             <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-             <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
-             <div>Total Price: £{user.totalPrice / 100}</div>
+             <div>Total Price ({this.state.totalQuantity} Item(s)): £{user.sumPrice / 100}</div>
+             <div>Your Donation: {user.discount}% (£{user.discountAmount / 100})</div>
            </div>
            <Link to="/checkout">
              <div className="checkout-button">Proceed to Chekout</div>
