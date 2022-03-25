@@ -5,7 +5,8 @@ import { getAllProducts } from '../../lib/api'
 class AllProducts extends React.Component {
   state = {
     products: [],
-    flowerProducts: [],
+    flowerProductsOne: [],
+    flowerProductsTwo: [],
     hoveredProductId: ''
   }
 
@@ -30,22 +31,23 @@ class AllProducts extends React.Component {
   }
 
   renderingFlowers = () => {
-    const newProductsArray = [];
+    const newProductsArrayOne = [];
+    const newProductsArrayTwo = [];
     const randomNumberArray = [];
 
     if (this.state.products.length > 0) {
-      for (let i = 0; i < 3; i++) {
-        const randomNumber = Math.floor(Math.random() * 10);
+      for (let i = 0; i < 6; i++) {
+        const randomNumber = Math.floor(Math.random() * this.state.products.length);
         if (randomNumberArray.includes(randomNumber)) {
           i--;
         } else {
-          newProductsArray.push(this.state.products[randomNumber]);
+          i < 3 ? newProductsArrayOne.push(this.state.products[randomNumber]) : newProductsArrayTwo.push(this.state.products[randomNumber]);
           randomNumberArray.push(randomNumber);
         }
       }
     }
 
-    this.setState({ flowerProducts: newProductsArray });
+    this.setState({ flowerProductsOne: newProductsArrayOne, flowerProductsTwo: newProductsArrayTwo });
   }
 
   handleScroll = (event) => {
@@ -67,7 +69,7 @@ class AllProducts extends React.Component {
         <div className="products-flower-wrapper">
 
           <div className="flower-container one" onScroll={this.handleScroll}>
-            {this.state.flowerProducts.map(product => {
+            {this.state.flowerProductsOne.map(product => {
               return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
                   <div className="flower">
@@ -113,7 +115,7 @@ class AllProducts extends React.Component {
           </div>
 
           <div className="flower-container two" onScroll={this.handleScroll}>
-            {this.state.flowerProducts.map(product => {
+            {this.state.flowerProductsTwo.map(product => {
               return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
                   <div className="flower">

@@ -48,8 +48,8 @@ window.onscroll = function () {
     logo.classList.add("logo-scroll")
     logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     basketIcon.classList.add("basket-icon-scroll")
-    navbarBottom.style.background = "#0057b7"
-    navbarBottomSecond.style.background = "#ffd700"
+    // navbarBottom.style.boxShadow = " inset 4px 3px 140px 85px #ffd700"
+    // navbarBottomSecond.style.background = "#ffd700"
     productsNavbarIcon.classList.add("products-navbar-icon-scroll")
     basketNumber.classList.add("basket-number-scroll")
     if (shadow) {
@@ -60,8 +60,8 @@ window.onscroll = function () {
     logo.classList.remove("logo-scroll")
     logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/FullLogo_Transparent_e1l1fn.png)"
     basketIcon.classList.remove("basket-icon-scroll")
-    navbarBottom.style.background = "none"
-    navbarBottomSecond.style.background = "none"
+    // navbarBottom.style.boxShadow = "none"
+    // navbarBottomSecond.style.background = "none"
     productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
     basketNumber.classList.remove("basket-number-scroll")
     if (shadow) {
@@ -164,7 +164,7 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path="/products/:subcategory/:gender/:type" component={CategoriziedProducts} />
+            <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
             <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
             <Route path="/products" component={AllProducts} />
             <Route path="/entering/:id" component={Authorization} />

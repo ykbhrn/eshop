@@ -27,27 +27,41 @@ class CategoriziedProducts extends React.Component {
   }
 
   render() {
-    const {subcategory, gender, type} = this.props.match.params
+    const {subcategory, typeOne, typeTwo, typeThree} = this.props.match.params
     return (
       <div className="products-page categorized change-brightness">
+        <h1>hey there</h1>
         <div className="cat-nav">
-          <Link className="cat-nav-item" to={`/products/${subcategory}/uni/all`}>          
+
+          <Link className="cat-nav-item" to={`/products/${subcategory}/all/all/all`}>          
             <div>{subcategory}</div>
           </Link>
-          {gender !== "uni" &&
-          <Link className="cat-nav-item" to={`/products/${subcategory}/${gender}/all`}> 
-            <div><span className="symbol">&#62;</span>{gender}</div>
+
+          {typeOne !== "uni" &&
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/all/all`}> 
+            <div><span className="symbol">&#62;</span>{typeOne}</div>
           </Link>
           }
-          {type !== "all" &&
-          <Link className="cat-nav-item" to={`/products/${subcategory}/${gender}/${type}`}> 
-            <div><span className="symbol">&#62;</span>{type}</div>
+
+          {typeTwo !== "all" &&
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}all`}> 
+            <div><span className="symbol">&#62;</span>{typeTwo}</div>
           </Link>
           }
+
+          {typeThree !== "all" &&
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}/${typeThree}`}> 
+            <div><span className="symbol">&#62;</span>{typeThree}</div>
+          </Link>
+          }
+
         </div>
         <div className="product-container">
           {this.state.products.slice(0).reverse().map(product => {
-            if ((!product.categories.types.includes(type) && type !== "all") || (product.categories.gender !== gender && gender !== "uni")){
+            if ((!product.categories.types.includes(typeOne) && typeOne !== "all") ||
+              (!product.categories.types.includes(typeTwo) && typeTwo !== "all") || 
+              (!product.categories.types.includes(typeThree) && typeThree !== "all") ||
+              (product.categories.subCategory !== subcategory && subcategory !== "all") ){
               return
             }
 

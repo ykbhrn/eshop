@@ -74,7 +74,7 @@ class Navbar extends React.Component {
             <div className="hover-products-menu">
 
               {/* Products navbar */}
-              {/* Clothes */}              
+              {/* Accesories */}              
               <nav>
                 <input className="toggle" id="nav" type="checkbox" onClick={() => {
                   this.openDotsMenu(0)
@@ -98,32 +98,32 @@ class Navbar extends React.Component {
                   }
               
                   <ul className="list">
-                    <li className="list__home"><a href="#0">Bags</a>
+                    <li className="list__home"><a href="/products/accesories/bags/all/all">Bags</a>
                       <ul className="list__homeItems">
-                        <li><a href="#0">Hemp Bags</a></li>
-                        <li><a href="#0">Ethnic Bags</a></li>
-                        <li><a href="#0">All</a></li>
+                        <li><a href="/products/accesories/bags/hemp bags/all">Hemp Bags</a></li>
+                        <li><a href="/products/accesories/bags/ethnic bags/all">Ethnic Bags</a></li>
+                        <li><a href="/products/accesories/bags/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__clients"><a href="#0">Home and Garden</a>
+                    <li className="list__clients"><a href="/products/accesories/Home and Garden/all/all">Home and Garden</a>
                       <ul className="list__clientsItems">
-                        <li><a href="#0">Statuettes</a></li>
-                        <li><a href="#0">Wall Hangings</a></li>
-                        <li><a href="#0">All</a></li>
+                        <li><a href="/products/accesories/Home and Garden/statuettes/all">Statuettes</a></li>
+                        <li><a href="/products/accesories/Home and Garden/wall hangings/all">Wall Hangings</a></li>
+                        <li><a href="/products/accesories/Home and Garden/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__strauss"><a href="#0">Jewellery</a>
+                    <li className="list__strauss"><a href="/products/accesories/jewellery/all/all">Jewellery</a>
                       <ul className="list__straussItem">
-                        <li><a href="#0">Bracelets</a></li>
-                        <li><a href="#0">Earings</a></li>
-                        <li><a href="#0">All</a></li>
+                        <li><a href="/products/accesories/jewellery/bracelets/all">Bracelets</a></li>
+                        <li><a href="/products/accesories/jewellery/earrings/all">Earrings</a></li>
+                        <li><a href="/products/accesories/jewellery/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__contact"><a href="#0">Others</a>
+                    <li className="list__contact"><a href="/products/accesories/others/all/all">Others</a>
                       <ul className="list__contactItem">
-                        <li><a href="#0">Sarongs</a></li>
-                        <li><a href="#0">Incense</a></li>
-                        <li><a href="#0">All</a></li>
+                        <li><a href="/products/accesories/others/cosmetics/all">Cosmetics</a></li>
+                        <li><a href="/products/accesories/others/incense/all">Incense</a></li>
+                        <li><a href="/products/accesories/others/all/all">All</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -134,7 +134,7 @@ class Navbar extends React.Component {
                 <img src="https://res.cloudinary.com/nuhippies/image/upload/v1644809706/Nu%20Hippies/icons/error_rvhkbf.png" />
               </div>
 
-              {/* Accesories */}
+              {/* Supplements */}
 
               <nav><input className="toggle" id="nav-two" type="checkbox" onClick={() => {
                 this.openDotsMenu(1)
@@ -157,35 +157,35 @@ class Navbar extends React.Component {
                 <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1647920540/Nu%20Hippies/icons/vitamin_wynbxw.png" />
                 }
                 <ul className="list">
-                  <li className="list__home"><a href="#0">Immunity</a>
+                  <li className="list__home"><a href="/products/supplements/immunity/all/all">Immunity</a>
                     <ul className="list__homeItems">
-                      <li><a href="#0">Superfoods</a></li>
-                      <li><a href="#0">Vitamins &#38; Minerals</a></li>
-                      <li><a href="#0">All</a></li>
+                      <li><a href="/products/supplements/immunity/superfoods/all">Superfoods</a></li>
+                      <li><a href="/products/supplements/immunity/vitamins and minerals/all">Vitamins &#38; Minerals</a></li>
+                      <li><a href="/products/supplements/immunity/all/all">All</a></li>
                     </ul>
                   </li>
 
-                  <li className="list__clients"><a href="#0">Digestion</a>
+                  <li className="list__clients"><a href="/products/supplements/digestion/all/all">Digestion</a>
                     <ul className="list__clientsItems">
-                      <li><a href="#0">Probiotics</a></li>
-                      <li><a href="#0">Enzymes</a></li>
-                      <li><a href="#0">All</a></li>
+                      <li><a href="/products/supplements/digestion/probiotics/all">Probiotics</a></li>
+                      <li><a href="/products/supplements/digestion/enzymes/all">Enzymes</a></li>
+                      <li><a href="/products/supplements/digestion/all/all">All</a></li>
                     </ul>
                   </li>
 
-                  <li className="list__strauss"><a href="#0">Vegan</a>
+                  <li className="list__strauss"><a href="/products/supplements/vegan/all/all">Vegan</a>
                     <ul className="list__straussItem">
-                      <li><a href="#0">Proteins</a></li>
-                      <li><a href="#0">Vitamins &#38; Minerals</a></li>
-                      <li><a href="#0">All</a></li>
+                      <li><a href="/products/supplements/vegan/proteins/all">Proteins</a></li>
+                      <li><a href="/products/supplements/vegan/vitamins and minerals/all">Vitamins &#38; Minerals</a></li>
+                      <li><a href="/products/supplements/vegan/all/all">All</a></li>
                     </ul>
                   </li>
 
-                  <li className="list__contact"><a href="#0">Others</a>
+                  <li className="list__contact"><a href="/products/supplements/others/all/all">Others</a>
                     <ul className="list__contactItem">
-                      <li><a href="#0">Antioxidants</a></li>
-                      <li><a href="#0">Omega Oils</a></li>
-                      <li><a href="#0">All</a></li>
+                      <li><a href="/products/supplements/others/antioxidants/all">Antioxidants</a></li>
+                      <li><a href="/products/supplements/others/omega oils/all">Omega Oils</a></li>
+                      <li><a href="/products/supplements/others/all/all">All</a></li>
                     </ul>
                   </li>
 
