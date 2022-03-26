@@ -25,7 +25,7 @@ class About extends React.Component {
               as young people of 60’s and 70’s. Kids are raised with a dreams of being successful in terms of money and career but there is no idealism in them anymore, no activism, no ambition to do something for a greater good. Of course there are still people like that, 
               but its a very small percentage comparing to Hippie times. 
               How is our movement different from original Hippies? 
-              We are trying to combine Hippie Idealism with rational arguments. 
+              We are trying to combine Hippie Idealism with rational thinking. 
               What do we mean by that?  Lets take a communism as an example. It was based on Karl Marx theory. It was idealistic idea of how society could work. 
               Communists who were trying to apply that idea into the real world were ignoring all the facts and just blindly followed an unrealistic ideals which led to the 
               terrible, very ineffective and unfair system, full of corruption with lack of freedom and incompetent people in the leading roles. Not forget to mention mass killings and political prisoners of communist regime. Communists were totally ignoring mentality of the individuals, mentality of society as a whole and they were trying to force this unnatural system to work. It didn’t, obviously. 
