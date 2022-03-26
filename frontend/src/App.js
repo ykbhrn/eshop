@@ -26,6 +26,7 @@ import About from './components/common/About'
 import Terms from './components/common/Terms'
 import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
+import Donation from './components/common/Donation'
 import Done from './components/common/Done'
 
 window.onscroll = function () { 
@@ -70,14 +71,15 @@ window.onscroll = function () {
   }
 
   if (flowerElement[0]) {
-    if (document.documentElement.scrollTop > 550) {
+
+    if (document.documentElement.scrollTop > (window.location.pathname === "/products" ? 550 : 640) ){
       flowerElement[0].style.position = "fixed"
       flowerElement[1].style.position = "fixed"
       flowerElement[0].style.left = "3px"
       flowerElement[1].style.right = "3px"
       flowerElement[0].style.top = "94px"
       flowerElement[1].style.top = "94px"
-    } else if (document.documentElement.scrollTop < 550) {
+    } else if (document.documentElement.scrollTop < (window.location.pathname === "/products" ? 550 : 640)) {
       flowerElement[0].style.position = "relative"
       flowerElement[1].style.position = "relative"
       flowerElement[0].style.left = "15px"
@@ -85,6 +87,7 @@ window.onscroll = function () {
       flowerElement[0].style.top = "100px"
       flowerElement[1].style.top = "100px"
     }
+
   }
 
   const randomNumber = Math.round(Math.random() * 100)
@@ -184,6 +187,7 @@ class App extends React.Component {
             <Route path="/about" component={About} />
             <Route path="/terms" component={Terms} />
             <Route path="/privacy" component={Privacy} />
+            <Route path="/donation" component={Donation} />
             <Route path="/done" component={Done} />
           </Switch>
         </div>

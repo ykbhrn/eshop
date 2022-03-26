@@ -11,7 +11,6 @@ class SingleProduct extends React.Component {
       quantity: 1
     },
     totalQuantity: null,
-    quantity: null,
     basketLength: null,
     product: null,
     bigImage: '',
@@ -39,7 +38,7 @@ class SingleProduct extends React.Component {
         for (let i = 1; i <= res.data.quantity; i++) {
           quantityArray.push(i);
         }
-        this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, imagesArray: res.data.images[0].images, quantity: quantityArray });
+        this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, imagesArray: res.data.images[0].images, totalQuantity: quantityArray });
 
       }
 
@@ -157,7 +156,7 @@ class SingleProduct extends React.Component {
   render() {
     const { product } = this.state
     if (!product) return null
-    console.log(this.state.formData)
+    console.log(this.state.totalQuantity)
     return (
       <div className="single-product-section change-brightness">
         <div className="single-product-wrapper">
@@ -213,25 +212,18 @@ class SingleProduct extends React.Component {
               </>
             }
 
+            {this.state.totalQuantity.length > 0 &&
+
+
             <div className="quantity-add-wrapper">
+
               <div className="quantity-bar">
                 <label>Quantity:</label>
                 <select name="quantity" onChange={this.handleChange}>
-                  {this.state.totalQuantity &&
-                  <>
-                    {this.state.totalQuantity.map(item => {
-                      return <option key={item} value={item}>{item}</option>;
-                    })}
-                  </>
-                  }
 
-                  {!this.state.totalQuantity &&
-                    <>
-                      {this.state.quantity.map(item => {
-                        return <option key={item} value={item}>{item}</option>;
-                      })}
-                    </>
-                  }
+                  {this.state.totalQuantity.map(item => {
+                    return <option key={item} value={item}>{item}</option>;
+                  })}
                   
                 </select>
               </div>
@@ -258,6 +250,12 @@ class SingleProduct extends React.Component {
               </>
               }
             </div>
+
+            }
+
+            {this.state.totalQuantity.length === 0 &&
+              <h2>Out Of Stock</h2>
+            }
 
           </div>
         </div>

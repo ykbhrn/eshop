@@ -54,8 +54,8 @@ class PopupDiscount extends React.Component {
   
         if (this.state.discountScore > Number(discount)) {
 
-          if (this.state.discountScore > 20) {
-            localStorage.setItem('discount', 20)
+          if (this.state.discountScore > 25) {
+            localStorage.setItem('discount', 25)
           } else {
             localStorage.setItem('discount', this.state.discountScore)
           }

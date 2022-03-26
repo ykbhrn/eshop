@@ -68,12 +68,32 @@ class Home extends React.Component {
             <ul className="home-menu-ul">
               <li>
                 <a href="/products" onMouseEnter={() => {
-                  this.changeMainButton("Clothes");
+                  this.changeMainButton("All Products");
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fas fa-tshirt"></i>
                 </a>
               </li>
+
+              <li>
+                {!isAuthenticated() &&
+                  <a href="/entering" onMouseEnter={() => {
+                    this.changeMainButton("Supplements");
+                  }}
+                  onMouseLeave={this.mainButtonBack}>
+                    <i className="fa-solid fa-jar"></i>
+                  </a>
+                }
+                {isAuthenticated() &&
+                  <a href="/products/supplements/all/all/all" onMouseEnter={() => {
+                    this.changeMainButton("Supplements");
+                  }}
+                  onMouseLeave={this.mainButtonBack}>
+                    <i className="fa-solid fa-jar"></i>
+                  </a>
+                }
+              </li>
+
               <li>
                 {!isAuthenticated() &&
                   <a href="/entering" onMouseEnter={() => {
@@ -92,14 +112,7 @@ class Home extends React.Component {
                   </a>
                 }
               </li>
-              <li>
-                <a href="#" onMouseEnter={() => {
-                  this.changeMainButton("Nothing");
-                }}
-                onMouseLeave={this.mainButtonBack}>
-                  <i className="fa fa-users"></i>
-                </a>
-              </li>
+
               <li>
                 <a href="/about" onMouseEnter={() => {
                   this.changeMainButton("About Us")
@@ -117,11 +130,11 @@ class Home extends React.Component {
                 </a>
               </li>
               <li>
-                <a href="/products/accesories/uni/all" onMouseEnter={() => {
+                <a href="/products/accesories/all/all/all" onMouseEnter={() => {
                   this.changeMainButton("Accessories")
                 }}
                 onMouseLeave={this.mainButtonBack}>
-                  <i className="fab fa-redhat"></i>
+                  <i className="fa-solid fa-bag-shopping"></i>
                 </a>
               </li>
               <li className="close">

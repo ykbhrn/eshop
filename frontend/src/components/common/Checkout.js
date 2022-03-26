@@ -342,9 +342,8 @@ class Checkout extends React.Component {
             })}
           </div>
           <div className="total-price-checkout-wrapper">
-            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-            <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
-            <div>Total Price: £{user.totalPrice / 100}</div>
+            <div>Total Price: ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
+            <div>Your Donation: {user.discount}% (£{user.discountAmount / 100})</div>
           </div>
           <div className="checkout-buttons">
             <Link to="/basket">

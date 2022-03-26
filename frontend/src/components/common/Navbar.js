@@ -11,7 +11,8 @@ class Navbar extends React.Component {
     mainButton: "",
     isClothing: null,
     showProductsNavbar: false,
-    dotMenuText: false
+    dotMenuText: false,
+    isHoveringDonation: false
   }
 
   changeMainButton = (hoveredItem) => {
@@ -53,6 +54,14 @@ class Navbar extends React.Component {
 
   showText = (item) => {
     this.setState({dotMenuText: item})
+  }
+
+  hoverDonation = () => {
+    this.setState( {isHoveringDonation: true})
+  }
+
+  leaveDonation = () => {
+    this.setState( {isHoveringDonation: false})
   }
 
   render() {
@@ -218,21 +227,21 @@ class Navbar extends React.Component {
             <ul id="main-menu-ul" className='tip ctrl'>
 
               <li className='slice'>
-                <Link to="/contact">
+                <Link to="/products/accesories/all/all/all">
                   <div onMouseEnter={() => {
-                    this.changeMainButton("Contact us")
+                    this.changeMainButton("Accessories")
                   }}
-                  onMouseLeave={this.mainButtonBack}><i className="fas fa-envelope-open-text"></i>
+                  onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-bag-shopping"></i>
                   </div>
                 </Link>
               </li>
 
               <li className='slice'>
-                <Link to="/products/accesories/uni/all">
+                <Link to="/products/supplements/all/all/all">
                   <div onMouseEnter={() => {
-                    this.changeMainButton("accessories")
+                    this.changeMainButton("Supplements")
                   }}
-                  onMouseLeave={this.mainButtonBack}><i className="fas fa-hat-cowboy"></i>
+                  onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-jar"></i>
                   </div>
                 </Link>
               </li>
@@ -240,7 +249,7 @@ class Navbar extends React.Component {
               <li className='slice'>
                 <Link to="/products">
                   <div onMouseEnter={() => {
-                    this.changeMainButton("products")
+                    this.changeMainButton("All Products")
                   }}
                   onMouseLeave={this.mainButtonBack}><i className="fas fa-tshirt"></i>
                   </div>
@@ -282,8 +291,16 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="navbar-bottom"></div>
-        <div className="navbar-bottom-second"></div>
+
+        <Link to="/donation">
+          <div className="donation-icon" onMouseEnter={this.hoverDonation} onMouseLeave={this.leaveDonation}>
+            {this.state.isHoveringDonation &&
+            <div className="donation-text"> Slap &#38; Donate</div>
+            }
+          </div>
+        </Link>
+        {/* <div className="navbar-bottom"></div>
+        <div className="navbar-bottom-second"></div> */}
       </header>
     )
   }

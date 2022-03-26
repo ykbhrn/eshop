@@ -304,6 +304,7 @@ button{
   input{
     margin-right: 10px;
     margin-top: 5px;
+    cursor: pointer;
   }
 }
 .shipping-description{
@@ -720,12 +721,14 @@ button{
     height: 375px;
     z-index: 1;
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://res.cloudinary.com/nuhippies/image/upload/v1647316878/Nu%20Hippies/Backgrounds/638418_ljavce.jpg');
+    // background-image: url("https://cdn.quotesgram.com/img/93/9/944235821-hippie-quotes-hd-wallpaper-6.jpg");
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: top;
     position: relative;
     img {
-      width: 300px;
-      height: 150px;
+      width: 220px;
+      height: 120px;
       position: absolute;
       left: -224px;
       margin-top: 50px;
@@ -815,8 +818,10 @@ button{
 }
 .cat-nav{
   display: flex;
-  align-self: flex-start;
-  margin: 0 0 50px 30px;
+  // align-self: flex-start;
+  justify-content: center;
+  margin: 60px 0 10px 0;
+  width: 100vw;
   // position: absolute;
   // left: 20px;
   // top: 80px;
@@ -824,6 +829,7 @@ button{
     text-decoration: none;
     color: $dark-color;
     padding-right: 10px;
+    font-size: 20px;
   }
   .sign{
     margin-right: 10px;
@@ -887,6 +893,12 @@ h1{
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  h2{
+    margin-top: 20px;
+    color: $fourth-color;
+    font-weight: 500;
+    font-size: 25px;
+  }
 }
 .single-product-name{
   width: 70%;
@@ -1406,7 +1418,6 @@ h1{
   margin-top: 40px;
 }
 }
-
 
 @keyframes cursor {
   0% {
