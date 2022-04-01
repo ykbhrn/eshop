@@ -11,7 +11,7 @@ const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
 
 async function allCompletedOrders (req, res) {
   try {
-    if (req.currentUser.name !== 'Administrator') throw new Error('Not Found')
+    if (req.currentUser.name !== 'admin') throw new Error('Not Found')
     const orders = await Order.find()
     res.status(200).json(orders)
   } catch (err) {

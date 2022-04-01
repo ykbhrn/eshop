@@ -37,6 +37,7 @@ const productSchema = new mongoose.Schema({
   quantity: {type: Number, required: false},
   chosenQuantity: {type: Number},
   categories: categorySchema,
+  tags: [{type: String, required: false}],
   user: {type: Object, required: true},
   comments: [commentSchema],
   stripeId: {type: String, required: true},
