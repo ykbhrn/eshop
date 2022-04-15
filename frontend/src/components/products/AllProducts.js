@@ -7,7 +7,8 @@ class AllProducts extends React.Component {
     products: [],
     flowerProductsOne: [],
     flowerProductsTwo: [],
-    hoveredProductId: ''
+    hoveredProductId: '',
+    productsShowed: 10
   }
 
   async componentDidMount() {
@@ -15,7 +16,7 @@ class AllProducts extends React.Component {
       const discount = localStorage.getItem('discount')
       window.scrollTo(0, 0)
       const res = await getAllProducts();
-      this.setState({ products: res.data });
+      this.setState({ products: res.data.reverse() });
       this.renderingFlowers();
     } catch (err) {
       console.log(err);
@@ -54,12 +55,34 @@ class AllProducts extends React.Component {
     console.log("im here", event)
   }
 
+  showMore = () => {
+    this.setState({ productsShowed: this.state.productsShowed + 10 })
+  }
+
   render() {
+    if (!this.state.products) return null
     return (
       <div className="products-page change-brightness ">
         
         <div className="products-banner">
           <img id="van-moving" src="https://res.cloudinary.com/nuhippies/image/upload/v1646177431/Nu%20Hippies/Backgrounds/pngwing.com_1_ldwbgp.png" />
+          
+          <div className="products-category-wrapper">
+
+            <Link to="/products/accessories/all/all/all">
+              <div className="products-category-item"><div className="products-category-item-name">Accessories</div>
+                <div className="products-category-item-background-one"></div>
+              </div>
+            </Link>
+
+            <Link to="/products/supplements/all/all/all">
+              <div className="products-category-item"><div className="products-category-item-name">Supplements</div>
+                <div className="products-category-item-background-two"></div>
+              </div>
+            </Link>
+
+          </div>
+          
           {/* <video autoPlay loop muted>
             <source src="https://res.cloudinary.com/nuhippies/video/upload/v1645995711/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_1_1_bwfufy.mp4" type="video/mp4" preload="metadata" />
           </video> */}
@@ -92,26 +115,32 @@ class AllProducts extends React.Component {
             })}
           </div>
 
-          <div className="product-container">
-            {this.state.products.slice(0).reverse().map(product => {
-              return <Link to={`/products/${product._id}`} key={product._id}>
-                <div className="product-wrapper" onMouseEnter={() => {
-                  this.otherPreviewImage(product._id);
-                }}
-                onMouseLeave={this.backToMainProductImage}>
-                  <div className="product-preview-image"
-                    style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
-                  </div>
-                  <div className="product-preview-name">{product.name}</div>
-                  <div className="product-preview-price-wrapper">
-                    <div className="product-preview-price">£{product.price / 100}</div>
-                    {product.discount &&
+          <div className="container-more-wrapper">
+
+            <div className="product-container">
+              {this.state.products.slice(0, this.state.productsShowed).map(product => {
+                return <Link to={`/products/${product._id}`} key={product._id}>
+                  <div className="product-wrapper" onMouseEnter={() => {
+                    this.otherPreviewImage(product._id);
+                  }}
+                  onMouseLeave={this.backToMainProductImage}>
+                    <div className="product-preview-image"
+                      style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
+                    </div>
+                    <div className="product-preview-name">{product.name}</div>
+                    <div className="product-preview-price-wrapper">
+                      <div className="product-preview-price">£{product.price / 100}</div>
+                      {product.discount &&
                     <div className="product-preview-discount">-{product.discount}%</div>
-                    }
+                      }
+                    </div>
                   </div>
-                </div>
-              </Link>;
-            })}
+                </Link>;
+              })}
+            </div>
+
+            <div className="more" onClick={this.showMore}>Show More <i className="fa-solid fa-caret-down"></i></div>
+
           </div>
 
           <div className="flower-container two" onScroll={this.handleScroll}>

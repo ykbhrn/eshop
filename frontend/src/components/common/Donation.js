@@ -22,7 +22,7 @@ class Donation extends React.Component {
         <div className="form-wrapper donation">
           <h1>Slap &#38; Donate</h1>
           <p>
-            The rules are pretty simple. Once in approximately half an hour at random time, Putin&#39;s face show up and run arround your screen. 
+            The rules are pretty simple. At random time, once in a half an hour, Putin&#39;s face show up and run arround your screen. 
             When Putin shows up, your mouse curso become hand and you are ready to slap. On smartphones you can just use your finger. For every slap you give him, we will donate 5% of your order amount to <a href="https://donate.redcross.org.uk/appeal/ukraine-crisis-appeal">British Red Cross </a> 
             to help with humanitarian aid in Ukraine. Maximum limit for donation is 25% of your order.
             {/* <p>So happy slapsgiving</p> */}
@@ -30,6 +30,9 @@ class Donation extends React.Component {
           <p>
             You are currently on {this.state.donation}% level
           </p>
+
+          <img className="donation-img" src="https://preview.redd.it/jw1v76uccdl81.png?width=640&crop=smart&auto=webp&s=be84ef50a3bde9c9262a0de944c49792274fd71c" />
+
         </div>
       </div>
     )

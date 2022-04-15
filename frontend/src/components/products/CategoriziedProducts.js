@@ -7,14 +7,15 @@ class CategoriziedProducts extends React.Component {
     products: [],
     flowerProductsOne: [],
     flowerProductsTwo: [],
-    hoveredProductId: ''
+    hoveredProductId: '',
+    productsShowed: 10
   }
 
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
       const res = await getAllProducts();
-      this.setState({ products: res.data });
+      this.setState({ products: res.data.reverse() });
       this.renderingFlowers();
     } catch (err) {
       console.log(err);
@@ -49,6 +50,10 @@ class CategoriziedProducts extends React.Component {
     this.setState({ flowerProductsOne: newProductsArrayOne, flowerProductsTwo: newProductsArrayTwo });
   }
 
+  showMore = () => {
+    this.setState({ productsShowed: this.state.productsShowed + 10 })
+  }
+
   render() {
     const {subcategory, typeOne, typeTwo, typeThree} = this.props.match.params
     return (
@@ -64,8 +69,12 @@ class CategoriziedProducts extends React.Component {
 
         <div className="cat-nav">
 
+          <Link className="cat-nav-item" to={`/products`}>          
+            <div>Products</div>
+          </Link>
+
           <Link className="cat-nav-item" to={`/products/${subcategory}/all/all/all`}>          
-            <div>{subcategory}</div>
+            <div><span className="symbol">&#62;</span> {subcategory}</div>
           </Link>
 
           {typeOne !== "uni" &&
@@ -114,33 +123,39 @@ class CategoriziedProducts extends React.Component {
             })}
           </div>
 
-          <div className="product-container">
-            {this.state.products.slice(0).reverse().map(product => {
-              if ((!product.categories.types.includes(typeOne) && typeOne !== "all") ||
+          <div className="container-more-wrapper">
+
+            <div className="product-container">
+              {this.state.products.slice(0, this.state.productsShowed).map(product => {
+                if ((!product.categories.types.includes(typeOne) && typeOne !== "all") ||
               (!product.categories.types.includes(typeTwo) && typeTwo !== "all") || 
               (!product.categories.types.includes(typeThree) && typeThree !== "all") ||
               (product.categories.subCategory !== subcategory && subcategory !== "all") ){
-                return
-              }
+                  return
+                }
 
-              return <Link to={`/products/${product._id}`} key={product._id}>
-                <div className="product-wrapper" onMouseEnter={() => {
-                  this.otherPreviewImage(product._id);
-                }}
-                onMouseLeave={this.backToMainProductImage}>
-                  <div className="product-preview-image"
-                    style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
-                  </div>
-                  <div className="product-preview-name">{product.name}</div>
-                  <div className="product-preview-price-wrapper">
-                    <div className="product-preview-price">£{product.price / 100}</div>
-                    {product.discount &&
+                return <Link to={`/products/${product._id}`} key={product._id}>
+                  <div className="product-wrapper" onMouseEnter={() => {
+                    this.otherPreviewImage(product._id);
+                  }}
+                  onMouseLeave={this.backToMainProductImage}>
+                    <div className="product-preview-image"
+                      style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
+                    </div>
+                    <div className="product-preview-name">{product.name}</div>
+                    <div className="product-preview-price-wrapper">
+                      <div className="product-preview-price">£{product.price / 100}</div>
+                      {product.discount &&
                     <div className="product-preview-discount">-{product.discount}%</div>
-                    }
+                      }
+                    </div>
                   </div>
-                </div>
-              </Link>;
-            })}
+                </Link>;
+              })}
+            </div>
+
+            <div className="more" onClick={this.showMore}>Show More <i className="fa-solid fa-caret-down"></i></div>
+          
           </div>
 
           <div className="flower-container two" onScroll={this.handleScroll}>

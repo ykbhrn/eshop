@@ -54,13 +54,17 @@ class Home extends React.Component {
           <div className="home-left-banner">
             {/* <img src="./images/video.gif" /> */}
 
-            <video id="left-video" autoPlay loop muted>
+            <img id="left-video" src="https://images.squarespace-cdn.com/content/v1/564cac40e4b0fa2130e45e5e/1538001995556-BN8485Y9CDCUUDD0ONDT/hippies-710.jpg" />
+
+            <img id="left-video-two" src="https://www.messynessychic.com/wp-content/uploads/2019/04/img529-1.jpg" />
+
+            {/* <video id="left-video" autoPlay loop muted>
               <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />
             </video>
 
             <video id="left-video-two" autoPlay loop muted>
               <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645993864/Nu%20Hippies/Backgrounds/tt_1_ceeycb.mp4' type="video/mp4" />
-            </video>
+            </video> */}
 
           </div>
 
@@ -151,13 +155,18 @@ class Home extends React.Component {
           </div>
 
           <div className="home-right-banner">
-            <video id="right-video" autoPlay loop muted preload="metadata">
+
+            <img id="right-video" src="https://images.squarespace-cdn.com/content/v1/564cac40e4b0fa2130e45e5e/1538001995556-BN8485Y9CDCUUDD0ONDT/hippies-710.jpg" />
+
+            <img id="right-video-two" src="https://www.messynessychic.com/wp-content/uploads/2019/04/img529-1.jpg" />
+
+            {/* <video id="right-video" autoPlay loop muted preload="metadata">
               <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />
             </video>
 
             <video id="right-video-two" autoPlay loop muted preload="metadata">
               <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1645993864/Nu%20Hippies/Backgrounds/tt_1_ceeycb.mp4' type="video/mp4" />
-            </video>
+            </video> */}
 
           </div>
 

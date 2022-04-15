@@ -63,6 +63,34 @@ async function productUpdate(req, res) {
   }
 }
 
+async function updateAllTheProducts(req, res) {
+
+  async function promises() {
+
+    const products = await Product.find()
+
+    const unresolved = products.map(async(product) => {
+      console.log('ssssadssssssssssssssssssssssssssssssssssss')
+
+
+      if (product.categories.subCategory == 'accesories') {
+        product.categories.subCategory = 'accessories'
+        await product.save()
+      }
+  
+    })
+
+    const resolved = await Promise.all(unresolved)
+
+    res.status(202).json(products)
+  }
+  try {
+    promises()
+  } catch (err) {
+    res.status(422).json(err)
+  }
+}
+
 async function productDelete(req, res) {
   const productId = req.params.id
   try {
@@ -81,5 +109,6 @@ module.exports = {
   create: productCreate,
   show: productShow,
   update: productUpdate,
-  delete: productDelete
+  delete: productDelete,
+  updateAllTheProducts
 }

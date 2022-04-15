@@ -35,6 +35,7 @@ router.route('/reset-password')
 router.route('/products')
   .get(product.allProducts)
   .post(secureRoute, product.create)
+  .put(secureRoute, product.updateAllTheProducts)
 
 router.route('/products/:id')
   .get(product.show)

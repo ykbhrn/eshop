@@ -1,27 +1,11 @@
 @import "./variables.scss";
 
-.navbar-part{
-  position: fixed;
-  width: 100vw;
-  // box-shadow: 5px -29px 108px 16px  $second-color;
-  z-index: 7;
-}
-
-.navbar-bottom{
-  position: fixed;
-  bottom: 20px;
-  width: 100vw;
-  height: 20px;
-  transition: 0.8s linear;
-}
-
-.navbar-bottom-second{
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
-  height: 20px;
-  transition: 0.8s linear;
-}
+// .navbar-part{
+//   position: fixed;
+//   width: 100vw;
+//   // box-shadow: 5px -29px 108px 16px  $second-color;
+//   z-index: 7;
+// }
 
 .navbar {
   width: 100vw;
@@ -113,6 +97,7 @@
   top: 0px;
   left: 50%;
   margin-left: -80px;
+  z-index: 7;
 }
 
 .logo:hover{
@@ -133,7 +118,6 @@
   top: 44px;
   right: 35px;
   cursor: pointer;
-  position: fixed;
   transition: 0.8s;
   width: 50px;
   height: 50px;
@@ -172,15 +156,8 @@
   top: 10px!important;
 }
 
-.donation{
-  a{
-    font-weight: 400;
-    color: $text-color;
-  }
-}
-
 .donation-icon{
-  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1648292090/Nu%20Hippies/icons/ukraine_1_zn9j54.png");
+  background-image: url("https://preview.redd.it/jw1v76uccdl81.png?width=640&crop=smart&auto=webp&s=be84ef50a3bde9c9262a0de944c49792274fd71c");
   background-size: cover;
   position: fixed;
   width: 50px;

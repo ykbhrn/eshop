@@ -98,7 +98,7 @@ class Navbar extends React.Component {
                 >
                   {this.state.dotMenuText === 0 &&
                 <div className="hum-img text">
-                Accesories
+                Accessories
                 </div>
                   }
 
@@ -107,32 +107,32 @@ class Navbar extends React.Component {
                   }
               
                   <ul className="list">
-                    <li className="list__home"><a href="/products/accesories/bags/all/all">Bags</a>
+                    <li className="list__home"><a href="/products/accessories/bags/all/all">Bags</a>
                       <ul className="list__homeItems">
-                        <li><a href="/products/accesories/bags/hemp bags/all">Hemp Bags</a></li>
-                        <li><a href="/products/accesories/bags/ethnic bags/all">Ethnic Bags</a></li>
-                        <li><a href="/products/accesories/bags/all/all">All</a></li>
+                        <li><a href="/products/accessories/bags/hemp bags/all">Hemp Bags</a></li>
+                        <li><a href="/products/accessories/bags/ethnic bags/all">Ethnic Bags</a></li>
+                        <li><a href="/products/accessories/bags/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__clients"><a href="/products/accesories/Home and Garden/all/all">Home and Garden</a>
+                    <li className="list__clients"><a href="/products/accessories/Home and Garden/all/all">Home and Garden</a>
                       <ul className="list__clientsItems">
-                        <li><a href="/products/accesories/Home and Garden/statuettes/all">Statuettes</a></li>
-                        <li><a href="/products/accesories/Home and Garden/wall hangings/all">Wall Hangings</a></li>
-                        <li><a href="/products/accesories/Home and Garden/all/all">All</a></li>
+                        <li><a href="/products/accessories/Home and Garden/statuettes/all">Statuettes</a></li>
+                        <li><a href="/products/accessories/Home and Garden/wall hangings/all">Wall Hangings</a></li>
+                        <li><a href="/products/accessories/Home and Garden/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__strauss"><a href="/products/accesories/jewellery/all/all">Jewellery</a>
+                    <li className="list__strauss"><a href="/products/accessories/jewellery/all/all">Jewellery</a>
                       <ul className="list__straussItem">
-                        <li><a href="/products/accesories/jewellery/bracelets/all">Bracelets</a></li>
-                        <li><a href="/products/accesories/jewellery/earrings/all">Earrings</a></li>
-                        <li><a href="/products/accesories/jewellery/all/all">All</a></li>
+                        <li><a href="/products/accessories/jewellery/bracelets/all">Bracelets</a></li>
+                        <li><a href="/products/accessories/jewellery/earrings/all">Earrings</a></li>
+                        <li><a href="/products/accessories/jewellery/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__contact"><a href="/products/accesories/others/all/all">Others</a>
+                    <li className="list__contact"><a href="/products/accessories/others/all/all">Others</a>
                       <ul className="list__contactItem">
-                        <li><a href="/products/accesories/others/cosmetics/all">Cosmetics</a></li>
-                        <li><a href="/products/accesories/others/incense/all">Incense</a></li>
-                        <li><a href="/products/accesories/others/all/all">All</a></li>
+                        <li><a href="/products/accessories/others/cosmetics/all">Cosmetics</a></li>
+                        <li><a href="/products/accessories/others/incense/all">Incense</a></li>
+                        <li><a href="/products/accessories/others/all/all">All</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -227,7 +227,7 @@ class Navbar extends React.Component {
             <ul id="main-menu-ul" className='tip ctrl'>
 
               <li className='slice'>
-                <Link to="/products/accesories/all/all/all">
+                <Link to="/products/accessories/all/all/all">
                   <div onMouseEnter={() => {
                     this.changeMainButton("Accessories")
                   }}

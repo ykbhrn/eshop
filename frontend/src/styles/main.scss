@@ -132,8 +132,8 @@ button{
     bottom: 0px;
     width: 400px;
     height: 400px;
-    video{
-      object-position: right;
+    img{
+      object-position: center;
     }
   }
   .home-left-banner{
@@ -143,11 +143,11 @@ button{
     top: 0px;
     width: 400px;
     height: 400px;
-    video{
+    img{
       object-position: left;
     }
   }
-  video{
+  img{
     width: 100%;
     // max-width: 1200px;
     height: 100%;
@@ -664,6 +664,23 @@ button{
   }
 }
 
+//Donation Page 
+
+.donation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a{
+    font-weight: 400;
+    color: $text-color;
+  }
+  .donation-img{
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+  }
+}
+
 //Done page
 .done-page{
   display: flex;
@@ -723,25 +740,60 @@ button{
     justify-content: center;
   }
   .products-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     width: 100vw;
     height: 375px;
     z-index: 1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://res.cloudinary.com/nuhippies/image/upload/v1647316878/Nu%20Hippies/Backgrounds/638418_ljavce.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://thumbs.dreamstime.com/z/color-vector-hippies-background-flowes-symbols-rough-retro-background-color-vector-hippies-background-flowes-98357075.jpg');
     // background-image: url("https://cdn.quotesgram.com/img/93/9/944235821-hippie-quotes-hd-wallpaper-6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
     position: relative;
     img {
-      width: 220px;
-      height: 120px;
+      width: 130px;
+      height: 70px;
       position: absolute;
       left: -224px;
       margin-top: 50px;
       transition: 1s linear;
     }
-
+  }
+  .products-category-wrapper{
+    display: flex;
+    .products-category-item{
+      display: flex;
+      flex-direction: column;
+      margin: 0 40px;
+      z-index: 1;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.05);
+        transition: 0.4s linear;
+      }
+      .products-category-item-background-one{
+        background: url("https://res.cloudinary.com/nuhippies/image/upload/v1650052583/Nu%20Hippies/products/Clothes/Pure%20Hemp%20and%20Cotton%20Bags/1828035_souqrs-removebg-preview_ezmbrc.png");
+        background-size: contain;
+        width: 250px;
+        height: 250px;
+    }
+    .products-category-item-background-two{
+      background: url("https://res.cloudinary.com/nuhippies/image/upload/v1650046487/Nu%20Hippies/products/GreeNourish%20Complete/GreeNourish-pot-500x500_wgax7u-removebg-preview_ryhqyj.png");
+      background-size: contain;
+      width: 250px;
+      height: 250px;
+  }
+      .products-category-item-name{
+        color: white;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 25px;
+        font-weight: 500;
+      }
+    }
   }
     video{
       width: 100%;
@@ -775,7 +827,7 @@ button{
     flex-wrap: wrap;
   }
   .product-wrapper {
-    margin: 20px;
+    margin: 20px;    
   }
   .product-preview-image {
     width: 280px;
@@ -816,6 +868,16 @@ button{
     color: $dark-color;
   }
 }
+}
+
+.more{
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto 20px auto;
+  width: 110px;
+  text-align:  center;
+  cursor: pointer;
+  font-weight: 400;
 }
 
 //categorizied products
@@ -1627,7 +1689,6 @@ h1{
     color: $dark-color;
   }
   .social-media-icons{
-    margin-right: 40px;
     padding-bottom: 60px;
     z-index: 2;
     .fab{
