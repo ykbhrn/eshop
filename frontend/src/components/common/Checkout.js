@@ -141,7 +141,7 @@ class Checkout extends React.Component {
       }
     }
 
-    this.setState({ errors: { isLoading: false, name, adressOne, town, postcode, country, billingAdress: {
+    this.setState({ isLoading: false, errors: { isLoading: false, name, adressOne, town, postcode, country, billingAdress: {
       name: billingName,
       adressOne: billingAdressOne,
       town: billingTown,
@@ -152,7 +152,7 @@ class Checkout extends React.Component {
 
   render() {
     if (!this.state.user) return null;
-    const { user, formData, errors, isLoading } = this.state;
+    const { user, formData, errors, isLoading } = this.state
     return (
       <div className="checkout-page">
 
@@ -210,12 +210,48 @@ class Checkout extends React.Component {
             {errors.postcode ? <small className="error-message">{errors.postcode}</small> : ''}
 
             <label>Country:</label>
-            <input
+            <select id="checkout-country" className={`${errors.country ? 'error-input' : ''}`}
+              name="country"
+              onChange={this.handleChange}
+              value={formData.country}
+            >
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Austria">Austria</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Czechia">Czechia</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="Germany">Germany</option>
+              <option value="Greece">Greece</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Italy">Italy</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Malta">Malta</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Norway">Norway</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Romania">Romania</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Spain">Spain</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+            </select>
+
+            {/* <input
               className={`${errors.country ? 'error-input' : ''}`}
               name="country"
               onChange={this.handleChange}
               value={formData.country}
-            />
+            /> */}
             {errors.country ? <small className="error-message">{errors.country}</small> : ''}
 
             <label>Phone number (optional):</label>
@@ -304,12 +340,47 @@ class Checkout extends React.Component {
             {errors.billingAdress.postcode ? <small className="error-message">{errors.billingAdress.postcode}</small> : ''}
 
             <label>Country:</label>
-            <input
+            <select id="checkout-country" className={`${errors.country ? 'error-input' : ''}`}
+              name="country"
+              onChange={this.handleBillingChange}
+              value={formData.billingCountry}
+            >
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Austria">Austria</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Czechia">Czechia</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="Germany">Germany</option>
+              <option value="Greece">Greece</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Italy">Italy</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Malta">Malta</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Norway">Norway</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Romania">Romania</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Spain">Spain</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+            </select>
+            {/* <input
               className={`${errors.billingAdress.country ? 'error-input' : ''}`}
               name="country"
               onChange={this.handleBillingChange}
               value={formData.billingAdress ? formData.billingAdress.country : ""}
-            />
+            /> */}
             {errors.billingAdress.country ? <small className="error-message">{errors.billingAdress.country}</small> : ''}
 
             <label>Phone number (optional):</label>

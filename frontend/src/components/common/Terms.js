@@ -24,7 +24,7 @@ class Terms extends React.Component {
               <p className="p2 ft2">As we can accept your order and make a legally enforceable agreement without further reference to you, you must read these terms and conditions to make sure that they contain all that you want and nothing that you are not happy with. If you are not sure about anything, just phone us on .</p>
               <p className="p3 ft3">Application</p>
               <p className="p4 ft4"><span className="ft4">1.</span><span className="ft5">These Terms and Conditions will apply to the purchase of the goods by you (the Customer or you). We are Jakub</span></p>
-              <p className="p5 ft6">Horun trading as Nu Hippies Movement of 5 Atlanta House, 148 South Street, Essex, RM11SX with email address nuhippiesmovement@outlook.com; telephone number 07777777; (the Supplier or us or we).</p>
+              <p className="p5 ft6">Horun trading as Nu Hippies Movement of 5 Atlanta House, 148 South Street, Essex, RM11SX with email address info@nuhippies.com; telephone number 07777777; (the Supplier or us or we).</p>
               <p className="p6 ft8"><span className="ft4">2.</span><span className="ft7">These are the terms on which we sell all Goods to you. By ordering any of the Goods, you agree to be bound by these Terms and Conditions. By ordering any of the Services, you agree to be bound by these Terms and Conditions. You can only purchase the Goods from the Website if you are eligible to enter into a contract and are at least 18 years old.</span></p>
               <p className="p7 ft3">Interpretation</p>
               <p className="p8 ft2"><span className="ft4">3.</span><span className="ft9">Consumer means an individual acting for purposes which are wholly or mainly outside their trade, business, craft or profession;</span></p>
@@ -135,7 +135,7 @@ class Terms extends React.Component {
               <p className="p48 ft1"><span className="ft19">b.</span><span className="ft22">we will only Process Personal Data for the purposes identified;</span></p>
               <p className="p49 ft1"><span className="ft19">c.</span><span className="ft22">we will respect your rights in relation to your Personal Data; and</span></p>
               <p className="p49 ft1"><span className="ft19">d.</span><span className="ft22">we will implement technical and organisational measures to ensure your Personal Data is secure.</span></p>
-              <p className="p19 ft4"><span className="ft4">63.</span><span className="ft18">For any enquiries or complaints regarding data privacy, you can </span><nobr>e-mail:</nobr> nuhippiesmovement@outlook.com.</p>
+              <p className="p19 ft4"><span className="ft4">63.</span><span className="ft18">For any enquiries or complaints regarding data privacy, you can </span><nobr>e-mail:</nobr> info@nuhippies.com</p>
               <p className="p16 ft3">Excluding liability</p>
             </div>
             <div id="id5_2">
@@ -157,7 +157,7 @@ class Terms extends React.Component {
               <p className="p21 ft1">To</p>
               <p className="p83 ft2">Jakub Horun trading as Nu Hippies Movement 5 Atlanta House</p>
               <p className="p84 ft2">148 South Street Essex RM11SX</p>
-              <p className="p85 ft1">Email address: nuhippiesmovement@outlook.com</p>
+              <p className="p85 ft1">Email address: info@nuhippies.com</p>
               <p className="p86 ft1">Telephone number: 07777777</p>
               <p className="p87 ft6">I/We[*] hereby give notice that I/We [*] cancel my/our [*] contract of sale of the following goods [*] [for the supply of the following service [*], Ordered on [*]/received on [*]______________________(date received)</p>
               <p className="p88 ft1">Name of consumer(s):</p>

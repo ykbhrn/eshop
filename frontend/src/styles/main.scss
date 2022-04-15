@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
 }
 
-input, textarea{
+input, textarea, select{
   padding: 5px 6px;
   margin-top: 4px;
   font-size: 15px;
@@ -355,6 +355,9 @@ button{
   h2{
     font-weight: 300;
   }
+  .error-message {
+    margin-bottom: 10px;
+  }
 }
 .total-price-checkout-wrapper{
   border: 1px solid $dark-color;
@@ -446,6 +449,10 @@ h2{
     padding-right: 20px;
     input{
       margin-bottom: 9px;
+    }
+    select{
+      margin: 3px 0 10px 0;
+      padding: 5px;
     }
   }
   
@@ -610,8 +617,8 @@ button{
 
 .error-message {
   color: red;
-  position: absolute;
-  top: 40px;
+  // position: absolute;
+  // top: 40px;
 }
 
 .login-bttn-wrapper{
@@ -1294,6 +1301,14 @@ h1{
     cursor: pointer;
     align-self: center;
     margin-top: 15px;
+  }
+}
+
+//edit account
+
+.edit-account-page{
+  .error-message{
+    margin-top: 5px;
   }
 }
 

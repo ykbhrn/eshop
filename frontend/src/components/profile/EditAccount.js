@@ -170,7 +170,7 @@ class EditAccount extends React.Component {
                 </div>
             }
             {!isLoading &&
-              <button className="classic-btn edit-btn" onClick={this.handleSubmit}>Change</button>
+              <button className="classic-btn btn-loading" onClick={this.handleSubmit}>Change</button>
             }
           </form>
         </div>

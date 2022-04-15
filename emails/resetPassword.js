@@ -1,4 +1,4 @@
-const url = 'https://nu-hippies.herokuapp.com'
+const url = 'https://nuhippies.com'
 
 function resetPasswordEmail (token, user) {
   return  `

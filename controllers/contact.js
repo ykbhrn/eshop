@@ -8,9 +8,10 @@ async function sendEmail (req, res) {
   try {
     const data = {
       from: req.body.sender,
-      to: 'jakub.horun@mail.com',
+      to: 'info@nuhippies.com',
       subject: req.body.subject,
-      html: `<h1>No co chuju ${req.body.message}</h1>`
+      html: `Message from customer ${req.body.sender}</h1>
+      <p>${req.body.message}</p>`
     }
 
     mg.messages().send(data, function (error, body) {
