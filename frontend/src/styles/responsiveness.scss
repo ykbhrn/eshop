@@ -448,6 +448,9 @@
   transform: scale(0.7);
   transform-origin: top;
 }
+.products-category-wrapper{
+  transform: scale(0.5);
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -473,5 +476,17 @@
   .privacy-page{
     transform: scale(0.4);
     transform-origin: top;
+  }
+  .donation-icon{
+    left: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .products-page{
+    .products-banner{
+      img {
+        display: none;
+      }
+    }
   }
 }

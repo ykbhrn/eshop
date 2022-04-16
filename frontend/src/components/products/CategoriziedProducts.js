@@ -70,7 +70,7 @@ class CategoriziedProducts extends React.Component {
         <div className="cat-nav">
 
           <Link className="cat-nav-item" to={`/products`}>          
-            <div>Products</div>
+            <div>products</div>
           </Link>
 
           <Link className="cat-nav-item" to={`/products/${subcategory}/all/all/all`}>          
@@ -99,7 +99,7 @@ class CategoriziedProducts extends React.Component {
 
         <div className="products-flower-wrapper">
 
-          <div className="flower-container one" onScroll={this.handleScroll}>
+          <div className="flower-container one">
             {this.state.flowerProductsOne.map(product => {
               return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">
@@ -126,7 +126,7 @@ class CategoriziedProducts extends React.Component {
           <div className="container-more-wrapper">
 
             <div className="product-container">
-              {this.state.products.slice(0, this.state.productsShowed).map(product => {
+              {this.state.products.slice(0).map(product => {
                 if ((!product.categories.types.includes(typeOne) && typeOne !== "all") ||
               (!product.categories.types.includes(typeTwo) && typeTwo !== "all") || 
               (!product.categories.types.includes(typeThree) && typeThree !== "all") ||
@@ -150,15 +150,15 @@ class CategoriziedProducts extends React.Component {
                       }
                     </div>
                   </div>
-                </Link>;
+                </Link>
               })}
             </div>
 
-            <div className="more" onClick={this.showMore}>Show More <i className="fa-solid fa-caret-down"></i></div>
+            {/* <div className="more" onClick={this.showMore}>Show More <i className="fa-solid fa-caret-down"></i></div> */}
           
           </div>
 
-          <div className="flower-container two" onScroll={this.handleScroll}>
+          <div className="flower-container two">
             {this.state.flowerProductsTwo.map(product => {
               return <a href={`/products/${product._id}`} key={product._id}>
                 <div className="flower-content">

@@ -69,16 +69,14 @@ class AllProducts extends React.Component {
           
           <div className="products-category-wrapper">
 
-            <Link to="/products/accessories/all/all/all">
-              <div className="products-category-item"><div className="products-category-item-name">Accessories</div>
-                <div className="products-category-item-background-one"></div>
-              </div>
+            <Link className="products-category-item" to="/products/accessories/all/all/all">
+              <div className="products-category-item-name">Accessories</div>
+              <div className="products-category-item-background-one"></div>
             </Link>
 
-            <Link to="/products/supplements/all/all/all">
-              <div className="products-category-item"><div className="products-category-item-name">Supplements</div>
-                <div className="products-category-item-background-two"></div>
-              </div>
+            <Link className="products-category-item" to="/products/supplements/all/all/all">
+              <div className="products-category-item-name">Supplements</div>
+              <div className="products-category-item-background-two"></div>
             </Link>
 
           </div>

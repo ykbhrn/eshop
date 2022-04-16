@@ -70,13 +70,9 @@ async function updateAllTheProducts(req, res) {
     const products = await Product.find()
 
     const unresolved = products.map(async(product) => {
-      console.log('ssssadssssssssssssssssssssssssssssssssssss')
 
-
-      if (product.categories.subCategory == 'accesories') {
-        product.categories.subCategory = 'accessories'
-        await product.save()
-      }
+      product.isFavorite = false
+      await product.save()
   
     })
 
