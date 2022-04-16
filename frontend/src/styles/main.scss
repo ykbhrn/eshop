@@ -97,17 +97,6 @@ button{
   .flip{
     transform: rotate(180deg);
   }
-  .home-logo{
-      width: 35px;
-      height: 35px;
-      background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/IconOnly_Transparent_1_pox2bq.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-  }
-  .change-image{
-    background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
-  }
   .home-title-wrapper{
     display: flex;
     justify-content: center;
@@ -125,28 +114,6 @@ button{
   // #left-video-two, #right-video-two{
   //   visibility: hidden;
   // }
-  .home-right-banner{
-    position: absolute;
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    right: 0px;
-    bottom: 0px;
-    width: 400px;
-    height: 400px;
-    img{
-      object-position: center;
-    }
-  }
-  .home-left-banner{
-    position: fixed;
-    clip-path: polygon(0 0, 0% 100%, 100% 0);
-    left: 0px;
-    top: 0px;
-    width: 400px;
-    height: 400px;
-    img{
-      object-position: left;
-    }
-  }
   img{
     width: 100%;
     // max-width: 1200px;

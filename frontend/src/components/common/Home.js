@@ -70,6 +70,7 @@ class Home extends React.Component {
 
           <div className="home-menu">
             <ul className="home-menu-ul">
+
               <li>
                 <a href="/products" onMouseEnter={() => {
                   this.changeMainButton("All Products");
@@ -112,7 +113,7 @@ class Home extends React.Component {
                     this.changeMainButton("My Account");
                   }}
                   onMouseLeave={this.mainButtonBack}>
-                    <i className="fas fa-user"></i>
+                    <i className="fas fa-user flip"></i>
                   </a>
                 }
               </li>
@@ -125,14 +126,16 @@ class Home extends React.Component {
                   <i className="fab fa-angellist flip"></i>
                 </a>
               </li>
+
               <li>
-                <a href="/contact" onMouseEnter={() => {
-                  this.changeMainButton("Contact Us")
+                <a href="/donation" onMouseEnter={() => {
+                  this.changeMainButton("Slap & Donate")
                 }}
                 onMouseLeave={this.mainButtonBack}>
-                  <i className="fas fa-envelope-open-text"></i>
+                  <i className="fa-solid fa-dove flip"></i>
                 </a>
               </li>
+
               <li>
                 <a href="/products/accesories/all/all/all" onMouseEnter={() => {
                   this.changeMainButton("Accessories")
@@ -141,6 +144,7 @@ class Home extends React.Component {
                   <i className="fa-solid fa-bag-shopping"></i>
                 </a>
               </li>
+
               <li className="close">
                 <a href="#">
                   {this.state.mainButton &&
