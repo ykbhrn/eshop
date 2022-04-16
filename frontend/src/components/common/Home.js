@@ -54,9 +54,9 @@ class Home extends React.Component {
           <div className="home-left-banner">
             {/* <img src="./images/video.gif" /> */}
 
-            <img id="left-video" src="https://images.squarespace-cdn.com/content/v1/564cac40e4b0fa2130e45e5e/1538001995556-BN8485Y9CDCUUDD0ONDT/hippies-710.jpg" />
+            <img id="left-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
 
-            <img id="left-video-two" src="https://www.messynessychic.com/wp-content/uploads/2019/04/img529-1.jpg" />
+            <img id="left-video-two" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073699/Nu%20Hippies/Backgrounds/img529-1_fotg6l.jpg" />
 
             {/* <video id="left-video" autoPlay loop muted>
               <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />
@@ -156,9 +156,9 @@ class Home extends React.Component {
 
           <div className="home-right-banner">
 
-            <img id="right-video" src="https://images.squarespace-cdn.com/content/v1/564cac40e4b0fa2130e45e5e/1538001995556-BN8485Y9CDCUUDD0ONDT/hippies-710.jpg" />
+            <img id="right-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
 
-            <img id="right-video-two" src="https://www.messynessychic.com/wp-content/uploads/2019/04/img529-1.jpg" />
+            <img id="right-video-two" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073699/Nu%20Hippies/Backgrounds/img529-1_fotg6l.jpg" />
 
             {/* <video id="right-video" autoPlay loop muted preload="metadata">
               <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />

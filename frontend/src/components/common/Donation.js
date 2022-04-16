@@ -31,7 +31,7 @@ class Donation extends React.Component {
             You are currently on {this.state.donation}% level
           </p>
 
-          <img className="donation-img" src="https://preview.redd.it/jw1v76uccdl81.png?width=640&crop=smart&auto=webp&s=be84ef50a3bde9c9262a0de944c49792274fd71c" />
+          <img className="donation-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073587/Nu%20Hippies/icons/jw1v76uccdl81_lxralr.png" />
 
         </div>
       </div>
