@@ -19,7 +19,7 @@ mongoose.connect(
 
 app.use(forceSecure([
   'nuhippies.com',
-  'www.nuppies.com'
+  'www.nuhippies.com'
 ]))
 
 app.use(express.static(`${__dirname}/frontend/build`))
