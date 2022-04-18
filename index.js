@@ -3,6 +3,7 @@ require('dotenv').config()
 const router = require('./config/routes')
 const bodyParser = require('body-parser')
 const logger = require('./lib/logger')
+const secure = require('ssl-express-www')
 const app = express()
 const mongoose = require('mongoose')
 const { port, dbURI } = require('./config/environment')
@@ -26,6 +27,7 @@ app.use('/api', router)
 
 app.use('/*', (req, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
 
+app.use(secure)
 
 app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
 

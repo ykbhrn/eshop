@@ -11,51 +11,7 @@ $third-color: #FF1510;
 $fourth-color: rgb(250,203,82);
 $line-height: 54px;
 
-.home-menu {
-  font-family: 'Gluten', cursive;
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  position: absolute;
-  height: 300px;
-  margin-top: 0px;
-  top: 50%;
-  z-index: 5;
-  transform: scale(1.6);
-}
-.home-logo{
-  width: 35px;
-  height: 35px;
-  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/IconOnly_Transparent_1_pox2bq.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.change-image{
-background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
-}
-.home-right-banner{
-  position: absolute;
-  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  right: 0px;
-  bottom: 0px;
-  width: 400px;
-  height: 400px;
-  img{
-    object-position: center;
-  }
-}
-.home-left-banner{
-  position: fixed;
-  clip-path: polygon(0 0, 0% 100%, 100% 0);
-  left: 0px;
-  top: 0px;
-  width: 400px;
-  height: 400px;
-  img{
-    object-position: left;
-  }
-}
+
 
 /* line 29, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
