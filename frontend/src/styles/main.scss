@@ -94,14 +94,17 @@ button{
 
 //Home page
 .home-page{
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
   .home-menu {
     font-family: 'Gluten', cursive;
-    display: flex;
-    justify-content: center;
-    width: 100vw;
     position: absolute;
     height: 300px;
-    margin-top: 0px;
+    margin: 0px;
     top: 44%;
     z-index: 5;
     transform: scale(1.6);
@@ -147,11 +150,12 @@ button{
   }
   .home-title-wrapper{
     display: flex;
-    justify-content: center;
-    width: 100vw
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
   }
   .home-title{
-    padding-top: 30px;
     font-size: 42px;
     font-weight: 400;
     text-align: center;
@@ -791,20 +795,20 @@ button{
       .products-category-item-background-one{
         background: url("https://res.cloudinary.com/nuhippies/image/upload/v1650097508/Nu%20Hippies/products/Clothes/Pure%20Hemp%20and%20Cotton%20Bags/hempb-14_01_mebj9b__1_-removebg-preview_y12ofc.png");
         background-size: contain;
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
     .products-category-item-background-two{
       background: url("https://res.cloudinary.com/nuhippies/image/upload/v1650046487/Nu%20Hippies/products/GreeNourish%20Complete/GreeNourish-pot-500x500_wgax7u-removebg-preview_ryhqyj.png");
       background-size: contain;
-      width: 250px;
-      height: 250px;
+      width: 200px;
+      height: 200px;
   }
       .products-category-item-name{
         color: white;
         text-align: center;
         margin-bottom: 5px;
-        font-size: 25px;
+        font-size: 22px;
         font-weight: 500;
       }
     }
@@ -845,7 +849,7 @@ button{
   }
   .product-preview-image {
     width: 280px;
-    height: 320px;
+    height: 280px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

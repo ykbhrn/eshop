@@ -15,7 +15,7 @@ class PopupDiscount extends React.Component {
   }
 
   async componentDidMount () {
-    const res = await getAllDiscounts()
+    const res = await getAllDiscounts() 
 
     if (isAuthenticated()) {
       const resTwo = await getMyProfile()
@@ -227,8 +227,8 @@ class PopupDiscount extends React.Component {
         {this.state.discountHighScore && 
         <div className="score-window">
           <h2>
-            <span>You Slapped Mad Dictator</span><span className="highlighted">{this.state.discountScore / 5} Times </span> 
-            Which Means We Are Going To Donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of Your Order Amount To Charity Organization To Support Ukraine</span>
+            <span>You Slapped Mad Dictator </span><span className="highlighted">{this.state.discountScore / 5} Times </span> 
+            Which Means We Are Going To Donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of Your Order Amount For Charity To Support Ukraine</span>
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
         </div>
@@ -238,7 +238,7 @@ class PopupDiscount extends React.Component {
         <div className="score-window">
           <h2>
           You Slapped Mad Dictator <span className="highlighted">{this.state.discountScore / 5} Times</span><br />
-        So Your Current Donation Of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% Remain Unchanged</span>
+          So Your Current Donation Of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% Remain Unchanged</span>
           </h2>
           <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
         </div>
@@ -246,7 +246,7 @@ class PopupDiscount extends React.Component {
         {this.state.discountZero &&
           <div className="score-window">
             <h2>
-              You didn&#39;t Slap Mad Dictator, Better Luck Next Time
+              You didn&#39;t Slap Mad Dictator At All, Better Luck Next Time
             </h2>
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
           </div>

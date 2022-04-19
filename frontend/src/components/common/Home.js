@@ -103,13 +103,14 @@ class Home extends React.Component {
           '}
           </style>
 
-          <div className="home-title-wrapper"><div className="home-title">Nu Hippies Movement</div></div>
-          <div className="header">
-            <ul className="dynamic-txts">
-              <li><span>bring</span></li>
-              <li><span>hippies</span></li>
-              <li><span>back</span></li>
-            </ul>
+          <div className="home-title-wrapper"><div className="home-title">Nu Hippies Movement</div>
+            <div className="header">
+              <ul className="dynamic-txts">
+                <li><span>bring</span></li>
+                <li><span>hippies</span></li>
+                <li><span>back</span></li>
+              </ul>
+            </div>
           </div>
 
           <div className="home-left-banner">
