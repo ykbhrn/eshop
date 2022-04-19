@@ -40,10 +40,6 @@ window.onscroll = function () {
   const flowerElement = document.querySelectorAll(".flower-container")
   const vanImg = document.querySelector(".products-banner img")
 
-  // if (!window.matchMedia("(pointer: coarse)").matches) {
-  //   this.setState({ mainButton: hoveredItem })
-  // }
-
   if (document.documentElement.scrollTop > 50) {
 
     logo.classList.add("logo-scroll")

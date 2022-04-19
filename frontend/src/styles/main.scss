@@ -102,7 +102,7 @@ button{
     position: absolute;
     height: 300px;
     margin-top: 0px;
-    top: 50%;
+    top: 44%;
     z-index: 5;
     transform: scale(1.6);
   }
@@ -115,22 +115,25 @@ button{
     background-position: center;
   }
   .change-image{
-  background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
+    background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
   }
   .home-right-banner{
     position: absolute;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     right: 0px;
     bottom: 0px;
     width: 400px;
     height: 400px;
+    visibility: hidden;
     img{
-      object-position: center;
+      object-position: right;
     }
   }
   .home-left-banner{
-    position: fixed;
+    position: absolute;
     clip-path: polygon(0 0, 0% 100%, 100% 0);
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
     left: 0px;
     top: 0px;
     width: 400px;
@@ -167,17 +170,6 @@ button{
     position: relative;
     object-fit: cover;
     z-index: -1;
-  }
-  @keyframes moving {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 100% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
   }
 }
 

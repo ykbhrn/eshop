@@ -12,19 +12,80 @@ class Home extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
-      const res = await getAllProducts();
-      this.setState({ products: res.data });
+
+      const close = document.querySelector('.close')
+      const leftBanner = document.querySelector('.home-left-banner')
+      const rightBanner = document.querySelector('.home-right-banner')
+      const bannerImg = document.querySelector('.home-left-banner img')
+      const homeMenu = document.querySelector('.home-menu ul')
+
+      var ua = window.navigator.userAgent;
+      var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+      var webkit = !!ua.match(/WebKit/i);
+      var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+      const isSafari = window.safari !== undefined
+      const isPhone = window.matchMedia("(pointer: coarse)").matches
+
+      if (isPhone) {
+        homeMenu.style.animation = "spring 3s infinite"
+      }
+
+      if (isSafari || iOSSafari) {
+        close.style.animation = "none"
+      }
+
+      let bannerPosition = 1
+      
+      const bannerInterval = setInterval(() => {
+
+        if (bannerPosition === 1) {
+          leftBanner.style.clipPath = "polygon(100% 0, 0 0, 100% 100%)"
+          leftBanner.style.webkitClipPath = "polygon(100% 0, 0 0, 100% 100%)"
+          leftBanner.style.left = "calc(100% - 400px)"
+          leftBanner.style.top = "0px"
+          bannerImg.style.objectPosition = "left"
+          rightBanner.style.visibility = "hidden"
+        } else if (bannerPosition === 2) {
+          leftBanner.style.clipPath = "polygon(100% 0, 0% 100%, 100% 100%)"
+          leftBanner.style.webkitClipPath = "polygon(100% 0, 0% 100%, 100% 100%)"
+          leftBanner.style.left = "calc(100% - 400px)"
+          leftBanner.style.top = "calc(100% - 400px)"
+          bannerImg.style.objectPosition = "right"
+        } else if (bannerPosition === 3) {
+          leftBanner.style.clipPath = "polygon(100% 100%, 0 0, 0 100%)"
+          leftBanner.style.webkitClipPath = "polygon(100% 100%, 0 0, 0 100%)"
+          leftBanner.style.left = "0px"
+          leftBanner.style.top = "calc(100% - 400px)"
+          bannerImg.style.objectPosition = "right"
+        } else if (bannerPosition === 4) {
+          leftBanner.style.clipPath = "polygon(0 0, 0% 100%, 100% 0)"
+          leftBanner.style.webkitClipPath = "polygon(0 0, 0% 100%, 100% 0)"
+          leftBanner.style.left = "0px"
+          leftBanner.style.top = "0px"
+          bannerImg.style.objectPosition = "left"
+          rightBanner.style.visibility = "visible"
+        } 
+
+        if (bannerPosition < 4) {
+          bannerPosition++
+        } else {
+          bannerPosition = -5
+        }
+
+      }, 2000);
+
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   }
 
   changeMainButton = (hoveredItem) => {
-    this.setState({ mainButton: hoveredItem });
+    this.setState({ mainButton: hoveredItem })
   }
 
   mainButtonBack = () => {
-    this.setState({ mainButton: "" });
+    this.setState({ mainButton: "" })
   }
 
   render() {
@@ -52,7 +113,6 @@ class Home extends React.Component {
           </div>
 
           <div className="home-left-banner">
-            {/* <img src="./images/video.gif" /> */}
 
             <img id="left-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
 
@@ -105,7 +165,7 @@ class Home extends React.Component {
                     this.changeMainButton("Register");
                   }}
                   onMouseLeave={this.mainButtonBack}>
-                    <i className="fas fa-user"></i>
+                    <i className="fas fa-user flip"></i>
                   </a>
                 }
                 {isAuthenticated() &&

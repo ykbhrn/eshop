@@ -9,13 +9,11 @@ $first-color:rgb(82,193,199);
 $second-color: #6a4ba0;
 $third-color: #FF1510;
 $fourth-color: rgb(250,203,82);
-$line-height: 54px;
-
-
+$line-height: 59px;
 
 /* line 29, ../sass/screen.scss */
 .home-menu .home-menu-button-text {
-  font-size: 7px;
+  font-size: 6px;
   color: $second-color;
   font-weight: 400;
 }
@@ -43,10 +41,10 @@ $line-height: 54px;
   display: inline-block;
   width: 200px;
   height: 200px;
-  animation: spring 2s;
+  // animation: spring 3s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
-  transform: scale(1.8);
+  // transform: scale(1.8);
 }
 /* line 50, ../sass/screen.scss */
 .home-menu ul li {
@@ -206,6 +204,7 @@ $line-height: 54px;
   background-position: 0 0;
   background-size: cover;
   animation: moving 10s linear infinite;
+  transition: linear;
   border-radius: 50%;
   position: absolute;
   left: calc(50% - 25px);
@@ -238,9 +237,8 @@ $line-height: 54px;
 }
 /* line 123, ../sass/screen.scss */
 .home-menu ul.active {
-  margin-top: -30px;
   transform: scale(1);
-  animation: none;
+  animation: none!important;
 }
 /* line 125, ../sass/screen.scss */
 .home-menu ul.active .close {
