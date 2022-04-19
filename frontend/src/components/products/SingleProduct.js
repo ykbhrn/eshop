@@ -175,15 +175,21 @@ class SingleProduct extends React.Component {
             <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
             </div>
           </div>
-          <div className="name-price-wrapper">
-            <div className="single-product-name">
-              <h1>{product.name}</h1>
-            </div>
-            <div className="product-price-wrapper">
-              <div className="product-price">£{product.price / 100}</div>
-              {product.discount &&
+          <div className="single-product-side-info-wrapper">
+
+            <div className="name-price-wrapper">
+
+              <div className="single-product-name">
+                <h1>{product.name}</h1>
+              </div>
+
+              <div className="product-price-wrapper">
+                <div className="product-price">£{product.price / 100}</div>
+                {product.discount &&
                 <div className="product-discount">-{product.discount}%</div>
-              }
+                }
+              </div>
+
             </div>
 
             {product.sizes.length > 0 &&
@@ -208,7 +214,7 @@ class SingleProduct extends React.Component {
                   }}
                   key={color}>{color}</div>;
                 })}</div>
-                <div className="product-size">Type: {this.state.formData.color}</div>
+                {/* <div className="product-size">Type: {this.state.formData.color}</div> */}
               </>
             }
 
@@ -259,6 +265,8 @@ class SingleProduct extends React.Component {
 
           </div>
         </div>
+
+        {}
 
         <div className="product-info-container">
           <div className={`product-info-item ${this.state.productInfo === "description" ? "active" : ""}`} onClick={() => {

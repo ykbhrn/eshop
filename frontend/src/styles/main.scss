@@ -939,7 +939,7 @@ button{
   align-items: center;
   flex-direction: column;
 .single-product-wrapper{
-  width: 80vw;
+  width: 90vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -947,6 +947,7 @@ h1{
   font-size: 26px;
   font-weight: 400;
   text-align: center;
+  width: autos;
 }
 .single-product-images-wrapper{
   display: flex;
@@ -975,10 +976,10 @@ h1{
   margin-bottom: 5px;
   filter: brightness(0.6);
 }
-.name-price-wrapper{
+.single-product-side-info-wrapper{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   h2{
     margin-top: 20px;
@@ -987,18 +988,18 @@ h1{
     font-size: 25px;
   }
 }
+
 .single-product-name{
-  width: 70%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .product-price-wrapper{
   display: flex;
   justify-content: left;
   align-items: center;
 .product-price{
-  font-size: 37px;
+  font-size: 34px;
   font-weight: 400;
-  margin-right: 30px;
+  margin: 0 auto;
 }
 .product-discount{
   display: flex;
@@ -1038,10 +1039,13 @@ h1{
 }
 .product-colors-container{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 .product-color-wrapper{
-  margin: 0 8px;
+  margin: 8px;
   border: 1px solid $text-color;
   padding: 10px 20px;
   cursor: pointer;
@@ -1061,6 +1065,7 @@ h1{
 .quantity-add-wrapper{
   display: flex;
   align-items: center;
+  margin-top: 20px;
   a{
     text-decoration: none;
   }
@@ -1426,6 +1431,7 @@ h1{
     margin: 0 auto;
     top: 50%;
     visibility: hidden;
+    text-align: center;
   }
 }
 
