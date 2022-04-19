@@ -141,22 +141,12 @@ class Home extends React.Component {
               </li>
 
               <li>
-                {!isAuthenticated() &&
-                  <a href="/entering" onMouseEnter={() => {
-                    this.changeMainButton("Supplements");
-                  }}
-                  onMouseLeave={this.mainButtonBack}>
-                    <i className="fa-solid fa-jar"></i>
-                  </a>
-                }
-                {isAuthenticated() &&
-                  <a href="/products/supplements/all/all/all" onMouseEnter={() => {
-                    this.changeMainButton("Supplements");
-                  }}
-                  onMouseLeave={this.mainButtonBack}>
-                    <i className="fa-solid fa-jar"></i>
-                  </a>
-                }
+                <a href="/products/supplements/all/all/all" onMouseEnter={() => {
+                  this.changeMainButton("Supplements");
+                }}
+                onMouseLeave={this.mainButtonBack}>
+                  <i className="fa-solid fa-jar"></i>
+                </a>
               </li>
 
               <li>
@@ -197,7 +187,7 @@ class Home extends React.Component {
               </li>
 
               <li>
-                <a href="/products/accesories/all/all/all" onMouseEnter={() => {
+                <a href="/products/accessories/all/all/all" onMouseEnter={() => {
                   this.changeMainButton("Accessories")
                 }}
                 onMouseLeave={this.mainButtonBack}>
