@@ -35,7 +35,6 @@
     align-self: flex-start;
     position: absolute;
     cursor: pointer;
-    margin-top: -50px;
     img{
       width: 50px;
       height: 50px;
@@ -69,16 +68,16 @@
 
 .hover-products-menu{
   position: absolute;
-  top: 150px;
+  top: 0px;
   left: -5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: $main-background-color;
   color: $text-color;
   width: 100vw;
-  height: calc(100vh - 130px);
-  z-index:6;
+  height: 100vh;
+  z-index: 9;
   padding-top: 50px;
   a {
     color: $text-color;

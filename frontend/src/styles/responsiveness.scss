@@ -10,6 +10,12 @@
   .products-page{
   .products-banner{
     height: 250px;
+    .products-side-slogan{
+      transform: scale(0.35) rotate(-10deg);
+      transform-origin: left;
+      margin-top: -50px;
+      left: 5px;
+    }
     img {
       width: 140px;
       height: 70px;
@@ -93,7 +99,7 @@
         }
         .products-menu-close{
           right: 20px;
-          top: 75px;
+          top: 35px;
           img {
           width: 30px;
           height: 30px;
@@ -186,8 +192,13 @@
     text-align: center;
     width: 85vw!important;
   }
+  .authorization-section{
+    padding-top: 20px!important;
+  }
   .authorization-wrapper{
     font-size: 19px!important;
+    transform: rotate(-5deg) scale(0.85)!important;
+    font-weight: 400;
     .classic-btn{
       width: 160px;
       height: 40px;
@@ -358,18 +369,29 @@
     }
   }
   .score-window{
-    width: 100vw;
-    height: 50vh;
-    margin-bottom: 0px;
-    margin-left: -53vw;
-    bottom: 0%; 
+    align-items: flex-end;
+    .popup-logo{
+      top: 60px;
+      margin-left: -55px;
+      width: 110px;
+      height: 110px;
+    }
+    .header-btn-score{
+      padding: 12px;
+      margin-bottom: 30px;
+    }
     .classic-btn{
+      margin-top: 15px;
       font-size: 18px;
       width: 140px;
     }
     h2{
       font-size: 15px;
-      padding: 0 30px;
+      padding: 0px;
+      width: 100%;
+    }
+    img{
+      display: none;
     }
   }
   .discount-popup-img{
@@ -473,7 +495,7 @@
         flex-direction: column;
         nav {
           &:nth-of-type(1){
-            margin-top: 40px!important;
+            margin-top: 90px!important;
           }
           &:nth-of-type(2){
             margin-bottom: 90px!important;
@@ -500,6 +522,15 @@
       img {
         display: none;
       }
+    }
+  }
+  .discount-page{
+    .popup-logo{
+      top: 100px;
+    }
+    .header-btn-score{
+      margin-bottom: 80px;
+      width: 80%;
     }
   }
 }

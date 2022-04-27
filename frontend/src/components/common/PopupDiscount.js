@@ -228,6 +228,8 @@ class PopupDiscount extends React.Component {
 
         <div className="score-window">
 
+          <a href="/"><div className="popup-logo"></div></a>
+
           <div className="canvas score"></div>
 
           <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
@@ -252,6 +254,8 @@ class PopupDiscount extends React.Component {
 
         <div className="score-window">
 
+          <a href="/"><div className="popup-logo"></div></a>
+
           <div className="canvas score"></div>
 
           <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
@@ -269,7 +273,35 @@ class PopupDiscount extends React.Component {
 
 
         </div>
+
         }
+        
+
+        {this.state.discountZero &&   
+
+          <div className="score-window">
+
+            <a href="/"><div className="popup-logo"></div></a>
+
+            <div className="canvas score"></div>
+
+            <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
+
+            <div className="header-btn-score">
+
+              <h2>
+                Unfortunately, you did not slap any mad dictator, better luck next time.
+              </h2>
+
+              <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+
+            </div>
+
+
+          </div>
+        }
+
+        
       </div>
     )
   }
