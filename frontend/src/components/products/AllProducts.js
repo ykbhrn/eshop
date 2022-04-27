@@ -65,8 +65,16 @@ class AllProducts extends React.Component {
       <div className="products-page change-brightness ">
         
         <div className="products-banner">
-          <img id="van-moving" src="https://res.cloudinary.com/nuhippies/image/upload/v1646177431/Nu%20Hippies/Backgrounds/pngwing.com_1_ldwbgp.png" />
+          {/* <img id="van-moving" src="https://res.cloudinary.com/nuhippies/image/upload/v1646177431/Nu%20Hippies/Backgrounds/pngwing.com_1_ldwbgp.png" /> */}
           
+          <div className="products-side-slogan">
+
+            <h2>
+                Bring Hippies Back
+            </h2>
+
+          </div>
+
           <div className="products-category-wrapper">
 
             <Link className="products-category-item" to="/products/accessories/all/all/all">
@@ -80,11 +88,7 @@ class AllProducts extends React.Component {
             </Link>
 
           </div>
-          
-          {/* <video autoPlay loop muted>
-            <source src="https://res.cloudinary.com/nuhippies/video/upload/v1645995711/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_1_1_bwfufy.mp4" type="video/mp4" preload="metadata" />
-          </video> */}
-          {/* <div className="shadow"></div> */}
+
         </div>
 
         <div className="products-flower-wrapper">

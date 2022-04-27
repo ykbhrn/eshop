@@ -7,7 +7,7 @@ const Footer = () => (
     <img className="footer-border-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1646093394/Nu%20Hippies/Backgrounds/black_zszqlq.jpg" />
 
     <div className="footer-wrapper change-brightness">
-      <img className="footer-background" src="https://res.cloudinary.com/nuhippies/image/upload/v1646093394/Nu%20Hippies/Backgrounds/white_tyksen.jpg" />
+      <img className="footer-background" src="https://res.cloudinary.com/nuhippies/image/upload/v1650975032/Nu%20Hippies/Backgrounds/noise-512x512_xip6ex.jpg" />
 
       <div className="header">
         <a href="/" className="link-no-underline">

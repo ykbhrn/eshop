@@ -224,32 +224,51 @@ class PopupDiscount extends React.Component {
 
         }
         
-        {this.state.discountHighScore && 
+        {this.state.discountHighScore &&   
+
         <div className="score-window">
-          <h2>
-            <span>You Slapped Mad Dictator </span><span className="highlighted">{this.state.discountScore / 5} Times </span> 
+
+          <div className="canvas score"></div>
+
+          <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
+
+          <div className="header-btn-score">
+
+            <h2>
+              <span>You Slapped Mad Dictator </span><span className="highlighted">{this.state.discountScore / 5} Times </span> 
             Which Means We Are Going To Donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of Your Order Amount For Charity To Support Ukraine</span>
-          </h2>
-          <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+            </h2>
+
+            <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+
+          </div>
+
+
         </div>
         }
 
+
         {this.state.discountLowScore &&   
+
         <div className="score-window">
-          <h2>
+
+          <div className="canvas score"></div>
+
+          <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
+
+          <div className="header-btn-score">
+
+            <h2>
           You Slapped Mad Dictator <span className="highlighted">{this.state.discountScore / 5} Times</span><br />
           So Your Current Donation Of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% Remain Unchanged</span>
-          </h2>
-          <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
-        </div>
-        }
-        {this.state.discountZero &&
-          <div className="score-window">
-            <h2>
-              You didn&#39;t Slap Mad Dictator At All, Better Luck Next Time
             </h2>
+
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+
           </div>
+
+
+        </div>
         }
       </div>
     )

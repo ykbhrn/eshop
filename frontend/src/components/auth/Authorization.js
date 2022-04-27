@@ -35,18 +35,18 @@ class Authorization extends React.Component {
       <div className="auth-page">
         {!this.state.login && !this.state.register &&
           <div className="authorization-section">
-            <div className="authorization-wrapper">
-              Jump on our Peace Train
-              <button className="classic-btn" onClick={() => {
-                this.showRegisterOrLogin("register")
-              }}>Register</button>
+            <div className="authorization-wrapper" onClick={() => {
+              this.showRegisterOrLogin("register")
+            }}>
+              All we are saying is give us a chance
+              <button className="classic-btn">Register</button>
             </div>
 
-            <div className="authorization-wrapper">
-              Are You Already a Passenger?
-              <button className="classic-btn" onClick={() => {
-                this.showRegisterOrLogin("login")
-              }}>Login</button>
+            <div className="authorization-wrapper" onClick={() => {
+              this.showRegisterOrLogin("login")
+            }}>
+              Are you already member of our community?
+              <button className="classic-btn">Login</button>
             </div>
           </div>
         }

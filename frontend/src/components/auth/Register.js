@@ -100,7 +100,7 @@ class Register extends React.Component {
     return (
       <div className="register">
         {this.renderRedirect()}
-        <h1>All We Are Saying Is Give Us A Chance</h1>
+        <h1>Registration</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Username:</label>
           <div className="input-wrapper">
