@@ -14,6 +14,7 @@ class AllProducts extends React.Component {
 
   async componentDidMount() {
     try {
+      this.setState({ isLoading: true })
       const discount = localStorage.getItem('discount')
       window.scrollTo(0, 0)
       const res = await getAllProducts();

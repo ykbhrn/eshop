@@ -11,7 +11,8 @@ class PopupDiscount extends React.Component {
     discountZero: false,
     user: null,
     discountCounter: 0,
-    slapped: false
+    slapped: false,
+    isDemoAnimation: false
   }
 
   async componentDidMount () {
@@ -20,6 +21,11 @@ class PopupDiscount extends React.Component {
     if (isAuthenticated()) {
       const resTwo = await getMyProfile()
       this.setState({discountTime: res.data[0].time, user: resTwo.data})
+    }
+
+    if (this.props.showHand === true) {
+      this.showHand()
+      this.demoAnimationEnd()
     }
 
     setTimeout(() => {
@@ -108,6 +114,20 @@ class PopupDiscount extends React.Component {
       }
     
     }, 30000)
+  }
+
+  demoAnimationEnd = () => {
+    setTimeout(() => {
+      const discountPage = document.querySelector('.discount-page')
+      const discountPopup = document.querySelector('.discount-popup-wrapper')
+      const discountPageHeader = document.querySelector('.discount-page h1')
+
+      discountPopup.style.visibility = "hidden"
+      discountPageHeader.style.visibility = "hidden"
+      discountPopup.style.display = "none"
+      discountPage.classList.remove("show-discount")
+      this.setState({ isDemoAnimation: true })
+    }, 30000);
   }
 
   changeDiscountTime = async () => {
@@ -203,6 +223,7 @@ class PopupDiscount extends React.Component {
   render() {
     const discount = localStorage.getItem('discount')
 
+    console.log(this.state.discountScore)
     return (
       <div className="discount-page" onClick={this.slap}>
 
@@ -232,13 +253,13 @@ class PopupDiscount extends React.Component {
 
           <div className="canvas score"></div>
 
-          <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
+          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
 
           <div className="header-btn-score">
 
             <h2>
-              <span>You Slapped Mad Dictator </span><span className="highlighted">{this.state.discountScore / 5} Times </span> 
-            Which Means We Are Going To Donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of Your Order Amount For Charity To Support Ukraine</span>
+              <span>You slapped a mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s).</span> 
+            This means that we will donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of your order amount to charity to support Ukraine</span>
             </h2>
 
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
@@ -258,13 +279,13 @@ class PopupDiscount extends React.Component {
 
           <div className="canvas score"></div>
 
-          <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
+          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
 
           <div className="header-btn-score">
 
             <h2>
-          You Slapped Mad Dictator <span className="highlighted">{this.state.discountScore / 5} Times</span><br />
-          So Your Current Donation Of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% Remain Unchanged</span>
+          You slapped a mad dictator <span className="highlighted">{this.state.discountScore / 5} time(s).</span><br />
+          This means your current donation of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% remains unchanged</span>
             </h2>
 
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
@@ -285,7 +306,7 @@ class PopupDiscount extends React.Component {
 
             <div className="canvas score"></div>
 
-            <img src="https://1.bp.blogspot.com/-ynkgCF3SwTA/VVSWzLsXjSI/AAAAAAABggY/fooQWXxSn94/s640/1960s%2Bsign%2B(15).jpg" />
+            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
 
             <div className="header-btn-score">
 
@@ -299,6 +320,31 @@ class PopupDiscount extends React.Component {
 
 
           </div>
+        }
+
+        {this.state.isDemoAnimation &&   
+
+<div className="score-window">
+
+  <a href="/"><div className="popup-logo"></div></a>
+
+  <div className="canvas score"></div>
+
+  <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
+
+  <div className="header-btn-score">
+
+    <h2>
+      <span>You slapped mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s). </span> 
+      In the real try, it would mean that we would donate <span className="highlighted">{this.state.discountScore}% of your order amount to charity to support Ukraine</span>
+    </h2>
+
+    <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+
+  </div>
+
+
+</div>
         }
 
         

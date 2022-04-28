@@ -18,7 +18,7 @@ class About extends React.Component {
         <div className="form-wrapper">
           <h1>NU Hippies Movement</h1>
           <p>
-          We are Nu Hippies Movement and we believe that the world needs Hippie kind of spirit right now more than ever. 
+          We are Nu Hippies Movement, and we believe that the world needs a Hippie kind of spirit right now more than ever. 
               There are a lot of conflicts and environmental problems. Predictions for a future don’t look good.
               It’s a pretty pessimistic time right now as we don’t have solutions or maybe we do 
               but we don’t have a will to solve big environmental problems. Young people don’t have that idealistic way of thinking
@@ -30,8 +30,7 @@ class About extends React.Component {
               What do we mean by that?  Let&#39;s take communism as an example. It was based on Karl Marx&#39;s theory. It was an idealistic idea of how 
               society could work. 
               Communists who were trying to apply that idea to the real world were ignoring all the facts and just blindly followed an unrealistic ideal 
-              which led to the 
-              terrible, very ineffective, and unfair system, full of corruption with a lack of freedom and incompetent people in the leading roles. 
+              which led to a terrible, very ineffective, and unfair system, full of corruption with a lack of freedom and incompetent people in the leading roles. 
               Not forget to mention the mass killings and political prisoners of the communist regime. Communists were ignoring the mentality of the 
               individuals, the mentality of society as a whole and they were trying to force this unnatural system to work. It didn’t, obviously. 
               The moral of the story is? You should be realistic in applying big ideals. 
@@ -41,8 +40,7 @@ class About extends React.Component {
               The ideal scenario of applying idealism in the real world is that the majority of society adopts some big ideals and then step by step works 
               to move in that direction. Even if it never gets to the final step, it would still move our civilization to the next level. 
               Our <strong>goal</strong> is to promote a lot of Hippie ideals and bring back that 70’s kind of mood back. Our Society needs this optimism 
-              and faith in the bigger good, free spirit, and unity now more than ever. We believe that teenagers raised in that spirit will become better 
-              human beings, makes our society better, and lead civilization to the next level. In the next stage of the society where borders are just 
+              and faith in the bigger good, free spirit, and unity now more than ever. We believe that teenagers raised in that spirit will become adults who make our world a better place and lead civilization to the next level. In the next stage of the society where borders are just 
               symbolic, differences in culture, race, religion, and nationality are not a source of conflict but the reason for a celebration of our 
               beautiful diversity. The world will be one, resources are divided more equally in the world and the main target will be sustainability and 
               keeping our planet healthy, not the GDP growth of any country. Again, that kind of theory might sound utopic but we believe it could happen, 
@@ -54,7 +52,7 @@ class About extends React.Component {
               hide from them anymore if our world doesn’t act like one and we keep dividing ourselves and countries follow just their own interest, then 
               the world will inevitably
               collapse. <br />
-            <strong>So hop on our Peace Train and let&#39;s get that 70’s spirit back</strong></p>
+            <strong>So hop on our Peace Train and let&#39;s get that ’70s spirit back</strong></p>
         </div>
       </div>
     )

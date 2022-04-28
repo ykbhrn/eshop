@@ -724,14 +724,25 @@ button{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 70px;
+  text-align: center;
+  .donation-img-btn-wrapper{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    img, div{
+      margin: 30px;
+    }
+  }
   a{
     font-weight: 400;
     color: $text-color;
   }
   .donation-img{
-    width: 250px;
-    height: 250px;
-    margin-top: 20px;
+    width: 200px;
+    height: 200px;
   }
 }
 
@@ -1349,6 +1360,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
   .form-wrapper{
     width: 70vw;
     margin-top: 30px;
@@ -1509,7 +1521,7 @@ h1{
   width: 100vw;
   min-height: 100vh;
   z-index: 8;
-  cursor: url('./images/frames/1.gif'), auto;
+  cursor: url('./images/frames/1.gif') 37 37, auto;
 }
 
 .discount-popup-wrapper{

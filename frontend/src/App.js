@@ -179,7 +179,9 @@ class App extends React.Component {
           <BasketIcon
             basketLength={this.state.basketLength}
           />
-          <PopupDiscount />
+          {window.location.pathname !== "/donation" &&
+            <PopupDiscount />
+          }
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
