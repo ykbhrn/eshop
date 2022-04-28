@@ -818,6 +818,7 @@ button{
     transform: rotate(-10deg);
     padding: 20px;
     width: 250px;
+    text-align: center;
   }
   .products-flower-wrapper{
     display: flex;
@@ -1361,6 +1362,24 @@ h1{
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  .story-header{
+    border: solid $text-color;
+    border-color: $text-color;
+    left: 14px;
+    top: 100px;
+    border-width: 3px 3px 5px 5px;
+    border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+    padding: 13px;
+    width: 190px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    &:nth-of-type(3){
+      margin-top: 90px;
+    }
+  }
   .about-side-slogan{
     border: solid $text-color;
     border-color: $text-color;
@@ -1372,6 +1391,7 @@ h1{
     transform: rotate(-10deg);
     padding: 20px;
     width: 250px;
+    text-align: center;
   }
   .big-name-about{
     font-size: 150px;
