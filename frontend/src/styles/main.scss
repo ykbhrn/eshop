@@ -7,7 +7,12 @@
 
 html, body{
   height: 100%;
+  cursor: url('https://res.cloudinary.com/nuhippies/image/upload/v1651164355/Nu%20Hippies/icons/victory_1_vhbvys.png') 25 25, auto;
 }
+
+  a{
+    cursor: $pointer-cursor;
+  }
 
 body {
   font-family: $main-font;
@@ -32,6 +37,11 @@ body {
   opacity: 0.042;
   pointer-events: none;
   z-index: -1;
+}
+
+.cursor-gif{
+  display: none;
+  position: absolute;
 }
 
 input, textarea, select{
@@ -85,8 +95,7 @@ button{
   line-height: 45px;
   text-align: center;
   // border: 2px solid $second-color;
-  cursor: pointer;
-
+  cursor: $pointer-cursor;
   .loading-image{
     width: 44px;
     height: 44px;
@@ -226,7 +235,7 @@ button{
     margin-top: 10px;
   }
   .basket-remove{
-    cursor: pointer;
+    cursor: $pointer-cursor;
     color: $dark-color;
   }
   .basket-subtotal{
@@ -274,7 +283,7 @@ button{
     text-align: center;
     width: 15vw;
     padding: 10px 19px;
-    cursor: pointer;
+    cursor: $pointer-cursor;
   }
   .checkout-button:hover{
     transform: scale(1.03);
@@ -337,7 +346,7 @@ button{
   input{
     margin-right: 10px;
     margin-top: 5px;
-    cursor: pointer;
+    cursor: $pointer-cursor;
   }
 }
 .shipping-description{
@@ -439,7 +448,7 @@ h2{
     }
     .right, .left{
       padding: 9px 38px;
-      cursor: pointer;
+      cursor: $pointer-cursor;
       border-radius: 10px;
       font-weight: 300;
       font-size: 18px;
@@ -592,13 +601,13 @@ button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid black;
-  border-color: black;
+  border: solid $text-color;
+  border-color: $text-color;
   border-width: 3px 3px 5px 5px;
   border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
   transform: rotate(-5deg);
   padding: 15px;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   transition: 0.5s;
   text-align: center;
   &:hover{
@@ -673,7 +682,7 @@ button{
     margin-top: 10px;
     margin-left: 60px;
     color: $dark-color;
-    cursor: pointer;
+    cursor: $pointer-cursor;
   }
   a{
     text-decoration: none;
@@ -780,9 +789,16 @@ button{
   flex-direction: column;
   align-items: center;
   margin-top: -30px;
+  .products-loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -250px;
+    margin-top: -140px;
+  }
   .products-side-slogan{
-    border: solid black;
-    border-color: black;
+    border: solid $text-color;
+    border-color: $text-color;
     position: absolute;
     left: 14px;
     top: 0px;
@@ -796,6 +812,12 @@ button{
     display: flex;
     justify-content: center;
   }
+  .big-name-products{
+    font-size: 150px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 90vw;
+  }
   .products-banner{
     display: flex;
     justify-content: center;
@@ -804,10 +826,11 @@ button{
     width: 100vw;
     height: 375px;
     z-index: 1;
-    // background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://res.cloudinary.com/nuhippies/image/upload/v1650403870/Nu%20Hippies/Backgrounds/background_vum2vi.jpg');
+    // background-image: url('https://www.vitafoodsinsights.com/sites/vitafoodsinsights.com/files/07_18INS_WhySupplement_1540x800_v2-1_6.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: bottom;
+    background-attachment: fixed;
     position: relative;
     img {
       width: 130px;
@@ -826,9 +849,9 @@ button{
       align-items: center;
       margin: 0 40px;
       z-index: 3;
-      cursor: pointer;
-      border: solid black;
-      border-color: black;
+      cursor: $pointer-cursor;
+      border: solid $text-color;
+      border-color: $text-color;
       border-width: 3px 3px 5px 5px;
       border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
       transform: rotate(-5deg);
@@ -940,7 +963,7 @@ button{
   margin: 40px auto 20px auto;
   width: 110px;
   text-align:  center;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   font-weight: 400;
 }
 
@@ -1017,7 +1040,7 @@ h1{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   border: 1px solid $dark-color;  
   margin-bottom: 5px;
   filter: brightness(0.6);
@@ -1069,7 +1092,7 @@ h1{
 .product-size-wrapper{
   border: 1px solid $text-color;
   padding: 5px 20px;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   margin: 0 8px;
 }
 .product-size{
@@ -1094,7 +1117,7 @@ h1{
   margin: 8px;
   border: 1px solid $text-color;
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: $pointer-cursor;
 }
 .chosen-color{
   background: $third-color;
@@ -1106,7 +1129,7 @@ h1{
   overflow: hidden;
 }
 .sign{
-  cursor: pointer;
+  cursor: $pointer-cursor;
 }
 .quantity-add-wrapper{
   display: flex;
@@ -1122,7 +1145,7 @@ h1{
   select{
     font-size: 15px;
     padding: 5px;
-    cursor: pointer;
+    cursor: $pointer-cursor;
   }
   select:focus{
     outline: none;
@@ -1142,7 +1165,7 @@ h1{
     padding: 5px 15px;
     border: 1px solid $dark-color;
     margin: 0 10px;
-    cursor: pointer;
+    cursor: $pointer-cursor;
   }
 }
 .product-description{
@@ -1202,7 +1225,7 @@ h1{
     border: 2px solid $second-color;
     border-radius: 10px;
     color: $second-color;
-    cursor: pointer;
+    cursor: $pointer-cursor;
     margin: 30px;
     text-align: center;
     display: flex;
@@ -1255,7 +1278,7 @@ h1{
     border-radius: 10px;
     font-size: 18px;
     font-weight: 300;
-    cursor: pointer;
+    cursor: $pointer-cursor;
     transition: 0.8s;
     .profile-icon-text{
       margin-bottom: 20px;
@@ -1281,7 +1304,7 @@ h1{
   }
 }
 .logout-wrapper{
-  cursor: pointer;
+  cursor: $pointer-cursor;
   width: 64px;
   height: 64px;
   font-size: 45px;
@@ -1299,7 +1322,7 @@ h1{
   color: $dark-color;
   margin-left: 20px;
   .auth{
-    cursor: pointer;
+    cursor: $pointer-cursor;
     color: $dark-color;
   }
   .auth:hover{
@@ -1429,7 +1452,7 @@ h1{
     z-index: 3;
     line-height: 45px;
     text-align: center;
-    cursor: pointer;
+    cursor: $pointer-cursor;
     align-self: center;
     margin-top: 15px;
   }
@@ -1568,8 +1591,8 @@ h1{
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
-    border: solid black;
-    border-color: black;
+    border: solid $text-color;
+    border-color: $text-color;
     border-width: 3px 3px 5px 5px;
     border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
     transform: rotate(-2deg);
@@ -1808,7 +1831,7 @@ h1{
   .footer-menu-wrapper li{
     list-style-type: none;
     line-height: 25px;
-    cursor: pointer;
+    cursor: $pointer-cursor;
   }
   .footer-menu-wrapper li:hover{
     transform: scale(1.05);
@@ -1820,7 +1843,7 @@ h1{
     .fab{
       margin: 5px 20px;
       font-size: 25px;
-      cursor: pointer;
+      cursor: $pointer-cursor;
     }
     .fab:hover{
       color: $third-color;

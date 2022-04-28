@@ -45,7 +45,7 @@ a.ctrl, .ctrl div {
 	color: $dark-color;
 	text-align: center;
 	text-decoration: none;
-  cursor: pointer;
+  cursor: $pointer-cursor;
 }
 .ctrl div:hover{
   color: $third-color;

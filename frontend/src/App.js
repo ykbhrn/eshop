@@ -29,6 +29,25 @@ import PopupDiscount from './components/common/PopupDiscount'
 import Donation from './components/common/Donation'
 import Done from './components/common/Done'
 
+// var pointerX = -1;
+// var pointerY = -1;
+// document.onclick = function(event) {
+//   const cursorGif = document.querySelector(".cursor-gif")
+
+//   pointerX = event.pageX - 150;
+//   pointerY = event.pageY - 85;
+  
+//   cursorGif.style.left = pointerX + 'px'
+//   cursorGif.style.top = pointerY + 'px'
+
+//   cursorGif.style.display = "block"
+
+//   setTimeout(() => {
+//     cursorGif.style.display = "none"
+//   }, 1000);
+
+// }
+
 window.onscroll = function () { 
   const logo = document.querySelector(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
@@ -156,6 +175,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="whole-page">
+          {/* <img className="cursor-gif" src="" /> */}
           <BasketIcon
             basketLength={this.state.basketLength}
           />
