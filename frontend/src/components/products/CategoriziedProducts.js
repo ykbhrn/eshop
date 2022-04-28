@@ -74,17 +74,13 @@ class CategoriziedProducts extends React.Component {
             </div>
 
             <div className="products-side-slogan">
-
               <h2>
               Bring Hippies Back
               </h2>
-
             </div>
 
-            {/* <video autoPlay loop muted>
-            <source src="https://res.cloudinary.com/nuhippies/video/upload/v1645995711/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_1_1_bwfufy.mp4" type="video/mp4" preload="metadata" />
-          </video> */}
-            {/* <div className="shadow"></div> */}
+            <img src={`${subcategory === "supplements" ? "https://res.cloudinary.com/nuhippies/image/upload/v1651188458/Nu%20Hippies/icons/vitamins-26622_1280_cfesp6.png" : "https://res.cloudinary.com/nuhippies/image/upload/v1651188323/Nu%20Hippies/icons/pngtree-pop-style-character-accessories-bag-retro-straw-bag-accessories-png-image_374950-removebg-preview_jk2srn.png"}`} />
+
           </div>
 
           <div className="cat-nav">

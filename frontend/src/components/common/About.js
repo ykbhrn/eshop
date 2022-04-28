@@ -15,8 +15,25 @@ class About extends React.Component {
   render() {
     return (
       <div className="about-page change-brightness">
+          
         <div className="form-wrapper">
-          <h1>NU Hippies Movement</h1>
+
+          <div className="about-banner">
+
+            <div className="big-name-about">
+              NU HIPPIES MOVEMENT
+            </div>
+
+            <div className="about-side-slogan">
+
+              <h2>
+                Bring Hippies Back
+              </h2>
+
+            </div>
+
+          </div>
+
           <p>
           We are Nu Hippies Movement, and we believe that the world needs a Hippie kind of spirit right now more than ever. 
               There are a lot of conflicts and environmental problems. Predictions for a future don’t look good.
