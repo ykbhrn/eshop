@@ -50,10 +50,10 @@ class SingleProduct extends React.Component {
   settingQuantity = (formData) => {
     if (this.state.product.quantities.length > 1) {
       const totalQuantityArray = [];
-      const newArray = this.state.product.quantities.find(item => {
-        return (item[0] == formData.color || formData.color === "default") && item[1] == formData.size
+      const newArray = this.state.product.quantities.filter(item => {
+        return (item[0] == formData.color || formData.color === "default") && (item[1] === formData.size || formData.size === "default")
       })
-      for (let i = 1; i <= newArray[2]; i++) {
+      for (let i = 1; i <= newArray[0][2]; i++) {
         totalQuantityArray.push(i);
       }
       this.setState({totalQuantity: totalQuantityArray})
@@ -75,9 +75,7 @@ class SingleProduct extends React.Component {
     this.setState({ isLoading: true });
     try {
       const productId = this.props.match.params.id
-      console.log(productId, this.state.formData)
       const res = await addToBasket(productId, this.state.formData)
-      console.log(res.data)
       this.hideOverflow()
       this.setState({ addedToBasket: true, isLoading: false })
       this.props.basket()
@@ -128,7 +126,6 @@ class SingleProduct extends React.Component {
   choosingColor = (chosenColor) => {
     this.state.product.images.map(image => {
       if (image.color == chosenColor) {
-        console.log(image)
         const formData = { ...this.state.formData, color: chosenColor };
         this.setState({ formData, chosenColor: chosenColor, imagesArray: image.images, bigImage: image.images[0] });
         this.settingQuantity(formData)
@@ -155,8 +152,8 @@ class SingleProduct extends React.Component {
 
   render() {
     const { product } = this.state
+    console.log(this.state.product)
     if (!product) return null
-    console.log(this.state.totalQuantity)
     return (
       <div className="single-product-section change-brightness">
         <div className="single-product-wrapper">

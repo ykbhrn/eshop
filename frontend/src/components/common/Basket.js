@@ -50,12 +50,11 @@ class Basket extends React.Component {
     const totalQuantityArray = [];
 
     if ( item.quantities.length > 0 ) {
-      const newArray = item.quantities.find(item => {
-        return (item[0] == color || color === "default") && item[1] == size
+      const newArray = item.quantities.filter(item => {
+        return (item[0] == color || color === "default") && (item[1] == size || size === "default")
       })
 
-      console.log(newArray)
-      for (let i = 1; i <= newArray[2]; i++) {
+      for (let i = 1; i <= newArray[0][2]; i++) {
         totalQuantityArray.push(i);
       }
     } else {

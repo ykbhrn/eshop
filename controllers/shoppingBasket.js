@@ -40,10 +40,10 @@ async function addToBasket (req, res) {
 
     if (product.quantities.length > 0) {
 
-      const newArray = product.quantities.find(item => {
-        return (item[0] == req.body.color || req.body.color === 'default') && item[1] == req.body.size
+      const newArray = product.quantities.filter(item => {
+        return (item[0] == req.body.color || req.body.color === 'default') && (item[1] == req.body.size || req.body.size == 'default')
       })
-      totalQuantity = newArray[2]
+      totalQuantity = newArray[0][2]
     } else {
       totalQuantity = product.quantity
     }

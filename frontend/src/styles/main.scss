@@ -278,8 +278,7 @@ button{
     font-size: 20px;
     font-weight: 300;
     color: $second-color; 
-    border-radius: 10px;
-    border: 2px solid $second-color;
+    border-radius: 20px;
     text-align: center;
     width: 15vw;
     padding: 10px 19px;
@@ -449,12 +448,11 @@ h2{
     .right, .left{
       padding: 9px 38px;
       cursor: $pointer-cursor;
-      border-radius: 10px;
+      border-radius: 20px;
       font-weight: 300;
       font-size: 18px;
     }
     .right{
-      border: 2px solid $second-color;
       color: $second-color;
       background: $dark-color;
       margin-left: 20px;
@@ -1234,8 +1232,7 @@ h1{
     font-size: 20px;
     font-weight: 300;
     background: $dark-color;
-    border: 2px solid $second-color;
-    border-radius: 10px;
+    border-radius: 20px;
     color: $second-color;
     cursor: $pointer-cursor;
     margin: 30px;
