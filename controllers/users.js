@@ -20,7 +20,7 @@ async function userProfile(req, res, next) {
 }
 
 async function otherUsersProfile(req, res, next) {
-  const userId = req.params._id
+  const userId = req.params.id
   try {
     const user = await User.findById(userId).populate('userProducts')
     if (!user) throw new Error({ message: 'Not Found' })

@@ -327,7 +327,7 @@ class SingleProduct extends React.Component {
             <div className="basket-added-buttons">
               <div className="basket-added-btn" onClick={this.continueShopping}>Continue Shopping</div>
               <Link to="/basket">
-                <div className="basket-added-btn">Proceed to chekout</div>
+                <div className="basket-added-btn">Proceed to Checkout</div>
               </Link>
             </div>
           </div>

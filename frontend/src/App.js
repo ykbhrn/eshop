@@ -64,8 +64,6 @@ window.onscroll = function () {
     logo.classList.add("logo-scroll")
     logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     basketIcon.classList.add("basket-icon-scroll")
-    // navbarBottom.style.boxShadow = " inset 4px 3px 140px 85px #ffd700"
-    // navbarBottomSecond.style.background = "#ffd700"
     productsNavbarIcon.classList.add("products-navbar-icon-scroll")
     basketNumber.classList.add("basket-number-scroll")
     if (shadow) {
@@ -76,8 +74,6 @@ window.onscroll = function () {
     logo.classList.remove("logo-scroll")
     logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/FullLogo_Transparent_e1l1fn.png)"
     basketIcon.classList.remove("basket-icon-scroll")
-    // navbarBottom.style.boxShadow = "none"
-    // navbarBottomSecond.style.background = "none"
     productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
     basketNumber.classList.remove("basket-number-scroll")
     if (shadow) {
@@ -145,8 +141,20 @@ class App extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+      const phoneMenuSlice = document.querySelector(".slice:nth-child(2)")
+
+      const ua = window.navigator.userAgent;
+      const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+      const isPhone = window.matchMedia("(pointer: coarse)").matches
+
+      if (isPhone && iOS) {
+        phoneMenuSlice.style.overflow = "auto"
+      }
+
       this.setState({showFooter: true})
+
       const res = await getMyProfile()
+
       let basketSize = 0
       res.data.basket.map(item => {
         basketSize = basketSize + Number(item.chosenQuantity)

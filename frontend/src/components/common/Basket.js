@@ -147,7 +147,7 @@ class Basket extends React.Component {
              <div>Your Donation: {user.discount}% (£{user.discountAmount / 100})</div>
            </div>
            <Link to="/checkout">
-             <div className="checkout-button">Proceed to Chekout</div>
+             <div className="checkout-button">Proceed to Checkout</div>
            </Link>
          </div>
         }

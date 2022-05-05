@@ -103,7 +103,7 @@ a.ctrl, .ctrl div {
 }
 
 .slice:nth-child(1) { transform: rotate(-45deg) skewY(60deg); }
-.slice:nth-child(2) { transform: rotate(-15deg) skewY(60deg); }
+.slice:nth-child(2) { transform: rotate(-15deg) skewY(60deg);}
 .slice:nth-child(3) { transform: rotate(15deg) skewY(60deg); }
 .slice:nth-child(4) { transform: rotate(45deg) skewY(60deg); }
 .slice:nth-child(5) { transform: rotate(75deg) skewY(60deg); }
@@ -134,14 +134,14 @@ a.ctrl, .ctrl div {
 		/* make sure inner part is transparent */
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
 					rgba(255,255,255,.3) 0%, $second-color 50%);
-    background-size: 17% 17%, 17% 17%, cover;
+    background-size: 16% 16%, 16% 16%, cover;
 	line-height: 1.7;
 }
 
 // /* arrow for middle link */
 .slice:nth-child(3) div:after {
 	position: absolute;
-	top: 15.1%; left: 50%;
+	top: 15%; left: 50%;
 	margin: -.25em;
 	width: .5em; height: .5em;
 	transform: rotate(45deg);

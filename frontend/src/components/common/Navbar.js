@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 import { getMyProfile } from '../../lib/api'
 
-
 class Navbar extends React.Component {
   state = {
     some: null,
@@ -57,7 +56,14 @@ class Navbar extends React.Component {
   }
 
   hoverDonation = () => {
+    const isPhone = window.matchMedia("(pointer: coarse)").matches
+
     this.setState( {isHoveringDonation: true})
+
+    if (isPhone) {
+      this.setState({isHoveringDonation: false})
+    }
+
   }
 
   leaveDonation = () => {
@@ -227,7 +233,7 @@ class Navbar extends React.Component {
               }
             </Link>
             <ul id="main-menu-ul" className='tip ctrl'>
-
+              
               <li className='slice'>
                 <Link to="/products/accessories/all/all/all">
                   <div onMouseEnter={() => {
