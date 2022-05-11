@@ -49,7 +49,7 @@ class EditAdress extends React.Component {
 
       seo({
         title: "Edit adress | Nu Hippies",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        metaDescription: "Edit your shipping and billing adress"
       });
 
       const res = await getMyProfile()

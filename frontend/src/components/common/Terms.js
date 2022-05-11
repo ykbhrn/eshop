@@ -1,5 +1,5 @@
 import React from 'react'
-import {seo} from '../../lib/functions'
+import {seo, mainMetaDescription} from '../../lib/functions'
 
 class Terms extends React.Component {
   state = {
@@ -11,7 +11,7 @@ class Terms extends React.Component {
 
       seo({
         title: "Terms and Conditions",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        metaDescription: {mainMetaDescription}
       });
 
     } catch (err) {

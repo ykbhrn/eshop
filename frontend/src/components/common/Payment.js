@@ -1,7 +1,7 @@
 import React from 'react';
 import { getMyProfile, completeOrder, createOrder, createInvoice } from '../../lib/api';
 import { Link } from 'react-router-dom';
-import {seo} from '../../lib/functions'
+import {seo, mainMetaDescription} from '../../lib/functions'
 
 class Payment extends React.Component {
   state = {
@@ -17,8 +17,8 @@ class Payment extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Payment Options",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "Payment Options | Nu Hippies",
+        metaDescription: {mainMetaDescription}
       });
 
       const res = await getMyProfile();

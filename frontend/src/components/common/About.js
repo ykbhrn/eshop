@@ -1,5 +1,5 @@
 import React from 'react'
-import {seo} from '../../lib/functions'
+import {seo, mainMetaDescription} from '../../lib/functions'
 
 class About extends React.Component {
   state = {
@@ -10,8 +10,8 @@ class About extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "About Nu Hippies?",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "About Nu Hippies",
+        metaDescription: {mainMetaDescription}
       });
 
     } catch (err) {

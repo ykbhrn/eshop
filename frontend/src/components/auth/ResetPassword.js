@@ -20,8 +20,8 @@ class ResetPassword extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Reset password",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "Reset password | Nu Hippies",
+        metaDescription: "Choose your new password"
       });
 
     } catch (err) {

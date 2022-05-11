@@ -1,6 +1,7 @@
 import React from 'react'
 import { getAllDiscounts, addDiscount, getMyProfile } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
+import {seo} from '../../lib/functions'
 
 class PopupDiscount extends React.Component {
   state = {
@@ -140,6 +141,11 @@ class PopupDiscount extends React.Component {
   }
 
   showHand = () => {
+    seo({
+      title: "GET READY, HERE IT IS!!",
+      metaDescription: "Slap Putin and we donate"
+    });
+
     const discountPage = document.querySelector('.discount-page')
     const discountPageHeader = document.querySelector('.discount-page h1')
     const discountPopup = document.querySelector('.discount-popup-wrapper')
@@ -253,7 +259,7 @@ class PopupDiscount extends React.Component {
 
           <div className="canvas score"></div>
 
-          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
+          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
 
           <div className="header-btn-score">
 
@@ -279,7 +285,7 @@ class PopupDiscount extends React.Component {
 
           <div className="canvas score"></div>
 
-          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
+          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
 
           <div className="header-btn-score">
 
@@ -306,7 +312,7 @@ class PopupDiscount extends React.Component {
 
             <div className="canvas score"></div>
 
-            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
+            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
 
             <div className="header-btn-score">
 
@@ -322,31 +328,31 @@ class PopupDiscount extends React.Component {
           </div>
         }
 
-        {this.state.isDemoAnimation &&   
+        {/* {this.state.isDemoAnimation &&    */}
 
-<div className="score-window">
+        <div className="score-window">
 
-  <a href="/"><div className="popup-logo"></div></a>
+          <a href="/"><div className="popup-logo"></div></a>
 
-  <div className="canvas score"></div>
+          <div className="canvas score"></div>
 
-  <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
+          <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
+          {/* <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" /> */}
 
-  <div className="header-btn-score">
+          <div className="header-btn-score">
 
-    <h2>
-      <span>You slapped mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s). </span> 
+            <h2>
+              <span>You slapped mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s). </span> 
       In the real try, it would mean that we would donate <span className="highlighted">{this.state.discountScore}% of your order amount to charity to support Ukraine</span>
-    </h2>
+            </h2>
 
-    <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
+            <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
 
-  </div>
+          </div>
 
 
-</div>
-        }
-
+        </div>
+        {/* } */}
         
       </div>
     )

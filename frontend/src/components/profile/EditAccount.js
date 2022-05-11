@@ -30,7 +30,7 @@ class EditAccount extends React.Component {
 
       seo({
         title: "Edit account | Nu Hippies",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        metaDescription: "Edit your account informations"
       });
 
       const res = await getMyProfile()

@@ -19,8 +19,8 @@ class ForgotPassword extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Forgot your password?",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "Forgot your password? | Nu Hippies",
+        metaDescription: "Type the email you used at registration, and we will send you a link to reset your password."
       });
 
     } catch (err) {

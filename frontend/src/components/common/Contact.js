@@ -25,8 +25,8 @@ class Contact extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Send us a message",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "Contact | Nu Hippies",
+        metaDescription: "Send us a message, if you have a question regarding our mission, future plans or our products"
       });
 
     } catch (err) {

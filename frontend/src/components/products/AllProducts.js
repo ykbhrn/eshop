@@ -19,7 +19,7 @@ class AllProducts extends React.Component {
       
       seo({
         title: "All products | Nu Hippies",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        metaDescription: "Fairtrade, eco-friendly accessories from small family businesses, and natural nutritional supplements of top quality."
       });
 
       const discount = localStorage.getItem('discount')

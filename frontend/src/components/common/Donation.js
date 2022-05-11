@@ -1,6 +1,7 @@
 import React from 'react'
 import { getMyProfile } from '../../lib/api'
 import PopupDiscount from './PopupDiscount'
+import {seo} from '../../lib/functions'
 
 class Donation extends React.Component {
   state = {
@@ -11,6 +12,12 @@ class Donation extends React.Component {
   async componentDidMount () {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Slap Putin and we will donate to Ukraine | Nu Hippies",
+        metaDescription: "We gave peace a chance but there are people who deserve a slap. For every slap of Putin, we donate 5% of your order to Ukraine"
+      });
+
       const res = await getMyProfile()
       this.setState({donation: res.data.discount})
     } catch (err) {
@@ -30,9 +37,11 @@ class Donation extends React.Component {
           showHand={true}
         />
         }
-        <div className="about-page change-brightness">
+        <div className="donation-page change-brightness">
 
-          <div className="form-wrapper donation">
+          <img className="donation-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
+
+          <div className="donation">
             <h1>Slap &#38; Donate</h1>
             <p>
               <p><strong>We gave peace a chance but there are people who deserve a slap.</strong></p>
@@ -42,15 +51,11 @@ class Donation extends React.Component {
               {/* <p>So happy slapsgiving</p> */}
             </p>
             <p>
-            You are currently on {this.state.donation}% level
+            You are currently on <strong>{this.state.donation}% level</strong>
             </p>
 
-            <div className="donation-img-btn-wrapper">
-              <img className="donation-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073587/Nu%20Hippies/icons/jw1v76uccdl81_lxralr.png" />
-
-              <div className="classic-btn" onClick={this.popupDemo} title="Slap a Putin's face">
+            <div className="classic-btn" onClick={this.popupDemo} title="Slap a Putin's face">
               Try Demo
-              </div>
             </div>
 
           </div>

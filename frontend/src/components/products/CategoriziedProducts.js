@@ -19,13 +19,13 @@ class CategoriziedProducts extends React.Component {
 
       if (this.props.match.params.subcategory === "supplements") {
         seo({
-          title: "Top quality, natural supplements",
-          metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+          title: "Top quality, natural supplements | Nu Hippies",
+          metaDescription: "Natural nutritional supplements of top quality to improve your energy, focus, digestion, and overall health"
         });
       } else if (this.props.match.params.subcategory === "accessories") {
         seo({
-          title: "Fair trade, eco-friendly accessories",
-          metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+          title: "Fairtrade, eco-friendly accessories | Nu Hippies",
+          metaDescription: "Fairtrade and eco-friendly accessories from small family businesses"
         });
       }
 

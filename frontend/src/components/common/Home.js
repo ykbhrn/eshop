@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
-import {seo} from '../../lib/functions'
+import {seo, mainMetaDescription} from '../../lib/functions'
 
 class Home extends React.Component {
   state = {
@@ -15,8 +15,8 @@ class Home extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Nu Hippies",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "Nu Hippies Movement",
+        metaDescription: {mainMetaDescription}
       });
 
       const close = document.querySelector('.close')

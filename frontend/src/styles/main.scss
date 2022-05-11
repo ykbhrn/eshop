@@ -122,7 +122,7 @@ button{
     flex-direction: column;
     align-items: center;
     height: 100vh;
-  .home-menu {
+      .home-menu {
     font-family: 'Gluten', cursive;
     position: absolute;
     height: 300px;
@@ -716,30 +716,37 @@ button{
 }
 
 //Donation Page 
-
+.donation-page{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.donation-img{
+  height: 450px;
+}
 .donation{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 70px;
   text-align: center;
-  .donation-img-btn-wrapper{
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    img, div{
-      margin: 30px;
-    }
-  }
+  justify-content: space-between;
+  width: 60vw;
   a{
     font-weight: 400;
     color: $text-color;
   }
-  .donation-img{
-    width: 200px;
-    height: 200px;
+  h1{
+    margin-bottom: 24px;
+    font-size: 40px;
+  }
+  p{
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .classic-btn{
+    margin-top: 30px;
   }
 }
 
@@ -1618,6 +1625,7 @@ h1{
   bottom: 0px;
   background: $main-background-color;
   display: flex;
+  flex-wrap: wrap;
   z-index: 9;
   align-items: center;
   justify-content: space-between;
@@ -1656,7 +1664,10 @@ h1{
     pointer-events: none;
   }
   img {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 280px);
+    filter: brightness(0.9);
+    border-radius: 50%;
+    margin-left: 40px;
   }
   h2{
     font-weight: 400;

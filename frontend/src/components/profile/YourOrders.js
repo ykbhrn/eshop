@@ -29,8 +29,8 @@ class YourOrders extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Orders | Nu Hippies",
-        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        title: "Edit adress | Nu Hippies",
+        metaDescription: "See all your orders history"
       });
 
       const res = await getMyProfile()

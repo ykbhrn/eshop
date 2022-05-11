@@ -520,6 +520,24 @@
     transform: scale(0.4);
     transform-origin: top;
   }
+  .donation-page{
+    flex-direction: column;
+    h1{
+      font-size: 33px;
+    }
+    .donation{
+      order: 1;
+      width: 90vw;
+    }
+    p{
+      font-size: 18px;
+    }
+    .donation-img{
+      order: 2;
+      margin-bottom: 30px;
+      height: 400px;
+    }
+  }
   .donation-icon{
     left: 5px;
     width: 40px;
