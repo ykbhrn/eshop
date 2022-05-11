@@ -328,7 +328,7 @@ class PopupDiscount extends React.Component {
           </div>
         }
 
-        {/* {this.state.isDemoAnimation &&    */}
+        {this.state.isDemoAnimation &&   
 
         <div className="score-window">
 
@@ -352,8 +352,7 @@ class PopupDiscount extends React.Component {
 
 
         </div>
-        {/* } */}
-        
+        }        
       </div>
     )
   }
