@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import { forgotPassword } from '../../lib/api'
+import {seo} from '../../lib/functions'
 
 class ForgotPassword extends React.Component {
   state = {
@@ -16,6 +17,12 @@ class ForgotPassword extends React.Component {
   async componentDidMount () {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Forgot your password?",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
     } catch (err) {
       console.log(err)
     }

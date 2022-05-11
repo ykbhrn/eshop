@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMyProfile, pendingOrder } from '../../lib/api';
 import { Link } from 'react-router-dom';
+import {seo} from '../../lib/functions'
 
 class Checkout extends React.Component {
   state = {
@@ -47,6 +48,12 @@ class Checkout extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Checkout",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
       const res = await getMyProfile()
       let basketSize = 0
       res.data.basket.map(item => {
@@ -417,7 +424,7 @@ class Checkout extends React.Component {
             <div>Your Donation: {user.discount}% (£{user.discountAmount / 100})</div>
           </div>
           <div className="checkout-buttons">
-            <Link to="/basket">
+            <Link to="/basket" title="Shopping Basket">
               <div className="left">Back</div>
             </Link>
 
@@ -427,7 +434,7 @@ class Checkout extends React.Component {
                 </div>
             }
             {!isLoading &&
-             <div className="right" onClick={this.makeOrder}>Continue</div> 
+             <div className="right" onClick={this.makeOrder} title="Shipping">Continue</div> 
             }
             
           </div>

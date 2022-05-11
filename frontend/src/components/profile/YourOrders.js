@@ -2,6 +2,7 @@ import React from 'react';
 import { logout } from '../../lib/auth';
 import { getMyProfile, updateUserAccount } from '../../lib/api';
 import { Link } from 'react-router-dom';
+import {seo} from '../../lib/functions'
 
 class YourOrders extends React.Component {
   state = {
@@ -26,6 +27,12 @@ class YourOrders extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Orders | Nu Hippies",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
       const res = await getMyProfile()
       const formData = { ...this.state.formData, email: res.data.email, name: res.data.name, phone: res.data.phone }
       this.setState({ user: res.data, formData })

@@ -153,7 +153,7 @@ class Register extends React.Component {
                 </div>
           }
           {!isLoading &&
-            <button type="submit" className="classic-btn">Register</button>  
+            <button type="submit" className="classic-btn" title="Give Us a Chance">Register</button>  
           }
         </form>
       </div>

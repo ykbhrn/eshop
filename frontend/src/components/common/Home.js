@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
+import {seo} from '../../lib/functions'
 
 class Home extends React.Component {
   state = {
@@ -12,6 +13,11 @@ class Home extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Nu Hippies",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
 
       const close = document.querySelector('.close')
       const leftBanner = document.querySelector('.home-left-banner')
@@ -103,7 +109,7 @@ class Home extends React.Component {
           '}
           </style>
 
-          <div className="home-title-wrapper"><div className="home-title">Nu Hippies Movement</div>
+          <div className="home-title-wrapper"><h1 className="home-title">Nu Hippies Movement</h1>
             <div className="header">
               <ul className="dynamic-txts">
                 <li><span>bring</span></li>
@@ -115,9 +121,9 @@ class Home extends React.Component {
 
           <div className="home-left-banner">
 
-            <img id="left-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
+            <img alt="hippies dancing" id="left-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
 
-            <img id="left-video-two" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073699/Nu%20Hippies/Backgrounds/img529-1_fotg6l.jpg" />
+            <img alt="hippies in the nature" id="left-video-two" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073699/Nu%20Hippies/Backgrounds/img529-1_fotg6l.jpg" />
 
             {/* <video id="left-video" autoPlay loop muted>
               <source id="left-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />
@@ -211,9 +217,9 @@ class Home extends React.Component {
 
           <div className="home-right-banner">
 
-            <img id="right-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
+            <img alt="hippies dancing" id="right-video" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073667/Nu%20Hippies/Backgrounds/hippies-710_zx1kuc.jpg" />
 
-            <img id="right-video-two" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073699/Nu%20Hippies/Backgrounds/img529-1_fotg6l.jpg" />
+            <img alt="hippies in the nature" id="right-video-two" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073699/Nu%20Hippies/Backgrounds/img529-1_fotg6l.jpg" />
 
             {/* <video id="right-video" autoPlay loop muted preload="metadata">
               <source id="right-video-source" src='https://res.cloudinary.com/nuhippies/video/upload/v1646181002/Nu%20Hippies/Backgrounds/mainvideo_xlkzq4.mp4' type="video/mp4" />

@@ -48,7 +48,7 @@ class Donation extends React.Component {
             <div className="donation-img-btn-wrapper">
               <img className="donation-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1650073587/Nu%20Hippies/icons/jw1v76uccdl81_lxralr.png" />
 
-              <div className="classic-btn" onClick={this.popupDemo}>
+              <div className="classic-btn" onClick={this.popupDemo} title="Slap a Putin's face">
               Try Demo
               </div>
             </div>

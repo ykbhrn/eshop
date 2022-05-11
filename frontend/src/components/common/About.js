@@ -1,4 +1,5 @@
 import React from 'react'
+import {seo} from '../../lib/functions'
 
 class About extends React.Component {
   state = {
@@ -7,6 +8,12 @@ class About extends React.Component {
   async componentDidMount () {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "About Nu Hippies?",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
     } catch (err) {
       console.log(err)
     }
@@ -20,9 +27,9 @@ class About extends React.Component {
 
           <div className="about-banner">
 
-            <div className="big-name-about">
+            <h1 className="big-name-about">
               NU HIPPIES MOVEMENT
-            </div>
+            </h1>
 
             <div className="about-side-slogan">
 

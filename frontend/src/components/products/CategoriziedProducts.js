@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../../lib/api'
+import {seo} from '../../lib/functions'
 
 class CategoriziedProducts extends React.Component {
   state = {
@@ -15,6 +16,19 @@ class CategoriziedProducts extends React.Component {
   async componentDidMount() {
     try {
       this.setState({ isLoading: true })
+
+      if (this.props.match.params.subcategory === "supplements") {
+        seo({
+          title: "Top quality, natural supplements",
+          metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        });
+      } else if (this.props.match.params.subcategory === "accessories") {
+        seo({
+          title: "Fair trade, eco-friendly accessories",
+          metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+        });
+      }
+
       window.scrollTo(0, 0)
       const res = await getAllProducts();
       this.setState({ products: res.data.reverse(), isLoading: false });
@@ -69,9 +83,9 @@ class CategoriziedProducts extends React.Component {
         <>
           <div className="products-banner">
 
-            <div className="big-name-products">
+            <h1 className="big-name-products">
             NU HIPPIES MOVEMENT
-            </div>
+            </h1>
 
             <div className="products-side-slogan">
               <h2>
@@ -85,28 +99,28 @@ class CategoriziedProducts extends React.Component {
 
           <div className="cat-nav">
 
-            <Link className="cat-nav-item" to={`/products`}>          
+            <Link className="cat-nav-item" to={`/products`} title="All Products">          
               <div>products</div>
             </Link>
 
-            <Link className="cat-nav-item" to={`/products/${subcategory}/all/all/all`}>          
+            <Link className="cat-nav-item" to={`/products/${subcategory}/all/all/all`} title={subcategory}>          
               <div><span className="symbol">&#62;</span> {subcategory}</div>
             </Link>
 
             {typeOne !== "uni" &&
-          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/all/all`}> 
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/all/all`} title={typeOne}> 
             <div><span className="symbol">&#62;</span>{typeOne}</div>
           </Link>
             }
 
             {typeTwo !== "all" &&
-          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}all`}> 
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}all`} title={typeTwo}> 
             <div><span className="symbol">&#62;</span>{typeTwo}</div>
           </Link>
             }
 
             {typeThree !== "all" &&
-          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}/${typeThree}`}> 
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}/${typeThree}`} title={typeThree}> 
             <div><span className="symbol">&#62;</span>{typeThree}</div>
           </Link>
             }
@@ -117,10 +131,10 @@ class CategoriziedProducts extends React.Component {
 
             <div className="flower-container one">
               {this.state.flowerProductsOne.map(product => {
-                return <a href={`/products/${product._id}`} key={product._id}>
+                return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
                   <div className="flower-content">
                     <div className="flower">
-                      <img src={product.images[0].images[0]} className="flowerProductImage" />
+                      <img alt={product.name} src={product.images[0].images[0]} className="flowerProductImage" />
                       <div className="big-petal big-petal1"></div>
                       <div className="big-petal big-petal2"></div>
                       <div className="big-petal big-petal3"></div>
@@ -150,7 +164,7 @@ class CategoriziedProducts extends React.Component {
                     return
                   }
 
-                  return <Link to={`/products/${product._id}`} key={product._id}>
+                  return <Link to={`/products/${product._id}`} title={product.name} key={product._id}>
                     <div className="product-wrapper" onMouseEnter={() => {
                       this.otherPreviewImage(product._id);
                     }}
@@ -176,10 +190,10 @@ class CategoriziedProducts extends React.Component {
 
             <div className="flower-container two">
               {this.state.flowerProductsTwo.map(product => {
-                return <a href={`/products/${product._id}`} key={product._id}>
+                return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
                   <div className="flower-content">
                     <div className="flower">
-                      <img src={product.images[0].images[0]} className="flowerProductImage" />
+                      <img src={product.images[0].images[0]} alt={product.name} className="flowerProductImage" />
                       <div className="big-petal big-petal1"></div>
                       <div className="big-petal big-petal2"></div>
                       <div className="big-petal big-petal3"></div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMyProfile, updateBasket, removeFromBasket } from '../../lib/api';
 import { Link } from 'react-router-dom';
+import {seo} from '../../lib/functions'
 
 class Basket extends React.Component {
   state = {
@@ -12,6 +13,12 @@ class Basket extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Shopping Basket",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+      
       const res = await getMyProfile();
       let priceSum = 0;
       let basketSize = 0;
@@ -105,7 +112,7 @@ class Basket extends React.Component {
               <div className="basket-item">
                 <div className="basket-image-title">
                   <a href={`/products/${item._id}`} target="_blank" rel="noreferrer">
-                    <img src={item.images[0].images[0]} />
+                    <img src={item.images[0].images[0]} alt={item.name} />
                   </a>
                   <a href={`/products/${item._id}`} target="_blank" rel="noreferrer">
                     <h1>{item.name}</h1>
@@ -146,7 +153,7 @@ class Basket extends React.Component {
              <div>Total Price ({this.state.totalQuantity} Item(s)): £{user.sumPrice / 100}</div>
              <div>Your Donation: {user.discount}% (£{user.discountAmount / 100})</div>
            </div>
-           <Link to="/checkout">
+           <Link to="/checkout" title="Checkout">
              <div className="checkout-button">Proceed to Checkout</div>
            </Link>
          </div>

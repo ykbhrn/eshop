@@ -115,31 +115,31 @@ class Navbar extends React.Component {
                   }
               
                   <ul className="list">
-                    <li className="list__home"><a href="/products/accessories/bags/all/all">Bags</a>
+                    <li className="list__home"><a href="/products/accessories/bags/all/all" title="Bags">Bags</a>
                       <ul className="list__homeItems">
-                        <li><a href="/products/accessories/bags/hemp bags/all">Hemp Bags</a></li>
-                        <li><a href="/products/accessories/bags/ethnic bags/all">Ethnic Bags</a></li>
+                        <li><a href="/products/accessories/bags/hemp bags/all" title="Hemp Bags">Hemp Bags</a></li>
+                        <li><a href="/products/accessories/bags/ethnic bags/all" title="Ethnic Bags">Ethnic Bags</a></li>
                         <li><a href="/products/accessories/bags/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__clients"><a href="/products/accessories/Home and Garden/all/all">Home and Garden</a>
+                    <li className="list__clients"><a href="/products/accessories/Home and Garden/all/all" title="Home and Garden">Home and Garden</a>
                       <ul className="list__clientsItems">
-                        <li><a href="/products/accessories/Home and Garden/statuettes/all">Statuettes</a></li>
-                        <li><a href="/products/accessories/Home and Garden/wall hangings/all">Wall Hangings</a></li>
+                        <li><a href="/products/accessories/Home and Garden/statuettes/all" title="Statuettes">Statuettes</a></li>
+                        <li><a href="/products/accessories/Home and Garden/wall hangings/all" title="Wall Hangings">Wall Hangings</a></li>
                         <li><a href="/products/accessories/Home and Garden/all/all">All</a></li>
                       </ul>
                     </li>
-                    <li className="list__strauss"><a href="/products/accessories/jewellery/all/all">Jewellery</a>
+                    <li className="list__strauss"><a href="/products/accessories/jewellery/all/all" title="Jewellery">Jewellery</a>
                       <ul className="list__straussItem">
-                        <li><a href="/products/accessories/jewellery/bracelets/all">Bracelets</a></li>
-                        <li><a href="/products/accessories/jewellery/earrings/all">Earrings</a></li>
+                        <li><a href="/products/accessories/jewellery/bracelets/all" title="Bracelets">Bracelets</a></li>
+                        <li><a href="/products/accessories/jewellery/earrings/all" title="Earrings">Earrings</a></li>
                         <li><a href="/products/accessories/jewellery/all/all">All</a></li>
                       </ul>
                     </li>
                     <li className="list__contact"><a href="/products/accessories/others/all/all">Others</a>
                       <ul className="list__contactItem">
-                        <li><a href="/products/accessories/others/cosmetics/all">Cosmetics</a></li>
-                        <li><a href="/products/accessories/others/incense/all">Incense</a></li>
+                        <li><a href="/products/accessories/others/cosmetics/all" title="Cosmetics">Cosmetics</a></li>
+                        <li><a href="/products/accessories/others/incense/all" title="Icense">Incense</a></li>
                         <li><a href="/products/accessories/others/all/all">All</a></li>
                       </ul>
                     </li>
@@ -174,34 +174,34 @@ class Navbar extends React.Component {
                 <img className="hum-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1647920540/Nu%20Hippies/icons/vitamin_wynbxw.png" />
                 }
                 <ul className="list">
-                  <li className="list__home"><a href="/products/supplements/immunity/all/all">Immunity</a>
+                  <li className="list__home"><a href="/products/supplements/immunity/all/all" title="Immunity">Immunity</a>
                     <ul className="list__homeItems">
-                      <li><a href="/products/supplements/immunity/superfoods/all">Superfoods</a></li>
-                      <li><a href="/products/supplements/immunity/vitamins and minerals/all">Vitamins &#38; Minerals</a></li>
+                      <li><a href="/products/supplements/immunity/superfoods/all" title="Superfoods">Superfoods</a></li>
+                      <li><a href="/products/supplements/immunity/vitamins and minerals/all" title="VItamins and Minerals">Vitamins &#38; Minerals</a></li>
                       <li><a href="/products/supplements/immunity/all/all">All</a></li>
                     </ul>
                   </li>
 
-                  <li className="list__clients"><a href="/products/supplements/digestion/all/all">Digestion</a>
+                  <li className="list__clients"><a href="/products/supplements/digestion/all/all" title="Digestion">Digestion</a>
                     <ul className="list__clientsItems">
-                      <li><a href="/products/supplements/digestion/probiotics/all">Probiotics</a></li>
-                      <li><a href="/products/supplements/digestion/enzymes/all">Enzymes</a></li>
+                      <li><a href="/products/supplements/digestion/probiotics/all" title="Probiotics">Probiotics</a></li>
+                      <li><a href="/products/supplements/digestion/enzymes/all" title="Digestive Enzymes">Enzymes</a></li>
                       <li><a href="/products/supplements/digestion/all/all">All</a></li>
                     </ul>
                   </li>
 
-                  <li className="list__strauss"><a href="/products/supplements/vegan/all/all">Vegan</a>
+                  <li className="list__strauss"><a href="/products/supplements/vegan/all/all" title="Vegan Products">Vegan</a>
                     <ul className="list__straussItem">
-                      <li><a href="/products/supplements/vegan/proteins/all">Proteins</a></li>
-                      <li><a href="/products/supplements/vegan/vitamins and minerals/all">Vitamins &#38; Minerals</a></li>
+                      <li><a href="/products/supplements/vegan/proteins/all" title="Proteins">Proteins</a></li>
+                      <li><a href="/products/supplements/vegan/vitamins and minerals/all" title="Vitamins and Minerals">Vitamins &#38; Minerals</a></li>
                       <li><a href="/products/supplements/vegan/all/all">All</a></li>
                     </ul>
                   </li>
 
                   <li className="list__contact"><a href="/products/supplements/others/all/all">Others</a>
                     <ul className="list__contactItem">
-                      <li><a href="/products/supplements/others/antioxidants/all">Antioxidants</a></li>
-                      <li><a href="/products/supplements/others/omega oils/all">Omega Oils</a></li>
+                      <li><a href="/products/supplements/others/antioxidants/all" title="Antioxidants">Antioxidants</a></li>
+                      <li><a href="/products/supplements/others/omega oils/all" title="Omega Oils">Omega Oils</a></li>
                       <li><a href="/products/supplements/others/all/all">All</a></li>
                     </ul>
                   </li>
@@ -214,7 +214,7 @@ class Navbar extends React.Component {
           </div>
 
           <div className="header">
-            <a href="/" className="link-no-underline">
+            <a href="/" className="link-no-underline" alt="Home Page">
               <div className="logo"></div>
             </a>
             {/* Beta Version */}
@@ -235,7 +235,7 @@ class Navbar extends React.Component {
             <ul id="main-menu-ul" className='tip ctrl'>
               
               <li className='slice'>
-                <Link to="/products/accessories/all/all/all">
+                <Link to="/products/accessories/all/all/all" title="Accessories">
                   <div onMouseEnter={() => {
                     this.changeMainButton("Accessories")
                   }}
@@ -245,7 +245,7 @@ class Navbar extends React.Component {
               </li>
 
               <li className='slice'>
-                <Link to="/products/supplements/all/all/all">
+                <Link to="/products/supplements/all/all/all" title="Supplements">
                   <div onMouseEnter={() => {
                     this.changeMainButton("Supplements")
                   }}
@@ -255,7 +255,7 @@ class Navbar extends React.Component {
               </li>
 
               <li className='slice'>
-                <Link to="/products">
+                <Link to="/products" title="All Products">
                   <div onMouseEnter={() => {
                     this.changeMainButton("All Products")
                   }}
@@ -265,7 +265,7 @@ class Navbar extends React.Component {
               </li>
 
               <li className='slice'>
-                <Link to="/about">
+                <Link to="/about" title="Who are we?">
                   <div onMouseEnter={() => {
                     this.changeMainButton("About Us")
                   }}
@@ -276,7 +276,7 @@ class Navbar extends React.Component {
 
               {isAuthenticated() &&
               <li className='slice'>
-                <Link to="/profile"><div onMouseEnter={() => {
+                <Link to="/profile" title="Your Profile"><div onMouseEnter={() => {
                   this.changeMainButton("My Account")
                 }}
                 onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i>
@@ -287,7 +287,7 @@ class Navbar extends React.Component {
             
               {!isAuthenticated() &&
               <li className='slice'>
-                <Link to="/entering">
+                <Link to="/entering" title="Sign in">
                   <div onMouseEnter={() => {
                     this.changeMainButton("Register")
                   }}
@@ -300,7 +300,7 @@ class Navbar extends React.Component {
           </div>
         </div>
 
-        <Link to="/donation">
+        <Link to="/donation" title="Slap Putin and we donate">
           <div className="donation-icon" onMouseEnter={this.hoverDonation} onMouseLeave={this.leaveDonation}>
             {this.state.isHoveringDonation &&
             <div className="donation-text"> Slap &#38; Donate</div>

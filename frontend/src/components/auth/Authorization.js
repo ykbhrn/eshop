@@ -3,6 +3,7 @@ import axios from 'axios'
 import Register from './Register'
 import Login from './Login'
 import { isAuthenticated } from '../../lib/auth'
+import {seo} from '../../lib/functions'
 
 class Authorization extends React.Component {
   state = {
@@ -13,6 +14,12 @@ class Authorization extends React.Component {
   async componentDidMount () {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Give us a chance",
+        metaDescription: "All we are saying is give us a chance"
+      });
+
     } catch (err) {
       console.log(err)
     }

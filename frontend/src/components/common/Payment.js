@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMyProfile, completeOrder, createOrder, createInvoice } from '../../lib/api';
 import { Link } from 'react-router-dom';
+import {seo} from '../../lib/functions'
 
 class Payment extends React.Component {
   state = {
@@ -14,6 +15,12 @@ class Payment extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Payment Options",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
       const res = await getMyProfile();
       let priceSum = 0;
       let basketSize = 0;
@@ -117,7 +124,7 @@ class Payment extends React.Component {
           </div>
 
           <div className="checkout-buttons">
-            <Link to="/shipping">
+            <Link to="/shipping" title="Shipping">
               <div className="left">Back</div>
             </Link>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../../lib/api'
+import {seo} from '../../lib/functions'
 
 class AllProducts extends React.Component {
   state = {
@@ -15,6 +16,12 @@ class AllProducts extends React.Component {
   async componentDidMount() {
     try {
       this.setState({ isLoading: true })
+      
+      seo({
+        title: "All products | Nu Hippies",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
       const discount = localStorage.getItem('discount')
       window.scrollTo(0, 0)
       const res = await getAllProducts();
@@ -79,7 +86,7 @@ class AllProducts extends React.Component {
     <div className="products-side-slogan">
 
       <h2>
-                Bring Hippies Back
+        Bring Hippies Back
       </h2>
 
     </div>
@@ -104,10 +111,10 @@ class AllProducts extends React.Component {
 
     <div className="flower-container one" onScroll={this.handleScroll}>
       {this.state.flowerProductsOne.map(product => {
-        return <a href={`/products/${product._id}`} key={product._id}>
+        return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
           <div className="flower-content">
             <div className="flower">
-              <img src={product.images[0].images[0]} className="flowerProductImage" />
+              <img alt={product.name} src={product.images[0].images[0]} className="flowerProductImage" />
               <div className="big-petal big-petal1"></div>
               <div className="big-petal big-petal2"></div>
               <div className="big-petal big-petal3"></div>
@@ -130,7 +137,7 @@ class AllProducts extends React.Component {
 
       <div className="product-container">
         {this.state.products.slice(0, this.state.productsShowed).map(product => {
-          return <Link to={`/products/${product._id}`} key={product._id}>
+          return <Link to={`/products/${product._id}`} title={product.name} key={product._id}>
             <div className="product-wrapper" onMouseEnter={() => {
               this.otherPreviewImage(product._id);
             }}
@@ -156,10 +163,10 @@ class AllProducts extends React.Component {
 
     <div className="flower-container two" onScroll={this.handleScroll}>
       {this.state.flowerProductsTwo.map(product => {
-        return <a href={`/products/${product._id}`} key={product._id}>
+        return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
           <div className="flower-content">
             <div className="flower">
-              <img src={product.images[0].images[0]} className="flowerProductImage" />
+              <img alt={product.name} src={product.images[0].images[0]} className="flowerProductImage" />
               <div className="big-petal big-petal1"></div>
               <div className="big-petal big-petal2"></div>
               <div className="big-petal big-petal3"></div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { resetPassword } from '../../lib/api'
 import { Link } from 'react-router-dom'
+import {seo} from '../../lib/functions'
 
 class ResetPassword extends React.Component {
   state = {
@@ -17,6 +18,12 @@ class ResetPassword extends React.Component {
   async componentDidMount () {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Reset password",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
     } catch (err) {
       console.log(err)
     }

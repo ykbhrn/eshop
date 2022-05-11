@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMyProfile, addShipping } from '../../lib/api';
 import { Link, Redirect } from 'react-router-dom';
+import {seo} from '../../lib/functions'
 
 
 class Shipping extends React.Component {
@@ -13,6 +14,12 @@ class Shipping extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Shipping Options",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
       const res = await getMyProfile();
       let basketSize = 0;
       res.data.basket.map(item => {
@@ -109,7 +116,7 @@ class Shipping extends React.Component {
             <div>Your Donation: {user.discount}% (£{user.discountAmount / 100})</div>
           </div>
           <div className="checkout-buttons">
-            <Link to="/checkout">
+            <Link to="/checkout" title="Checkout">
               <div className="left">Back</div>
             </Link>
 

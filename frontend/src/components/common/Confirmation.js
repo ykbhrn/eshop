@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMyProfile, pendingOrder } from '../../lib/api';
 import { Link } from 'react-router-dom';
+import {seo} from '../../lib/functions'
 
 class Confirmation extends React.Component {
   state = {
@@ -11,6 +12,12 @@ class Confirmation extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Successful Order",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
       const res = await getMyProfile();
       this.setState({ user: res.data });
     } catch (err) {

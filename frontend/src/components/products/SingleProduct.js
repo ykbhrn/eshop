@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 import { getSingleProduct, addToBasket } from '../../lib/api'
+import {seo} from '../../lib/functions'
 
 class SingleProduct extends React.Component {
   state = {
@@ -23,12 +24,20 @@ class SingleProduct extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
       const productId = this.props.match.params.id;
       const res = await getSingleProduct(productId);
+
+      seo({
+        title: res.data.name,
+        metaDescription: res.data.description
+      });
+
       const formData = { ...this.state.formData, size: res.data.sizes.length > 0 ? res.data.sizes[0] : "default", 
         color: res.data.colors.length  > 0 ? res.data.colors[0] : "default" };
       const totalQuantityArray = [];
       const quantityArray = [];
+
       if (res.data.quantities.length > 0) {
         for (let i = 1; i <= res.data.quantities[0][2]; i++) {
           totalQuantityArray.push(i);
@@ -292,7 +301,7 @@ class SingleProduct extends React.Component {
             {product.descriptionImages.length > 0 &&
           <>
             {product.descriptionImages.map(item => {
-              return <img className="img-description" src={item} key={item}/>
+              return <img className="img-description" alt="product description" src={item} key={item}/>
             })}
           </>
             }
@@ -304,7 +313,7 @@ class SingleProduct extends React.Component {
             {product.ingredientsImages &&
             <>
               {product.ingredientsImages.map(item => {
-                return <img className="img-ingredients" src={item} key={item}/>
+                return <img className="img-ingredients" alt="product ingredients" src={item} key={item}/>
               })}
             </>
             }
@@ -326,7 +335,7 @@ class SingleProduct extends React.Component {
             <h1>Item was added to your basket</h1>
             <div className="basket-added-buttons">
               <div className="basket-added-btn" onClick={this.continueShopping}>Continue Shopping</div>
-              <Link to="/basket">
+              <Link to="/basket" title="checkout">
                 <div className="basket-added-btn">Proceed to Checkout</div>
               </Link>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { sendEmail } from '../../lib/api'
 import { Link } from 'react-router-dom'
+import {seo} from '../../lib/functions'
 
 class Contact extends React.Component {
   state = {
@@ -22,6 +23,12 @@ class Contact extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
+
+      seo({
+        title: "Send us a message",
+        metaDescription: "Our main job is selling fair trade, eco-friendly clothes, and vitamin supplements. We plan to organize speeches with like-minded speakers, debates, and festivals."
+      });
+
     } catch (err) {
       console.log(err)
     }
@@ -128,7 +135,7 @@ class Contact extends React.Component {
                 </div>
               }
               {!isLoading &&
-                <div onClick={this.handleSubmit} className="classic-btn">Send</div>
+                <div onClick={this.handleSubmit} className="classic-btn" title="Send us a message">Send</div>
               }
             </form>
           </div>
