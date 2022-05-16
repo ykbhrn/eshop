@@ -41,7 +41,7 @@ class About extends React.Component {
 
           </div>
 
-          <div className="story-header">Long Story Short</div>
+          <h3 className="story-header">Long Story Short</h3>
           <p>
           We are Nu Hippies Movement and our goal is to bring the Hippies kind of spirit back. The world is facing big environmental problems,
           overpopulation, and war conflicts. A big majority of people today are focusing only on their individual success and image on social 
@@ -51,7 +51,7 @@ class About extends React.Component {
           and even festivals. Let’s join us on our journey to BRING HIPPIES BACK  
           </p>
 
-          <div className="story-header">Long Story Longer</div>
+          <h3 className="story-header">Long Story Longer</h3>
 
           <p>
           We are Nu Hippies Movement, and we believe that the world needs a Hippie kind of spirit right now more than ever. 

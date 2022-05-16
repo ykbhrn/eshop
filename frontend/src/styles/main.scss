@@ -14,6 +14,10 @@ html, body{
     cursor: $pointer-cursor;
   }
 
+  p, h1, h2, h3{
+    cursor: text;
+  }
+
 body {
   font-family: $main-font;
   // overflow-x: hidden;
@@ -1561,6 +1565,7 @@ h1{
 
 .show-discount{
   position: absolute;
+  top: 0px;
   width: 100vw;
   min-height: 100vh;
   z-index: 8;
@@ -1710,6 +1715,159 @@ h1{
 }
 
 @keyframes cursor {
+  0% {
+    cursor: url("./images/frames/1.gif"), auto;
+  }
+  2% {
+    cursor: url("./images/frames/2.gif"), auto;
+  }
+  4% {
+    cursor: url("./images/frames/4.gif"), auto;
+  }
+  6% {
+    cursor: url("./images/frames/5.gif"), auto;
+  }
+  8% {
+    cursor: url("./images/frames/7.gif"), auto;
+  }
+  10% {
+    cursor: url("./images/frames/8.gif"), auto;
+  }
+  12% {
+    cursor: url("./images/frames/10.gif"), auto;
+  }
+  14% {
+    cursor: url("./images/frames/11.gif"), auto;
+  }
+  16% {
+    cursor: url("./images/frames/13.gif"), auto;
+  }
+  18% {
+    cursor: url("./images/frames/14.gif"), auto;
+  }
+  20% {
+    cursor: url("./images/frames/16.gif"), auto;
+  }
+  22% {
+    cursor: url("./images/frames/17.gif"), auto;
+  }
+  24% {
+    cursor: url("./images/frames/19.gif"), auto;
+  }
+  26% {
+    cursor: url("./images/frames/20.gif"), auto;
+  }
+  28% {
+    cursor: url("./images/frames/22.gif"), auto;
+  }
+  30% {
+    cursor: url("./images/frames/23.gif"), auto;
+  }
+  32% {
+    cursor: url("./images/frames/25.gif"), auto;
+  }
+  34% {
+    cursor: url("./images/frames/26.gif"), auto;
+  }
+  36% {
+    cursor: url("./images/frames/28.gif"), auto;
+  }
+  38% {
+    cursor: url("./images/frames/29.gif"), auto;
+  }
+  40% {
+    cursor: url("./images/frames/31.gif"), auto;
+  }
+  42% {
+    cursor: url("./images/frames/32.gif"), auto;
+  }
+  46% {
+    cursor: url("./images/frames/34.gif"), auto;
+  }
+  48% {
+    cursor: url("./images/frames/35.gif"), auto;
+  }
+  50% {
+    cursor: url("./images/frames/37.gif"), auto;
+  }
+  52% {
+    cursor: url("./images/frames/38.gif"), auto;
+  }
+  54% {
+    cursor: url("./images/frames/40.gif"), auto;
+  }
+  56% {
+    cursor: url("./images/frames/41.gif"), auto;
+  }
+  58% {
+    cursor: url("./images/frames/43.gif"), auto;
+  }
+  60% {
+    cursor: url("./images/frames/44.gif"), auto;
+  }
+  62% {
+    cursor: url("./images/frames/46.gif"), auto;
+  }
+  64% {
+    cursor: url("./images/frames/47.gif"), auto;
+  }
+  66% {
+    cursor: url("./images/frames/49.gif"), auto;
+  }
+  68% {
+    cursor: url("./images/frames/50.gif"), auto;
+  }
+  70% {
+    cursor: url("./images/frames/52.gif"), auto;
+  }
+  72% {
+    cursor: url("./images/frames/53.gif"), auto;
+  }
+  74% {
+    cursor: url("./images/frames/55.gif"), auto;
+  }
+  76% {
+    cursor: url("./images/frames/56.gif"), auto;
+  }
+  78% {
+    cursor: url("./images/frames/58.gif"), auto;
+  }
+  80% {
+    cursor: url("./images/frames/59.gif"), auto;
+  }
+  82% {
+    cursor: url("./images/frames/61.gif"), auto;
+  }
+  84% {
+    cursor: url("./images/frames/62.gif"), auto;
+  }
+  86% {
+    cursor: url("./images/frames/63.gif"), auto;
+  }
+  88% {
+    cursor: url("./images/frames/64.gif"), auto;
+  }
+  90% {
+    cursor: url("./images/frames/65.gif"), auto;
+  }
+  92% {
+    cursor: url("./images/frames/66.gif"), auto;
+  }
+  94% {
+    cursor: url("./images/frames/67.gif"), auto;
+  }
+  96% {
+    cursor: url("./images/frames/67.gif"), auto;
+  }
+  98% {
+    cursor: url("./images/frames/67.gif"), auto;
+  }
+  98% {
+    cursor: url("./images/frames/67.gif"), auto;
+  }
+}
+
+@-webkit-keyframes cursor {
   0% {
     cursor: url("./images/frames/1.gif"), auto;
   }

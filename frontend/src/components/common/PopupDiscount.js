@@ -113,8 +113,13 @@ class PopupDiscount extends React.Component {
           this.setState({discountZero: true, discountCounter: this.state.discountCounter + 1})
         }
       }
+
+      setTimeout(() => {
+        window.location.reload()
+      }, 45000);
     
     }, 30000)
+
   }
 
   demoAnimationEnd = () => {
@@ -128,6 +133,11 @@ class PopupDiscount extends React.Component {
       discountPopup.style.display = "none"
       discountPage.classList.remove("show-discount")
       this.setState({ isDemoAnimation: true })
+
+      setTimeout(() => {
+        window.location.reload()
+      }, 45000);
+
     }, 30000);
   }
 
@@ -192,6 +202,10 @@ class PopupDiscount extends React.Component {
     if (discountPage.classList.contains("show-discount")) {
       if (!this.state.slapped) {
         discountPage.style.animation = "cursor 0.2s linear"
+        discountPage.style.webkitAnimationName = "cursor"
+        discountPage.style.webkitAnimationDuration = "0.2s"
+        discountPage.style.webkitAnimationTimingFunction = "linear"
+        discountPage.style.webkitAnimationIterationCount = "1"
         setTimeout(() => {
           discountPage.style.animation = "none"
         }, 210);
@@ -343,7 +357,7 @@ class PopupDiscount extends React.Component {
 
             <h2>
               <span>You slapped mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s). </span> 
-      In the real try, it would mean that we would donate <span className="highlighted">{this.state.discountScore}% of your order amount to charity to support Ukraine</span>
+              In the real try, it would mean that we would donate <span className="highlighted">{this.state.discountScore}% of your order amount to charity to support Ukraine</span>
             </h2>
 
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>

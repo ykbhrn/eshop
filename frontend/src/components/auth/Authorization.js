@@ -16,7 +16,7 @@ class Authorization extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Give us a chance",
+        title: "Give us a chance | Nu Hippies",
         metaDescription: "All we are saying is give us a chance"
       });
 
