@@ -200,15 +200,15 @@ class PopupDiscount extends React.Component {
     const discountPage = document.querySelector('.discount-page')
 
     if (discountPage.classList.contains("show-discount")) {
+
       if (!this.state.slapped) {
+
         discountPage.style.animation = "cursor 0.2s linear"
-        discountPage.style.webkitAnimationName = "cursor"
-        discountPage.style.webkitAnimationDuration = "0.2s"
-        discountPage.style.webkitAnimationTimingFunction = "linear"
-        discountPage.style.webkitAnimationIterationCount = "1"
+
         setTimeout(() => {
           discountPage.style.animation = "none"
         }, 210);
+        
       }
     }
   }
