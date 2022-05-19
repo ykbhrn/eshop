@@ -27,6 +27,9 @@ const Footer = () => (
         </ul>
       </div>
 
+      <input type="search" id="" name="" />
+
+
       <div className="social-media-icons">
         <i className="fab fa-instagram"></i>
         <i className="fab fa-facebook"></i>

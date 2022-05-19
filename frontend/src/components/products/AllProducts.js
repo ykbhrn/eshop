@@ -22,7 +22,6 @@ class AllProducts extends React.Component {
         metaDescription: "Fairtrade, eco-friendly accessories from small family businesses, and natural nutritional supplements of top quality."
       });
 
-      const discount = localStorage.getItem('discount')
       window.scrollTo(0, 0)
       const res = await getAllProducts();
       this.setState({ products: res.data.reverse(), isLoading: false });

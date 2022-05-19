@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { getMyProfile } from './lib/api'
+import { isAuthenticated } from './lib/auth'
 
 import Home from './components/common/Home'
 import CategoriziedProducts from './components/products/CategoriziedProducts'
@@ -134,6 +135,7 @@ window.onscroll = function () {
 
 class App extends React.Component {
   state = {
+    products: [],
     basketLength: null,
     showFooter: false
   }
@@ -151,15 +153,20 @@ class App extends React.Component {
         phoneMenuSlice.style.overflow = "auto"
       }
 
-      this.setState({showFooter: true})
+      if (isAuthenticated()) {
+        const res = await getMyProfile()
 
-      const res = await getMyProfile()
+        let basketSize = 0
+        res.data.basket.map(item => {
+          basketSize = basketSize + Number(item.chosenQuantity)
+        })
 
-      let basketSize = 0
-      res.data.basket.map(item => {
-        basketSize = basketSize + Number(item.chosenQuantity)
-      })
-      this.setState({ basketLength: basketSize })
+        this.setState({ basketLength: basketSize, showFooter: true })
+
+      } else {
+        this.setState({ showFooter: true })
+      }
+
 
     } catch (err) {
       console.log(err)
