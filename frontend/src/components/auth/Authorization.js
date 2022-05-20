@@ -65,6 +65,7 @@ class Authorization extends React.Component {
           <div className="auth-side">
             <Login
               id={this.props.match.params.id}
+              name={this.props.match.params.name}
             />
             <div className="auth-btn-wrapper">
               Don&apos;t have an account yet?
@@ -83,6 +84,7 @@ class Authorization extends React.Component {
           <div className="auth-side">
             <Register
               id={this.props.match.params.id}
+              name={this.props.match.params.name}
             />
             <div className="auth-btn-wrapper">
               Are you already our member?

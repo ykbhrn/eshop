@@ -161,8 +161,11 @@ class SingleProduct extends React.Component {
 
   render() {
     const { product } = this.state
-    console.log(this.state.product)
+
     if (!product) return null
+
+    const newName = this.state.product.name.replaceAll(' ', '-');
+
     return (
       <div className="single-product-section change-brightness">
         <div className="single-product-wrapper">
@@ -252,8 +255,9 @@ class SingleProduct extends React.Component {
                   Add to basket
                 </div>
                 }
+                
                 {!isAuthenticated() &&
-                <Link to={`/entering/${product._id}`}>
+                <Link to={`/entering/${newName}/${product._id}`}>
                   <div className="classic-btn">
                     Add to basket
                   </div>

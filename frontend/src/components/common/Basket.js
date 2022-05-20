@@ -108,13 +108,16 @@ class Basket extends React.Component {
         } 
         <div className="basket-container">
           {user.basket.map(item => {
+
+            const newName = item.name.replaceAll(' ', '-');
+
             return <div className="basket-item-wrapper" key={item._id}>
               <div className="basket-item">
                 <div className="basket-image-title">
-                  <a href={`/products/${item._id}`} target="_blank" rel="noreferrer">
+                  <a href={`/products/${newName}/${item._id}`} target="_blank" rel="noreferrer">
                     <img src={item.images[0].images[0]} alt={item.name} />
                   </a>
-                  <a href={`/products/${item._id}`} target="_blank" rel="noreferrer">
+                  <a href={`/products/${newName}/${item._id}`} target="_blank" rel="noreferrer">
                     <h1>{item.name}</h1>
                   </a>
                 </div>

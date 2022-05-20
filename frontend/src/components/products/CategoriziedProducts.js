@@ -131,7 +131,11 @@ class CategoriziedProducts extends React.Component {
 
             <div className="flower-container one">
               {this.state.flowerProductsOne.map(product => {
-                return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
+
+                const newName = product.name.replaceAll(' ', '-');
+
+
+                return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
                   <div className="flower-content">
                     <div className="flower">
                       <img alt={product.name} src={product.images[0].images[0]} className="flowerProductImage" />
@@ -157,6 +161,7 @@ class CategoriziedProducts extends React.Component {
 
               <div className="product-container">
                 {this.state.products.slice(0).map(product => {
+
                   if ((!product.categories.types.includes(typeOne) && typeOne !== "all") ||
               (!product.categories.types.includes(typeTwo) && typeTwo !== "all") || 
               (!product.categories.types.includes(typeThree) && typeThree !== "all") ||
@@ -164,7 +169,9 @@ class CategoriziedProducts extends React.Component {
                     return
                   }
 
-                  return <Link to={`/products/${product._id}`} title={product.name} key={product._id}>
+                  const newName = product.name.replaceAll(' ', '-');
+
+                  return <Link to={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
                     <div className="product-wrapper" onMouseEnter={() => {
                       this.otherPreviewImage(product._id);
                     }}
@@ -190,7 +197,10 @@ class CategoriziedProducts extends React.Component {
 
             <div className="flower-container two">
               {this.state.flowerProductsTwo.map(product => {
-                return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
+
+                const newName = product.name.replaceAll(' ', '-');
+
+                return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
                   <div className="flower-content">
                     <div className="flower">
                       <img src={product.images[0].images[0]} alt={product.name} className="flowerProductImage" />

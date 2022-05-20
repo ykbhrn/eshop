@@ -170,7 +170,7 @@ function newUser (user) {
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td style="padding-right: 0px;padding-left: 0px;" align="center">
-        <a href="https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png" target="_self">
+        <a href=${url} target="_self">
         <img align="center" border="0" src="https://res.cloudinary.com/nuhippies/image/upload/v1639874261/Nu%20Hippies/icons/logo-email_likotj.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 190px;width: 190px; height: 150px; max-height: 150px;" />
         </a>
       </td>

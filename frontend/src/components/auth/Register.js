@@ -88,7 +88,7 @@ class Register extends React.Component {
   renderRedirect = () => {
     if (this.state.redirect) {
       if (this.props.id) {
-        return window.location.assign(`/products/${this.props.id}`)
+        return window.location.assign(`/products/${this.props.name}/${this.props.id}`)
       } else {
         return <Redirect to="/done" />
       }

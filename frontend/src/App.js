@@ -201,9 +201,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
-            <Route path='/products/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
+            <Route path='/products/:name/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
             <Route path="/products" component={AllProducts} />
-            <Route path="/entering/:id" component={Authorization} />
+            <Route path="/entering/:name/:id" component={Authorization} />
             <Route path="/entering" component={Authorization} />
             <Route path="/forgot-password" component={ForgotPassword} />
             <Route path="/reset-password/:token" component={ResetPassword} />

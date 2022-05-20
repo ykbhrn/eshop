@@ -110,7 +110,10 @@ class AllProducts extends React.Component {
 
     <div className="flower-container one" onScroll={this.handleScroll}>
       {this.state.flowerProductsOne.map(product => {
-        return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
+
+        const newName = product.name.replaceAll(' ', '-');
+
+        return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
           <div className="flower-content">
             <div className="flower">
               <img alt={product.name} src={product.images[0].images[0]} className="flowerProductImage" />
@@ -136,7 +139,10 @@ class AllProducts extends React.Component {
 
       <div className="product-container">
         {this.state.products.slice(0, this.state.productsShowed).map(product => {
-          return <Link to={`/products/${product._id}`} title={product.name} key={product._id}>
+
+          const newName = product.name.replaceAll(' ', '-');
+
+          return <Link to={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
             <div className="product-wrapper" onMouseEnter={() => {
               this.otherPreviewImage(product._id);
             }}
@@ -162,7 +168,10 @@ class AllProducts extends React.Component {
 
     <div className="flower-container two" onScroll={this.handleScroll}>
       {this.state.flowerProductsTwo.map(product => {
-        return <a href={`/products/${product._id}`} title={product.name} key={product._id}>
+        
+        const newName = product.name.replaceAll(' ', '-');
+        
+        return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
           <div className="flower-content">
             <div className="flower">
               <img alt={product.name} src={product.images[0].images[0]} className="flowerProductImage" />

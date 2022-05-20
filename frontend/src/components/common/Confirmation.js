@@ -25,10 +25,6 @@ class Confirmation extends React.Component {
     }
   }
 
-  continue = () => {
-    window.location.assign('/products')
-  }
-
   render() {
     if (!this.state.user) return null;
     const {user} = this.state
@@ -69,7 +65,7 @@ class Confirmation extends React.Component {
         </div>
 
         <div className="checkout-buttons">
-          <Link to="/shipping">
+          <Link to="/products">
             <div className="left" onClick={this.continue}>Continue</div>
           </Link>
 
