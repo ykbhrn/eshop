@@ -54,6 +54,7 @@ class Shipping extends React.Component {
     const { user, isLoading } = this.state;
     return (
       <div className="shipping-page">
+        
         <div className="shipping-radio">
           <h2>Shipping options:</h2>
           <div className="shipping-option">

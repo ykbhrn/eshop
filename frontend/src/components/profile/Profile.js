@@ -36,6 +36,7 @@ class Profile extends React.Component {
     console.log(this.state.user);
     return (
       <div className="profile-page change-brightness">
+        
         <div className="profile-icons-container">
 
           <Link to="/profile/orders">

@@ -172,6 +172,15 @@ class EditAdress extends React.Component {
     const { user, formData, errors, isLoading } = this.state
     return (
       <div className="edit-adress-page change-brightness">
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
+        
         <div className="account-nav">
           <Link to="/profile">Your Acount</Link>
           <span className="sign">&gt;</span>

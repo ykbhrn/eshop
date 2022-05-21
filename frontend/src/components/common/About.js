@@ -22,6 +22,14 @@ class About extends React.Component {
   render() {
     return (
       <div className="about-page change-brightness">
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
           
         <div className="form-wrapper">
 

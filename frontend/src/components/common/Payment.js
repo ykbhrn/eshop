@@ -84,7 +84,7 @@ class Payment extends React.Component {
             <label>Debit or Credit Card</label>
           </div>
 
-          <div className="payment-option">
+          {/* <div className="payment-option">
             <input
               name="bank transfer"
               type="radio"
@@ -93,7 +93,7 @@ class Payment extends React.Component {
               checked={this.state.bankTransfer}
             />
             <label>Bank Transfer</label>
-          </div>
+          </div> */}
 
         </div>
 

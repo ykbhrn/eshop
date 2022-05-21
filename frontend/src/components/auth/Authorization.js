@@ -40,6 +40,15 @@ class Authorization extends React.Component {
   render() {
     return (
       <div className="auth-page">
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
+
         {!this.state.login && !this.state.register &&
           <div className="authorization-section">
             <div className="authorization-wrapper" onClick={() => {

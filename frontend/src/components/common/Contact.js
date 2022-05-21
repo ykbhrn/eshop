@@ -90,6 +90,15 @@ class Contact extends React.Component {
     const { formData, errors, isLoading } = this.state
     return (
       <div className="contact-page change-brightness">
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
+        
         {this.renderRedirect()}
         {!this.state.isSent &&
           <div className="form-wrapper">

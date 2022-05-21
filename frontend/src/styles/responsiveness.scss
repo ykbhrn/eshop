@@ -8,11 +8,27 @@
     display: none;
   }
   .products-page{
+    overflow-x: hidden;
+    .products-loading{
+      width: 330px;
+      height: 186px;
+      margin-top: - 93px;
+      margin-left: -165px;
+    }
+    .search-icon{
+      width: 50px;
+      height: 50px;
+    }
+    .search-wrapper{
+      form{
+        height: 50px;
+      }
+    }
     .big-name-products{
       font-size: 50px;
     }
   .products-banner{
-    height: 250px;
+    height: 200px;
     .products-side-slogan{
       transform: scale(0.35) rotate(-10deg);
       transform-origin: left;
@@ -62,19 +78,13 @@
   .footer-wrapper{
     flex-direction: column;
     .footer-menu-wrapper{
-      margin-top: 30px;
+      margin-top: 100px;
       order: 1;
-    }
-    .dynamic-txts{
-      margin: 0 0 0 30px;
-    }
-    .header{
-      order: 3;
-      padding-bottom: 80px;
+      text-align: center;
     }
   }
   .social-media-icons{
-    padding-bottom: 0px!important;
+    padding-bottom: 90px;
     margin: 30px 0 -20px 0!important;
     order: 2;
   }
@@ -121,9 +131,9 @@
     }
   }
   .logo{
-    width: 120px;
-    height: 120px;
-    margin-left: -60px;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
   }
   .logo-scroll{
     width: 50px;
@@ -459,6 +469,9 @@
 }
 .products-page.categorized{
     margin-top: -30px;
+    .product-banner{
+      height: 140px;
+    }
 }
 .cat-nav{
   a {
@@ -542,7 +555,7 @@
     }
   }
   .donation-icon{
-    left: 5px;
+    left: 8px;
     width: 40px;
     height: 40px;
   }

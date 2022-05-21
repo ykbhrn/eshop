@@ -100,7 +100,8 @@ class Basket extends React.Component {
     if (!this.state.user) return null;
     const { user } = this.state;
     return (
-      <div className="basket-page change-brightness">
+      <div className="basket-page">
+        
         {user.basket.length < 1 && 
           <div className="empty-basket">
             <h1>Your Basket is Empty</h1>

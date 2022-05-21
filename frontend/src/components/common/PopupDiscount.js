@@ -31,7 +31,9 @@ class PopupDiscount extends React.Component {
 
     setTimeout(() => {
       const now = new Date()
-      if (now.getMinutes() === res.data[0].time) {
+      if (now.getMinutes() === res.data[0].time && window.location.pathname !== "/donation" && window.location.pathname !== "/shipping" 
+      && window.location.pathname !== "/basket" && window.location.pathname !== "/checkout" && window.location.pathname !== "/payment"
+      && window.location.pathname !== "/confirmation/credit-card" && window.location.pathname !== "/confirmation/bank-transfer") {
         this.showHand()
         this.discountAnimationEnd()
       }

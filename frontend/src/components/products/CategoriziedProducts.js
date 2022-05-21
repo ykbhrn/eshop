@@ -6,6 +6,10 @@ import {seo} from '../../lib/functions'
 class CategoriziedProducts extends React.Component {
   state = {
     products: [],
+    searchProducts: [],
+    isSearching: false,
+    searchedPhrase: null,
+    startSearch: false,
     flowerProductsOne: [],
     flowerProductsTwo: [],
     hoveredProductId: '',
@@ -36,6 +40,43 @@ class CategoriziedProducts extends React.Component {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  handleChange = (event) => {
+
+    event.preventDefault()
+
+    const wordSearch = this.state.products.filter(result => {
+
+      const searchValue = event.target.value.toLowerCase()
+      const productSearch = result.name.toLowerCase()
+
+      if (productSearch.includes(searchValue)){
+        return productSearch 
+      }
+
+    })
+
+    const searchArray = event.target.value.split('')
+
+    if (searchArray.length > 0) {
+      return  this.setState({ searchProducts: wordSearch, searchedPhrase: event.target.value.split('').length })
+    } else {
+      this.setState({ searchProducts: wordSearch, searchedPhrase: event.target.value.split('').length })
+    }
+  }
+
+  handleClick = (event) => {
+    console.log(event.target)
+    if (event.target.name === "search") {
+      this.setState({ isSearching: true })
+    } else {
+      this.setState({ isSearching: false })
+    }
+  }
+
+  startTyping = () => {
+    this.setState({ startSearch: true})
   }
 
   otherPreviewImage = (id) => {
@@ -73,7 +114,15 @@ class CategoriziedProducts extends React.Component {
   render() {
     const {subcategory, typeOne, typeTwo, typeThree} = this.props.match.params
     return (
-      <div className="products-page categorized change-brightness">
+      <div className="products-page categorized change-brightness" onClick={this.handleClick}>
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
 
         {this.state.isLoading &&
         <img className="products-loading" src="https://res.cloudinary.com/nuhippies/image/upload/v1651162892/Nu%20Hippies/icons/output-onlinegiftools_2_y18upn.gif" />
@@ -96,6 +145,51 @@ class CategoriziedProducts extends React.Component {
             <img src={`${subcategory === "supplements" ? "https://res.cloudinary.com/nuhippies/image/upload/v1651188458/Nu%20Hippies/icons/vitamins-26622_1280_cfesp6.png" : "https://res.cloudinary.com/nuhippies/image/upload/v1651188323/Nu%20Hippies/icons/pngtree-pop-style-character-accessories-bag-retro-straw-bag-accessories-png-image_374950-removebg-preview_jk2srn.png"}`} />
 
           </div>
+
+          {!this.state.startSearch &&
+<>
+  <img className="search-icon" alt="Search for product" src="https://res.cloudinary.com/nuhippies/image/upload/v1653092834/Nu%20Hippies/icons/telescope_1_bjhi1z.png" onClick={this.startTyping}/>
+</>
+          }
+  
+          {this.state.startSearch &&
+  <div className="search-wrapper">
+          
+    <form>
+      <input 
+        type="search" 
+        id=""
+        name="search"
+        placeholder="search"
+        onChange={this.handleChange}
+        onClick={this.handleClick} 
+      />
+    </form>
+
+    <div className="search-results-container">
+
+      {(this.state.searchedPhrase > 2 && this.state.isSearching) &&
+      <>
+        {this.state.searchProducts.map(product => {
+
+          // if (document.querySelector(".search-wrapper input") !== document.activeElement) return
+
+          const newName = product.name.replaceAll(' ', '-');
+
+          return <Link to={`/products/${newName}/${product._id}`} key={product._id}>
+            <div className="search-result-wrapper">
+              <div className="search-result-name">{product.name}</div>
+              <img src={product.images[0].images[0]} />
+            </div>
+          </Link>
+        })}
+      </>
+      }
+
+    </div>
+
+  </div>
+          }
 
           <div className="cat-nav">
 

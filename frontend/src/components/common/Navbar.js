@@ -299,7 +299,7 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </div>
-
+      
         <Link to="/donation" title="Slap Putin and we donate">
           <div className="donation-icon" onMouseEnter={this.hoverDonation} onMouseLeave={this.leaveDonation}>
             {this.state.isHoveringDonation &&
@@ -307,8 +307,7 @@ class Navbar extends React.Component {
             }
           </div>
         </Link>
-        {/* <div className="navbar-bottom"></div>
-        <div className="navbar-bottom-second"></div> */}
+      
       </header>
     )
   }

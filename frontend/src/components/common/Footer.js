@@ -6,17 +6,6 @@ const Footer = () => (
   <>
     <div className="footer-wrapper change-brightness">
 
-      <div className="header">
-        <a href="/" className="link-no-underline">
-          <div className="logo"></div>
-        </a>
-        <ul className="dynamic-txts">
-          <li><span>bring</span></li>
-          <li><span>hippies</span></li>
-          <li><span>back</span></li>
-        </ul>
-      </div>
-
       <div className="footer-menu-wrapper">
         <ul className="footer-menu">
           <Link to="/about" title="Who we are?"><li>About US</li></Link>
@@ -26,9 +15,6 @@ const Footer = () => (
           <Link to="/donation" title="Slap Putin and we donate"><li>Slapping Donation</li></Link>
         </ul>
       </div>
-
-      <input type="search" id="" name="" />
-
 
       <div className="social-media-icons">
         <i className="fab fa-instagram"></i>

@@ -109,6 +109,15 @@ class EditAccount extends React.Component {
     if (!user) return null
     return (
       <div className="edit-account-page change-brightness">
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
+        
         <div className="account-nav">
           <Link to="/profile">Your Acount</Link>
           <span className="sign">&gt;</span>

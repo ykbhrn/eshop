@@ -168,6 +168,15 @@ class SingleProduct extends React.Component {
 
     return (
       <div className="single-product-section change-brightness">
+
+        <style>
+          {'\
+          .donation-icon{\
+            display: flex;\
+          }\
+          '}
+        </style>
+        
         <div className="single-product-wrapper">
           <div className="single-product-images-wrapper">
             <div className="side-images-container">
