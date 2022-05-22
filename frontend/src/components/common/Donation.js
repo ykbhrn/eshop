@@ -46,8 +46,8 @@ class Donation extends React.Component {
             <p>
               <p><strong>We gave peace a chance but there are people who deserve a slap.</strong></p>
             The rules are pretty simple. At random time, once in a half an hour, Putin&#39;s face show up and run arround your screen. 
-            When Putin shows up, your mouse curso become hand and you are ready to slap. On smartphones you can just use your finger. For every slap you give him, we will donate 5% of your order amount to <a href="https://donate.redcross.org.uk/appeal/ukraine-crisis-appeal" target="_blank" rel="noopener noreferrer">British Red Cross </a> 
-            to help with humanitarian aid in Ukraine. Maximum limit for donation is 25% of your order.
+            When Putin shows up, your mouse cursor become hand and you are ready to slap. On smartphones you can just use your finger. For every slap you give him, we will give you 5% discount on your next order. 
+            Maximum limit for discount is 25%.
               {/* <p>So happy slapsgiving</p> */}
             </p>
             <p>

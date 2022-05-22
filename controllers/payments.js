@@ -51,68 +51,69 @@ async function sendInvoice(req, res) {
       }
     )
 
-    // if (order.discount > 0) {
+    if (order.discount > 0) {
 
-    //   const coupon = await stripe.coupons.create({
-    //     duration: 'once',
-    //     id: order.orderId,
-    //     percent_off: order.discount
-    //   })
+      const coupon = await stripe.coupons.create({
+        duration: 'once',
+        id: order.orderId,
+        percent_off: order.discount
+      })
 
-    //   const invoice = await stripe.invoices.create({
-    //     customer: customerId,
-    //     auto_advance: true, // Auto-finalize this draft after ~1 hour
-    //     collection_method: 'send_invoice',
-    //     days_until_due: 30,
-    //     discounts: [{
-    //       coupon: coupon.id
-    //     }]
-    //   })
+      const invoice = await stripe.invoices.create({
+        customer: customerId,
+        auto_advance: true, // Auto-finalize this draft after ~1 hour
+        collection_method: 'send_invoice',
+        days_until_due: 30,
+        discounts: [{
+          coupon: coupon.id
+        }]
+      })
 
-    //   const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
+      const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
 
-    //   const paymentIntent = await stripe.paymentIntents.update(
-    //     finalInvoice.payment_intent,
-    //     { receipt_email: order.email }
-    //   )
+      const paymentIntent = await stripe.paymentIntents.update(
+        finalInvoice.payment_intent,
+        { receipt_email: order.email }
+      )
 
-    //   userToUpdate.finishedOrder.stripePaymentUrl = finalInvoice.hosted_invoice_url
+      userToUpdate.finishedOrder.stripePaymentUrl = finalInvoice.hosted_invoice_url
 
-    //   await userToUpdate.save()
+      await userToUpdate.save()
 
-    //   res.json({
-    //     message: finalInvoice.hosted_invoice_url,
-    //     success: true
-    //   })
-    // } else if (order.discount === 0) {
+      res.json({
+        message: finalInvoice.hosted_invoice_url,
+        success: true
+      })
+    } else if (order.discount === 0) {
 
-    const invoice = await stripe.invoices.create({
-      customer: customerId,
-      auto_advance: true, // Auto-finalize this draft after ~1 hour
-      collection_method: 'send_invoice',
-      days_until_due: 30
-    })
+      const invoice = await stripe.invoices.create({
+        customer: customerId,
+        auto_advance: true, // Auto-finalize this draft after ~1 hour
+        collection_method: 'send_invoice',
+        days_until_due: 30
+      })
 
-    const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
+      const finalInvoice = await stripe.invoices.finalizeInvoice(invoice.id)
 
-    await stripe.invoices.sendInvoice(
-      finalInvoice.id
-    )
+      await stripe.invoices.sendInvoice(
+        finalInvoice.id
+      )
 
-    const paymentIntent = await stripe.paymentIntents.update(
-      finalInvoice.payment_intent,
-      { receipt_email: order.email }
-    )
+      const paymentIntent = await stripe.paymentIntents.update(
+        finalInvoice.payment_intent,
+        { receipt_email: order.email }
+      )
 
-    userToUpdate.finishedOrder.stripePaymentUrl = finalInvoice.hosted_invoice_url
+      userToUpdate.finishedOrder.stripePaymentUrl = finalInvoice.hosted_invoice_url
 
-    await userToUpdate.save()
+      await userToUpdate.save()
 
-    res.json({
-      message: finalInvoice.hosted_invoice_url,
-      success: true
-    })
+      res.json({
+        message: finalInvoice.hosted_invoice_url,
+        success: true
+      })
     
+    }
   
   }
 

@@ -32,8 +32,7 @@ class PopupDiscount extends React.Component {
     setTimeout(() => {
       const now = new Date()
       if (now.getMinutes() === res.data[0].time && window.location.pathname !== "/donation" && window.location.pathname !== "/shipping" 
-      && window.location.pathname !== "/basket" && window.location.pathname !== "/checkout" && window.location.pathname !== "/payment"
-      && window.location.pathname !== "/confirmation/credit-card" && window.location.pathname !== "/confirmation/bank-transfer") {
+      && window.location.pathname !== "/checkout" && window.location.pathname !== "/payment" && window.location.pathname !== "/confirmation/credit-card" && window.location.pathname !== "/confirmation/bank-transfer") {
         this.showHand()
         this.discountAnimationEnd()
       }
@@ -284,7 +283,7 @@ class PopupDiscount extends React.Component {
 
             <h2>
               <span>You slapped a mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s).</span> 
-            This means that we will donate <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% of your order amount to charity to support Ukraine</span>
+            This means that we will give you <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% discount on your next order</span>
             </h2>
 
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
@@ -310,7 +309,7 @@ class PopupDiscount extends React.Component {
 
             <h2>
           You slapped a mad dictator <span className="highlighted">{this.state.discountScore / 5} time(s).</span><br />
-          This means your current donation of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% remains unchanged</span>
+          This means your current discount of <span className="highlighted">{this.state.user ? this.state.user.discount : discount}% remains unchanged</span>
             </h2>
 
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
@@ -362,7 +361,7 @@ class PopupDiscount extends React.Component {
 
             <h2>
               <span>You slapped mad dictator </span><span className="highlighted">{this.state.discountScore / 5} time(s). </span> 
-              In the real try, it would mean that we would donate <span className="highlighted">{this.state.discountScore}% of your order amount to charity to support Ukraine</span>
+              In the real try, it would mean <span className="highlighted">{this.state.discountScore}% discount on your next order</span>
             </h2>
 
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>

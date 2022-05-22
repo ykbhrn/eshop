@@ -6,6 +6,7 @@ import {seo, mainMetaDescription} from '../../lib/functions'
 class Confirmation extends React.Component {
   state = {
     user: null,
+    totalQuantity: null
   }
 
 
@@ -19,7 +20,13 @@ class Confirmation extends React.Component {
       });
 
       const res = await getMyProfile();
-      this.setState({ user: res.data });
+
+      // let totalQuantity = 0
+      // res.data.finishedOrder.map(item => {
+      //   totalQuantity = totalQuantity + Number(item.chosenQuantity)
+      // })
+
+      this.setState({ user: res.data  });
     } catch (err) {
       console.log(err);
     }
@@ -56,11 +63,18 @@ class Confirmation extends React.Component {
           </div>
         
           <div className="order-confirmation-details">
-            <div>Order ID: {user.finishedOrder.orderId}</div>
+            {/* <div>Order ID: {user.finishedOrder.orderId}</div>
             <div>Sum ({} Items): £{user.finishedOrder.sumPrice / 100}</div>
             <div className="total-text">Shipping: £{user.finishedOrder.shipping / 100}</div>
             <div>Total Price: £{user.finishedOrder.pricePlusShipping / 100}</div>
-            <div>Your Donation: {user.finishedOrder.discount}% ({user.finishedOrder.discountAmount / 100})</div>
+            <div>Your Discount: {user.finishedOrder.discount}% ({user.finishedOrder.discountAmount / 100})</div> */}
+
+            <div>Order ID: {user.finishedOrder.orderId}</div>
+            <div>Sum ({this.state.totalQuantity} Items): £{user.finishedOrder.sumPrice / 100}</div>
+            <div>Your Discount: {user.finishedOrder.discount}% ({user.finishedOrder.discountAmount / 100})</div>
+            <div className="total-text">Shipping: £{user.finishedOrder.shipping / 100}</div>
+            <div>Total Price: £{user.finishedOrder.pricePlusShipping / 100}</div>
+
           </div>
         </div>
 

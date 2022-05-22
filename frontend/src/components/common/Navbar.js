@@ -303,7 +303,7 @@ class Navbar extends React.Component {
         <Link to="/donation" title="Slap Putin and we donate">
           <div className="donation-icon" onMouseEnter={this.hoverDonation} onMouseLeave={this.leaveDonation}>
             {this.state.isHoveringDonation &&
-            <div className="donation-text"> Slap &#38; Donate</div>
+            <div className="donation-text"> Slapsgiving</div>
             }
           </div>
         </Link>

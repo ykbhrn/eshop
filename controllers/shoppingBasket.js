@@ -112,7 +112,7 @@ async function calculatePrice (user, req, res) {
 
     user.discountAmount = Math.round(((user.discount / 100) * user.sumPrice))
     
-    user.totalPrice = price
+    user.totalPrice = Math.round(user.sumPrice - user.discountAmount)
 
 
     await user.save()
