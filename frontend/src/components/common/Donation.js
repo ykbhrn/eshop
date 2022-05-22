@@ -5,7 +5,7 @@ import {seo} from '../../lib/functions'
 
 class Donation extends React.Component {
   state = {
-    donation: 0,
+    discount: 0,
     discountDemo: false
   }
 
@@ -14,12 +14,12 @@ class Donation extends React.Component {
       window.scrollTo(0, 0)
 
       seo({
-        title: "Slap Putin and we will donate to Ukraine | Nu Hippies",
-        metaDescription: "We gave peace a chance but there are people who deserve a slap. For every slap of Putin, we donate 5% of your order to Ukraine"
+        title: "Slap Putin and get discount | Nu Hippies",
+        metaDescription: "We gave peace a chance but there are people who deserve a slap. We will give you 5% discount for each slap of Putin."
       });
 
       const res = await getMyProfile()
-      this.setState({donation: res.data.discount})
+      this.setState({discount: res.data.discount})
     } catch (err) {
       console.log(err)
     }
@@ -51,7 +51,7 @@ class Donation extends React.Component {
               {/* <p>So happy slapsgiving</p> */}
             </p>
             <p>
-            You are currently on <strong>{this.state.donation}% level</strong>
+            You are currently on <strong>{this.state.discount}% level</strong>
             </p>
 
             <div className="classic-btn" onClick={this.popupDemo} title="Slap a Putin's face">

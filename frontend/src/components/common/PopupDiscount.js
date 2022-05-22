@@ -31,7 +31,7 @@ class PopupDiscount extends React.Component {
 
     setTimeout(() => {
       const now = new Date()
-      if (now.getMinutes() === res.data[0].time && window.location.pathname !== "/donation" && window.location.pathname !== "/shipping" 
+      if (now.getMinutes() === res.data[0].time && window.location.pathname !== "/discount" && window.location.pathname !== "/shipping" 
       && window.location.pathname !== "/checkout" && window.location.pathname !== "/payment" && window.location.pathname !== "/confirmation/credit-card" && window.location.pathname !== "/confirmation/bank-transfer") {
         this.showHand()
         this.discountAnimationEnd()
@@ -154,7 +154,7 @@ class PopupDiscount extends React.Component {
   showHand = () => {
     seo({
       title: "GET READY, HERE IT IS!!",
-      metaDescription: "Slap Putin and we donate"
+      metaDescription: "Slap Putin and get discount"
     });
 
     const discountPage = document.querySelector('.discount-page')
