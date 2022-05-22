@@ -12,7 +12,7 @@ const Footer = () => (
           <Link to="/contact" title="Send us a message"><li>Contact Us</li></Link>
           <Link to="/terms" title="terms"><li>Terms and Conditions</li></Link>
           <Link to="/privacy" title="privacy policy"><li>Privacy Policy</li></Link>
-          <Link to="/donation" title="Slap Putin and we donate"><li>Slapping Donation</li></Link>
+          <Link to="/donation" title="Slap Putin and get discount"><li>Slapsgiving Rules</li></Link>
         </ul>
       </div>
 

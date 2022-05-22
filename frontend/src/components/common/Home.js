@@ -186,7 +186,7 @@ class Home extends React.Component {
 
               <li>
                 <a href="/donation" onMouseEnter={() => {
-                  this.changeMainButton("Slap & Donate")
+                  this.changeMainButton("Slapsgiving")
                 }}
                 onMouseLeave={this.mainButtonBack}>
                   <i className="fa-solid fa-dove flip"></i>

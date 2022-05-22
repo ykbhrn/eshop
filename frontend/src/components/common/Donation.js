@@ -42,7 +42,7 @@ class Donation extends React.Component {
           <img className="donation-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
 
           <div className="donation">
-            <h1>Slap &#38; Donate</h1>
+            <h1>Slapsgiving</h1>
             <p>
               <p><strong>We gave peace a chance but there are people who deserve a slap.</strong></p>
             The rules are pretty simple. At random time, once in a half an hour, Putin&#39;s face show up and run arround your screen. 
