@@ -20,12 +20,12 @@
   
 .menu-button-text{
   font-size: 44px;
+  font-weight: 100;
   color: $dark-color!important;
   background: $second-color;
   width: 370px;
   margin-left: -164px;
   margin-top: -10px;
-  border: 5px solid $dark-color;
   border-radius: 15px;
   transform: scale(0.4);
 }

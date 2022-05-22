@@ -33,9 +33,9 @@ class Home extends React.Component {
       const isSafari = window.safari !== undefined
       const isPhone = window.matchMedia("(pointer: coarse)").matches
 
-      if (isPhone) {
-        homeMenu.style.animation = "spring 3s infinite"
-      }
+      // if (isPhone) {
+      //   homeMenu.style.animation = "spring 3s infinite"
+      // }
 
       if (isSafari || iOSSafari) {
         close.style.animation = "none"
