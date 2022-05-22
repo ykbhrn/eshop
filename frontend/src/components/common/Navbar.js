@@ -235,7 +235,7 @@ class Navbar extends React.Component {
             <ul id="main-menu-ul" className='tip ctrl'>
               
               <li className='slice'>
-                <Link to="/products/accessories/all/all/all" title="Accessories">
+                <Link to="/products/accessories/all/all/all" title="Nu Hippies Accessories">
                   <div onMouseEnter={() => {
                     this.changeMainButton("Accessories")
                   }}
@@ -245,7 +245,7 @@ class Navbar extends React.Component {
               </li>
 
               <li className='slice'>
-                <Link to="/products/supplements/all/all/all" title="Supplements">
+                <Link to="/products/supplements/all/all/all" title="Nu Hippies Supplements">
                   <div onMouseEnter={() => {
                     this.changeMainButton("Supplements")
                   }}
@@ -255,7 +255,7 @@ class Navbar extends React.Component {
               </li>
 
               <li className='slice'>
-                <Link to="/products" title="All Products">
+                <Link to="/products" title="All Nu Hippies Products">
                   <div onMouseEnter={() => {
                     this.changeMainButton("All Products")
                   }}
@@ -265,7 +265,7 @@ class Navbar extends React.Component {
               </li>
 
               <li className='slice'>
-                <Link to="/about" title="Who are we?">
+                <Link to="/about" title="What is Nu Hippies?">
                   <div onMouseEnter={() => {
                     this.changeMainButton("About Us")
                   }}

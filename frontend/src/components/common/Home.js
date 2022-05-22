@@ -139,7 +139,7 @@ class Home extends React.Component {
             <ul className="home-menu-ul">
 
               <li>
-                <a href="/products" onMouseEnter={() => {
+                <a href="/products" title="All available products" onMouseEnter={() => {
                   this.changeMainButton("All Products");
                 }}
                 onMouseLeave={this.mainButtonBack}>
@@ -148,7 +148,7 @@ class Home extends React.Component {
               </li>
 
               <li>
-                <a href="/products/supplements/all/all/all" onMouseEnter={() => {
+                <a href="/products/supplements/all/all/all" title="Micronutrient supplements" onMouseEnter={() => {
                   this.changeMainButton("Supplements");
                 }}
                 onMouseLeave={this.mainButtonBack}>
@@ -158,7 +158,7 @@ class Home extends React.Component {
 
               <li>
                 {!isAuthenticated() &&
-                  <a href="/entering" onMouseEnter={() => {
+                  <a href="/entering" title="All we are saying is give us a chance" onMouseEnter={() => {
                     this.changeMainButton("Register");
                   }}
                   onMouseLeave={this.mainButtonBack}>
@@ -166,7 +166,7 @@ class Home extends React.Component {
                   </a>
                 }
                 {isAuthenticated() &&
-                  <a href="/profile" onMouseEnter={() => {
+                  <a href="/profile" title="Your Profile" onMouseEnter={() => {
                     this.changeMainButton("My Account");
                   }}
                   onMouseLeave={this.mainButtonBack}>
@@ -176,7 +176,7 @@ class Home extends React.Component {
               </li>
 
               <li>
-                <a href="/about" onMouseEnter={() => {
+                <a href="/about" title="About Nu Hippies" onMouseEnter={() => {
                   this.changeMainButton("About Us")
                 }}
                 onMouseLeave={this.mainButtonBack}>
@@ -185,7 +185,7 @@ class Home extends React.Component {
               </li>
 
               <li>
-                <a href="/discount" onMouseEnter={() => {
+                <a href="/discount" title="Nu Hippies Slapsgiving" onMouseEnter={() => {
                   this.changeMainButton("Slapsgiving")
                 }}
                 onMouseLeave={this.mainButtonBack}>
@@ -194,7 +194,7 @@ class Home extends React.Component {
               </li>
 
               <li>
-                <a href="/products/accessories/all/all/all" onMouseEnter={() => {
+                <a href="/products/accessories/all/all/all" title="Eco-friendly accessories" onMouseEnter={() => {
                   this.changeMainButton("Accessories")
                 }}
                 onMouseLeave={this.mainButtonBack}>
