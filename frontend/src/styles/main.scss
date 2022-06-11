@@ -4,6 +4,7 @@
 @import "./flower.scss";
 @import "./title-revealing.scss";
 @import "./navbar.scss";
+@import "./home.scss";
 
 html, body{
   height: 100%;
@@ -23,25 +24,32 @@ body {
   // overflow-x: hidden;
   color: $text-color;
   font-weight: 200;
-  background: $main-background-color;
+  background: black;
+  // background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
+  // background-image: radial-gradient(circle at center, #1b2735, #090a0f);
+  background-image: url(https://w0.peakpx.com/wallpaper/711/727/HD-wallpaper-sun-alone-minimal-minimalism-phone-kurdistan-sad-black-me-logo-kurd.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
+
 
 .whole-page{
   min-height: 100vh;
 }
 
-.canvas{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1650975032/Nu%20Hippies/Backgrounds/noise-512x512_xip6ex.jpg');
-  background-size: 512px 512px;
-  opacity: 0.042;
-  pointer-events: none;
-  z-index: -1;
-}
+// .canvas{
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1650975032/Nu%20Hippies/Backgrounds/noise-512x512_xip6ex.jpg');
+//   background-size: 512px 512px;
+//   opacity: 0.042;
+//   pointer-events: none;
+//   z-index: -1;
+// }
 
 .cursor-gif{
   display: none;
@@ -119,89 +127,89 @@ button{
 
 * { margin: 0; padding: 0; }
 
-//Home page
-.home-page{
-    display: flex;
-    // justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    .home-menu {
-    font-family: 'Gluten', cursive;
-    position: absolute;
-    height: 300px;
-    margin: 0px;
-    top: 44%;
-    z-index: 5;
-    transform: scale(1.6);
-  }
-  .home-logo{
-    width: 35px;
-    height: 35px;
-    background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/IconOnly_Transparent_1_pox2bq.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  }
-  .change-image{
-    background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
-  }
-  .home-right-banner{
-    position: absolute;
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    right: 0px;
-    bottom: 0px;
-    width: 400px;
-    height: 400px;
-    visibility: hidden;
-    img{
-      object-position: right;
-    }
-  }
-  .home-left-banner{
-    position: absolute;
-    clip-path: polygon(0 0, 0% 100%, 100% 0);
-    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
-    left: 0px;
-    top: 0px;
-    width: 400px;
-    height: 400px;
-    img{
-      object-position: left;
-    }
-  }
-  .flip{
-    transform: rotate(180deg);
-  }
-  .home-title-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 20px;
-  }
-  .home-title{
-    font-size: 42px;
-    font-weight: 400;
-    text-align: center;
-  }
-  .title-color{
-    color: $dark-color;
-  }
-  // #left-video-two, #right-video-two{
-  //   visibility: hidden;
-  // }
-  img{
-    width: 100%;
-    // max-width: 1200px;
-    height: 100%;
-    // max-height: 70vh;
-    position: relative;
-    object-fit: cover;
-    z-index: -1;
-  }
-}
+// //Home page
+// .home-page{
+//     display: flex;
+//     // justify-content: center;
+//     flex-direction: column;
+//     align-items: center;
+//     height: 100vh;
+//     .home-menu {
+//     font-family: 'Gluten', cursive;
+//     position: absolute;
+//     height: 300px;
+//     margin: 0px;
+//     top: 44%;
+//     z-index: 5;
+//     transform: scale(1.6);
+//   }
+//   .home-logo{
+//     width: 35px;
+//     height: 35px;
+//     background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/IconOnly_Transparent_1_pox2bq.png");
+//     background-repeat: no-repeat;
+//     background-size: contain;
+//     background-position: center;
+//   }
+//   .change-image{
+//     background-image: url("https://res.cloudinary.com/nuhippies/image/upload/v1639597714/Nu%20Hippies/icons/logo-white_k6b7uh.png");
+//   }
+//   .home-right-banner{
+//     position: absolute;
+//     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+//     -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+//     right: 0px;
+//     bottom: 0px;
+//     width: 400px;
+//     height: 400px;
+//     visibility: hidden;
+//     img{
+//       object-position: right;
+//     }
+//   }
+//   .home-left-banner{
+//     position: absolute;
+//     clip-path: polygon(0 0, 0% 100%, 100% 0);
+//     -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+//     left: 0px;
+//     top: 0px;
+//     width: 400px;
+//     height: 400px;
+//     img{
+//       object-position: left;
+//     }
+//   }
+//   .flip{
+//     transform: rotate(180deg);
+//   }
+//   .home-title-wrapper{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: center;
+//     margin-top: 20px;
+//   }
+//   .home-title{
+//     font-size: 42px;
+//     font-weight: 400;
+//     text-align: center;
+//   }
+//   .title-color{
+//     color: $dark-color;
+//   }
+//   // #left-video-two, #right-video-two{
+//   //   visibility: hidden;
+//   // }
+//   img{
+//     width: 100%;
+//     // max-width: 1200px;
+//     height: 100%;
+//     // max-height: 70vh;
+//     position: relative;
+//     object-fit: cover;
+//     z-index: -1;
+//   }
+// }
 
 //Basket page
 .basket-page{

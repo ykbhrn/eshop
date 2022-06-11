@@ -8,9 +8,9 @@
   h3 {
     font-size: 25px;
     color: $dark-color;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     position: absolute;
-    top: 130px;
+    top: 100px;
   }
 }
 .header .static-txt {
@@ -20,8 +20,8 @@
 }
 .header .dynamic-txts {
   margin-left: 15px;
-  height: 80px;
-  line-height: 80px;
+  height: 70px;
+  line-height: 70px;
   overflow: hidden;
 }
 .dynamic-txts li {
@@ -41,16 +41,16 @@
 .dynamic-txts li span {
   position: relative;
   margin: 5px 0;
-  line-height: 90px;
+  line-height: 60px;
 }
 .dynamic-txts li span::after {
   content: "";
   position: absolute;
   left: 0;
   height: 100%;
-  margin-top: 28px;
+  // margin-top: 28px;
   width: 100%;
-  background: url('https://res.cloudinary.com/nuhippies/image/upload/v1651088190/Nu%20Hippies/Backgrounds/5F569DF4-0976-4A99-BF3A-6EA369289BE8_4_5005_c_ahg9fh.jpg');
+  background: black;
   border-left: 2px solid $dark-color;
   animation: typing 3s steps(10) infinite;
 }
