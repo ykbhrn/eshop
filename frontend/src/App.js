@@ -29,6 +29,9 @@ import Privacy from './components/common/Privacy'
 import PopupDiscount from './components/common/PopupDiscount'
 import Donation from './components/common/Donation'
 import Done from './components/common/Done'
+import UsedItems from './components/second-hand/UsedItems'
+import CategorizedItems from './components/second-hand/CategorizedItems'
+import SecondHandNavbar from './components/second-hand/SecondHandNavbar'
 
 // var pointerX = -1;
 // var pointerY = -1;
@@ -50,7 +53,7 @@ import Done from './components/common/Done'
 // }
 
 window.onscroll = function () { 
-  const logo = document.querySelector(".logo")
+  const logo = document.querySelectorAll(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
   const basketIcon = document.querySelector(".basket-icon-wrapper")
   const basketNumber = document.querySelector(".basket-number")
@@ -59,15 +62,15 @@ window.onscroll = function () {
 
   if (document.documentElement.scrollTop > 50) {
 
-    logo.classList.add("logo-scroll")
-    logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+    logo[0], logo[1].classList.add("logo-scroll")
+    logo[0], logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     basketIcon.classList.add("basket-icon-scroll")
     productsNavbarIcon.classList.add("products-navbar-icon-scroll")
     basketNumber.classList.add("basket-number-scroll")
   } else if (document.documentElement.scrollTop < 50) {
 
-    logo.classList.remove("logo-scroll")
-    logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646061516/Nu%20Hippies/Backgrounds/FullLogo_Transparent_e1l1fn.png)"
+    logo[0], logo[1].classList.remove("logo-scroll")
+    logo[0], logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
     basketIcon.classList.remove("basket-icon-scroll")
     productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
     basketNumber.classList.remove("basket-number-scroll")
@@ -187,6 +190,7 @@ class App extends React.Component {
           />
           <PopupDiscount />
           <Navbar />
+          <SecondHandNavbar />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
@@ -211,6 +215,8 @@ class App extends React.Component {
             <Route path="/privacy" component={Privacy} />
             <Route path="/discount" component={Donation} />
             <Route path="/done" component={Done} />
+            <Route path="/second-hand/:category/:gender" component={CategorizedItems} />
+            <Route path="/second-hand" component={UsedItems} />
           </Switch>
         </div>
         {this.state.showFooter &&

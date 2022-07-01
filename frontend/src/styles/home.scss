@@ -6,12 +6,20 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  width: 100vw;
+    background: black;
+  background-image: url(https://w0.peakpx.com/wallpaper/711/727/HD-wallpaper-sun-alone-minimal-minimalism-phone-kurdistan-sad-black-me-logo-kurd.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   .home-title-wrapper{
     margin-top: 0px;
   }
   h1{
     font-size: 80px;
     color: white;
+    margin-top: 0px;
+    font-family: $logo-font;
   }
 }
 
@@ -19,7 +27,7 @@
   display: flex;
   position: absolute;
   top: 50%;
-  margin-top: -67px;
+  margin-top: -62px;
   perspective: 10px;
   transform: perspective(300px) rotateX(20deg);
   will-change: perspective;
@@ -35,7 +43,7 @@
   .text {
     opacity: 1;
   }
-  & > div {
+  & > a {
     opacity: 1;
     transition-delay: 0s;
   }
@@ -63,7 +71,7 @@
   background-blend-mode: color-burn;
   
   &:hover {
-    box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
+  box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
   background-color: #ccf;
   }
 }
@@ -92,11 +100,11 @@
 .center {
   opacity: 1;
   border-radius: 50%;
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
+  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
 }
 .right {
   transform: translateX(30px) translateZ(-25px) rotateY(5deg);
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
+  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
 }
 .righter {
   transform: translateX(60px) translateZ(-50px) rotateY(10deg);

@@ -5,12 +5,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: -40px;
+  font-family: $logo-font;
   h3 {
     font-size: 25px;
     color: $dark-color;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     position: absolute;
-    top: 100px;
+    top: 130px;
   }
 }
 .header .static-txt {
@@ -19,15 +21,15 @@
   cursor: $pointer-cursor;
 }
 .header .dynamic-txts {
-  margin-left: 15px;
-  height: 70px;
-  line-height: 70px;
+  // margin-left: 15px;
+  height: 80px;
+  line-height: 80px;
   overflow: hidden;
 }
 .dynamic-txts li {
   list-style: none;
   color: $second-color;
-  font-size: 37px;
+  font-size: 30px;
   font-weight: 300;
   position: relative;
   top: 0;
@@ -41,17 +43,17 @@
 .dynamic-txts li span {
   position: relative;
   margin: 5px 0;
-  line-height: 60px;
+  line-height: 90px;
 }
 .dynamic-txts li span::after {
   content: "";
   position: absolute;
   left: 0;
   height: 100%;
-  // margin-top: 28px;
+  margin-top: 23px;
   width: 100%;
   background: black;
-  border-left: 2px solid $dark-color;
+  border-left: 2px solid white;
   animation: typing 3s steps(10) infinite;
 }
 @keyframes typing {

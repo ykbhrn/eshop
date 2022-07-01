@@ -88,8 +88,6 @@ class Navbar extends React.Component {
           
             <div className="hover-products-menu">
 
-              <div className="canvas"></div>
-
               {/* Products navbar */}
               {/* Accesories */}              
               <nav>

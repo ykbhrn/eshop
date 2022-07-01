@@ -9,7 +9,6 @@ class AllProducts extends React.Component {
     searchProducts: [],
     isSearching: false,
     searchedPhrase: null,
-    startSearch: false,
     flowerProductsOne: [],
     flowerProductsTwo: [],
     hoveredProductId: '',
@@ -66,10 +65,6 @@ class AllProducts extends React.Component {
     } else {
       this.setState({ isSearching: false })
     }
-  }
-
-  startTyping = () => {
-    this.setState({ startSearch: true})
   }
 
   otherPreviewImage = (id) => {
@@ -156,14 +151,7 @@ class AllProducts extends React.Component {
     </div>
 
   </div>
-
-  {!this.state.startSearch &&
-<>
-  <img className="search-icon" alt="Search for product" src="https://res.cloudinary.com/nuhippies/image/upload/v1653092834/Nu%20Hippies/icons/telescope_1_bjhi1z.png" onClick={this.startTyping}/>
-</>
-  }
   
-  {this.state.startSearch &&
   <div className="search-wrapper">
           
     <form>
@@ -198,7 +186,6 @@ class AllProducts extends React.Component {
     </div>
 
   </div>
-  }
 
   <div className="products-flower-wrapper">
 

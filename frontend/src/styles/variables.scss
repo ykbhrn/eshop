@@ -1,6 +1,10 @@
 
-$main-font: 'Gloria Hallelujah', cursive;
-$logo-font: "Galindo", cursive;
+@font-face {
+  font-family: 'Alba';
+  src: url("./alba/ALBA____.TTF");
+}
+$logo-font: 'Alba';
+$main-font: "Arial";
 // $dark-color: #FF1510;
 // $second-color: rgb(250,203,82);
 // $third-color: rgb(82,193,199);
