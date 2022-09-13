@@ -7,10 +7,13 @@
 @import "./home.scss";
 @import "./second-hand-navbar.scss";
 @import "./second-hand.scss";
+@import "./maps.scss";
 
 html, body{
   height: 100%;
-  background:  black;
+  // background:  black;
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
   // cursor: url('https://res.cloudinary.com/nuhippies/image/upload/v1651164355/Nu%20Hippies/icons/victory_1_vhbvys.png') 25 25, auto;
 }
 

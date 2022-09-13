@@ -7,7 +7,7 @@
   align-items: center;
   a{
     text-decoration: none;
-    color: white;
+    color: $second-color;
   }
   h1{
     text-align: center;
@@ -31,16 +31,16 @@
     align-items: center;    
   }
   .product-preview-image {
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     transition: 0.4s linear;
   }
   .product-preview-name {
-    width: 280px;
-    max-height: 90px;
+    width: 200px;
+    max-height: 80px;
     overflow: hidden;
     padding: 3px 8px;
     font-size: 18px;
@@ -53,8 +53,8 @@
     justify-content: space-around;
     align-items: center;
   .product-preview-price{
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 1000;
   }
 }
 }
@@ -134,6 +134,12 @@
     font-size: 30px;
     font-family: $logo-font;
   }
+  input{
+    margin: 95px 30px 0 0;
+    width: 350px;
+    border-radius: 50px;
+    height: 40px;
+  }
 .categorized-header{
   position: absolute;
   right: 28px;
@@ -143,4 +149,168 @@
 .product-container{
   margin-top: 50px;
 }
+.categories-container{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  margin-left: -220px;
+  cursor: pointer;
+  color: $second-color;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0 30px 30px 30px;
+  .menu-category{
+    .menu-category-header{
+      font-size: 22px;
+      margin-bottom: 12px;
+      text-align: center;
+      width: 120px;
+    }
+    .menu-item{
+      margin-bottom: 14px;
+      text-align: center;
+      font-size: 20px;
+
+    }
+    .menu-item:hover{
+      transform: scale(1.05)
+    }
+    .menu-item:hover, .menu-category-header:hover{
+      color: white;
+    }
+  }
+}
+}
+
+//Second Hand Button
+.second-hand-button{
+  border: 1px solid $second-color;
+  // background: $dark-color;
+  border-radius: 15px;
+  font-size: 19px;
+  font-weight: 300;
+  height: 35px;
+  width: 100px;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px 15px;
+  .loading-image{
+    width: 33px;
+    height: 33px;
+  }
+  &:hover{
+    font-size: 21px;
+  }
+}
+.second-hand-button.post{
+  margin-top: 14px;
+}
+
+// Post Item Page
+.post-item-page{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 300px;
+  h2{
+    margin-top: 30px;
+  }
+  .post-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .post-buttons-wrapper{
+    display: flex;
+  }
+  .place-wrapper{
+    background: $second-color;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 2px 5px;
+    margin-top: 5px;
+  }
+  .adress-input-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .uploaded-images-container{
+    max-width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .uploaded-image-wrapper{
+    position: relative;
+  }
+  .close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 19px;
+    height: 19px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .ad-uploaded-image{
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+  }
+  .gender-options-wrapper{
+    display: flex;
+    margin: 30px 0;
+  }
+  .gender-option{
+    padding: 0 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    &:hover{
+      border: 1px solid $text-color;
+      border-radius: 5px;
+    }
+  }
+  .selected{
+    background: $second-color;
+  }
+  .size-input{
+    width: 70px;
+  }
+  .error{
+    color: red;
+    margin: 4px 0;
+  }
+  .uploaded-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+  .uploaded-item-description{
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+
+//Geocoder
+.react-geocoder{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.react-geocoder-results{
+  cursor: pointer;
+}
+.react-geocoder-item:hover{
+  background: $second-color;
 }

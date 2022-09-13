@@ -30,8 +30,11 @@ import PopupDiscount from './components/common/PopupDiscount'
 import Donation from './components/common/Donation'
 import Done from './components/common/Done'
 import UsedItems from './components/second-hand/UsedItems'
+import SingleItem from './components/second-hand/SingleItem'
 import CategorizedItems from './components/second-hand/CategorizedItems'
 import SecondHandNavbar from './components/second-hand/SecondHandNavbar'
+import Maps from './components/map/Maps'
+import PostUsedItem from './components/second-hand/PostUsedItem'
 
 // var pointerX = -1;
 // var pointerY = -1;
@@ -215,8 +218,11 @@ class App extends React.Component {
             <Route path="/privacy" component={Privacy} />
             <Route path="/discount" component={Donation} />
             <Route path="/done" component={Done} />
+            <Route path="/second-hand/items/:id" component={SingleItem} />
+            <Route path="/second-hand/post-item" component={PostUsedItem} />
             <Route path="/second-hand/:category/:gender" component={CategorizedItems} />
             <Route path="/second-hand" component={UsedItems} />
+            <Route path="/maps" component={Maps} />
           </Switch>
         </div>
         {this.state.showFooter &&

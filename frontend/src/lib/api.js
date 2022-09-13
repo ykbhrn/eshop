@@ -94,3 +94,15 @@ export const createPayment = (formData) => {
 export const createInvoice = (formData) => {
   return axios.post('/api/invoice', formData, withHeaders())
 }
+
+export const createUsedItem = (formData) => {
+  return axios.post('/api/used-items', formData, withHeaders())
+}
+
+export const getAllUsedItems = () => {
+  return axios.get('/api/used-items')
+}
+
+export const getSingleUsedItem = id => {
+  return axios.get(`/api/second-hand/items/${id}`)
+}

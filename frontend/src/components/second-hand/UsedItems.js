@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../../lib/api';
+import { getAllUsedItems } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 
 class UsedItems extends React.Component {
   state = {
-    products: [],
+    items: [],
     hoveredProductId: '',
     text: null
   }
@@ -20,8 +20,8 @@ class UsedItems extends React.Component {
         metaDescription: {mainMetaDescription}
       });
 
-      const res = await getAllProducts();
-      this.setState({ products: res.data.reverse(), isLoading: false });
+      const res = await getAllUsedItems();
+      this.setState({ items: res.data.reverse(), isLoading: false });
 
     } catch (err) {
       console.log(err)
@@ -49,6 +49,7 @@ class UsedItems extends React.Component {
   }
 
   render() {
+    console.log(this.state.items)
     return (
       <>
         <div className="second-hand-page">
@@ -157,21 +158,21 @@ class UsedItems extends React.Component {
           </div>
 
           <div className="product-container">
-            {this.state.products.slice(0, this.state.productsShowed).map(product => {
+            {this.state.items.slice(0, this.state.productsShowed).map(item => {
 
-              const newName = product.name.replaceAll(' ', '-');
+              const newName = item.title.replaceAll(' ', '-');
 
-              return <Link to={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
+              return <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
                 <div className="product-wrapper" onMouseEnter={() => {
-                  this.otherPreviewImage(product._id);
+                  this.otherPreviewImage(item._id);
                 }}
                 onMouseLeave={this.backToMainProductImage}>
                   <div className="product-preview-image"
-                    style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
+                    style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id ? item.images[1] : item.images[0]})` }}>
                   </div>
-                  <div className="product-preview-name">{product.name}</div>
+                  <div className="product-preview-name">{item.title}</div>
                   <div className="product-preview-price-wrapper">
-                    <div className="product-preview-price">£{product.price / 100}</div>
+                    <div className="product-preview-price">£{item.price / 100}</div>
                   </div>
                 </div>
               </Link>;

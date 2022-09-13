@@ -1,0 +1,12 @@
+@import "./variables.scss";
+
+.maps-page{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  .map-container{
+    width: 700px;
+    height: 700px;
+  }
+}

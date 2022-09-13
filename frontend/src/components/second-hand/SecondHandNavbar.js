@@ -22,7 +22,7 @@ class SecondHandNavbar extends React.Component {
           <div className="logo"></div>
         </a>
 
-        <img className="search-icon-navbar" src="https://res.cloudinary.com/nuhippies/image/upload/v1656644808/Nu%20Hippies/icons/magnifying-glass_txpekd.png"/>
+        {/* <img className="search-icon-navbar" src="https://res.cloudinary.com/nuhippies/image/upload/v1656644808/Nu%20Hippies/icons/magnifying-glass_txpekd.png"/> */}
 
         {/* <form className="navbar-search">
           <input 

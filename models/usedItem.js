@@ -7,17 +7,17 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
-const categorySchema = new mongoose.Schema({
-  gender: { type: String, required: false },
-  categories: [{ type: String, required: true }]
-})
-
 const usedItemSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  title: { type: String, required: true },
   images: [{ type: String, required: true }],
   description: { type: String, required: true },
   price: { type: Number, required: true },
-  categories: categorySchema,
+  category: { type: String, required: true },
+  size: { type: String, required: false },
+  gender: { type: String, required: true },
+  coordinates: [{ type: Number, required: true }],
+  phone: { type: Number, required: false },
+  email: { type: String, required: false },
   tags: [{ type: String, required: false }],
   user: { type: Object, required: true },
   comments: [commentSchema]

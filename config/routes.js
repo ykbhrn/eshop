@@ -2,6 +2,7 @@ const router = require('express').Router()
 const user = require('../controllers/users')
 const auth = require('../controllers/auth')
 const product = require('../controllers/products')
+const usedItem = require('../controllers/usedItems')
 const basket = require('../controllers/shoppingBasket')
 const discount = require('../controllers/discount')
 const payment = require('../controllers/payments')
@@ -74,5 +75,14 @@ router.route('/invoice')
 
 router.route('/send-email')
   .post(contact.sendEmail)
+
+router.route('/used-items')
+  .get(usedItem.allUsedItems)
+  .post(secureRoute, usedItem.usedItemCreate)
+
+router.route('/used-item/:id')
+  .get(usedItem.usedItemShow)
+  .put(secureRoute, usedItem.usedItemUpdate)
+  .delete(secureRoute, usedItem.usedItemDelete)
 
 module.exports = router
