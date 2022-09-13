@@ -218,7 +218,7 @@ class App extends React.Component {
             <Route path="/privacy" component={Privacy} />
             <Route path="/discount" component={Donation} />
             <Route path="/done" component={Done} />
-            <Route path="/second-hand/items/:id" component={SingleItem} />
+            <Route path="/second-hand/items/:name/:id" component={SingleItem} />
             <Route path="/second-hand/post-item" component={PostUsedItem} />
             <Route path="/second-hand/:category/:gender" component={CategorizedItems} />
             <Route path="/second-hand" component={UsedItems} />

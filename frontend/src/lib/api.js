@@ -104,5 +104,5 @@ export const getAllUsedItems = () => {
 }
 
 export const getSingleUsedItem = id => {
-  return axios.get(`/api/second-hand/items/${id}`)
+  return axios.get(`/api/used-item/${id}`)
 }

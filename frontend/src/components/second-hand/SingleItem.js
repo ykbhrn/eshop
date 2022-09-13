@@ -17,13 +17,14 @@ class SingleItem extends React.Component {
 
       const itemId = this.props.match.params.id;
       const res = await getSingleUsedItem(itemId);
+      console.log(res.data)
 
       seo({
         title: res.data.title,
         metaDescription: res.data.description
       });
 
-      this.setState({ item: res.data, bigImage: res.data.images[0], imagesArray: res.data.images[0].images });
+      this.setState({ item: res.data, bigImage: res.data.images[0], imagesArray: res.data.images });
 
     } catch (err) {
       console.log(err);
@@ -67,7 +68,7 @@ class SingleItem extends React.Component {
 
     if (!item) return null
 
-    const newName = item.name.replaceAll(' ', '-');
+    const newName = item.title.replaceAll(' ', '-');
 
     return (
       <div className="single-product-section change-brightness">
