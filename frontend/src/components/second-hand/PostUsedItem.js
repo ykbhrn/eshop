@@ -30,6 +30,7 @@ class PostUsedItem extends React.Component {
       gender: '',
       size: '',
       coordinates: '',
+      placeName: false,
       phone: '',
       email: ''
     },
@@ -37,7 +38,6 @@ class PostUsedItem extends React.Component {
     adPosition: 1,
     isLoading: false,
     error: '',
-    placeName: false,
     errors: false
   }
 
@@ -56,20 +56,21 @@ handleSubmit = async event => {
   try {
     if (this.state.formData.coordinates) {
       this.setState({errors: false, isLoading: true})
-      await createUsedItem(this.state.formData) 
+      const res = await createUsedItem(this.state.formData) 
+      console.log(res.data)
       this.setState({adPosition: this.state.adPosition + 1, isLoading: false})
     } else {
       this.setState({errors: "Enter your adress or postcode, and choose your location from the list"})
     }
   } catch (err) {
-    this.setState({ errors: 'Something went wrong' })
+    this.setState({ errors: 'Something went wrong', isLoading: false })
   }
 }
 
 onSelected = (viewport, item) => {
-  const formData = { ...this.state.formData, coordinates: [item.center[0], item.center[1]] }
+  const formData = { ...this.state.formData, coordinates: [item.center[0], item.center[1]], placeName: item.place_name }
 
-  this.setState({viewport, placeName: item.place_name, formData});
+  this.setState({viewport, formData});
   console.log('Selected: ', item)
 }
 
@@ -330,8 +331,11 @@ onSelected = (viewport, item) => {
             />
           </form>
 
-          {this.state.placeName &&
-          <div className="place-wrapper">{this.state.placeName}</div>   
+          {this.state.formData.placeName &&
+          <div className="place-wrapper">
+            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1663281183/Nu%20Hippies/icons/pin_glwy25.png" />
+            {this.state.formData.placeName}
+          </div>   
           }
 
           <div className="error">{this.state.errors}</div>

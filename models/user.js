@@ -33,7 +33,10 @@ const userSchema = new mongoose.Schema({
   userChats: [],
   userType: { type: Number, required: true },
   resetToken: { data: String, default: '' },
-  stripeId: { type: String, required: true }
+  stripeId: { type: String, required: true },
+  preferenceCoordinates: { type: Array, required: false },
+  preferenceDistance: { type: Number, required: false },
+  preferencePlaceName: { type: String, required: false }
 })
 
 userSchema.virtual('userProducts', {

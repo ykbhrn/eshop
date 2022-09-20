@@ -71,11 +71,20 @@ class SingleItem extends React.Component {
     const newName = item.title.replaceAll(' ', '-');
 
     return (
-      <div className="single-product-section change-brightness">
+      <div className="single-product-section single-item-page">
 
         <style>
           {'\
           .donation-icon{\
+            display: flex;\
+          }\
+          .basket-icon-wrapper{\
+            display: none;\
+          }\
+          .navbar{\
+            display: none;\
+          }\
+          .second-hand-navbar{\
             display: flex;\
           }\
           '}
@@ -97,7 +106,7 @@ class SingleItem extends React.Component {
             <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
             </div>
           </div>
-          <div className="single-product-side-info-wrapper">
+          <div className="single-items-side-info-wrapper">
 
             <div className="name-price-wrapper">
 
@@ -111,11 +120,30 @@ class SingleItem extends React.Component {
 
             </div>
 
+            <div className="category-size-wrapper">
+              <div>
+              Category: {item.category}
+              </div>
+              <div>
+              Size: {item.size}
+              </div>
+              <div>
+              Item Location: {item.placeName}
+              </div>
+            </div>
+
           </div>
+
+          <div className="description-contact-wrapper">
+            <div className="product-description">{item.description}</div>
+            <div className="single-item-contact">
+              <div>Email: {item.email}</div>
+              <div>Phone number: {item.phone}</div>
+            </div>
+          </div>
+
         </div>
 
-        <div className="product-description">
-        </div>
 
       </div>
     )

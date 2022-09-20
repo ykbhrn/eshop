@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../../lib/api';
+import { getAllUsedItems, updateUserAccount } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 import Geocoder from 'react-mapbox-gl-geocoder'
@@ -18,17 +18,26 @@ const queryParams = {
   country: 'sk'
 }
 
+const MyInput = (props) => <input {...props} placeholder="Add your postcode or adress" />
+
+
 class CategorizedItems extends React.Component {
   state = {
-    products: [],
+    items: [],
     hoveredProductId: '',
     text: null,
     viewport: {},
-    isMenu: null
+    isMenu: null,
+    placeName: false,
+    coordinates: [],
+    distance: 25,
+    isLoading: false
   }
 
   async componentDidMount() {
     try {
+      this.setState({ isLoading: true })
+
       window.scrollTo(0, 0)
 
       seo({
@@ -36,17 +45,69 @@ class CategorizedItems extends React.Component {
         metaDescription: {mainMetaDescription}
       });
 
-      const res = await getAllProducts();
-      this.setState({ products: res.data.reverse(), isLoading: false });
+      const res = await getAllUsedItems();
+
+      // if (isAuthenticated()) {
+      //   this.setState({ items: res.data.reverse(), isLoading: false, placeName: this.props.user.preferencePlaceName ? this.props.user.preferencePlaceName : false, 
+      //     coordinates: this.props.user.preferenceCoordinates ? this.props.user.preferenceCoordinates : []
+      //   });
+      //   console.log(this.state)
+      // } else {
+      this.setState({ items: res.data.reverse(), isLoading: false });
+      // }
 
     } catch (err) {
       console.log(err)
     }
   }
 
-  onSelected = (viewport, item) => {
-    this.setState({viewport});
+  onSelected = async (viewport, item) => {
+    this.setState({ isLoading: true })
+
+    const res = await getAllUsedItems()
+
+    if (isAuthenticated()) {
+      const som = await updateUserAccount({preferenceCoordinates: [item.center[0], item.center[1]], preferencePlaceName: item.place_name})
+    } else {
+      localStorage.setItem('coordinates', [item.center[0], item.center[1]])
+      localStorage.setItem('placeName', item.place_name)
+    }
+
+    const filteredProducts = res.data.filter(product => {
+      if (this.getDistanceFromLatLonInKm(item.center[1], item.center[0], product.coordinates[1], product.coordinates[0]) < this.state.distance) {
+        return product
+      }
+    })
+
+    this.setState({items: filteredProducts.reverse(), viewport, placeName: item.place_name, coordinates: [item.center[0], item.center[1]], isLoading: false});
+
     console.log('Selected: ', item)
+  }
+
+  handleDistance = async (event) => {
+    this.setState({ isLoading: true })
+
+    const res = await getAllUsedItems()
+
+    const distance = Number(event.target.value) * 1.60934
+
+
+    if (isAuthenticated()) {
+      const som = await updateUserAccount({preferenceDistance: distance})
+      console.log(som.data)
+    } else {
+      localStorage.setItem('distance', distance)
+    }
+
+    const filteredProducts = res.data.filter(product => {
+      if (event.target.value === "Whole Country") {
+        return product
+      } else if (this.getDistanceFromLatLonInKm(this.state.coordinates[1], this.state.coordinates[0], product.coordinates[1], product.coordinates[0]) < distance) {
+        return product
+      }
+    })
+
+    this.setState({items: filteredProducts.reverse(), distance: distance, isLoading: false})
   }
 
   getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
@@ -184,39 +245,76 @@ class CategorizedItems extends React.Component {
 
           </div>
 
-          <form className="navbar-search">
-            <Geocoder
-              {...mapAccess} onSelected={this.onSelected} viewport={viewport} hideOnSelect={true}
-              queryParams={queryParams} initialViewState={{
-                zoom: 30.5,
-              }}
-              placeholder={"add your postcode"}
-            />
-          </form>
-
-          <div className="product-container">
-            {this.state.products.slice(0, this.state.productsShowed).map(product => {
-
-              const newName = product.name.replaceAll(' ', '-');
-
-              return <Link to={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
-                <div className="product-wrapper" onMouseEnter={() => {
-                  this.otherPreviewImage(product._id);
+          <div className="adress-input-wrapper">
+            
+            <form className="navbar-search">
+              <Geocoder
+                {...mapAccess} onSelected={this.onSelected} viewport={viewport} hideOnSelect={true}
+                queryParams={queryParams} initialViewState={{
+                  zoom: 30.5,
                 }}
-                onMouseLeave={this.backToMainProductImage}>
-                  <div className="product-preview-image"
-                    style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
-                  </div>
-                  <div className="product-preview-name">{product.name}</div>
-                  <div className="product-preview-price-wrapper">
-                    <div className="product-preview-price">£{product.price / 100}</div>
-                  </div>
-                </div>
-              </Link>;
-            })}
+                inputComponent={MyInput}
+              />
+            </form>
+
+            {this.state.placeName &&
+            <div className="place-distance-wrapper">
+
+              <div className="place-wrapper">
+                <img src="https://res.cloudinary.com/nuhippies/image/upload/v1663281183/Nu%20Hippies/icons/pin_glwy25.png" />
+                {this.state.placeName}
+              </div>  
+
+              <div className="distance-input">
+              Distance in miles:
+                <select onChange={this.handleDistance}>
+                  <option>1</option>
+                  <option>3</option>
+                  <option>5</option>
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                  <option selected>100</option>
+                  <option>500</option>
+                  <option>Whole Country</option>
+                </select>
+              </div>
+            </div>
+            }
+
           </div>
 
-          
+          <div className="product-container">
+
+            {this.state.isLoading &&
+        <img className="products-loading" src="https://res.cloudinary.com/nuhippies/image/upload/v1651162892/Nu%20Hippies/icons/output-onlinegiftools_2_y18upn.gif" />
+            }
+
+            {!this.state.isLoading &&
+  <>
+    {this.state.items.slice(0, this.state.productsShowed).map(item => {
+
+      const newName = item.title.replaceAll(' ', '-');
+
+      return <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
+        <div className="product-wrapper" onMouseEnter={() => {
+          this.otherPreviewImage(item._id);
+        }}
+        onMouseLeave={this.backToMainProductImage}>
+          <div className="product-preview-image"
+            style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id ? item.images[1] : item.images[0]})` }}>
+          </div>
+          <div className="product-preview-name">{item.title}</div>
+          <div className="product-preview-price-wrapper">
+            <div className="product-preview-price">£{item.price}</div>
+          </div>
+        </div>
+      </Link>;
+    })}
+  </>
+            }
+          </div>
+
         </div>
       </>
     );

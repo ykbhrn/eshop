@@ -213,7 +213,13 @@ class Navbar extends React.Component {
 
           <div className="header">
             <a href="/" className="link-no-underline" alt="Home Page">
-              <div className="logo"></div>
+              <div className="menu">
+                <div className="logo label"></div>
+                <div className="spacer"></div>
+                <Link to="/second-hand" className="item one"></Link>
+                <Link to="/products" className="item two"></Link>
+                <Link to="/forum" className="item three"></Link>
+              </div>
             </a>
             {/* Beta Version */}
             {/* <h3>This is Beta version of the website, WE ARE STARTING SOON</h3> */}

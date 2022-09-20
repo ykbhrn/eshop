@@ -16,6 +16,7 @@ const usedItemSchema = new mongoose.Schema({
   size: { type: String, required: false },
   gender: { type: String, required: true },
   coordinates: [{ type: Number, required: true }],
+  placeName: { type: String, required: false },
   phone: { type: Number, required: false },
   email: { type: String, required: false },
   tags: [{ type: String, required: false }],

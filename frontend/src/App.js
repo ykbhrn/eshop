@@ -63,17 +63,21 @@ window.onscroll = function () {
   const flowerElement = document.querySelectorAll(".flower-container")
   const vanImg = document.querySelector(".products-banner img")
 
-  if (document.documentElement.scrollTop > 50) {
+  if (document.documentElement.scrollTop > 10) {
 
-    logo[0], logo[1].classList.add("logo-scroll")
-    logo[0], logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+    logo[1].classList.add("logo-scroll")
+    logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+    logo[0].classList.add("logo-scroll")
+    logo[0].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     basketIcon.classList.add("basket-icon-scroll")
     productsNavbarIcon.classList.add("products-navbar-icon-scroll")
     basketNumber.classList.add("basket-number-scroll")
-  } else if (document.documentElement.scrollTop < 50) {
+  } else if (document.documentElement.scrollTop < 10) {
 
-    logo[0], logo[1].classList.remove("logo-scroll")
-    logo[0], logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+    logo[1].classList.remove("logo-scroll")
+    logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+    logo[0].classList.remove("logo-scroll")
+    logo[0].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
     basketIcon.classList.remove("basket-icon-scroll")
     productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
     basketNumber.classList.remove("basket-number-scroll")
@@ -133,6 +137,7 @@ window.onscroll = function () {
 class App extends React.Component {
   state = {
     products: [],
+    user: null,
     basketLength: null,
     showFooter: false
   }
@@ -158,7 +163,7 @@ class App extends React.Component {
           basketSize = basketSize + Number(item.chosenQuantity)
         })
 
-        this.setState({ basketLength: basketSize, showFooter: true })
+        this.setState({ basketLength: basketSize, showFooter: true, user: res.data })
 
       } else {
         this.setState({ showFooter: true })
@@ -220,7 +225,7 @@ class App extends React.Component {
             <Route path="/done" component={Done} />
             <Route path="/second-hand/items/:name/:id" component={SingleItem} />
             <Route path="/second-hand/post-item" component={PostUsedItem} />
-            <Route path="/second-hand/:category/:gender" component={CategorizedItems} />
+            <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
             <Route path="/second-hand" component={UsedItems} />
             <Route path="/maps" component={Maps} />
           </Switch>

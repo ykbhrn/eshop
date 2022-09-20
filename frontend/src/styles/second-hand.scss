@@ -7,13 +7,13 @@
   align-items: center;
   a{
     text-decoration: none;
-    color: $second-color;
+    color: $text-color;
   }
   h1{
     text-align: center;
     margin-top: 60px;
     font-size: 70px;
-    color: $second-color;
+    color: $text-color;
     font-family: $logo-font;
   }
   .product-container {
@@ -83,7 +83,7 @@
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-blend-mode: color-burn;
-    background-color: $second-color;
+    background-color: gray;
     &:hover {
       box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
       background-color: #ccf;
@@ -135,10 +135,23 @@
     font-family: $logo-font;
   }
   input{
-    margin: 95px 30px 0 0;
-    width: 350px;
+    width: 210px;
     border-radius: 50px;
-    height: 40px;
+    height: 22px;
+  }
+  .distance-input{
+    margin-left: 20px;
+    font-weight: bold;
+    select{
+    width: 70px;
+    margin-left: 5px;
+    }
+  }
+  .place-distance-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 .categorized-header{
   position: absolute;
@@ -155,14 +168,17 @@
   position: absolute;
   top: 12px;
   left: 50%;
-  margin-left: -220px;
+  margin-left: -185px;
   cursor: pointer;
   color: $second-color;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0 30px 30px 30px;
+  padding: 10px;
+  padding-top: 0px;
+  background: #f9f7faf0;
+  border-radius: 20px;
   .menu-category{
     .menu-category-header{
       font-size: 22px;
+      font-weight: bold;
       margin-bottom: 12px;
       text-align: center;
       width: 120px;
@@ -171,21 +187,49 @@
       margin-bottom: 14px;
       text-align: center;
       font-size: 20px;
+      font-weight: bold;
 
     }
     .menu-item:hover{
       transform: scale(1.05)
     }
     .menu-item:hover, .menu-category-header:hover{
-      color: white;
+      color: $light-color;
     }
   }
 }
+.adress-input-wrapper{
+  margin-top: 100px;
+}
+}
+
+.adress-input-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.place-wrapper{
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 5px;
+  margin-top: 5px;
+  text-align: center;
+  background: white;
+  border: 1px solid $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 //Second Hand Button
 .second-hand-button{
-  border: 1px solid $second-color;
+  border: 1px solid $light-color;
   // background: $dark-color;
   border-radius: 15px;
   font-size: 19px;
@@ -216,6 +260,10 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 300px;
+  h1{
+    position: absolute;
+    top: 40px;
+  }
   h2{
     margin-top: 30px;
   }
@@ -226,19 +274,6 @@
   }
   .post-buttons-wrapper{
     display: flex;
-  }
-  .place-wrapper{
-    background: $second-color;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 2px 5px;
-    margin-top: 5px;
-  }
-  .adress-input-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .uploaded-images-container{
     max-width: 50vw;
@@ -280,7 +315,7 @@
     }
   }
   .selected{
-    background: $second-color;
+    background: $light-color;
   }
   .size-input{
     width: 70px;
@@ -304,13 +339,66 @@
 //Geocoder
 .react-geocoder{
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .react-geocoder-results{
+  margin: 5px 0;
   cursor: pointer;
+
+}
+.react-geocoder-item{
+  padding: 3px 5px;
+}
+.react-geocoder-item::before {
+  content: "• ";
 }
 .react-geocoder-item:hover{
   background: $second-color;
+}
+
+//Single Item Page
+.single-item-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 100px;
+  .description-contact-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .single-product-side-info-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h2{
+      margin-top: 20px;
+      color: $fourth-color;
+      font-weight: 500;
+      font-size: 25px;
+    }
+  }
+  .category-size-wrapper{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-content: flex-end;
+    font-size: 18px;
+    div{
+      margin-bottom: 5px;
+    }
+  }
+  .product-description{
+    font-size: 18px;
+  }
+  .single-item-contact{
+    margin-top: 40px;
+    font-size: 19px;
+    div{
+      margin-bottom: 10px;
+    }
+  }
 }

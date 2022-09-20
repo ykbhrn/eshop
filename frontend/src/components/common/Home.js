@@ -23,14 +23,6 @@ class Home extends React.Component {
     }
   }
 
-  changeMainButton = (hoveredItem) => {
-    this.setState({ mainButton: hoveredItem })
-  }
-
-  mainButtonBack = () => {
-    this.setState({ mainButton: "" })
-  }
-
   revealText = (option) => {
     this.setState({ text: option })
   }

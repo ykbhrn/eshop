@@ -11,9 +11,9 @@
 
 html, body{
   height: 100%;
-  // background:  black;
   font-family: 'Jura', sans-serif;
   font-weight: 700;
+  background: $main-background-color;
   // cursor: url('https://res.cloudinary.com/nuhippies/image/upload/v1651164355/Nu%20Hippies/icons/victory_1_vhbvys.png') 25 25, auto;
 }
 
@@ -64,8 +64,8 @@ input, textarea, select{
   border: 2px solid $text-color;
 }
 input:focus, textarea:focus{
-  outline: $second-color;
-  border: 2px solid $second-color;
+  outline: $light-color;
+  border: 2px solid $light-color;
 }
 
 button{
@@ -1049,7 +1049,6 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   h2{
     margin-top: 20px;
     color: $fourth-color;
@@ -1874,7 +1873,7 @@ h1{
   }
   .footer-menu-wrapper li:hover{
     transform: scale(1.05);
-    color: $dark-color;
+    color: $light-color;
   }
   .social-media-icons{
     z-index: 2;
@@ -1884,7 +1883,7 @@ h1{
       cursor: $pointer-cursor;
     }
     .fab:hover{
-      color: $third-color;
+      color: $light-color;
     }
   }
   a {

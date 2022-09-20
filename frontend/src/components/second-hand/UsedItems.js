@@ -8,11 +8,13 @@ class UsedItems extends React.Component {
   state = {
     items: [],
     hoveredProductId: '',
-    text: null
+    text: null,
+    isLoading: false
   }
 
   async componentDidMount() {
     try {
+      this.setState({isLoading: true})
       window.scrollTo(0, 0)
 
       seo({
@@ -49,7 +51,6 @@ class UsedItems extends React.Component {
   }
 
   render() {
-    console.log(this.state.items)
     return (
       <>
         <div className="second-hand-page">
@@ -69,93 +70,103 @@ class UsedItems extends React.Component {
 
           <h1>Make Fashion Slow Again</h1>
 
-          <div className="icon-container">
+          {this.state.isLoading &&
+        <img className="products-loading" src="https://res.cloudinary.com/nuhippies/image/upload/v1651162892/Nu%20Hippies/icons/output-onlinegiftools_2_y18upn.gif" />
+          }
 
-            <Link to="/second-hand/t-shirts/uni">
-              <div className="icon-wrapper">
-                <div className="first"></div>
-                <div className="icon-description">T-shirts</div>
-              </div>
-            </Link>
+          {!this.state.isLoading &&
+  <>
+
+    <div className="icon-container">
+
+      <Link to="/second-hand/t-shirts/uni">
+        <div className="icon-wrapper">
+          <div className="first"></div>
+          <div className="icon-description">T-shirts</div>
+        </div>
+      </Link>
             
-            <Link to="/second-hand/hoodies/uni">
-              <div className="icon-wrapper">
-                <div className="second"></div>
-                <div className="icon-description">Hoodies</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/hoodies/uni">
+        <div className="icon-wrapper">
+          <div className="second"></div>
+          <div className="icon-description">Hoodies</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/dresses/uni">
-              <div className="icon-wrapper">
-                <div className="eleventh"></div>
-                <div className="icon-description">Dresses</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/dresses/uni">
+        <div className="icon-wrapper">
+          <div className="third"></div>
+          <div className="icon-description">Dresses</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/skirts/uni">
-              <div className="icon-wrapper">
-                <div className="twelfth"></div>
-                <div className="icon-description">Skirts</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/skirts/uni">
+        <div className="icon-wrapper">
+          <div className="fourth"></div>
+          <div className="icon-description">Skirts</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/pants/uni">
-              <div className="icon-wrapper">
-                <div className="third"></div>
-                <div className="icon-description">Pants</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/pants/uni">
+        <div className="icon-wrapper">
+          <div className="fifth"></div>
+          <div className="icon-description">Pants</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/shoes/uni">
-              <div className="icon-wrapper">
-                <div className="fourth"></div>
-                <div className="icon-description">Shoes</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/shoes/uni">
+        <div className="icon-wrapper">
+          <div className="sixth"></div>
+          <div className="icon-description">Shoes</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/jackets/uni">
-              <div className="icon-wrapper">
-                <div className="fifth"></div>
-                <div className="icon-description">Jackets</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/jackets/uni">
+        <div className="icon-wrapper">
+          <div className="seventh"></div>
+          <div className="icon-description">Jackets</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/shorts/uni">
-              <div className="icon-wrapper">
-                <div className="sixth"></div>
-                <div className="icon-description">Shorts</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/shorts/uni">
+        <div className="icon-wrapper">
+          <div className="eighth"></div>
+          <div className="icon-description">Shorts</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/sweaters/uni">
-              <div className="icon-wrapper">
-                <div className="seventh"></div>
-                <div className="icon-description">Sweaters</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/sweaters/uni">
+        <div className="icon-wrapper">
+          <div className="ninth"></div>
+          <div className="icon-description">Sweaters</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/sweatshirts/uni">
-              <div className="icon-wrapper">
-                <div className="eighth"></div>
-                <div className="icon-description">Sweatshirts</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/sweatshirts/uni">
+        <div className="icon-wrapper">
+          <div className="tenth"></div>
+          <div className="icon-description">Sweatshirts</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/shirts/uni">
-              <div className="icon-wrapper">
-                <div className="ninth"></div>
-                <div className="icon-description">Shirts</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/shirts/uni">
+        <div className="icon-wrapper">
+          <div className="eleventh"></div>
+          <div className="icon-description">Shirts</div>
+        </div>
+      </Link>
 
-            <Link to="/second-hand/others/uni">
-              <div className="icon-wrapper">
-                <div className="tenth"></div>
-                <div className="icon-description">Others</div>
-              </div>
-            </Link>
+      <Link to="/second-hand/others/uni">
+        <div className="icon-wrapper">
+          <div className="twelfth"></div>
+          <div className="icon-description">Others</div>
+        </div>
+      </Link>
             
-          </div>
+    </div>
+
+  </>
+          }
 
           <div className="product-container">
             {this.state.items.slice(0, this.state.productsShowed).map(item => {
@@ -172,7 +183,7 @@ class UsedItems extends React.Component {
                   </div>
                   <div className="product-preview-name">{item.title}</div>
                   <div className="product-preview-price-wrapper">
-                    <div className="product-preview-price">£{item.price / 100}</div>
+                    <div className="product-preview-price">£{item.price}</div>
                   </div>
                 </div>
               </Link>;
