@@ -38,6 +38,77 @@ body {
   top: 10px;
   left: 30px;
   z-index: 20;
+  .label {
+    display: inline-block;
+    cursor: pointer;
+    pointer-events: all;
+  }
+  .spacer {
+    display: inline-block;
+    width: 330px;
+    margin-left: -122px;
+    margin-top: 253px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: 0;
+  }
+  .spacer:before {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid $text-color;
+    height: 1px;
+    width: 0%;
+    transition: width 0.25s ease;
+    transition-delay: 0.7s;
+  }
+  .item {
+    position: relative;
+    display: inline-block;
+    top: 440px;
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+    transition-delay: 0;
+    
+  }
+  .one, .two, .three {
+    width: 80px;
+    height: 80px;
+    transform-style: preserve-3d;
+    border-radius: 50%;
+    // transition: all .3s ease;
+    transition-delay: 1s;
+    position: relative;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: gray;
+    cursor: pointer;
+    background-blend-mode: color-burn;
+    margin-bottom: 30px;
+    z-index: 4;
+    &:hover {
+      box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
+      background-color: #ccf;
+      cursor: pointer;
+      }
+  }
+  .one{
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
+  }
+  .two{
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
+  }
+  .three{
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654625675/Nu%20Hippies/icons/forum_edavyj.png);
+  }
+  span {
+    transition: color 0.5s ease;
+  }
+  .item:hover span {
+    color: #ff0000;
+  }
 }
 .menu:hover {
   pointer-events: all;
@@ -47,77 +118,7 @@ body {
   font-weight: bold;
   border: 1px solid $text-color;
 }
-.label {
-  display: inline-block;
-  cursor: pointer;
-  pointer-events: all;
-}
-.spacer {
-  display: inline-block;
-  width: 330px;
-  margin-left: -122px;
-  margin-top: 253px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: absolute;
-  transform: rotate(90deg);
-  z-index: 0;
-}
-.spacer:before {
-  content: "";
-  position: absolute;
-  border-bottom: 1px solid $text-color;
-  height: 1px;
-  width: 0%;
-  transition: width 0.25s ease;
-  transition-delay: 0.7s;
-}
-.item {
-  position: relative;
-  display: inline-block;
-  top: 440px;
-  opacity: 0;
-  transition: opacity 0.5s ease, top 0.5s ease;
-  transition-delay: 0;
-  
-}
-.one, .two, .three {
-  width: 80px;
-  height: 80px;
-  transform-style: preserve-3d;
-  border-radius: 50%;
-  // transition: all .3s ease;
-  transition-delay: 1s;
-  position: relative;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: gray;
-  cursor: pointer;
-  background-blend-mode: color-burn;
-  margin-bottom: 30px;
-  z-index: 4;
-  &:hover {
-    box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
-    background-color: #ccf;
-    cursor: pointer;
-    }
-}
-.one{
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
-}
-.two{
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
-}
-.three{
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654625675/Nu%20Hippies/icons/forum_edavyj.png);
-}
-span {
-  transition: color 0.5s ease;
-}
-.item:hover span {
-  color: #ff0000;
-}
+
 .menu:hover .spacer:before {
   width: 100%;
   transition-delay: 0s;

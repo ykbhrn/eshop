@@ -79,84 +79,84 @@ class UsedItems extends React.Component {
 
     <div className="icon-container">
 
-      <Link to="/second-hand/t-shirts/uni">
+      <Link to="/second-hand/t-shirts/all">
         <div className="icon-wrapper">
           <div className="first"></div>
           <div className="icon-description">T-shirts</div>
         </div>
       </Link>
             
-      <Link to="/second-hand/hoodies/uni">
+      <Link to="/second-hand/hoodies/all">
         <div className="icon-wrapper">
           <div className="second"></div>
           <div className="icon-description">Hoodies</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/dresses/uni">
+      <Link to="/second-hand/dresses/all">
         <div className="icon-wrapper">
           <div className="third"></div>
           <div className="icon-description">Dresses</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/skirts/uni">
+      <Link to="/second-hand/skirts/all">
         <div className="icon-wrapper">
           <div className="fourth"></div>
           <div className="icon-description">Skirts</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/pants/uni">
+      <Link to="/second-hand/pants/all">
         <div className="icon-wrapper">
           <div className="fifth"></div>
           <div className="icon-description">Pants</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/shoes/uni">
+      <Link to="/second-hand/shoes/all">
         <div className="icon-wrapper">
           <div className="sixth"></div>
           <div className="icon-description">Shoes</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/jackets/uni">
+      <Link to="/second-hand/jackets/all">
         <div className="icon-wrapper">
           <div className="seventh"></div>
           <div className="icon-description">Jackets</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/shorts/uni">
+      <Link to="/second-hand/shorts/all">
         <div className="icon-wrapper">
           <div className="eighth"></div>
           <div className="icon-description">Shorts</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/sweaters/uni">
+      <Link to="/second-hand/sweaters/all">
         <div className="icon-wrapper">
           <div className="ninth"></div>
           <div className="icon-description">Sweaters</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/sweatshirts/uni">
+      <Link to="/second-hand/sweatshirts/all">
         <div className="icon-wrapper">
           <div className="tenth"></div>
           <div className="icon-description">Sweatshirts</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/shirts/uni">
+      <Link to="/second-hand/shirts/all">
         <div className="icon-wrapper">
           <div className="eleventh"></div>
           <div className="icon-description">Shirts</div>
         </div>
       </Link>
 
-      <Link to="/second-hand/others/uni">
+      <Link to="/second-hand/others/all">
         <div className="icon-wrapper">
           <div className="twelfth"></div>
           <div className="icon-description">Others</div>
@@ -179,7 +179,7 @@ class UsedItems extends React.Component {
                 }}
                 onMouseLeave={this.backToMainProductImage}>
                   <div className="product-preview-image"
-                    style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id ? item.images[1] : item.images[0]})` }}>
+                    style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id && item.images[1] ? item.images[1] : item.images[0]})` }}>
                   </div>
                   <div className="product-preview-name">{item.title}</div>
                   <div className="product-preview-price-wrapper">

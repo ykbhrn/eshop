@@ -229,7 +229,7 @@ class AllProducts extends React.Component {
             }}
             onMouseLeave={this.backToMainProductImage}>
               <div className="product-preview-image"
-                style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id ? product.images[0].images[1] : product.images[0].images[0]})` }}>
+                style={{ backgroundImage: `url(${this.state.hoveredProductId === product._id && product.images[0].images[1] ? product.images[0].images[1] : product.images[0].images[0]})` }}>
               </div>
               <div className="product-preview-name">{product.name}</div>
               <div className="product-preview-price-wrapper">

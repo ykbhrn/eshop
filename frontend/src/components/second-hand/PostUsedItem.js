@@ -42,13 +42,25 @@ class PostUsedItem extends React.Component {
   }
 
   handleChange = event => {
-    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-    this.setState({ formData, error: '' })
+    if (event.target.name === "category" && this.state.formData.gender === "men" &&
+      (event.target.value === "Tops" || event.target.value === "Skirts" || event.target.value === "Dresses")) {
+      const formData = { ...this.state.formData, category: '' }
+      this.setState({ formData, error: '' })
+    } else {
+      const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+      this.setState({ formData, error: '' })
+    }
   }
 
   handleGender = (option) => {
-    const formData = { ...this.state.formData, gender: option }
-    this.setState({ formData })
+    if (option === "men" && (this.state.formData.category === "Skirts" || this.state.formData.category === "Dresses"
+    || this.state.formData.category === "Tops")) {
+      const formData = { ...this.state.formData, gender: '' }
+      this.setState({ formData, error: '' })
+    } else {
+      const formData = { ...this.state.formData, gender: option }
+      this.setState({ formData })
+    }
   }
 
 handleSubmit = async event => {
@@ -190,6 +202,7 @@ onSelected = (viewport, item) => {
               <option value="Hoodies">Hoodies</option>
               <option value="Dresses">Dresses</option>
               <option value="Skirts">Skirts</option>
+              <option value="Tops">Tops</option>
               <option value="Pants">Pants</option>
               <option value="Shoes">Shoes</option>
               <option value="Jackets">Jackets</option>

@@ -154,6 +154,7 @@ class CategorizedItems extends React.Component {
 
   render() {
     const {viewport} = this.state
+    const {category, gender} = this.props.match.params
     return (
       <>
         <div className="second-hand-page categorized">
@@ -237,6 +238,9 @@ class CategorizedItems extends React.Component {
                 <Link to="/second-hand/jackets/uni"><div className="menu-item">Jackets</div></Link>
                 <Link to="/second-hand/shorts/uni"><div className="menu-item">Shorts</div></Link>
                 <Link to="/second-hand/sweaters/uni"><div className="menu-item">Sweaters</div></Link>
+                <Link to="/second-hand/dresses/women"><div className="menu-item">Dresses</div></Link>
+                <Link to="/second-hand/skirts/women"><div className="menu-item">Skirts</div></Link>
+                <Link to="/second-hand/tops/women"><div className="menu-item">Tops</div></Link>
                 <Link to="/second-hand/others/uni"><div className="menu-item">Others</div></Link>
               </>
               }
@@ -294,6 +298,13 @@ class CategorizedItems extends React.Component {
   <>
     {this.state.items.slice(0, this.state.productsShowed).map(item => {
 
+      if ((item.category.toLowerCase() !== category.toLowerCase() && category.toLowerCase() !== "all") ||
+      (item.gender.toLowerCase() !== gender.toLowerCase() && gender.toLowerCase() !== "all")){
+        return
+      } else {
+        console.log(item.gender, item.category)
+      }
+
       const newName = item.title.replaceAll(' ', '-');
 
       return <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
@@ -302,7 +313,7 @@ class CategorizedItems extends React.Component {
         }}
         onMouseLeave={this.backToMainProductImage}>
           <div className="product-preview-image"
-            style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id ? item.images[1] : item.images[0]})` }}>
+            style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id && item.images[1] ? item.images[1] : item.images[0]})` }}>
           </div>
           <div className="product-preview-name">{item.title}</div>
           <div className="product-preview-price-wrapper">
