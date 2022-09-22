@@ -80,15 +80,26 @@ class SingleProduct extends React.Component {
     }
   }
 
-  handleBasket = async () => {
-    this.setState({ isLoading: true });
+  handleBasket = async (event) => {
+    event.preventDefault();
+    const btn = document.querySelector(".cart-button")
+    // this.setState({ isLoading: true });
     try {
       const productId = this.props.match.params.id
+      btn.classList.add('loading');
+
       const res = await addToBasket(productId, this.state.formData)
+
+      setTimeout(() => {
+        btn.classList.remove('loading')
+        this.setState({addedToBasket: true})
+      }, 3400);
+
       this.hideOverflow()
-      this.setState({ addedToBasket: true, isLoading: false })
+      // this.setState({ isLoading: false })
       this.props.basket()
     } catch (err) {
+      btn.classList.remove('loading')
       console.log(err)
     }
   }
@@ -210,6 +221,59 @@ class SingleProduct extends React.Component {
 
             </div>
 
+            {this.state.totalQuantity.length > 0 &&
+
+<div className="quantity-add-wrapper">
+
+  <div className="quantity-bar">
+    <label>Quantity:</label>
+    <select name="quantity" onChange={this.handleChange}>
+
+      {this.state.totalQuantity.map(item => {
+        return <option key={item} value={item}>{item}</option>;
+      })}
+      
+    </select>
+  </div>
+
+  {this.state.isLoading &&
+    <div className="classic-btn btn-loading">
+      <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+    </div>
+  }
+  {!this.state.isLoading &&
+  <>
+    {isAuthenticated() &&
+    <button className="cart-button" onClick={this.handleBasket}>
+      <span>Add to cart</span>
+      <div className="cart">
+        <svg viewBox="0 0 36 26">
+          <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
+          <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
+        </svg>
+      </div>
+    </button>
+    }
+    
+    {!isAuthenticated() &&
+      <Link to={`/entering/${newName}/${product._id}`}>
+        <button className="cart-button">
+          <span>Add to cart</span>
+          <div className="cart">
+            <svg viewBox="0 0 36 26">
+              <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
+              <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
+            </svg>
+          </div>
+        </button>
+      </Link>
+    }
+  </>
+  }
+</div>
+
+            }
+
             {product.sizes.length > 0 &&
             <>
               <div className="product-size-container">
@@ -234,48 +298,6 @@ class SingleProduct extends React.Component {
                 })}</div>
                 {/* <div className="product-size">Type: {this.state.formData.color}</div> */}
               </>
-            }
-
-            {this.state.totalQuantity.length > 0 &&
-
-
-            <div className="quantity-add-wrapper">
-
-              <div className="quantity-bar">
-                <label>Quantity:</label>
-                <select name="quantity" onChange={this.handleChange}>
-
-                  {this.state.totalQuantity.map(item => {
-                    return <option key={item} value={item}>{item}</option>;
-                  })}
-                  
-                </select>
-              </div>
-
-              {this.state.isLoading &&
-                <div className="classic-btn btn-loading">
-                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
-                </div>
-              }
-              {!this.state.isLoading &&
-              <>
-                {isAuthenticated() &&
-                <div className="classic-btn" onClick={this.handleBasket}>
-                  Add to basket
-                </div>
-                }
-                
-                {!isAuthenticated() &&
-                <Link to={`/entering/${newName}/${product._id}`}>
-                  <div className="classic-btn">
-                    Add to basket
-                  </div>
-                </Link>
-                }
-              </>
-              }
-            </div>
-
             }
 
             {this.state.totalQuantity.length === 0 &&

@@ -83,10 +83,10 @@
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-blend-mode: color-burn;
-    background-color: gray;
+    background-color: #f0c350;
     &:hover {
-      box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
-      background-color: #ccf;
+      box-shadow: 0 0 30px 10px $third-color;
+      background-color: rgb(220, 253, 255);
       cursor: pointer;
       }
   }
@@ -194,7 +194,7 @@
       transform: scale(1.05)
     }
     .menu-item:hover, .menu-category-header:hover{
-      color: $light-color;
+      color: $second-color;
     }
   }
 }
@@ -350,6 +350,7 @@
 }
 .react-geocoder-item{
   padding: 3px 5px;
+  border-radius: 50px;
 }
 .react-geocoder-item::before {
   content: "• ";

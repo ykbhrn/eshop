@@ -3,7 +3,7 @@
 .main-menu-wrapper{
   display: block;
   #ctrl-button{
-    background: $second-color;
+    background: $text-color;
     width: 60px;
     height: 60px;
     line-height: 60px;
@@ -13,25 +13,25 @@
     opacity: 0.8;
   }
   #ctrl-button:hover{
-    background: $third-color;
+    background: $light-color;
     transform: scale(1.1);
     opacity: 1;
   }
   
 .menu-button-text{
   font-size: 44px;
-  font-weight: 100;
-  color: $dark-color!important;
-  background: $second-color;
+  font-weight: bold;
+  color: white!important;
+  background: $light-color;
   width: 370px;
   margin-left: -164px;
   margin-top: -10px;
-  border-radius: 15px;
+  border-radius: 25px;
   transform: scale(0.4);
 }
 .fa-plus, .fa-minus{
   font-size: 35px;
-  color: $dark-color;
+  color: $second-color;
 }
 .ctrl {
 	position: fixed;
@@ -42,13 +42,13 @@
 }
 a.ctrl, .ctrl div {
 	display: block;
-	color: $dark-color;
+	color: $text-color;
 	text-align: center;
 	text-decoration: none;
   cursor: $pointer-cursor;
 }
 .ctrl div:hover{
-  color: $third-color;
+  color: $text-color;
 }
 .button {
 	z-index: 9;
@@ -72,22 +72,18 @@ a.ctrl, .ctrl div {
 	position: absolute;
 	top: 32.5%;
 	width: .3em; height: 15.2%;
-	background: $dark-color;
+	background: $text-color;
 	content: '';
 }
 .tip:before {
 	left: 7.1%;
 	border-radius: .25em 0 0 .25em;
 	transform: rotate(-75deg);
-  box-shadow: -1px 0 1px dimgrey, inset 1px 0 1px white, inset -1px 0 1px grey, 
-          inset 0 1px 1px white, inset 0 -1px 1px white;
 }
 .tip:after {
 	right: 7.1%;
 	border-radius: 0 .25em .25em 0;
 	transform: rotate(75deg);
-  box-shadow: -1px 0 1px dimgrey, inset 1px 0 1px white, inset -1px 0 1px grey, 
-          inset 0 1px 1px white, inset 0 -1px 1px white;
 }
 .show-tip{
   transform: scale(1);
@@ -124,7 +120,7 @@ a.ctrl, .ctrl div {
 	border-radius: 50%;
 	/* "unskew" & rotate by -A°/2 */
 	transform: skewY(-60deg) rotate(-15deg);
-      box-shadow: 0 0 3px $dark-color, inset 0 0 4px white;
+      box-shadow: 0 0 3px $light-color, inset 0 0 4px white;
 
 	background: /* lateral separators */
 			linear-gradient(75deg, 
@@ -135,19 +131,31 @@ a.ctrl, .ctrl div {
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
 					rgba(255,255,255,.3) 0%, $second-color 50%);
     background-size: 16% 16%, 16% 16%, cover;
+	line-height: 1.57;
+  &:hover{
+    background: /* lateral separators */
+			linear-gradient(75deg, 
+		transparent 50%, white 50%, transparent 54%) no-repeat 36.5% 0,
+			linear-gradient(-75deg, 
+		transparent 50%, white 50%, transparent 54%) no-repeat 63.5% 0,
+		/* make sure inner part is transparent */
+		radial-gradient(rgba(127, 127, 127, 0) 49%, 
+					rgba(255,255,255,.3) 0%, $light-color 50%);
+    background-size: 16% 16%, 16% 16%, cover;
 	line-height: 1.7;
+  }
 }
 
 // /* arrow for middle link */
 .slice:nth-child(3) div:after {
 	position: absolute;
-	top: 15%; left: 50%;
+	top: 14.8%; left: 50%;
 	margin: -.25em;
 	width: .5em; height: .5em;
 	transform: rotate(45deg);
-	background: linear-gradient(-45deg, $second-color 50%, transparent 50%);
-  border-right: 1px solid $dark-color;
-  border-bottom: 1px solid $dark-color;
+	background: linear-gradient(-45deg, $text-color 50%, transparent 50%);
+  // border-right: 1px solid $text-color;
+  // border-bottom: 1px solid $text-color;
 	content: '';
 }
 }

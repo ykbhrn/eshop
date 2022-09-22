@@ -37,7 +37,7 @@ body {
   position: fixed;
   top: 10px;
   left: 30px;
-  z-index: 20;
+  z-index: 5;
   .label {
     display: inline-block;
     cursor: pointer;
@@ -83,14 +83,14 @@ body {
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: gray;
+    background-color: #f0c350;
     cursor: pointer;
     background-blend-mode: color-burn;
     margin-bottom: 30px;
     z-index: 4;
     &:hover {
-      box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
-      background-color: #ccf;
+      box-shadow: 0 0 30px 10px $third-color;
+      background-color: rgb(220, 253, 255);
       cursor: pointer;
       }
   }

@@ -66,13 +66,13 @@
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: #D49B54;
+  background-color: #f0c350;
   cursor: pointer;
   background-blend-mode: color-burn;
   
   &:hover {
-  box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
-  background-color: #ccf;
+    box-shadow: 0 0 30px 10px $third-color;
+    background-color: rgb(220, 253, 255);
   }
 }
 .text {

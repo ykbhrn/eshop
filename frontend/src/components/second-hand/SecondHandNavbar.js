@@ -5,11 +5,22 @@ import { getMyProfile } from '../../lib/api'
 
 class SecondHandNavbar extends React.Component {
   state = {
+    mainButton: "",
     text: ''
   }
 
   revealText = (option) => {
     this.setState({ text: option })
+  }
+
+  changeMainButton = (hoveredItem) => {
+    if (!window.matchMedia("(pointer: coarse)").matches) {
+      this.setState({ mainButton: hoveredItem })
+    }
+  }
+
+  mainButtonBack = () => {
+    this.setState({ mainButton: "" })
   }
 
   render() {
@@ -57,7 +68,6 @@ class SecondHandNavbar extends React.Component {
             placeholder="search" 
           />
         </form> */}
-    
       </div>
     )
   }
