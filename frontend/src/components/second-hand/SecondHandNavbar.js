@@ -50,24 +50,10 @@ class SecondHandNavbar extends React.Component {
             }} onMouseLeave={() => {
               this.revealText("")
             }}></Link>
-
-            {/* {this.state.text &&
-              <div className="item logo-menu-text">{this.state.text}</div>
-            } */}
             
           </div>
         </a>
         
-        {/* <img className="search-icon-navbar" src="https://res.cloudinary.com/nuhippies/image/upload/v1656644808/Nu%20Hippies/icons/magnifying-glass_txpekd.png"/> */}
-
-        {/* <form className="navbar-search">
-          <input 
-            type="search" 
-            id=""
-            name="search"
-            placeholder="search" 
-          />
-        </form> */}
       </div>
     )
   }

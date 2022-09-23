@@ -8,7 +8,7 @@
   <meta name="description" content="Our main job is selling fairtrade, eco-friendly accessories, and vitamin supplements. We plan to organize speeches, debates, festivals etc.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://kit.fontawesome.com/9677783f6f.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/11e119aedb.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Galindo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -22,8 +22,8 @@
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
   <script>$(document).ready(function () {
-    const videoOne = 'https://res.cloudinary.com/nuhippies/video/upload/v1645994851/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_jgpos0.mp4'
-    const videoTwo = 'https://res.cloudinary.com/nuhippies/video/upload/v1645993864/Nu%20Hippies/Backgrounds/tt_1_ceeycb.mp4'
+    // const videoOne = 'https://res.cloudinary.com/nuhippies/video/upload/v1645994851/Nu%20Hippies/Backgrounds/ezgif.com-gif-maker_jgpos0.mp4'
+    // const videoTwo = 'https://res.cloudinary.com/nuhippies/video/upload/v1645993864/Nu%20Hippies/Backgrounds/tt_1_ceeycb.mp4'
 
     // $('#left-video')[0].load()
     // $('#right-video')[0].load()
@@ -31,33 +31,33 @@
     // $('#left-video')[0].play()
     // $('#right-video')[0].play()
 
-    $('.home-logo').addClass('change-image');
+    // $('.home-logo').addClass('change-image');
 
-    $('.close').mouseenter(function () {
-        if (!window.matchMedia("(pointer: coarse)").matches) {
-          $('.home-menu-ul').addClass('active');
-        $('.home-title').addClass('title-color');
-        $('.home-logo').removeClass('change-image');
-        $('#left-video').css('display', 'none')
-        $('#right-video').css('display', 'none')
-      }
-      })
+    // $('.close').mouseenter(function () {
+    //     if (!window.matchMedia("(pointer: coarse)").matches) {
+    //       $('.home-menu-ul').addClass('active');
+    //     $('.home-title').addClass('title-color');
+    //     $('.home-logo').removeClass('change-image');
+    //     $('#left-video').css('display', 'none')
+    //     $('#right-video').css('display', 'none')
+    //   }
+    //   })
 
-      $('.close').click(function () {
-        $('.home-menu-ul').toggleClass('active');
-        $('.home-title').toggleClass('title-color');
-        $('.home-logo').toggleClass('change-image');
+      // $('.close').click(function () {
+      //   $('.home-menu-ul').toggleClass('active');
+      //   $('.home-title').toggleClass('title-color');
+      //   $('.home-logo').toggleClass('change-image');
 
-        if (document.getElementById('left-video').style.display === 'none') {
+      //   if (document.getElementById('left-video').style.display === 'none') {
 
-        $('#left-video').css('display', 'block')
-        $('#right-video').css('display', 'block')
+      //   $('#left-video').css('display', 'block')
+      //   $('#right-video').css('display', 'block')
 
-        } else {
-          $('#left-video').css('display', 'none')
-          $('#right-video').css('display', 'none')
-        }
-      })
+      //   } else {
+      //     $('#left-video').css('display', 'none')
+      //     $('#right-video').css('display', 'none')
+      //   }
+      // })
     
       $('html').on('click touchstart', function (event) {
         if (event.target.id !== "ctrl-button") {

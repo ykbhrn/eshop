@@ -171,7 +171,7 @@ class UsedItems extends React.Component {
           <div className="product-container">
             {this.state.items.slice(0, this.state.productsShowed).map(item => {
 
-              const newName = item.title.replaceAll(' ', '-');
+              const newName = item.title.replace(/ /g, '-')
 
               return <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
                 <div className="product-wrapper" onMouseEnter={() => {

@@ -424,18 +424,20 @@ class Checkout extends React.Component {
             <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
             <div>Total Price: £{user.totalPrice / 100}</div>
           </div>
+          
           <div className="checkout-buttons">
+
             <Link to="/basket" title="Shopping Basket">
-              <div className="left">Back</div>
+              <div className="left-button">Back</div>
             </Link>
 
             {isLoading &&
-                <div className="right">
+                <div className="right-button">
                   <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image-checkout' />
                 </div>
             }
             {!isLoading &&
-             <div className="right" onClick={this.makeOrder} title="Shipping">Continue</div> 
+              <div className="right-button" onClick={this.makeOrder} title="Shipping">Continue</div> 
             }
             
           </div>

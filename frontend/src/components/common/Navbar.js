@@ -221,96 +221,17 @@ class Navbar extends React.Component {
                 <Link to="/forum" className="item three"></Link>
               </div>
             </a>
-            {/* Beta Version */}
-            {/* <h3>This is Beta version of the website, WE ARE STARTING SOON</h3> */}
           </div>
-        
-          <div className="main-menu-wrapper">
-            <Link to="#" className='button ctrl' tabIndex='1'>
-              {this.state.mainButton &&
-              <div className="menu-button-text">{this.state.mainButton}</div>
-              }
-              {!this.state.mainButton &&
-              <div className="main-menu-button">
-                <i id="ctrl-button" className="fas fa-plus"></i>
-              </div>
-              }
-            </Link>
-            <ul id="main-menu-ul" className='tip ctrl'>
-              
-              <li className='slice'>
-                <Link to="/products/accessories/all/all/all" title="Nu Hippies Accessories">
-                  <div onMouseEnter={() => {
-                    this.changeMainButton("Accessories")
-                  }}
-                  onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-bag-shopping"></i>
-                  </div>
-                </Link>
-              </li>
-
-              <li className='slice'>
-                <Link to="/products/supplements/all/all/all" title="Nu Hippies Supplements">
-                  <div onMouseEnter={() => {
-                    this.changeMainButton("Supplements")
-                  }}
-                  onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-jar"></i>
-                  </div>
-                </Link>
-              </li>
-
-              <li className='slice'>
-                <Link to="/products" title="All Nu Hippies Products">
-                  <div onMouseEnter={() => {
-                    this.changeMainButton("All Products")
-                  }}
-                  onMouseLeave={this.mainButtonBack}><i className="fas fa-tshirt"></i>
-                  </div>
-                </Link>
-              </li>
-
-              <li className='slice'>
-                <Link to="/about" title="What is Nu Hippies?">
-                  <div onMouseEnter={() => {
-                    this.changeMainButton("About Us")
-                  }}
-                  onMouseLeave={this.mainButtonBack} ><i className="fab fa-angellist"></i>
-                  </div>
-                </Link>
-              </li>
-
-              {isAuthenticated() &&
-              <li className='slice'>
-                <Link to="/profile" title="Your Profile"><div onMouseEnter={() => {
-                  this.changeMainButton("My Account")
-                }}
-                onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i>
-                </div>
-                </Link>
-              </li>
-              }
-            
-              {!isAuthenticated() &&
-              <li className='slice'>
-                <Link to="/entering" title="Sign in">
-                  <div onMouseEnter={() => {
-                    this.changeMainButton("Register")
-                  }}
-                  onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i>
-                  </div>
-                </Link>
-              </li>
-              }
-            </ul>
-          </div>
+    
         </div>
       
-        <Link to="/discount" title="Slap Putin and get discount">
+        {/* <Link to="/discount" title="Slap Putin and get discount">
           <div className="donation-icon" onMouseEnter={this.hoverDonation} onMouseLeave={this.leaveDonation}>
             {this.state.isHoveringDonation &&
             <div className="donation-text"> Slapsgiving</div>
             }
           </div>
-        </Link>
+        </Link> */}
       
       </header>
     )

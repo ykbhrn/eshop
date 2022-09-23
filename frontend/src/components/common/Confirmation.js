@@ -80,11 +80,11 @@ class Confirmation extends React.Component {
 
         <div className="checkout-buttons">
           <Link to="/products">
-            <div className="left" onClick={this.continue}>Continue</div>
+            <div className="left-button" onClick={this.continue}>Continue</div>
           </Link>
 
           <a href={user.finishedOrder.stripePaymentUrl} target="_blank" rel="noopener noreferrer" > 
-            <div className="right">Go To Payment</div> 
+            <div className="right-button">Go To Payment</div> 
           </a>
             
         </div>

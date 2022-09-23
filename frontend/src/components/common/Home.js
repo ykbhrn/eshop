@@ -39,6 +39,9 @@ class Home extends React.Component {
           .navbar{\
             display: none;\
           }\
+          .main-menu-wrapper{\
+            display: none;\
+          }\
           '}
           </style>
 

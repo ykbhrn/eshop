@@ -171,7 +171,7 @@ class AllProducts extends React.Component {
       <>
         {this.state.searchProducts.map(product => {
 
-          const newName = product.name.replaceAll(' ', '-');
+          const newName = product.name.replace(/ /g, '-')
 
           return <Link to={`/products/${newName}/${product._id}`} key={product._id}>
             <div className="search-result-wrapper">
@@ -192,7 +192,7 @@ class AllProducts extends React.Component {
     <div className="flower-container one" onScroll={this.handleScroll}>
       {this.state.flowerProductsOne.map(product => {
 
-        const newName = product.name.replaceAll(' ', '-');
+        const newName = product.name.replace(/ /g, '-')
 
         return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
           <div className="flower-content">
@@ -221,7 +221,7 @@ class AllProducts extends React.Component {
       <div className="product-container">
         {this.state.products.slice(0, this.state.productsShowed).map(product => {
 
-          const newName = product.name.replaceAll(' ', '-');
+          const newName = product.name.replace(/ /g, '-')
 
           return <Link to={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
             <div className="product-wrapper" onMouseEnter={() => {
@@ -250,7 +250,7 @@ class AllProducts extends React.Component {
     <div className="flower-container two" onScroll={this.handleScroll}>
       {this.state.flowerProductsTwo.map(product => {
         
-        const newName = product.name.replaceAll(' ', '-');
+        const newName = product.name.replace(/ /g, '-')
         
         return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
           <div className="flower-content">

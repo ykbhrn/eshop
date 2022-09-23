@@ -301,11 +301,9 @@ class CategorizedItems extends React.Component {
       if ((item.category.toLowerCase() !== category.toLowerCase() && category.toLowerCase() !== "all") ||
       (item.gender.toLowerCase() !== gender.toLowerCase() && gender.toLowerCase() !== "all")){
         return
-      } else {
-        console.log(item.gender, item.category)
       }
 
-      const newName = item.title.replaceAll(' ', '-');
+      const newName = item.title.replace(/ /g, '-')
 
       return <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
         <div className="product-wrapper" onMouseEnter={() => {

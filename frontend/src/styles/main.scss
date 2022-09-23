@@ -97,9 +97,9 @@ button{
 }
 
 .classic-btn{
-  background: $light-color;
-  color: white;
-  border-radius: 20px;
+  background: $second-color;
+  color: $text-color;
+  border-radius: 25px;
   font-size: 22px;
   font-weight: 300;
   height: 45px;
@@ -372,14 +372,14 @@ h2{
       text-decoration: none;
       color: $text-color;
     }
-    .right, .left{
+    .right-button, .left-button{
       padding: 9px 38px;
       cursor: $pointer-cursor;
       border-radius: 20px;
       font-weight: 300;
       font-size: 18px;
     }
-    .right{
+    .right-button{
       color: $second-color;
       background: $dark-color;
       margin-left: 20px;
@@ -390,11 +390,11 @@ h2{
       align-items: center;
       justify-content: center;
     }
-    .right:hover{
+    .right-button:hover{
       transform: scale(1.02);
       color: $third-color;
     }
-    .left{
+    .left-button{
       background: white;
       border: 1px solid $text-color;
       margin-right: 20px;
@@ -741,6 +741,7 @@ button{
   }
   .search-wrapper{
     position: relative;
+    z-index: 5s;
     form{
       height: 64px;
     }
@@ -749,6 +750,7 @@ button{
       position: relative;
       left: 50%;
       margin-left: -91.5px;
+      height: 35px;
     }
     .search-results-container{
       position: absolute;
@@ -806,6 +808,9 @@ button{
     padding: 20px;
     width: 250px;
     text-align: center;
+  }
+  h2{
+    font-family: $logo-font;
   }
   .products-flower-wrapper{
     display: flex;
@@ -971,7 +976,7 @@ button{
   font-weight: 400;
 }
 
-//categorizied products
+//categorized products
 .products-page.categorized{
   flex-direction: column;
   align-items: center;
@@ -983,7 +988,7 @@ button{
   width: 100vw;
   a{
     text-decoration: none;
-    color: $dark-color;
+    color: $text-color;
     padding-right: 10px;
     font-size: 20px;
   }
@@ -994,7 +999,7 @@ button{
     color: $third-color;
   }
   .cat-nav-item:last-child{
-      color: $dark-color;
+      color: $third-color;
   }
   .symbol{
     margin: 0 12px 0 5px;
@@ -1195,7 +1200,7 @@ h1{
 .basket-added-wrapper{
   width: 60vw;
   height: 70vh;
-  border: 1px solid $dark-color;
+  border: 1px solid $text-color;
   border-bottom: none;
   border-radius: 50px 50px 0 0;
   position: fixed;
@@ -1254,12 +1259,12 @@ h1{
 
 //Profile
 .profile-page{
+  display: flex;
+  justify-content: center;
   a{
     text-decoration: none;
     color: $dark-color;
   }
-  display: flex;
-  justify-content: center;
   .profile-icons-container{
     width: 95vw;
     display: flex;
@@ -1318,18 +1323,18 @@ h1{
 .account-nav{
   display: flex;
   align-self: flex-start;
-  color: $dark-color;
+  color: $text-color;
   margin-left: 20px;
   .auth{
     cursor: $pointer-cursor;
-    color: $dark-color;
+    color: $text-color;
   }
   .auth:hover{
     color: $third-color;
   }
   a{
     text-decoration: none;
-    color: $dark-color;
+    color: $text-color;
     margin-right: 10px;
   }
   a:hover{
@@ -1350,8 +1355,8 @@ h1{
   align-items: center;
   margin-bottom: 50px;
   .story-header{
-    border: solid $text-color;
-    border-color: $text-color;
+    border: solid;
+    border-color: $third-color;
     left: 14px;
     top: 100px;
     border-width: 3px 3px 5px 5px;
@@ -1368,8 +1373,8 @@ h1{
     }
   }
   .about-side-slogan{
-    border: solid $text-color;
-    border-color: $text-color;
+    border: solid;
+    border-color: $second-color;
     position: absolute;
     left: 14px;
     top: 100px;
@@ -1379,17 +1384,17 @@ h1{
     padding: 20px;
     width: 250px;
     text-align: center;
+    font-family: $logo-font;
   }
   .big-name-about{
     font-size: 150px;
     font-weight: bold;
     text-align: center;
     max-width: 90vw;
-    margin-bottom: 50px;
+    font-family: $logo-font;
   }
   .form-wrapper{
     width: 70vw;
-    margin-top: 30px;
   }
   h1{
     text-align: center;
@@ -1479,7 +1484,6 @@ h1{
     margin-top: 15px;
   }
   .edit-account-button{
-    border: 1px solid $dark-color;
     background: $dark-color;
     color: $second-color;
     border-radius: 10px;

@@ -15,6 +15,7 @@ import EditAccount from './components/profile/EditAccount'
 import EditAdress from './components/profile/EditAdress'
 import YourOrders from './components/profile/YourOrders'
 import Navbar from './components/common/Navbar'
+import MainMenu from './components/common/MainMenu'
 import Basket from './components/common/Basket'
 import BasketIcon from './components/common/BasketIcon'
 import Checkout from './components/common/Checkout'
@@ -199,6 +200,7 @@ class App extends React.Component {
           <PopupDiscount />
           <Navbar />
           <SecondHandNavbar />
+          <MainMenu />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />

@@ -9,7 +9,6 @@ class CategoriziedProducts extends React.Component {
     searchProducts: [],
     isSearching: false,
     searchedPhrase: null,
-    startSearch: false,
     flowerProductsOne: [],
     flowerProductsTwo: [],
     hoveredProductId: '',
@@ -73,10 +72,6 @@ class CategoriziedProducts extends React.Component {
     } else {
       this.setState({ isSearching: false })
     }
-  }
-
-  startTyping = () => {
-    this.setState({ startSearch: true})
   }
 
   otherPreviewImage = (id) => {
@@ -145,51 +140,41 @@ class CategoriziedProducts extends React.Component {
             <img src={`${subcategory === "supplements" ? "https://res.cloudinary.com/nuhippies/image/upload/v1651188458/Nu%20Hippies/icons/vitamins-26622_1280_cfesp6.png" : "https://res.cloudinary.com/nuhippies/image/upload/v1651188323/Nu%20Hippies/icons/pngtree-pop-style-character-accessories-bag-retro-straw-bag-accessories-png-image_374950-removebg-preview_jk2srn.png"}`} />
 
           </div>
-
-          {!this.state.startSearch &&
-<>
-  <img className="search-icon" alt="Search for product" src="https://res.cloudinary.com/nuhippies/image/upload/v1653092834/Nu%20Hippies/icons/telescope_1_bjhi1z.png" onClick={this.startTyping}/>
-</>
-          }
   
-          {this.state.startSearch &&
-  <div className="search-wrapper">
+          <div className="search-wrapper">
           
-    <form>
-      <input 
-        type="search" 
-        id=""
-        name="search"
-        placeholder="search"
-        onChange={this.handleChange}
-        onClick={this.handleClick} 
-      />
-    </form>
-
-    <div className="search-results-container">
-
-      {(this.state.searchedPhrase > 2 && this.state.isSearching) &&
-      <>
-        {this.state.searchProducts.map(product => {
-
-          // if (document.querySelector(".search-wrapper input") !== document.activeElement) return
-
-          const newName = product.name.replaceAll(' ', '-');
-
-          return <Link to={`/products/${newName}/${product._id}`} key={product._id}>
-            <div className="search-result-wrapper">
-              <div className="search-result-name">{product.name}</div>
-              <img src={product.images[0].images[0]} />
+            <form>
+              <input 
+                type="search" 
+                id=""
+                name="search"
+                placeholder="search"
+                onChange={this.handleChange}
+                onClick={this.handleClick} 
+              />
+            </form>
+      
+            <div className="search-results-container">
+      
+              {(this.state.searchedPhrase > 2 && this.state.isSearching) &&
+            <>
+              {this.state.searchProducts.map(product => {
+      
+                const newName = product.name.replace(/ /g, '-')
+      
+                return <Link to={`/products/${newName}/${product._id}`} key={product._id}>
+                  <div className="search-result-wrapper">
+                    <div className="search-result-name">{product.name}</div>
+                    <img src={product.images[0].images[0]} />
+                  </div>
+                </Link>
+              })}
+            </>
+              }
+      
             </div>
-          </Link>
-        })}
-      </>
-      }
-
-    </div>
-
-  </div>
-          }
+      
+          </div>
 
           <div className="cat-nav">
 
@@ -226,8 +211,7 @@ class CategoriziedProducts extends React.Component {
             <div className="flower-container one">
               {this.state.flowerProductsOne.map(product => {
 
-                const newName = product.name.replaceAll(' ', '-');
-
+                const newName = product.name.replace(/ /g, '-')
 
                 return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
                   <div className="flower-content">
@@ -263,7 +247,7 @@ class CategoriziedProducts extends React.Component {
                     return
                   }
 
-                  const newName = product.name.replaceAll(' ', '-');
+                  const newName = product.name.replace(/ /g, '-')
 
                   return <Link to={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
                     <div className="product-wrapper" onMouseEnter={() => {
@@ -292,7 +276,7 @@ class CategoriziedProducts extends React.Component {
             <div className="flower-container two">
               {this.state.flowerProductsTwo.map(product => {
 
-                const newName = product.name.replaceAll(' ', '-');
+                const newName = product.name.replace(/ /g, '-')
 
                 return <a href={`/products/${newName}/${product._id}`} title={product.name} key={product._id}>
                   <div className="flower-content">
