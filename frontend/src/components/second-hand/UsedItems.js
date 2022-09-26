@@ -50,6 +50,7 @@ class UsedItems extends React.Component {
     this.setState({ text: option })
   }
 
+
   render() {
     return (
       <>
@@ -60,6 +61,9 @@ class UsedItems extends React.Component {
             display: none;\
           }\
           .navbar{\
+            display: none;\
+          }\
+          .slogan-header{\
             display: none;\
           }\
           .second-hand-navbar{\

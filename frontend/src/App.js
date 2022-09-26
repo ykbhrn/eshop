@@ -36,6 +36,7 @@ import CategorizedItems from './components/second-hand/CategorizedItems'
 import SecondHandNavbar from './components/second-hand/SecondHandNavbar'
 import Maps from './components/map/Maps'
 import PostUsedItem from './components/second-hand/PostUsedItem'
+import Chats from './components/profile/Chats'
 
 // var pointerX = -1;
 // var pointerY = -1;
@@ -214,6 +215,7 @@ class App extends React.Component {
             <Route path="/profile/adress" component={EditAdress} />
             <Route path="/profile/orders" component={YourOrders} />
             <Route path="/profile" component={Profile} />
+            <Route path="/chats/:id" component={Chats} />
             <Route path='/shipping' component={Shipping} />
             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
             <Route path="/checkout" component={Checkout} />

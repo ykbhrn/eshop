@@ -29,8 +29,6 @@ const userSchema = new mongoose.Schema({
   paidOrders: [orderSchema],
   notifications: [notificationSchema],
   newNotification: { type: Boolean, default: false },
-  newChat: { type: Boolean, default: false },
-  userChats: [],
   userType: { type: Number, required: true },
   resetToken: { data: String, default: '' },
   stripeId: { type: String, required: true },
@@ -43,6 +41,12 @@ userSchema.virtual('userProducts', {
   ref: 'Product',
   localField: '_id',
   foreignField: 'user'
+})
+
+userSchema.virtual('userChats', {
+  ref: 'Chat',
+  localField: '_id',
+  foreignField: 'firstUserId, secondUserId'
 })
 
 userSchema

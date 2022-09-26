@@ -53,6 +53,8 @@ class SecondHandNavbar extends React.Component {
             
           </div>
         </a>
+
+        <h1 className="slogan-header">Make Fashion <br /> Slow Again</h1>
         
       </div>
     )

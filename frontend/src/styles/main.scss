@@ -1318,7 +1318,8 @@ h1{
   z-index: 3;
 }
 .logout-wrapper:hover{
-  color: $dark-color;
+  color: $third-color;
+  transform: scale(1.05);
 }
 .account-nav{
   display: flex;

@@ -6,6 +6,7 @@ const usedItem = require('../controllers/usedItems')
 const basket = require('../controllers/shoppingBasket')
 const discount = require('../controllers/discount')
 const payment = require('../controllers/payments')
+const chat = require('../controllers/chats')
 const contact = require('../controllers/contact')
 const secureRoute = require('../lib/secureRoute')
 
@@ -84,5 +85,12 @@ router.route('/used-item/:id')
   .get(usedItem.usedItemShow)
   .put(secureRoute, usedItem.usedItemUpdate)
   .delete(secureRoute, usedItem.usedItemDelete)
+
+router.route('/chats')
+  .post(secureRoute, chat.chatCreate)
+
+router.route('/chats/:id')
+  .get(secureRoute, chat.chatShow)
+  .put(secureRoute, chat.newMessage)
 
 module.exports = router

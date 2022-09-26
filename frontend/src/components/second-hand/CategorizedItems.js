@@ -172,8 +172,6 @@ class CategorizedItems extends React.Component {
           '}
           </style>
 
-          <h1 className="categorized-header">Make Fashion <br /> Slow Again</h1>
-
           <div className="categories-container" onMouseLeave={() =>{
             this.showMenu(null)
           }}>

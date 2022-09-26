@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
-import { getSingleUsedItem } from '../../lib/api'
+import { getSingleUsedItem, createChat } from '../../lib/api'
 import {seo} from '../../lib/functions'
 
 class SingleItem extends React.Component {
@@ -63,6 +63,16 @@ class SingleItem extends React.Component {
     this.setState({productInfo: item})
   }
 
+  startChat = async (user) => {
+    try {
+      const res = await createChat({secondUserId: user})
+
+      window.location.assign(`/chats/${res.data._id}`)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   render() {
     const { item } = this.state
 
@@ -94,7 +104,6 @@ class SingleItem extends React.Component {
           <div className="single-product-images-wrapper">
             <div className="side-images-container">
               {this.state.imagesArray.map(image => {
-      
                 return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
                   backgroundImage: `url(${image})`,
                 }}
@@ -130,6 +139,12 @@ class SingleItem extends React.Component {
               <div>
               Item Location: {item.placeName}
               </div>
+            </div>
+
+            <div onClick={() => {
+              this.startChat(item.user._id)
+            }}>
+              Send a message to user
             </div>
 
           </div>
