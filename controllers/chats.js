@@ -1,3 +1,4 @@
+const { Error } = require('mongoose')
 const Chat = require('../models/chat')
 const User = require('../models/user')
 
@@ -35,7 +36,11 @@ async function newMessage(req, res) {
   req.body.userId = req.currentUser._id
   try {
     const chat = await Chat.findByIdAndUpdate(chatId)
+
     if (!chat) throw new Error('Not Found')
+
+    if (chat.firstUserId.toString() !== req.currentUser._id.toString() &&
+    chat.secondUserId.toString() !== req.currentUser._id.toString()) throw new Error('Not Found')
 
     chat.textsArray.push(req.body)
 
@@ -50,8 +55,12 @@ async function chatShow(req, res) {
   const chatId = req.params.id 
   try {
     const chat = await Chat.findById(chatId)
+
     if (!chat) throw new Error('notFound')
 
+    if (chat.firstUserId.toString() !== req.currentUser._id.toString() &&
+      chat.secondUserId.toString() !== req.currentUser._id.toString()) throw new Error('Not Found')
+      
     res.status(200).json(chat)
   } catch (err) {
     res.status(422).json(err)

@@ -20,7 +20,7 @@ class Chats extends React.Component {
         metaDescription: "All your chat history"
       });
 
-      const chatId = this.props.params.id
+      const chatId = this.props.match.params.id
       const res = await showChat(chatId)
       this.setState({chat: res.data})
 
@@ -38,7 +38,8 @@ class Chats extends React.Component {
     event.preventDefault()
 
     try {
-      const res = await newMessage(this.state.formData, this.props.match.params)
+      const res = await newMessage(this.props.match.params.id, this.state.formData)
+      console.log(res.data)
     } catch (err) {
       console.log(err)
     }
@@ -49,7 +50,6 @@ class Chats extends React.Component {
     const { chat } = this.state
 
     if (!chat) return null
-
     return (
       <div className='register'>
         <div>
