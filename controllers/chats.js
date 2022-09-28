@@ -103,12 +103,6 @@ async function chatShow(req, res) {
 
     if (chat.firstUserId.toString() !== req.currentUser._id.toString() &&
       chat.secondUserId.toString() !== req.currentUser._id.toString()) throw new Error('Not Found')
-      
-    if (chat.firstUserId.toString() === req.currentUser._id.toString()) {
-      chat.isFirst = true
-    } else {
-      chat.isFirst = false
-    }
 
     res.status(200).json(chat)
   } catch (err) {

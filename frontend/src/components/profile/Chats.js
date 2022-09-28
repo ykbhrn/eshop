@@ -58,7 +58,9 @@ class Chats extends React.Component {
 
     try {
       const res = await newMessage(this.props.match.params.id, this.state.formData)
-      console.log(res.data)
+      const formData = { ...this.state.formData, textContent: '' }
+      this.setState({formData})
+      this.loadChat(res.data._id)
     } catch (err) {
       console.log(err)
     }
@@ -75,11 +77,11 @@ class Chats extends React.Component {
 
         <div className='chats-container-left'>
           {this.state.chats.map(chat => {
-            // if (chat.textsArray.length === 0) return
             
-            return <Link to ={`/chats/${chat._id}`} key={chat._id} className="chat-preview-wrapper" onClick={() => {
-              this.loadChat(chat._id)
-            }}>
+            return <Link to ={`/chats/${chat._id}`} key={chat._id} className={chat._id === this.props.match.params.id ?  "chat-preview-wrapper active" : "chat-preview-wrapper"} 
+              onClick={() => {
+                this.loadChat(chat._id)
+              }}>
 
               <img src={chat.isFirst ? chat.secondUserProfileImage : chat.firstUserProfileImage} />
               <div>{chat.isFirst ? chat.secondUserName : chat.firstUserName}</div>
@@ -90,22 +92,27 @@ class Chats extends React.Component {
 
         <div className='chats-form-right'>
           {this.props.match.params.id &&
-          <div className="conversation--input-wrapper">
+          <div className="conversation-input-wrapper">
 
-            <div className='conversation-wrapper'>
+            <div className='conversation-wrapper-reversed'>
+              <div className='conversation-wrapper'>
 
-              {this.state.oneChat  &&
+                {this.state.oneChat  &&
               <>
                 {this.state.oneChat.textsArray.map(text => {
-                  return <div key={text._id}>{text.textContent}</div>
+                  return <div key={text._id} className={text.userId === this.props.user._id ? "chat-user-texts" : "chat-received-texts"}>
+                    {text.textContent}
+                  </div>
                 })}
               </>
-              }
+                }
             
+              </div>
             </div>
 
             <form onSubmit={this.handleSubmit}>
               <input
+                value={this.state.formData.textContent}
                 onChange={this.handleChange}
               />
             </form>

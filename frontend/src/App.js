@@ -215,8 +215,8 @@ class App extends React.Component {
             <Route path="/profile/adress" component={EditAdress} />
             <Route path="/profile/orders" component={YourOrders} />
             <Route path="/profile" component={Profile} />
-            <Route path="/chats/:id" component={Chats} />
-            <Route path="/chats" component={Chats} />
+            <Route path='/chats/:id' render={(props) => <Chats {...props} user={this.state.user} />} />
+            <Route path='/chats' render={(props) => <Chats {...props} user={this.state.user} />} />
             <Route path='/shipping' component={Shipping} />
             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
             <Route path="/checkout" component={Checkout} />
