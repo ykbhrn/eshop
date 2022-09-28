@@ -111,6 +111,10 @@ export const createChat = (formData) => {
   return axios.post('/api/chats', formData, withHeaders())
 }
 
+export const allUserChat = () => {
+  return axios.get('/api/chats', withHeaders())
+}
+
 export const newMessage = (id, formData) => {
   return axios.put(`/api/chats/${id}`, formData, withHeaders())
 }

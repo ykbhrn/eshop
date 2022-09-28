@@ -1,11 +1,12 @@
 import React from 'react';
-import { showChat, newMessage } from '../../lib/api';
-import { Link } from 'react-router-dom';
+import { allUserChat, showChat, newMessage } from '../../lib/api';
+import { Link, Redirect } from 'react-router-dom';
 import {seo} from '../../lib/functions'
 
 class Chats extends React.Component {
   state = {
-    chat: [],
+    chats: [],
+    oneChat: null,
     formData: {
       textContent: null
     }
@@ -20,12 +21,30 @@ class Chats extends React.Component {
         metaDescription: "All your chat history"
       });
 
-      const chatId = this.props.match.params.id
-      const res = await showChat(chatId)
-      this.setState({chat: res.data})
+
+      if (this.props.match.params.id) {
+        const chatId = this.props.match.params.id
+        const resTwo = await showChat(chatId)
+        const res = await allUserChat()
+
+        this.setState({chats: res.data, oneChat: resTwo.data})
+      } else {
+        const res = await allUserChat()
+
+        this.setState({chats: res.data})
+      }
 
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  loadChat = async (chatId) => {
+    try {
+      const res = await showChat(chatId)
+      this.setState({oneChat: res.data})
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -47,27 +66,54 @@ class Chats extends React.Component {
   }
 
   render() {
-    const { chat } = this.state
+    const { chats } = this.state
 
-    if (!chat) return null
+    if (!chats) return null
+    console.log(this.state.chats)
     return (
-      <div className='register'>
-        <div>
-          {this.state.chat.textsArray &&
-            <>
-              {this.state.chat.textsArray.map(chat => {
-                return <div key={chat._id}>{chat.textContent}</div>
-              })}
-            </>
-          }
+      <div className='chat-page'>
+
+        <div className='chats-container-left'>
+          {this.state.chats.map(chat => {
+            // if (chat.textsArray.length === 0) return
+            
+            return <Link to ={`/chats/${chat._id}`} key={chat._id} className="chat-preview-wrapper" onClick={() => {
+              this.loadChat(chat._id)
+            }}>
+
+              <img src={chat.isFirst ? chat.secondUserProfileImage : chat.firstUserProfileImage} />
+              <div>{chat.isFirst ? chat.secondUserName : chat.firstUserName}</div>
           
+            </Link>
+          })}
         </div>
 
-        <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleChange}
-          />
-        </form>
+        <div className='chats-form-right'>
+          {this.props.match.params.id &&
+          <div className="conversation--input-wrapper">
+
+            <div className='conversation-wrapper'>
+
+              {this.state.oneChat  &&
+              <>
+                {this.state.oneChat.textsArray.map(text => {
+                  return <div key={text._id}>{text.textContent}</div>
+                })}
+              </>
+              }
+            
+            </div>
+
+            <form onSubmit={this.handleSubmit}>
+              <input
+                onChange={this.handleChange}
+              />
+            </form>
+
+          </div>
+          }
+        </div>
+        
       </div>
     )
   }

@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, minlength: 6 },
   bio: { type: String, required: false, maxlength: 300 },
-  profileImage: { type: String, required: false },
+  profileImage: { type: String, required: false, default: 'https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png' },
   phone: { type: Number, required: false },
   basket: [productSchema],
   sumPrice: { type: Number, default: 0 },
@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
   finishedOrder: orderSchema,
   paidOrders: [orderSchema],
   notifications: [notificationSchema],
+  userChats: { type: Array, required: false },
   newNotification: { type: Boolean, default: false },
   userType: { type: Number, required: true },
   resetToken: { data: String, default: '' },
@@ -41,12 +42,6 @@ userSchema.virtual('userProducts', {
   ref: 'Product',
   localField: '_id',
   foreignField: 'user'
-})
-
-userSchema.virtual('userChats', {
-  ref: 'Chat',
-  localField: '_id',
-  foreignField: 'firstUserId, secondUserId'
 })
 
 userSchema

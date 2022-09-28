@@ -8,9 +8,14 @@ const textSchema = new mongoose.Schema({
 })
 
 const chatSchema = new mongoose.Schema({
-  firstUserId: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  secondUserId: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  textsArray: [ textSchema ]
+  firstUserId: { type: String, required: true },
+  firstUserName: { type: String, required: true },
+  firstUserProfileImage: { type: String, required: false },
+  secondUserId: { type: String, required: true },
+  secondUserName: { type: String, required: true },
+  secondUserProfileImage: { type: String, required: false },
+  textsArray: [ textSchema ],
+  isFirst: { type: Boolean, required: false }
 }, {
   timestamps: true
 })

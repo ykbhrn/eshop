@@ -87,6 +87,7 @@ router.route('/used-item/:id')
   .delete(secureRoute, usedItem.usedItemDelete)
 
 router.route('/chats')
+  .get(secureRoute, chat.allUserChat)
   .post(secureRoute, chat.chatCreate)
 
 router.route('/chats/:id')

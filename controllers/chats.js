@@ -7,7 +7,16 @@ async function chatCreate(req, res) {
     const firstUser = req.currentUser._id
     const secondUser = req.body.secondUserId
 
-    req.body.firstUserId = firstUser
+    const firstUserToUpdate = await User.findByIdAndUpdate(firstUser)
+      
+    const secondUserToUpdate = await User.findByIdAndUpdate(secondUser)
+
+    req.body.firstUserId = firstUserToUpdate._id
+    req.body.firstUserName = firstUserToUpdate.name
+    req.body.firstUserProfileImage = firstUserToUpdate.profileImage
+
+    req.body.secondUserName = secondUserToUpdate.name
+    req.body.secondUserProfileImage = secondUserToUpdate.profileImage
 
     const chats = await Chat.find()
 
@@ -23,6 +32,12 @@ async function chatCreate(req, res) {
       res.status(200).json(filteredArray[0])
     } else {
       const createChat = await Chat.create(req.body)
+
+      firstUserToUpdate.userChats.push(createChat._id)
+      secondUserToUpdate.userChats.push(createChat._id)
+
+      await firstUserToUpdate.save()
+      await secondUserToUpdate.save()
       res.status(201).json(createChat)
     }
 
@@ -51,6 +66,34 @@ async function newMessage(req, res) {
   }
 }
 
+async function allUserChat(req, res) {
+  try {
+    const user = await (User.findById(req.currentUser._id))
+
+    const allChats = []
+
+    const unresolved = user.userChats.map(async(chatId) => {
+
+      const chat = await Chat.findById(chatId)
+
+      if (chat.firstUserId.toString() === req.currentUser._id.toString()) {
+        chat.isFirst = true
+      } else {
+        chat.isFirst = false
+      }
+
+      allChats.push(chat)
+
+    })
+  
+    const resolved = await Promise.all(unresolved)
+
+    res.status(200).json(allChats)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+}
+
 async function chatShow(req, res) {
   const chatId = req.params.id 
   try {
@@ -61,14 +104,21 @@ async function chatShow(req, res) {
     if (chat.firstUserId.toString() !== req.currentUser._id.toString() &&
       chat.secondUserId.toString() !== req.currentUser._id.toString()) throw new Error('Not Found')
       
+    if (chat.firstUserId.toString() === req.currentUser._id.toString()) {
+      chat.isFirst = true
+    } else {
+      chat.isFirst = false
+    }
+
     res.status(200).json(chat)
   } catch (err) {
-    res.status(422).json(err)
+    res.status(400).json(err)
   }
 }
 
 module.exports = {
   chatCreate,
   newMessage,
+  allUserChat,
   chatShow
 }

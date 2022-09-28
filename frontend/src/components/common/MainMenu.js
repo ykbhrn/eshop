@@ -64,7 +64,7 @@ class MainMenu extends React.Component {
           </li>
 
           <li className='slice'>
-            <Link to="/chat" title="Messages">
+            <Link to="/chats" title="Messages">
               <div onMouseEnter={() => {
                 this.changeMainButton("Chat")
               }}
