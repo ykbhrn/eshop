@@ -2,6 +2,17 @@
 
 .main-menu-wrapper{
   display: block;
+  // transform: rotate(-45deg);
+  // position: absolute;
+  // bottom: 100px;
+  // right: 110px;
+  span{
+    display: block;
+  }
+  .main-menu-filler{
+    width: 70px;
+    height: 70px;
+  }
   #ctrl-button{
     background: $text-color;
     width: 60px;
@@ -11,6 +22,7 @@
     text-align: center;
     margin-left: -8px;
     opacity: 0.8;
+    cursor: pointer;
   }
   #ctrl-button:hover{
     background: $light-color;
@@ -36,22 +48,22 @@
 .ctrl {
 	position: fixed;
 	bottom: 25px;
-  left: 50%;
+  right: 20%;
 	font-size: 40px;
 	transition: .5s;
 }
-a.ctrl, .ctrl div {
+a.ctrl, .ctrl div a{
 	display: block;
 	color: $text-color;
 	text-align: center;
 	text-decoration: none;
   cursor: $pointer-cursor;
 }
-.ctrl div:hover{
+.ctrl div a:hover{
   color: white;
 }
 .button {
-	z-index: 9;
+	z-index: 10;
 	margin: -.625em;
 	width: 1.25em; height: 1.25em;
 	border-radius: 50%;
@@ -59,7 +71,7 @@ a.ctrl, .ctrl div {
 
 // /* circular menu */
 .tip {
-	z-index: 10;
+	z-index: 9;
 	margin: -5em;
 	width: 10em; height: 10em;
 	transform: scale(.001);
@@ -130,7 +142,7 @@ a.ctrl, .ctrl div {
 		/* make sure inner part is transparent */
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
 					rgba(255,255,255,.3) 0%, $second-color 50%);
-    background-size: 16% 16%, 16% 16%, cover;
+    background-size: 36% 36%, 36% 36%, cover;
 	line-height: 1.57;
   &:hover{
     background: /* lateral separators */
@@ -142,7 +154,7 @@ a.ctrl, .ctrl div {
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
 					rgba(255,255,255,.3) 0%, $light-color 50%);
     background-size: 16% 16%, 16% 16%, cover;
-	line-height: 1.7;
+	line-height: 1.57;
   }
 }
 

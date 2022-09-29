@@ -29,9 +29,20 @@
       height: 50px;
     }
   }
+  .chats-form-right{
+   
+  }
   .conversation-input-wrapper{
     width: 500px;
-
+    form{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 11111;
+    }
+    button, input{
+      z-index: 11;
+    }
     input{
       width: 100%;
     }

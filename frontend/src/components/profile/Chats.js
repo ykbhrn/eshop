@@ -115,6 +115,7 @@ class Chats extends React.Component {
                 value={this.state.formData.textContent}
                 onChange={this.handleChange}
               />
+              <button className='classic-btn'>Send</button>
             </form>
 
           </div>

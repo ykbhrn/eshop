@@ -32,67 +32,87 @@ class MainMenu extends React.Component {
           }
         </Link>
         <ul id="main-menu-ul" className='tip ctrl'>
-              
+
           <li className='slice'>
-            <Link to="/about" title="What is Nu Hippies?">
-              <div onMouseEnter={() => {
-                this.changeMainButton("About Us")
-              }}
-              onMouseLeave={this.mainButtonBack} ><i className="fa-solid fa-hand-peace"></i>
-              </div>
-            </Link>
+            <div onMouseEnter={() => {
+              this.changeMainButton("About Us")
+            }}
+            onMouseLeave={this.mainButtonBack} >
+              <Link to="/about" title="What is Nu Hippies?">   
+                <span>
+                  <i className="fa-solid fa-hand-peace"></i>
+                </span>
+              </Link>
+            </div>
           </li>
 
           <li className='slice'>
-            <Link to="/discount" title="Rules of Slapsgiving game">
-              <div onMouseEnter={() => {
-                this.changeMainButton("Slapsgiving")
-              }}
-              onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-hands"></i>
-              </div>
-            </Link>
+            <div onMouseEnter={() => {
+              this.changeMainButton("Slapsgiving")
+            }}
+            onMouseLeave={this.mainButtonBack}>
+              <Link to="/discount" title="Rules of Slapsgiving game">
+                <span>
+                  <i className="fa-solid fa-hands"></i>
+                </span>
+              </Link>
+            </div>
           </li>
 
           <li className='slice'>
-            <Link to="/" title="Homepage">
-              <div onMouseEnter={() => {
-                this.changeMainButton("Home")
-              }}
-              onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-house"></i>
-              </div>
-            </Link>
+            <div onMouseEnter={() => {
+              this.changeMainButton("Home")
+            }}
+            onMouseLeave={this.mainButtonBack}>
+              <Link to="/" title="Homepage">
+                <span>
+                  <i className="fa-solid fa-house"></i>
+                </span>
+              </Link>
+            </div>
           </li>
 
           <li className='slice'>
-            <Link to="/chats" title="Messages">
-              <div onMouseEnter={() => {
-                this.changeMainButton("Chat")
-              }}
-              onMouseLeave={this.mainButtonBack}><i className="fa-solid fa-comments"></i>
-              </div>
-            </Link>
+            <div onMouseEnter={() => {
+              this.changeMainButton("Chat")
+            }}
+            onMouseLeave={this.mainButtonBack}>
+              <Link to="/chats" title="Messages">
+                <span>
+                  <i className="fa-solid fa-comments"></i>
+                </span>
+              </Link>
+            </div>
           </li>
 
           {isAuthenticated() &&
               <li className='slice'>
-                <Link to="/profile" title="Your Profile"><div onMouseEnter={() => {
+                <div onMouseEnter={() => {
                   this.changeMainButton("My Account")
                 }}
-                onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i>
+                onMouseLeave={this.mainButtonBack}>
+                  <Link to="/profile" title="Your Profile">
+                    <span>
+                      <i className="fas fa-user"></i>
+                    </span>
+                  </Link>
+
                 </div>
-                </Link>
               </li>
           }
             
           {!isAuthenticated() &&
               <li className='slice'>
-                <Link to="/entering" title="Sign in">
-                  <div onMouseEnter={() => {
-                    this.changeMainButton("Register")
-                  }}
-                  onMouseLeave={this.mainButtonBack}><i className="fas fa-user"></i>
-                  </div>
-                </Link>
+                <div onMouseEnter={() => {
+                  this.changeMainButton("Register")
+                }}
+                onMouseLeave={this.mainButtonBack}>
+                  <Link to="/entering" title="Sign in">
+                    <span>
+                      <i className="fas fa-user"></i>
+                    </span>
+                  </Link>
+                </div>
               </li>
           }
         </ul>
