@@ -58,33 +58,45 @@ import Chats from './components/profile/Chats'
 // }
 
 window.onscroll = function () { 
-  const logo = document.querySelectorAll(".logo")
+  const logo = document.querySelector(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
   const basketIcon = document.querySelector(".basket-icon-wrapper")
   const basketNumber = document.querySelector(".basket-number")
   const flowerElement = document.querySelectorAll(".flower-container")
   const vanImg = document.querySelector(".products-banner img")
+  const navbar = document.querySelector(".navbar")
+  const secondNavbar = document.querySelector(".second-hand-navbar")
+
 
   if (document.documentElement.scrollTop > 10) {
-
-    logo[1].classList.add("logo-scroll")
-    logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
-    logo[0].classList.add("logo-scroll")
-    logo[0].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
-    basketIcon.classList.add("basket-icon-scroll")
-    productsNavbarIcon.classList.add("products-navbar-icon-scroll")
-    basketNumber.classList.add("basket-number-scroll")
+    
+    if (navbar) {
+      basketIcon.classList.add("basket-icon-scroll")
+      productsNavbarIcon.classList.add("products-navbar-icon-scroll")
+      basketNumber.classList.add("basket-number-scroll")
+      logo.classList.add("logo-scroll")
+      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+    } else if (secondNavbar) {
+      logo.classList.add("logo-scroll")
+      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+    } 
+    
   } else if (document.documentElement.scrollTop < 10) {
-
-    logo[1].classList.remove("logo-scroll")
-    logo[1].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
-    logo[0].classList.remove("logo-scroll")
-    logo[0].style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
-    basketIcon.classList.remove("basket-icon-scroll")
-    productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
-    basketNumber.classList.remove("basket-number-scroll")
+      
+    if (navbar) {
+      basketIcon.classList.remove("basket-icon-scroll")
+      productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
+      basketNumber.classList.remove("basket-number-scroll")
+      logo.classList.remove("logo-scroll")
+      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+    } else if (secondNavbar) {
+      logo.classList.remove("logo-scroll")
+      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+    }
+    
   }
 
+  
   if (flowerElement[0]) {
 
     if (document.documentElement.scrollTop > (window.location.pathname === "/products" ? 605 : 690) ){
@@ -194,19 +206,19 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="whole-page">
-          {/* <img className="cursor-gif" src="" /> */}
           <BasketIcon
             basketLength={this.state.basketLength}
           />
+          {/* <Navbar />
+          <SecondHandNavbar /> */}
           <PopupDiscount />
-          <Navbar />
-          <SecondHandNavbar />
           <MainMenu />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
             <Route path='/products/:name/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
             <Route path="/products" component={AllProducts} />
+            <Route path="/entering/:items/:name/:id" component={Authorization} />
             <Route path="/entering/:name/:id" component={Authorization} />
             <Route path="/entering" component={Authorization} />
             <Route path="/forgot-password" component={ForgotPassword} />

@@ -44,6 +44,12 @@ userSchema.virtual('userProducts', {
   foreignField: 'user'
 })
 
+userSchema.virtual('userUsedItems', {
+  ref: 'UsedItem',
+  localField: '_id',
+  foreignField: 'user'
+})
+
 userSchema
   .set('toJSON', {
     virtuals: true, 

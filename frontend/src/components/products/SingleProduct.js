@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 import { getSingleProduct, addToBasket } from '../../lib/api'
 import {seo} from '../../lib/functions'
+import Navbar from '../common/Navbar';
 
 class SingleProduct extends React.Component {
   state = {
@@ -39,14 +40,19 @@ class SingleProduct extends React.Component {
       const quantityArray = [];
 
       if (res.data.quantities.length > 0) {
+
         for (let i = 1; i <= res.data.quantities[0][2]; i++) {
           totalQuantityArray.push(i);
         }
+
         this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, totalQuantity: totalQuantityArray, imagesArray: res.data.images[0].images });
+      
       } else {
+
         for (let i = 1; i <= res.data.quantity; i++) {
           quantityArray.push(i);
         }
+        
         this.setState({ product: res.data, bigImage: res.data.images[0].images[0], formData, imagesArray: res.data.images[0].images, totalQuantity: quantityArray });
 
       }
@@ -178,50 +184,52 @@ class SingleProduct extends React.Component {
     const newName = this.state.product.name.replaceAll(' ', '-');
 
     return (
-      <div className="single-product-section change-brightness">
+      <>
+        <Navbar />
+        <div className="single-product-section change-brightness">
 
-        <style>
-          {'\
-          .donation-icon{\
+          <style>
+            {'\
+          .basket-icon-wrapper{\
             display: flex;\
           }\
           '}
-        </style>
+          </style>
         
-        <div className="single-product-wrapper">
-          <div className="single-product-images-wrapper">
-            <div className="side-images-container">
-              {this.state.imagesArray.map(image => {
+          <div className="single-product-wrapper">
+            <div className="single-product-images-wrapper">
+              <div className="side-images-container">
+                {this.state.imagesArray.map(image => {
       
-                return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
-                  backgroundImage: `url(${image})`,
-                }}
-                onClick={() => {
-                  this.changeBigImage(image);
-                }} key={image}></div>
-              })}
-            </div>
-            <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
-            </div>
-          </div>
-          <div className="single-product-side-info-wrapper">
-
-            <div className="name-price-wrapper">
-
-              <div className="single-product-name">
-                <h1>{product.name}</h1>
+                  return <div className={`side-image ${image === this.state.bigImage ? "chosen-side-image" : ""}`} style={{
+                    backgroundImage: `url(${image})`,
+                  }}
+                  onClick={() => {
+                    this.changeBigImage(image);
+                  }} key={image}></div>
+                })}
               </div>
+              <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
+              </div>
+            </div>
+            <div className="single-product-side-info-wrapper">
 
-              <div className="product-price-wrapper">
-                <div className="product-price">£{product.price / 100}</div>
-                {product.discount &&
+              <div className="name-price-wrapper">
+
+                <div className="single-product-name">
+                  <h1>{product.name}</h1>
+                </div>
+
+                <div className="product-price-wrapper">
+                  <div className="product-price">£{product.price / 100}</div>
+                  {product.discount &&
                 <div className="product-discount">-{product.discount}%</div>
-                }
+                  }
+                </div>
+
               </div>
 
-            </div>
-
-            {this.state.totalQuantity.length > 0 &&
+              {this.state.totalQuantity.length > 0 &&
 
 <div className="quantity-add-wrapper">
 
@@ -272,9 +280,9 @@ class SingleProduct extends React.Component {
   }
 </div>
 
-            }
+              }
 
-            {product.sizes.length > 0 &&
+              {product.sizes.length > 0 &&
             <>
               <div className="product-size-container">
                 {product.sizes.map(size => {
@@ -286,9 +294,9 @@ class SingleProduct extends React.Component {
             
               <div className="product-size">Size: {this.state.formData.size}</div>
             </>
-            }
+              }
 
-            {product.colors.length > 0 &&
+              {product.colors.length > 0 &&
               <>
                 <div className="product-colors-container">{product.colors.map(color => {
                   return <div className={`product-color-wrapper ${this.state.formData.color === color ? "chosen-color" : ""}`} onClick={() => {
@@ -298,36 +306,36 @@ class SingleProduct extends React.Component {
                 })}</div>
                 {/* <div className="product-size">Type: {this.state.formData.color}</div> */}
               </>
-            }
+              }
 
-            {this.state.totalQuantity.length === 0 &&
+              {this.state.totalQuantity.length === 0 &&
               <h2>Out Of Stock</h2>
-            }
+              }
 
+            </div>
           </div>
-        </div>
 
-        {}
+          {}
 
-        <div className="product-info-container">
-          <div className={`product-info-item ${this.state.productInfo === "description" ? "active" : ""}`} onClick={() => {
-            this.handleProductInfo("description")
-          }}>Description</div>
-          {product.ingredientsText || product.ingredientsImages.length > 0 &&
+          <div className="product-info-container">
+            <div className={`product-info-item ${this.state.productInfo === "description" ? "active" : ""}`} onClick={() => {
+              this.handleProductInfo("description")
+            }}>Description</div>
+            {product.ingredientsText || product.ingredientsImages.length > 0 &&
             <div className={`product-info-item ${this.state.productInfo === "ingredients" ? "active" : ""}`} onClick={() => {
               this.handleProductInfo("ingredients")
             }}>Ingredients</div>
-          }
+            }
 
-          {product.usage &&
+            {product.usage &&
           <div className={`product-info-item ${this.state.productInfo === "usage" ? "active" : ""}`} onClick={() => {
             this.handleProductInfo("usage")
           }}>Usage</div>
-          }
-        </div>
+            }
+          </div>
 
-        <div className="product-description">
-          {this.state.productInfo === "description" &&
+          <div className="product-description">
+            {this.state.productInfo === "description" &&
           <>
             <h1>Product description</h1>
             <div dangerouslySetInnerHTML={ { __html: this.state.product.description} }>
@@ -341,9 +349,9 @@ class SingleProduct extends React.Component {
           </>
             }
           </>
-          }
+            }
 
-          {this.state.productInfo === "ingredients" &&
+            {this.state.productInfo === "ingredients" &&
           <>
             {product.ingredientsImages &&
             <>
@@ -353,19 +361,19 @@ class SingleProduct extends React.Component {
             </>
             }
           </>
-          }
+            }
 
-          {this.state.productInfo === "usage" &&
+            {this.state.productInfo === "usage" &&
           <>
             <h1>Usage</h1>
             <p>
               {this.state.product.usage}
             </p>
           </>
-          }
+            }
 
-        </div>
-        {this.state.addedToBasket &&
+          </div>
+          {this.state.addedToBasket &&
           <div className="basket-added-wrapper">
             <h1>Item was added to your basket</h1>
             <div className="basket-added-buttons">
@@ -375,8 +383,9 @@ class SingleProduct extends React.Component {
               </Link>
             </div>
           </div>
-        }
-      </div>
+          }
+        </div>
+      </>
     )
   }
 }

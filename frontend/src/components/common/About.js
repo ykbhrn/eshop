@@ -1,5 +1,6 @@
 import React from 'react'
 import {seo, mainMetaDescription} from '../../lib/functions'
+import Navbar from './Navbar'
 
 class About extends React.Component {
   state = {
@@ -21,47 +22,54 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="about-page change-brightness">
+      <>
+        <Navbar />
 
         <style>
           {'\
-          .donation-icon{\
-            display: flex;\
+          .basket-icon-wrapper{\
+            display: none;\
+          }\
+          .products-navbar-icon{\
+            display: none;\
           }\
           '}
         </style>
           
-        <div className="form-wrapper">
+        <div className="about-page change-brightness">
 
-          <div className="about-banner">
+          
+          <div className="form-wrapper">
 
-            <h1 className="big-name-about">
+            <div className="about-banner">
+
+              <h1 className="big-name-about">
               NU HIPPIES MOVEMENT
-            </h1>
+              </h1>
 
-            <div className="about-side-slogan">
+              <div className="about-side-slogan">
 
-              <h2>
+                <h2>
                 Bring Hippies Back
-              </h2>
+                </h2>
+
+              </div>
 
             </div>
 
-          </div>
-
-          <h3 className="story-header">Long Story Short</h3>
-          <p>
+            <h3 className="story-header">Long Story Short</h3>
+            <p>
           We are Nu Hippies Movement and our goal is to bring the Hippies kind of spirit back. The world is facing big environmental problems,
           overpopulation, and war conflicts. A big majority of people today are focusing only on their individual success and image on social 
           media. Society is lacking idealistic views when individuals are not only thinking of their own success but also of helping society and 
           the planet and seeing the world as one. Right now we are just starting and our main job is selling fair trade, environmentally friendly 
           clothes, and high-quality health supplements. We hope to keep growing and start organizing speeches with like-minded speakers, debates,
           and even festivals. Let’s join us on our journey to BRING HIPPIES BACK  
-          </p>
+            </p>
 
-          <h3 className="story-header">Long Story Longer</h3>
+            <h3 className="story-header">Long Story Longer</h3>
 
-          <p>
+            <p>
           We are Nu Hippies Movement, and we believe that the world needs a Hippie kind of spirit right now more than ever. 
               There are a lot of conflicts and environmental problems. Predictions for a future don’t look good.
               It’s a pretty pessimistic time right now as we don’t have solutions or maybe we do 
@@ -96,9 +104,10 @@ class About extends React.Component {
               hide from them anymore if our world doesn’t act like one and we keep dividing ourselves and countries follow just their own interest, then 
               the world will inevitably
               collapse. <br />
-            <strong>So hop on our Peace Train and let&#39;s get that ’70s spirit back</strong></p>
+              <strong>So hop on our Peace Train and let&#39;s get that ’70s spirit back</strong></p>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

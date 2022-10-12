@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../../lib/api'
 import {seo} from '../../lib/functions'
+import Navbar from '../common/Navbar';
 
 class AllProducts extends React.Component {
   state = {
@@ -108,21 +109,23 @@ class AllProducts extends React.Component {
     if (!this.state.products) return null
     console.log(this.state.isSearching)
     return (
-      <div className="products-page change-brightness" onClick={this.handleClick}>
+      <>
+        <Navbar />
+        <div className="products-page change-brightness" onClick={this.handleClick}>
 
-        <style>
-          {'\
-          .donation-icon{\
+          <style>
+            {'\
+          .basket-icon-wrapper{\
             display: flex;\
           }\
           '}
-        </style>
+          </style>
 
-        {this.state.isLoading &&
+          {this.state.isLoading &&
         <img className="products-loading" src="https://res.cloudinary.com/nuhippies/image/upload/v1651162892/Nu%20Hippies/icons/output-onlinegiftools_2_y18upn.gif" />
-        }
+          }
 
-        {!this.state.isLoading &&
+          {!this.state.isLoading &&
 <>
         
   <div className="products-banner">
@@ -276,9 +279,10 @@ class AllProducts extends React.Component {
 
   </div>
 </>
-        }
+          }
 
-      </div>
+        </div>
+      </>
     );
   }
 }

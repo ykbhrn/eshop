@@ -2,6 +2,7 @@ import React from 'react'
 import { getMyProfile } from '../../lib/api'
 import PopupDiscount from './PopupDiscount'
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Donation extends React.Component {
   state = {
@@ -32,6 +33,8 @@ class Donation extends React.Component {
   render() {
     return (
       <>
+        <SecondHandNavbar />
+        
         {this.state.discountDemo &&
         <PopupDiscount 
           showHand={true}

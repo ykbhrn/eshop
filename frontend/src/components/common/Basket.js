@@ -2,6 +2,8 @@ import React from 'react';
 import { getMyProfile, updateBasket, removeFromBasket } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo, mainMetaDescription} from '../../lib/functions'
+import Navbar from '../common/Navbar';
+import BasketIcon from '../common/BasketIcon';
 
 class Basket extends React.Component {
   state = {
@@ -100,58 +102,69 @@ class Basket extends React.Component {
     if (!this.state.user) return null;
     const { user } = this.state;
     return (
-      <div className="basket-page">
+      <>
+        <Navbar />
+
+        <style>
+          {'\
+          .basket-icon-wrapper{\
+            display: flex;\
+          }\
+          '}
+        </style>
         
-        {user.basket.length < 1 && 
+        <div className="basket-page">
+        
+          {user.basket.length < 1 && 
           <div className="empty-basket">
             <h1>Your Basket is Empty</h1>
           </div>
-        } 
-        <div className="basket-container">
-          {user.basket.map(item => {
+          } 
+          <div className="basket-container">
+            {user.basket.map(item => {
 
-            const newName = item.name.replaceAll(' ', '-');
+              const newName = item.name.replaceAll(' ', '-');
 
-            return <div className="basket-item-wrapper" key={item._id}>
-              <div className="basket-item">
-                <div className="basket-image-title">
-                  <a href={`/products/${newName}/${item._id}`} target="_blank" rel="noreferrer">
-                    <img src={item.images[0].images[0]} alt={item.name} />
-                  </a>
-                  <a href={`/products/${newName}/${item._id}`} target="_blank" rel="noreferrer">
-                    <h1>{item.name}</h1>
-                  </a>
+              return <div className="basket-item-wrapper" key={item._id}>
+                <div className="basket-item">
+                  <div className="basket-image-title">
+                    <a href={`/products/${newName}/${item._id}`} target="_blank" rel="noreferrer">
+                      <img src={item.images[0].images[0]} alt={item.name} />
+                    </a>
+                    <a href={`/products/${newName}/${item._id}`} target="_blank" rel="noreferrer">
+                      <h1>{item.name}</h1>
+                    </a>
+                  </div>
+                  <div className="color-size-price">
+                    <div>{item.chosenColor}</div>
+                    <div>{item.chosenSize}</div>
+                    <div className="basket-price">£{item.price / 100}</div>
+                  </div>
                 </div>
-                <div className="color-size-price">
-                  <div>{item.chosenColor}</div>
-                  <div>{item.chosenSize}</div>
-                  <div className="basket-price">£{item.price / 100}</div>
-                </div>
-              </div>
               
-              <div className="basket-subtotal-remove">
-                <div className="basket-remove" onClick={() => {
-                  this.removeItem(item._id, item.chosenSize, item.chosenColor)
-                }}>Remove</div>
+                <div className="basket-subtotal-remove">
+                  <div className="basket-remove" onClick={() => {
+                    this.removeItem(item._id, item.chosenSize, item.chosenColor)
+                  }}>Remove</div>
 
-                <div className="quantity-basket-wrapper">
-                  <form>
-                    <label>Quantity:</label>
-                    <select value={item.chosenQuantity} onChange={() => {
-                      this.updateBasketItem(event, item._id, item.chosenSize, item.chosenColor)
-                    }}>
-                      {this.quantityBar(item, item.chosenColor, item.chosenSize)} 
-                    </select>
-                  </form>
-                </div>
+                  <div className="quantity-basket-wrapper">
+                    <form>
+                      <label>Quantity:</label>
+                      <select value={item.chosenQuantity} onChange={() => {
+                        this.updateBasketItem(event, item._id, item.chosenSize, item.chosenColor)
+                      }}>
+                        {this.quantityBar(item, item.chosenColor, item.chosenSize)} 
+                      </select>
+                    </form>
+                  </div>
                 
-                <div className="basket-subtotal">Subtotal: £{(item.chosenQuantity * item.price) / 100}</div>
-              </div>
-            </div>;
-          })}
-        </div>
+                  <div className="basket-subtotal">Subtotal: £{(item.chosenQuantity * item.price) / 100}</div>
+                </div>
+              </div>;
+            })}
+          </div>
 
-        {user.basket.length > 0 &&
+          {user.basket.length > 0 &&
           <div className="checkout-button-total-price">
             <div className="total-price">
               <div>Sum ({this.state.totalQuantity} Items(s)): £{user.sumPrice / 100}</div>
@@ -162,8 +175,9 @@ class Basket extends React.Component {
               <div className="checkout-button">Proceed to Chekout</div>
             </Link>
           </div>
-        }
-      </div>
+          }
+        </div>
+      </>
     );
   }
 }

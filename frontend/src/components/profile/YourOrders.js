@@ -3,6 +3,7 @@ import { logout } from '../../lib/auth';
 import { getMyProfile, updateUserAccount } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class YourOrders extends React.Component {
   state = {
@@ -108,23 +109,26 @@ class YourOrders extends React.Component {
     const { user } = this.state
     if (!user) return null
     return (
-      <div className="edit-account-page change-brightness">
+      <>
+        <SecondHandNavbar />
+        <div className="edit-account-page change-brightness">
 
-        <style>
-          {'\
+          <style>
+            {'\
           .donation-icon{\
             display: flex;\
           }\
           '}
-        </style>
+          </style>
         
-        <div className="account-nav">
-          <Link to="/profile">Your Acount</Link>
-          <span className="sign">&gt;</span>
-          <div>Your Orders</div>
-        </div>
+          <div className="account-nav">
+            <Link to="/profile">Your Acount</Link>
+            <span className="sign">&gt;</span>
+            <div>Your Orders</div>
+          </div>
 
-      </div>
+        </div>
+      </>
     )
   }
 

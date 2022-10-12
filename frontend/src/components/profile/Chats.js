@@ -2,6 +2,7 @@ import React from 'react';
 import { allUserChat, showChat, newMessage } from '../../lib/api';
 import { Link, Redirect } from 'react-router-dom';
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Chats extends React.Component {
   state = {
@@ -60,7 +61,8 @@ class Chats extends React.Component {
       const res = await newMessage(this.props.match.params.id, this.state.formData)
       const formData = { ...this.state.formData, textContent: '' }
       this.setState({formData})
-      this.loadChat(res.data._id)
+      this.componentDidMount()
+      // this.loadChat(res.data._id)
     } catch (err) {
       console.log(err)
     }
@@ -71,58 +73,72 @@ class Chats extends React.Component {
     const { chats } = this.state
 
     if (!chats) return null
-    console.log(this.state.chats)
+    console.log(this.state.oneChat)
     return (
-      <div className='chat-page'>
+      <>
+        <SecondHandNavbar />
+      
+        <div className='chat-page'>
 
-        <div className='chats-container-left'>
-          {this.state.chats.map(chat => {
+          <div className='chats-container-left'>
+            {this.state.chats.map(chat => {
             
-            return <Link to ={`/chats/${chat._id}`} key={chat._id} className={chat._id === this.props.match.params.id ?  "chat-preview-wrapper active" : "chat-preview-wrapper"} 
-              onClick={() => {
-                this.loadChat(chat._id)
-              }}>
+              return <Link to={`/chats/${chat._id}`} key={chat._id} className={chat._id === this.props.match.params.id ?  "chat-preview-wrapper active" : "chat-preview-wrapper"} 
+                onClick={() => {
+                  this.loadChat(chat._id)
+                }}>
+                
+                <img src={chat.isFirst ? chat.secondUserProfileImage : chat.firstUserProfileImage} />
 
-              <img src={chat.isFirst ? chat.secondUserProfileImage : chat.firstUserProfileImage} />
-              <div>{chat.isFirst ? chat.secondUserName : chat.firstUserName}</div>
-          
-            </Link>
-          })}
-        </div>
+                <div className='chat-preview-name-message-wrapper'>
+                  <div className='chat-preview-username'>{chat.isFirst ? chat.secondUserName : chat.firstUserName}</div>
+                  <div className='chat-preview-last-message'>{chat.textsArray.length > 0 ? chat.textsArray[chat.textsArray.length - 1].textContent : ''}</div>
+                </div>
+              </Link>
+            })}
+          </div>
 
-        <div className='chats-form-right'>
-          {this.props.match.params.id &&
+          <div className='chats-form-right'>
+            {this.props.match.params.id &&
           <div className="conversation-input-wrapper">
 
-            <div className='conversation-wrapper-reversed'>
-              <div className='conversation-wrapper'>
-
-                {this.state.oneChat  &&
+            {this.state.oneChat  &&
               <>
-                {this.state.oneChat.textsArray.map(text => {
-                  return <div key={text._id} className={text.userId === this.props.user._id ? "chat-user-texts" : "chat-received-texts"}>
-                    {text.textContent}
-                  </div>
-                })}
-              </>
-                }
-            
-              </div>
-            </div>
 
-            <form onSubmit={this.handleSubmit}>
-              <input
-                value={this.state.formData.textContent}
-                onChange={this.handleChange}
-              />
-              <button className='classic-btn'>Send</button>
-            </form>
+                <div className='username-picture-onechat'>
+                  <img src={this.state.oneChat.firstUserId === this.props.user._id ? this.state.oneChat.secondUserProfileImage : this.state.oneChat.firstUserProfileImage} />
+                  <h3>{this.state.oneChat.firstUserId === this.props.user._id ? this.state.oneChat.secondUserName : this.state.oneChat.firstUserName}</h3>
+                </div>
+                
+                <div className='conversation-wrapper-reversed'>
+                  <div className='conversation-wrapper'>
+
+                    {this.state.oneChat.textsArray.map(text => {
+                      return <div key={text._id} className={text.userId === this.props.user._id ? "chat-user-texts" : "chat-received-texts"}>
+                        {text.textContent}
+                      </div>
+                    })}
+            
+                  </div>
+                </div>
+
+                <form onSubmit={this.handleSubmit}>
+                  <input
+                    value={this.state.formData.textContent}
+                    onChange={this.handleChange}
+                  />
+                  <button className='classic-btn'>Send</button>
+                </form>
+
+              </>
+            }
 
           </div>
-          }
-        </div>
+            }
+          </div>
         
-      </div>
+        </div>
+      </>
     )
   }
 

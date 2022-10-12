@@ -2,6 +2,7 @@ import React from 'react';
 import { getMyProfile, completeOrder, createOrder, createInvoice } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo, mainMetaDescription} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Payment extends React.Component {
   state = {
@@ -69,22 +70,25 @@ class Payment extends React.Component {
     if (!this.state.user) return null;
     const { user, formData, isLoading } = this.state;
     return (
-      <div className="payment-page">
+      <>
+        <SecondHandNavbar />
 
-        <div className="payment-radio">
-          <h2>Payment options:</h2>
-          <div className="payment-option">
-            <input
-              name="credit card"
-              type="radio"
-              value="1"
-              onChange={this.radioChange}
-              checked={this.state.creditCard}
-            />
-            <label>Debit or Credit Card</label>
-          </div>
+        <div className="payment-page">
 
-          {/* <div className="payment-option">
+          <div className="payment-radio">
+            <h2>Payment options:</h2>
+            <div className="payment-option">
+              <input
+                name="credit card"
+                type="radio"
+                value="1"
+                onChange={this.radioChange}
+                checked={this.state.creditCard}
+              />
+              <label>Debit or Credit Card</label>
+            </div>
+
+            {/* <div className="payment-option">
             <input
               name="bank transfer"
               type="radio"
@@ -95,55 +99,56 @@ class Payment extends React.Component {
             <label>Bank Transfer</label>
           </div> */}
 
-        </div>
+          </div>
 
-        <div className="basket-preview">
-          <div className="order-items-container">
-            {user.basket.map(item => {
-              return <div key={item.id} className="image-checkout-wrapper">
-                <div className="image-checkout" style={{
-                  backgroundImage: `url(${item.images[0].images[0]})`
-                }}>
-                </div>
-                <div className="image-checkout-name">
-                  {item.name}
-                  <div className="image-checkout-description">
-                    <span className="size">Size: {item.chosenSize}</span>
-                    <span className="color">Color: {item.chosenColor}</span>
-                  Quantity: {item.chosenQuantity}
+          <div className="basket-preview">
+            <div className="order-items-container">
+              {user.basket.map(item => {
+                return <div key={item.id} className="image-checkout-wrapper">
+                  <div className="image-checkout" style={{
+                    backgroundImage: `url(${item.images[0].images[0]})`
+                  }}>
                   </div>
-                </div>
-              </div>;
-            })}
-          </div>
+                  <div className="image-checkout-name">
+                    {item.name}
+                    <div className="image-checkout-description">
+                      <span className="size">Size: {item.chosenSize}</span>
+                      <span className="color">Color: {item.chosenColor}</span>
+                  Quantity: {item.chosenQuantity}
+                    </div>
+                  </div>
+                </div>;
+              })}
+            </div>
 
-          <div className="total-price-checkout-wrapper">
-            <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
-            <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
-            <div className="total-text">Shipping: £{user.pendingOrder.shipping / 100}</div>
-            <div>Total Price: £{(user.totalPrice + user.pendingOrder.shipping) / 100}</div>
-          </div>
+            <div className="total-price-checkout-wrapper">
+              <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
+              <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
+              <div className="total-text">Shipping: £{user.pendingOrder.shipping / 100}</div>
+              <div>Total Price: £{(user.totalPrice + user.pendingOrder.shipping) / 100}</div>
+            </div>
 
-          <div className="checkout-buttons">
-            <Link to="/shipping" title="Shipping">
-              <div className="left-button">Back</div>
-            </Link>
+            <div className="checkout-buttons">
+              <Link to="/shipping" title="Shipping">
+                <div className="left-button">Back</div>
+              </Link>
 
-            {isLoading &&
+              {isLoading &&
                 <div className="right-button">
                   <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image-checkout' />
                 </div>
-            }
-            {!isLoading &&
+              }
+              {!isLoading &&
              <div className="right-button" onClick={() => {
                this.completeOrder(this.state.paymentType)
              }}>Complete Your Order</div> 
-            }
+              }
             
-          </div>
+            </div>
 
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

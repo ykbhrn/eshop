@@ -71,6 +71,7 @@ input:focus, textarea:focus{
 
 button{
   z-index: 3;
+  border: none;
 }
 
   ::-webkit-scrollbar {
@@ -101,11 +102,11 @@ button{
   background: $second-color;
   color: $text-color;
   border-radius: 25px;
-  font-size: 22px;
-  font-weight: 300;
-  height: 45px;
-  width: 190px;
-  line-height: 45px;
+  font-size: 20px;
+  font-weight: 900;
+  height: 40px;
+  width: 150px;
+  line-height: 40px;
   text-align: center;
   // border: 2px solid $second-color;
   cursor: $pointer-cursor;
@@ -752,6 +753,8 @@ button{
       left: 50%;
       margin-left: -91.5px;
       height: 35px;
+      border-radius: 50px;
+      z-index: 2;
     }
     .search-results-container{
       position: absolute;
@@ -1314,7 +1317,7 @@ h1{
   height: 64px;
   font-size: 45px;
   position: fixed;
-  right: 30px;
+  left: 30px;
   bottom: 20px;
   z-index: 3;
 }

@@ -4,7 +4,7 @@ import { getAllProducts } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 
-class Home extends React.Component {
+class HomeTwo extends React.Component {
   state = {
     images: [],
     mainButton: ""
@@ -238,4 +238,4 @@ class Home extends React.Component {
 }
 
 
-export default Home;
+export default HomeTwo;

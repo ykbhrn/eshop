@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAllUsedItems } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class UsedItems extends React.Component {
   state = {
@@ -54,20 +55,13 @@ class UsedItems extends React.Component {
   render() {
     return (
       <>
+        <SecondHandNavbar /> 
+      
         <div className="second-hand-page">
           <style>
             {'\
-          .basket-icon-wrapper{\
-            display: none;\
-          }\
-          .navbar{\
-            display: none;\
-          }\
           .slogan-header{\
             display: none;\
-          }\
-          .second-hand-navbar{\
-            display: flex;\
           }\
           '}
           </style>

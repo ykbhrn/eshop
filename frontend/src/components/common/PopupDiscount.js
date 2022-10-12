@@ -2,6 +2,7 @@ import React from 'react'
 import { getAllDiscounts, addDiscount, getMyProfile } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class PopupDiscount extends React.Component {
   state = {
@@ -273,7 +274,7 @@ class PopupDiscount extends React.Component {
 
         <div className="score-window">
 
-          <a href="/"><div className="popup-logo"></div></a>
+          <SecondHandNavbar />
 
           <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
 
@@ -297,7 +298,7 @@ class PopupDiscount extends React.Component {
 
         <div className="score-window">
 
-          <a href="/"><div className="popup-logo"></div></a>
+          <SecondHandNavbar />
 
           <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
 
@@ -322,7 +323,7 @@ class PopupDiscount extends React.Component {
 
           <div className="score-window">
 
-            <a href="/"><div className="popup-logo"></div></a>
+            <SecondHandNavbar />
 
             <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
 
@@ -344,7 +345,7 @@ class PopupDiscount extends React.Component {
 
         <div className="score-window">
 
-          <a href="/"><div className="popup-logo"></div></a>
+          <SecondHandNavbar />
 
           <img src="https://res.cloudinary.com/nuhippies/image/upload/v1652244409/Nu%20Hippies/Backgrounds/giphy_s6lpuz.gif" />
           {/* <img src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" /> */}
@@ -362,7 +363,7 @@ class PopupDiscount extends React.Component {
 
 
         </div>
-        }        
+        } 
       </div>
     )
   }

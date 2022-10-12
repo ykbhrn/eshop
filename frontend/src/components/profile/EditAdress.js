@@ -3,6 +3,7 @@ import { logout } from '../../lib/auth';
 import { getMyProfile, pendingOrder } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class EditAdress extends React.Component {
   state = {
@@ -171,23 +172,17 @@ class EditAdress extends React.Component {
     if (!this.state.user) return null
     const { user, formData, errors, isLoading } = this.state
     return (
-      <div className="edit-adress-page change-brightness">
-
-        <style>
-          {'\
-          .donation-icon{\
-            display: flex;\
-          }\
-          '}
-        </style>
+      <>
+        <SecondHandNavbar />
+        <div className="edit-adress-page change-brightness">
         
-        <div className="account-nav">
-          <Link to="/profile">Your Acount</Link>
-          <span className="sign">&gt;</span>
-          <div>Edit Adress</div>
-        </div>
+          <div className="account-nav">
+            <Link to="/profile">Your Acount</Link>
+            <span className="sign">&gt;</span>
+            <div>Edit Adress</div>
+          </div>
 
-        {!this.state.isEdit &&
+          {!this.state.isEdit &&
           <div className="edit-line-container">
             <div className="shipping-billing-edit">
               <div className="shipping-edit-container">
@@ -225,9 +220,9 @@ class EditAdress extends React.Component {
             </div>
             <button className="classic-btn" onClick={this.showEdit}>Edit</button>
           </div>
-        }
+          }
 
-        {this.state.isEdit &&
+          {this.state.isEdit &&
           <>
             <div className="forms-wrapper">
               <h2>Shipping Adress:</h2>
@@ -462,9 +457,10 @@ class EditAdress extends React.Component {
             <button className="classic-btn" onClick={this.addAdress}>Change</button>
             }
           </>
-        }
+          }
 
-      </div>
+        </div>
+      </>
     );
   }
 

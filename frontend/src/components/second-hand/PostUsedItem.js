@@ -2,6 +2,7 @@ import React from 'react'
 import { createUsedItem } from '../../lib/api'
 import axios from 'axios'
 import Geocoder from 'react-mapbox-gl-geocoder'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 const mapAccess = {
   mapboxApiAccessToken: 'pk.eyJ1IjoibnVoaXBwaWVzIiwiYSI6ImNsNXN6bG0yeTAyMjAzaXA3ZDMyYjlvdDgifQ.DSvTjZ3H-vfRDSIsUYLw8Q'
@@ -167,26 +168,16 @@ onSelected = (viewport, item) => {
     const {viewport, formData} = this.state
     console.log(formData)
     return (
-      <div className="post-item-page">
-        <style>
-          {'\
-          .basket-icon-wrapper{\
-            display: none;\
-          }\
-          .navbar{\
-            display: none;\
-          }\
-          .second-hand-navbar{\
-            display: flex;\
-          }\
-          '}
-        </style>
+      <>
+        <SecondHandNavbar />
+      
+        <div className="post-item-page">
           
-        {this.state.adPosition < 8 &&
+          {this.state.adPosition < 8 &&
         <h1>Post an ad</h1>
-        }
+          }
 
-        {this.state.adPosition === 1 &&
+          {this.state.adPosition === 1 &&
           <>
             <h2>Category:</h2>
             <select id="category" 
@@ -227,9 +218,9 @@ onSelected = (viewport, item) => {
 
             <div className="error">{this.state.errors}</div>
           </>
-        }
+          }
 
-        {this.state.adPosition === 2 &&
+          {this.state.adPosition === 2 &&
         <>
           <h2>Size:</h2>
           <input 
@@ -241,9 +232,9 @@ onSelected = (viewport, item) => {
   
           <div className="error">{this.state.errors}</div>
         </>
-        }
+          }
 
-        {this.state.adPosition === 3 &&
+          {this.state.adPosition === 3 &&
                 <div className="post-description">
                   <h2>Ad Title</h2>
                   <input
@@ -262,9 +253,9 @@ onSelected = (viewport, item) => {
 
                   <div className="error">{this.state.errors}</div>
                 </div>
-        } 
+          } 
 
-        {this.state.adPosition === 4 &&
+          {this.state.adPosition === 4 &&
         <>
           <h2>Item Photos:</h2>
           <input
@@ -291,9 +282,9 @@ onSelected = (viewport, item) => {
 
           <div className="error">{this.state.errors}</div>
         </>
-        }
+          }
 
-        {this.state.adPosition === 5 &&
+          {this.state.adPosition === 5 &&
         <>
           <h2>Price:</h2>
           <input
@@ -305,9 +296,9 @@ onSelected = (viewport, item) => {
 
           <div className="error">{this.state.errors}</div>
         </>
-        }
+          }
 
-        {this.state.adPosition === 6 &&
+          {this.state.adPosition === 6 &&
         <>
           <h2>Your Contact Details:</h2>
           <label>Email:</label>
@@ -328,9 +319,9 @@ onSelected = (viewport, item) => {
           <div className="error">{this.state.errors}</div>
 
         </>
-        }
+          }
 
-        {this.state.adPosition === 7 &&
+          {this.state.adPosition === 7 &&
         <div className="adress-input-wrapper">
           <h2>Enter Your Postcode or Adress:</h2>
 
@@ -354,35 +345,35 @@ onSelected = (viewport, item) => {
           <div className="error">{this.state.errors}</div>
        
         </div>
-        }
+          }
 
-        <div className="post-buttons-wrapper">
+          <div className="post-buttons-wrapper">
 
-          {this.state.adPosition > 1 && this.state.adPosition < 8 &&
+            {this.state.adPosition > 1 && this.state.adPosition < 8 &&
           <div className="second-hand-button post" onClick={() => {
             this.handleNext("-") 
           }}>Back</div> 
-          }
+            }
 
-          {this.state.isLoading &&
+            {this.state.isLoading &&
             <div className="second-hand-button btn-loading">
               <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
             </div>
-          }
+            }
 
-          {!this.state.isLoading && this.state.adPosition >= 1 && this.state.adPosition <= 6 &&
+            {!this.state.isLoading && this.state.adPosition >= 1 && this.state.adPosition <= 6 &&
           <div className="second-hand-button post" onClick={() => {
             this.handleNext("+") 
           }}>Next</div> 
-          }
+            }
 
-          {!this.state.isLoading && this.state.adPosition === 7 &&
+            {!this.state.isLoading && this.state.adPosition === 7 &&
           <div className="second-hand-button post" onClick={this.handleSubmit}>Post</div> 
-          }
+            }
 
-        </div>
+          </div>
 
-        {this.state.adPosition > 7 &&
+          {this.state.adPosition > 7 &&
         <div className="uploaded-item">
 
           <div className="uploaded-item-description">Your ad was uploaded and it is now public</div>
@@ -392,8 +383,9 @@ onSelected = (viewport, item) => {
           }}>Continue</div> 
 
         </div>
-        }
-      </div>
+          }
+        </div>
+      </>
     )
   }
 }

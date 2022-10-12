@@ -25,67 +25,67 @@ class MainMenu extends React.Component {
           {this.state.mainButton &&
               <div className="menu-button-text">{this.state.mainButton}</div>
           }
-          {!this.state.mainButton &&
-              <div className="main-menu-button">
-                <i id="ctrl-button" className="fas fa-plus"></i>
-              </div>
-          }
+          <div className="main-menu-button">
+            <i id="ctrl-button" className="fa-solid fa-xmark"></i>
+          </div>
         </Link>
-        <ul id="main-menu-ul" className='tip ctrl'>
 
-          <li className='slice'>
-            <div onMouseEnter={() => {
-              this.changeMainButton("About Us")
-            }}
-            onMouseLeave={this.mainButtonBack} >
-              <Link to="/about" title="What is Nu Hippies?">   
-                <span>
-                  <i className="fa-solid fa-hand-peace"></i>
-                </span>
-              </Link>
-            </div>
-          </li>
+        <div className='main-menu-rotate'>
+          <ul id="main-menu-ul" className='tip ctrl'>
 
-          <li className='slice'>
-            <div onMouseEnter={() => {
-              this.changeMainButton("Slapsgiving")
-            }}
-            onMouseLeave={this.mainButtonBack}>
-              <Link to="/discount" title="Rules of Slapsgiving game">
-                <span>
-                  <i className="fa-solid fa-hands"></i>
-                </span>
-              </Link>
-            </div>
-          </li>
+            <li className='slice'>
+              <div onMouseEnter={() => {
+                this.changeMainButton("About Us")
+              }}
+              onMouseLeave={this.mainButtonBack} >
+                <Link to="/about" title="What is Nu Hippies?">   
+                  <span>
+                    <i className="fa-solid fa-hand-peace"></i>
+                  </span>
+                </Link>
+              </div>
+            </li>
 
-          <li className='slice'>
-            <div onMouseEnter={() => {
-              this.changeMainButton("Home")
-            }}
-            onMouseLeave={this.mainButtonBack}>
-              <Link to="/" title="Homepage">
-                <span>
-                  <i className="fa-solid fa-house"></i>
-                </span>
-              </Link>
-            </div>
-          </li>
+            <li className='slice'>
+              <div onMouseEnter={() => {
+                this.changeMainButton("Slapsgiving")
+              }}
+              onMouseLeave={this.mainButtonBack}>
+                <Link to="/discount" title="Rules of Slapsgiving game">
+                  <span>
+                    <i className="fa-solid fa-hands"></i>
+                  </span>
+                </Link>
+              </div>
+            </li>
 
-          <li className='slice'>
-            <div onMouseEnter={() => {
-              this.changeMainButton("Chat")
-            }}
-            onMouseLeave={this.mainButtonBack}>
-              <Link to="/chats" title="Messages">
-                <span>
-                  <i className="fa-solid fa-comments"></i>
-                </span>
-              </Link>
-            </div>
-          </li>
+            <li className='slice'>
+              <div onMouseEnter={() => {
+                this.changeMainButton("Home")
+              }}
+              onMouseLeave={this.mainButtonBack}>
+                <Link to="/" title="Homepage">
+                  <span>
+                    <i className="fa-solid fa-house"></i>
+                  </span>
+                </Link>
+              </div>
+            </li>
 
-          {isAuthenticated() &&
+            <li className='slice'>
+              <div onMouseEnter={() => {
+                this.changeMainButton("Chat")
+              }}
+              onMouseLeave={this.mainButtonBack}>
+                <Link to="/chats" title="Messages">
+                  <span>
+                    <i className="fa-solid fa-comments"></i>
+                  </span>
+                </Link>
+              </div>
+            </li>
+
+            {isAuthenticated() &&
               <li className='slice'>
                 <div onMouseEnter={() => {
                   this.changeMainButton("My Account")
@@ -99,9 +99,9 @@ class MainMenu extends React.Component {
 
                 </div>
               </li>
-          }
+            }
             
-          {!isAuthenticated() &&
+            {!isAuthenticated() &&
               <li className='slice'>
                 <div onMouseEnter={() => {
                   this.changeMainButton("Register")
@@ -114,8 +114,9 @@ class MainMenu extends React.Component {
                   </Link>
                 </div>
               </li>
-          }
-        </ul>
+            }
+          </ul>
+        </div>
       </div>
     )
   }

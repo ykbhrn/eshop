@@ -3,6 +3,7 @@ import { logout } from '../../lib/auth';
 import { getMyProfile, updateUserAccount } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class EditAccount extends React.Component {
   state = {
@@ -108,23 +109,17 @@ class EditAccount extends React.Component {
     const { user, formData, errors, isLoading } = this.state
     if (!user) return null
     return (
-      <div className="edit-account-page change-brightness">
-
-        <style>
-          {'\
-          .donation-icon{\
-            display: flex;\
-          }\
-          '}
-        </style>
+      <>
+        <SecondHandNavbar />
+        <div className="edit-account-page change-brightness">
         
-        <div className="account-nav">
-          <Link to="/profile">Your Acount</Link>
-          <span className="sign">&gt;</span>
-          <div>Edit Account</div>
-        </div>
+          <div className="account-nav">
+            <Link to="/profile">Your Acount</Link>
+            <span className="sign">&gt;</span>
+            <div>Edit Account</div>
+          </div>
         
-        {!this.state.isEdit &&
+          {!this.state.isEdit &&
         <div className="edit-line-container">
           <div className="edit-line"><span className="bold">Email:</span> {user.email}</div>
           <div className="edit-line"><span className="bold">Username:</span> {user.name}</div>
@@ -132,9 +127,9 @@ class EditAccount extends React.Component {
           <div className="edit-line"><span className="bold">Password:</span> *****</div>
           <button className="classic-btn" onClick={this.showEdit}>Edit</button>
         </div>
-        }
+          }
 
-        {this.state.isEdit &&
+          {this.state.isEdit &&
         <div className="edit-line-container">
           <form>
             <label>Email:</label>
@@ -189,9 +184,10 @@ class EditAccount extends React.Component {
             }
           </form>
         </div>
-        }
+          }
         
-      </div>
+        </div>
+      </>
     );
   }
 

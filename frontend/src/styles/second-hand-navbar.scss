@@ -1,8 +1,9 @@
 @import "./variables.scss";
 
 .second-hand-navbar{
-  display: none;
+  display: block;
   justify-content: right;
+  height: 100px;
   .slogan-header{
       position: absolute;
       right: 28px;

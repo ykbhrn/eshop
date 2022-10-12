@@ -2,6 +2,7 @@ import React from 'react'
 import { sendEmail } from '../../lib/api'
 import { Link } from 'react-router-dom'
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Contact extends React.Component {
   state = {
@@ -89,18 +90,12 @@ class Contact extends React.Component {
   render() {
     const { formData, errors, isLoading } = this.state
     return (
-      <div className="contact-page change-brightness">
-
-        <style>
-          {'\
-          .donation-icon{\
-            display: flex;\
-          }\
-          '}
-        </style>
+      <>
+        <SecondHandNavbar />
+        <div className="contact-page change-brightness">
         
-        {this.renderRedirect()}
-        {!this.state.isSent &&
+          {this.renderRedirect()}
+          {!this.state.isSent &&
           <div className="form-wrapper">
             <h2>Contact Us</h2>
             <form>
@@ -148,17 +143,17 @@ class Contact extends React.Component {
               }
             </form>
           </div>
-        }
+          }
 
-        {this.state.isSent &&
+          {this.state.isSent &&
           <div className="sent-message-wrapper">
             <h2>Your message was sent, thanks for contacting us</h2>
             <Link to="/products"><div className="classic-btn">Continue</div></Link>
           </div>
-        }
+          }
 
-      </div>
-
+        </div>
+      </>
     )
   }
 }

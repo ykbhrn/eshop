@@ -6,6 +6,9 @@
   // position: absolute;
   // bottom: 100px;
   // right: 110px;
+  li{
+    margin-top: -170px;
+  }
   span{
     display: block;
   }
@@ -23,38 +26,43 @@
     margin-left: -8px;
     opacity: 0.8;
     cursor: pointer;
+    transform: rotate(-40deg);
   }
   #ctrl-button:hover{
-    background: $light-color;
-    transform: scale(1.1);
+    background: $third-color;
+    transform: rotate(-40deg) scale(1.1);
+    color: white;
     opacity: 1;
   }
   
 .menu-button-text{
+  text-align: center;
   font-size: 44px;
   font-weight: bold;
-  color: white!important;
-  background: $light-color;
+  color: $second-color!important;
+  background: $text-color;
   width: 370px;
-  margin-left: -164px;
-  margin-top: -10px;
-  border-radius: 25px;
+  height: 370px;
+  line-height: 370px;
+  margin-left: -270px;
+  margin-top: -280px;
+  border-radius: 50%;
   transform: scale(0.4);
 }
-.fa-plus, .fa-minus{
+.fa-solid.fa-xmark{
   font-size: 35px;
   color: $second-color;
 }
 .ctrl {
 	position: fixed;
-	bottom: 25px;
-  right: 20%;
+	bottom: 28px;
+  right: 18px;
 	font-size: 40px;
 	transition: .5s;
 }
 a.ctrl, .ctrl div a{
 	display: block;
-	color: $text-color;
+	color: $second-color;
 	text-align: center;
 	text-decoration: none;
   cursor: $pointer-cursor;
@@ -82,9 +90,10 @@ a.ctrl, .ctrl div a{
 // /* the ends of the menu */
 .tip:before, .tip:after {
 	position: absolute;
-	top: 32.5%;
+	top: 32.9%;
 	width: .3em; height: 15.2%;
 	background: $text-color;
+  margin-top: -170px;
 	content: '';
 }
 .tip:before {
@@ -94,11 +103,12 @@ a.ctrl, .ctrl div a{
 }
 .tip:after {
 	right: 7.1%;
+  top: 33.2%;
 	border-radius: 0 .25em .25em 0;
 	transform: rotate(75deg);
 }
 .show-tip{
-  transform: scale(1);
+  transform: scale(1) rotate(-47deg);
 	opacity: 1;
   border-radius: 50%;
 }
@@ -138,11 +148,11 @@ a.ctrl, .ctrl div a{
 			linear-gradient(75deg, 
 		transparent 50%, white 50%, transparent 54%) no-repeat 36.5% 0,
 			linear-gradient(-75deg, 
-		transparent 50%, white 50%, transparent 54%) no-repeat 63.5% 0,
+		transparent 50%, white 50%, transparent 54%) no-repeat 20% 0,
 		/* make sure inner part is transparent */
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
-					rgba(255,255,255,.3) 0%, $second-color 50%);
-    background-size: 36% 36%, 36% 36%, cover;
+					rgba(255,255,255,.3) 0%, $text-color 50%);
+    background-size: 16% 16%, 16% 16%, cover;
 	line-height: 1.57;
   &:hover{
     background: /* lateral separators */
@@ -152,7 +162,7 @@ a.ctrl, .ctrl div a{
 		transparent 50%, white 50%, transparent 54%) no-repeat 63.5% 0,
 		/* make sure inner part is transparent */
 		radial-gradient(rgba(127, 127, 127, 0) 49%, 
-					rgba(255,255,255,.3) 0%, $light-color 50%);
+					rgba(255,255,255,.3) 0%, $third-color 50%);
     background-size: 16% 16%, 16% 16%, cover;
 	line-height: 1.57;
   }

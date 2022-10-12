@@ -4,6 +4,7 @@ import { getAllUsedItems, updateUserAccount } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 import Geocoder from 'react-mapbox-gl-geocoder'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 const mapAccess = {
   mapboxApiAccessToken: 'pk.eyJ1IjoibnVoaXBwaWVzIiwiYSI6ImNsNXN6bG0yeTAyMjAzaXA3ZDMyYjlvdDgifQ.DSvTjZ3H-vfRDSIsUYLw8Q'
@@ -157,20 +158,9 @@ class CategorizedItems extends React.Component {
     const {category, gender} = this.props.match.params
     return (
       <>
+        <SecondHandNavbar /> 
+      
         <div className="second-hand-page categorized">
-          <style>
-            {'\
-          .basket-icon-wrapper{\
-            display: none;\
-          }\
-          .navbar{\
-            display: none;\
-          }\
-          .second-hand-navbar{\
-            display: flex;\
-          }\
-          '}
-          </style>
 
           <div className="categories-container" onMouseLeave={() =>{
             this.showMenu(null)

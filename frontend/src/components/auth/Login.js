@@ -46,8 +46,10 @@ class Login extends React.Component {
   }
   renderRedirect = () => {
     if (this.state.redirect) {
-      if (this.props.id) {
+      if (this.props.id && !this.props.secondHand) {
         return window.location.assign(`/products/${this.props.name}/${this.props.id}`)
+      } else if (this.props.secondHand) {
+        return window.location.assign(`/second-hand/items/${this.props.name}/${this.props.id}`)
       } else {
         return window.location.assign('/products')
       }
@@ -56,6 +58,7 @@ class Login extends React.Component {
 
   render() {
     const { formData, error, isLoading } = this.state
+    console.log(this.props)
     return (
       <section className="register">
         {this.renderRedirect()}

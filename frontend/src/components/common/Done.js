@@ -1,5 +1,6 @@
 import React from 'react'
 import { getMyProfile } from '../../lib/api'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Done extends React.Component {
   state = {
@@ -39,15 +40,18 @@ class Done extends React.Component {
   render() {
     if (!this.state.user) return null
     return (
-      <div className="done-page change-brightness">
-        {this.renderRedirect()}
-        <div className="progress-wrapper">
-          <h1> 
+      <>
+        <SecondHandNavbar />
+        <div className="done-page change-brightness">
+          {this.renderRedirect()}
+          <div className="progress-wrapper">
+            <h1> 
             Your acount was created. Welcome {this.state.user.name}
-          </h1>
-          <progress value={this.state.progress} max="100"></progress>
+            </h1>
+            <progress value={this.state.progress} max="100"></progress>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }
