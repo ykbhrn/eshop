@@ -4,6 +4,7 @@ import Register from './Register'
 import Login from './Login'
 import { isAuthenticated } from '../../lib/auth'
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Authorization extends React.Component {
   state = {
@@ -39,17 +40,19 @@ class Authorization extends React.Component {
 
   render() {
     return (
-      <div className="auth-page">
+      <>
+        <SecondHandNavbar />
+        <div className="auth-page">
 
-        <style>
-          {'\
+          <style>
+            {'\
           .donation-icon{\
             display: flex;\
           }\
           '}
-        </style>
+          </style>
 
-        {!this.state.login && !this.state.register &&
+          {!this.state.login && !this.state.register &&
           <div className="authorization-section">
             <div className="authorization-wrapper" onClick={() => {
               this.showRegisterOrLogin("register")
@@ -65,8 +68,8 @@ class Authorization extends React.Component {
               <button className="classic-btn">Login</button>
             </div>
           </div>
-        }
-        {this.state.login &&
+          }
+          {this.state.login &&
         <>
           <div className="account-nav">
             <div className="auth" onClick={this.showAuth}><span className="sign-auth">&#60;</span>Back</div>
@@ -85,8 +88,8 @@ class Authorization extends React.Component {
             </div>
           </div>
         </>
-        }
-        {this.state.register &&
+          }
+          {this.state.register &&
         <>
           <div className="account-nav">
             <div className="auth" onClick={this.showAuth}><span className="sign-auth">&#60;</span>Back</div>
@@ -105,8 +108,9 @@ class Authorization extends React.Component {
             </div>
           </div>
         </>
-        }
-      </div>
+          }
+        </div>
+      </>
     )
   }
 }

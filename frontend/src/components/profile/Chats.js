@@ -80,6 +80,12 @@ class Chats extends React.Component {
       
         <div className='chat-page'>
 
+          {!chats.length > 0 &&
+
+            <h1 className='no-messages-header'>You don&apos;t have any conversations yet</h1>
+
+          }
+
           <div className='chats-container-left'>
             {this.state.chats.map(chat => {
             
@@ -114,8 +120,17 @@ class Chats extends React.Component {
                   <div className='conversation-wrapper'>
 
                     {this.state.oneChat.textsArray.map(text => {
+                      const firstArray = text.updatedAt.split("T")
+                      const dateArray = firstArray[0].split("-").reverse().join("/")
+                      const timeArray = firstArray[1].split("")
+
+                      //Temporary hard coded London time zone
+                      timeArray[1] = Number(timeArray[1]) + 1
+                      const finishedTimeArray = timeArray.slice(0, 5).join("")
+
                       return <div key={text._id} className={text.userId === this.props.user._id ? "chat-user-texts" : "chat-received-texts"}>
-                        {text.textContent}
+                        <div className='chat-text-content'>{text.textContent}</div>
+                        <div className='chat-time-stamp'>{dateArray + " " + finishedTimeArray}</div>
                       </div>
                     })}
             

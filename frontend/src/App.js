@@ -37,6 +37,7 @@ import SecondHandNavbar from './components/second-hand/SecondHandNavbar'
 import Maps from './components/map/Maps'
 import PostUsedItem from './components/second-hand/PostUsedItem'
 import Chats from './components/profile/Chats'
+import ForumIndex from './components/forum/ForumIndex'
 
 // var pointerX = -1;
 // var pointerY = -1;
@@ -77,7 +78,7 @@ window.onscroll = function () {
       logo.classList.add("logo-scroll")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     } else if (secondNavbar) {
-      logo.classList.add("logo-scroll")
+      logo.classList.add("logo-scroll-sh")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     } 
     
@@ -90,7 +91,7 @@ window.onscroll = function () {
       logo.classList.remove("logo-scroll")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
     } else if (secondNavbar) {
-      logo.classList.remove("logo-scroll")
+      logo.classList.remove("logo-scroll-sh")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
     }
     
@@ -245,6 +246,7 @@ class App extends React.Component {
             <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
             <Route path="/second-hand" component={UsedItems} />
             <Route path="/maps" component={Maps} />
+            <Route path="/forum" component={ForumIndex} />
           </Switch>
         </div>
         {this.state.showFooter &&

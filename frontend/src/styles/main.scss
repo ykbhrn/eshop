@@ -10,6 +10,7 @@
 @import "./second-hand.scss";
 @import "./maps.scss";
 @import "./chat.scss";
+@import "./forum.scss";
 
 html, body{
   height: 100%;
@@ -103,7 +104,7 @@ button{
   color: $text-color;
   border-radius: 25px;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 500;
   height: 40px;
   width: 150px;
   line-height: 40px;
@@ -1308,7 +1309,7 @@ h1{
     }
   }
   .profile-icon:hover{
-    box-shadow: $second-color 0px 30px 60px -12px inset, $second-color 0px 18px 36px -18px inset;
+    box-shadow: $third-color 0px 30px 60px -12px inset, $third-color 0px 18px 36px -18px inset;
   }
 }
 .logout-wrapper{
@@ -1414,8 +1415,10 @@ h1{
 // Contact page
 .contact-page{
   width: 100vw;
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
+  align-items: center;
   .form-wrapper{
     display: flex;
     flex-direction: column;

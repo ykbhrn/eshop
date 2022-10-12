@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import { forgotPassword } from '../../lib/api'
 import {seo} from '../../lib/functions'
+import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class ForgotPassword extends React.Component {
   state = {
@@ -48,13 +49,15 @@ class ForgotPassword extends React.Component {
   render() {
     const { formData, error, isLoading } = this.state
     return (
-      <div className="forgot-page">
-        <div className="account-nav">
-          <Link to="/entering"><span className="sign-auth">&#60;</span>Back</Link>
-        </div>
-        <div className="forgot-wrapper">
+      <>
+        <SecondHandNavbar />
+        <div className="forgot-page">
+          <div className="account-nav">
+            <Link to="/entering"><span className="sign-auth">&#60;</span>Back</Link>
+          </div>
+          <div className="forgot-wrapper">
 
-          {!this.state.showResponse &&
+            {!this.state.showResponse &&
           <>
             <h1>Forgot Your Password?</h1>
             <form onSubmit={this.handleSubmit}>
@@ -78,14 +81,14 @@ class ForgotPassword extends React.Component {
               }
             </form>
           </>
-          }
+            }
 
-          {this.state.showResponse &&
+            {this.state.showResponse &&
             <h1>We just sent you password reset link on your email</h1>
-          }
+            }
+          </div>
         </div>
-      </div>
-
+      </>
     )
   }
 }

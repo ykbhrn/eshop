@@ -35,12 +35,12 @@ class MainMenu extends React.Component {
 
             <li className='slice'>
               <div onMouseEnter={() => {
-                this.changeMainButton("About Us")
+                this.changeMainButton("Slapsgiving")
               }}
-              onMouseLeave={this.mainButtonBack} >
-                <Link to="/about" title="What is Nu Hippies?">   
+              onMouseLeave={this.mainButtonBack}>
+                <Link to="/discount" title="Rules of Slapsgiving game">
                   <span>
-                    <i className="fa-solid fa-hand-peace"></i>
+                    <i className="fa-solid fa-hands"></i>
                   </span>
                 </Link>
               </div>
@@ -48,12 +48,12 @@ class MainMenu extends React.Component {
 
             <li className='slice'>
               <div onMouseEnter={() => {
-                this.changeMainButton("Slapsgiving")
+                this.changeMainButton("About Us")
               }}
-              onMouseLeave={this.mainButtonBack}>
-                <Link to="/discount" title="Rules of Slapsgiving game">
+              onMouseLeave={this.mainButtonBack} >
+                <Link to="/about" title="What is Nu Hippies?">   
                   <span>
-                    <i className="fa-solid fa-hands"></i>
+                    <i className="fa-solid fa-hand-peace"></i>
                   </span>
                 </Link>
               </div>
