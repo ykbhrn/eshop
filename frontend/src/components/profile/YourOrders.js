@@ -111,8 +111,8 @@ class YourOrders extends React.Component {
     return (
       <>
         <SecondHandNavbar />
-        <div className="edit-account-page change-brightness">
 
+        <div className='orders-page'>
           <style>
             {'\
           .donation-icon{\
@@ -127,7 +127,15 @@ class YourOrders extends React.Component {
             <div>Your Orders</div>
           </div>
 
+          {user.paidOrders < 1 && 
+          <div className='no-orders-wrapper'>
+            <h1>You don&apos;t have any orders yet</h1>
+            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1665807610/Nu%20Hippies/icons/basket_nxjwvy.png" />
+          </div>
+          }
+
         </div>
+
       </>
     )
   }

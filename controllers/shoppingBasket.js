@@ -205,7 +205,6 @@ async function minusProductQuantity (order, req, res) {
     // if (sameValuesArray.length > 0) {
       
     // }
-    console.log('pozeraj tu kkt a poriadne', idArray )
   
   } catch (err) {
     res.json(err)

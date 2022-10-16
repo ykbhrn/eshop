@@ -6,7 +6,7 @@ import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Chats extends React.Component {
   state = {
-    chats: [],
+    chats: null,
     oneChat: null,
     formData: {
       textContent: null
@@ -138,7 +138,7 @@ class Chats extends React.Component {
                 </div>
 
                 <form onSubmit={this.handleSubmit}>
-                  <input
+                  <textarea
                     value={this.state.formData.textContent}
                     onChange={this.handleChange}
                   />

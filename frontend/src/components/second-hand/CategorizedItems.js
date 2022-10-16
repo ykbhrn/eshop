@@ -276,6 +276,42 @@ class CategorizedItems extends React.Component {
 
           </div>
 
+          <div className="cat-nav">
+
+            <Link className="cat-nav-item" to={`/second-hand`} title="All Products">          
+              <div>all items</div>
+            </Link>
+
+            <Link className="cat-nav-item" to={`/second-hand/${category}/${gender}`} title={gender + " " + category}>          
+              <div><span className="symbol">&#62;</span> {gender + " " + category}</div>
+            </Link>
+
+            {/* {gender !== "uni" && category !== "all" &&
+          <Link className="cat-nav-item" to={`/second-hand/${category}/${gender}`} title={category + gender}> 
+            <div><span className="symbol">&#62;</span>{gender + " " + category}</div>
+          </Link>
+            }
+
+            {gender !== "uni" && category !== "all" &&
+          <Link className="cat-nav-item" to={`/second-hand/${category}/${gender}`} title={category + gender}> 
+            <div><span className="symbol">&#62;</span>{gender + " " + category}</div>
+          </Link>
+            } */}
+
+            {/* {typeTwo !== "all" &&
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}all`} title={typeTwo}> 
+            <div><span className="symbol">&#62;</span>{typeTwo}</div>
+          </Link>
+            }
+
+            {typeThree !== "all" &&
+          <Link className="cat-nav-item" to={`/products/${subcategory}/${typeOne}/${typeTwo}/${typeThree}`} title={typeThree}> 
+            <div><span className="symbol">&#62;</span>{typeThree}</div>
+          </Link>
+            } */}
+
+          </div>
+
           <div className="product-container">
 
             {this.state.isLoading &&

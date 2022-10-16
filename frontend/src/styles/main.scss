@@ -652,6 +652,7 @@ button{
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 .donation-img{
   height: 450px;
@@ -1328,9 +1329,9 @@ h1{
 }
 .account-nav{
   display: flex;
-  align-self: flex-start;
+  justify-content: center;
   color: $text-color;
-  margin-left: 20px;
+  font-size: 19px;
   .auth{
     cursor: $pointer-cursor;
     color: $text-color;
@@ -1351,6 +1352,31 @@ h1{
   }
   .sign-auth{
     margin-right: 3px;
+  }
+  :last-child{
+    color: $third-color;
+  }
+}
+
+//Orders page
+.orders-page{
+  width: 100vw;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 40px;
+  .no-orders-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    img{
+      width: 150px;
+      height: 150px;
+    }
   }
 }
 
@@ -1455,9 +1481,10 @@ h1{
 // Edit account page
 .edit-account-page, .edit-adress-page{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: calc(100vh - 100px);
   .classic-btn{
     margin: 17px;
   }

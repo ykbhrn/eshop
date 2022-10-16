@@ -6,9 +6,11 @@
   height: 100px;
   .slogan-header{
       position: absolute;
-      right: 28px;
-      top: 18px;
+      right: 20px;
+      top: 10px;
       font-family: $logo-font;
+      font-size: 25px;
+      text-align: center;
   }
   .logo{
     left: 20px;

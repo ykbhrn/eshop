@@ -111,13 +111,14 @@ class EditAccount extends React.Component {
     return (
       <>
         <SecondHandNavbar />
-        <div className="edit-account-page change-brightness">
         
-          <div className="account-nav">
-            <Link to="/profile">Your Acount</Link>
-            <span className="sign">&gt;</span>
-            <div>Edit Account</div>
-          </div>
+        <div className="account-nav">
+          <Link to="/profile">Your Acount</Link>
+          <span className="sign">&gt;</span>
+          <div>Edit Account</div>
+        </div>
+
+        <div className="edit-account-page change-brightness">
         
           {!this.state.isEdit &&
         <div className="edit-line-container">

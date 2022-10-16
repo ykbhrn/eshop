@@ -26,11 +26,11 @@
     margin-left: -8px;
     opacity: 0.8;
     cursor: pointer;
-    transform: rotate(-40deg);
+    transform: rotate(-45deg);
   }
   #ctrl-button:hover{
     background: $third-color;
-    transform: rotate(-40deg) scale(1.1);
+    transform: rotate(-45deg) scale(1.1);
     color: white;
     opacity: 1;
   }

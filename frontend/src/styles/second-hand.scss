@@ -62,7 +62,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: calc(50vh - 200px);
+  margin-top: 90px;
   color: white;
   max-width: 80vw;
   margin-bottom: 50px;
@@ -151,6 +151,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 7px;
   }
 .product-container{
   margin-top: 50px;
@@ -192,7 +193,6 @@
   }
 }
 .adress-input-wrapper{
-  margin-top: 100px;
 }
 }
 
