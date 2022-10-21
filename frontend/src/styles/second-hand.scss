@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 //Main Second Hand Page
-.second-hand-page{
+.second-hand-page, .ads-page{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,31 +220,6 @@
   }
 }
 
-//Second Hand Button
-.second-hand-button{
-  border: 1px solid $light-color;
-  // background: $dark-color;
-  border-radius: 15px;
-  font-size: 19px;
-  font-weight: 300;
-  height: 35px;
-  width: 100px;
-  line-height: 35px;
-  text-align: center;
-  cursor: pointer;
-  margin: 5px 15px;
-  .loading-image{
-    width: 33px;
-    height: 33px;
-  }
-  &:hover{
-    font-size: 21px;
-  }
-}
-.second-hand-button.post{
-  margin-top: 14px;
-}
-
 // Post Item Page
 .post-item-page{
   height: calc(100vh - 100px);
@@ -308,7 +283,7 @@
     }
   }
   .selected{
-    background: $light-color;
+    background: $third-color; 
   }
   .size-input{
     width: 70px;
@@ -326,6 +301,12 @@
   .uploaded-item-description{
     font-size: 25px;
     font-weight: bold;
+  }
+  // .classic-btn{
+  //   width: 
+  // }
+  .post{
+    margin: 10px;
   }
 }
 

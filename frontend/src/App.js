@@ -14,6 +14,7 @@ import Profile from './components/profile/Profile'
 import EditAccount from './components/profile/EditAccount'
 import EditAdress from './components/profile/EditAdress'
 import YourOrders from './components/profile/YourOrders'
+import YourAds from './components/profile/YourAds'
 import Navbar from './components/common/Navbar'
 import MainMenu from './components/common/MainMenu'
 import Basket from './components/common/Basket'
@@ -227,6 +228,7 @@ class App extends React.Component {
             <Route path="/profile/edit" component={EditAccount} />
             <Route path="/profile/adress" component={EditAdress} />
             <Route path="/profile/orders" component={YourOrders} />
+            <Route path="/profile/ads" component={YourAds} />
             <Route path="/profile" component={Profile} />
             <Route path='/chats/:id' render={(props) => <Chats {...props} user={this.state.user} />} />
             <Route path='/chats' render={(props) => <Chats {...props} user={this.state.user} />} />
@@ -241,7 +243,8 @@ class App extends React.Component {
             <Route path="/privacy" component={Privacy} />
             <Route path="/discount" component={Donation} />
             <Route path="/done" component={Done} />
-            <Route path="/second-hand/items/:name/:id" component={SingleItem} />
+            {/* <Route path="/second-hand/items/:name/:id" component={SingleItem} /> */}
+            <Route path='/second-hand/items/:name/:id' render={(props) => <SingleItem {...props} user={this.state.user} />} />
             <Route path="/second-hand/post-item" component={PostUsedItem} />
             <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
             <Route path="/second-hand" component={UsedItems} />

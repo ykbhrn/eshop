@@ -21,6 +21,7 @@ const usedItemSchema = new mongoose.Schema({
   email: { type: String, required: false },
   tags: [{ type: String, required: false }],
   user: { type: Object, required: true },
+  userStuff: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   comments: [commentSchema]
 }, {
   timestamps: true

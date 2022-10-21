@@ -1,6 +1,6 @@
 import React from 'react';
 import { logout } from '../../lib/auth';
-import { getMyProfile, updateUserAccount } from '../../lib/api';
+import { getMyProfile, updateUserAccount, forgotPassword } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo} from '../../lib/functions'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
@@ -18,11 +18,12 @@ class EditAccount extends React.Component {
       name: '',
       email: '',
       password: '',
-      passwordConfirmation: '',
+      passwordConfirmation: ''
     },
     user: null,
     isEdit: false,
-    isLoading: false
+    isLoading: false,
+    isNotification: false
   }
 
   async componentDidMount() {
@@ -105,6 +106,22 @@ class EditAccount extends React.Component {
     return window.location.assign('/')
   }
 
+  showNofification = () => {
+    this.setState({isNotification: this.state.isNotification === true ? false : true})
+  }
+
+  resetPassword = async event => {
+    event.preventDefault()
+    try {
+      this.setState({ isLoading: true })
+      const formData = { ...this.state.formData, email: this.state.user.email }
+      const res = await forgotPassword(this.state.formData)
+      this.setState({ isNotification: false, isLoading: false })
+    } catch (err) {
+      this.setState({ isLoading: false })
+    }
+  }
+
   render() {
     const { user, formData, errors, isLoading } = this.state
     if (!user) return null
@@ -126,8 +143,31 @@ class EditAccount extends React.Component {
           <div className="edit-line"><span className="bold">Username:</span> {user.name}</div>
           <div className="edit-line"><span className="bold">Phone Number:</span> {user.phone}</div>
           <div className="edit-line"><span className="bold">Password:</span> *****</div>
-          <button className="classic-btn" onClick={this.showEdit}>Edit</button>
+          <button className="classic-btn" onClick={this.showEdit}>Edit Account Details</button>
+          <button className="classic-btn" onClick={this.showNofification}>Change Password</button>
         </div>
+          }
+
+          {this.state.isNotification && 
+          <div className='password-change-notification'>
+            Click on Confirm and check your email for the link to reset your password.
+
+            <div className='buttons'>
+              <button className="classic-btn" onClick={this.showNofification}>Cancel</button>
+
+              {isLoading &&
+                <div className="classic-btn btn-loading">
+                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                </div>
+              }
+
+              {!isLoading &&
+              <button className="classic-btn" onClick={this.resetPassword}>Confirm</button>
+              }
+              
+            </div>
+            
+          </div>
           }
 
           {this.state.isEdit &&
@@ -154,6 +194,7 @@ class EditAccount extends React.Component {
             <label>Phone Number:</label>
             <input 
               name="phone"
+              type="number"
               value={formData.phone}
               onChange={this.handleChange}
             /> 
@@ -167,14 +208,15 @@ class EditAccount extends React.Component {
             /> 
             {errors.password ? <small className="error-message">{errors.password}</small> : ''}
 
-            <label>Password Confirmation:</label>
+            {/* <label>Password Confirmation:</label>
             <input 
               className={`${errors.passwordConfirmation ? 'error-input' : ''}`}
               type="password"
               name="passwordConfirmation"
               onChange={this.handleChange}
             /> 
-            {errors.passwordConfirmation ? <small className="error-message">{errors.passwordConfirmation}</small> : ''}
+            {errors.passwordConfirmation ? <small className="error-message">{errors.passwordConfirmation}</small> : ''} */}
+
             {isLoading &&
                 <div className="classic-btn btn-loading">
                   <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />

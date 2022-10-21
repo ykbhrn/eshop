@@ -12,6 +12,7 @@ async function allUsedItems(req, res) {
 async function usedItemCreate(req, res) {
   try {
     req.body.user = req.currentUser
+    req.body.userStuff = req.currentUser._id
 
     const createUsedItem = await UsedItem.create(req.body)
 

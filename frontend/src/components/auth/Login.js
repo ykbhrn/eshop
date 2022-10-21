@@ -88,12 +88,12 @@ class Login extends React.Component {
           </div>
           <div className="login-bttn-wrapper">
             {isLoading &&
-                <div className="classic-btn btn-loading">
-                  <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
-                </div>
+              <div className="classic-btn btn-loading">
+                <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+              </div>
             }
             {!isLoading &&
-                <button type="submit" className="classic-btn">Login</button>  
+              <button type="submit" className="classic-btn">Login</button>  
             }
             <Link to="/forgot-password">
               <div className="forgot">Forgot your password?</div>

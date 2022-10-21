@@ -138,7 +138,7 @@ class Chats extends React.Component {
                 </div>
 
                 <form onSubmit={this.handleSubmit}>
-                  <textarea
+                  <input
                     value={this.state.formData.textContent}
                     onChange={this.handleChange}
                   />

@@ -77,7 +77,7 @@ class SingleItem extends React.Component {
   render() {
     const { item } = this.state
 
-    if (!item) return null
+    if (!item || !this.props.user) return null
 
     const newName = item.title.replaceAll(' ', '-');
 
@@ -129,13 +129,19 @@ class SingleItem extends React.Component {
                 </div>
               </div>
 
-              {isAuthenticated() &&
+              {isAuthenticated() && item.user._id !== this.props.user._id &&
             <div className='start-chat-wrapper' onClick={() => {
               this.startChat(item.user._id)
             }}>
               <i className="fa-regular fa-comment"></i>
               <div>Send message to {item.user.name}</div>
             </div>
+              }
+
+              {isAuthenticated() && item.user._id === this.props.user._id &&
+                <div className='add-edit-button'>
+                  Edit Your Ad
+                </div>
               }
 
               {!isAuthenticated() &&

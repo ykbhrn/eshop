@@ -6,7 +6,18 @@ import { getMyProfile } from '../../lib/api'
 class SecondHandNavbar extends React.Component {
   state = {
     mainButton: "",
-    text: ''
+    text: '',
+    slogan: 1
+  }
+
+  async componentDidMount() {
+    const number = Math.round(Math.random() * 10)
+
+    if (number > 5) {
+      this.setState({slogan: 2})
+    } else {
+      this.setState({slogan: 1})
+    }
   }
 
   revealText = (option) => {
@@ -54,7 +65,13 @@ class SecondHandNavbar extends React.Component {
           </div>
         </a>
 
-        <h1 className="slogan-header">Make Fashion <br /> Slow Again</h1>
+        {this.state.slogan === 1 &&
+          <h1 className="slogan-header">Bring Hippies <br /> Back</h1>
+        }
+
+        {this.state.slogan === 2 &&
+          <h1 className="slogan-header">Make Fashion <br /> Slow Again</h1>
+        }
         
       </div>
     )

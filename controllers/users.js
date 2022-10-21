@@ -11,7 +11,7 @@ async function allUsers(req, res) {
 
 async function userProfile(req, res, next) {
   try {
-    const user = await User.findById(req.currentUser._id).populate('userProducts')
+    const user = await User.findById(req.currentUser._id).populate('userUsedItems')
     if (!user) throw new Error({ message: 'Not Found' })
     res.status(200).json(user)
   } catch (err) {
@@ -32,6 +32,7 @@ async function otherUsersProfile(req, res, next) {
 
 async function userUpdate(req, res) {
   const userId = req.currentUser._id
+  req.body.passwordConfirmation = req.body.password
   try {
     const user = await User.findByIdAndUpdate(userId)
     if (!user) throw new Error('Not Found')

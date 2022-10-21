@@ -31,7 +31,7 @@ class CategorizedItems extends React.Component {
     isMenu: null,
     placeName: false,
     coordinates: [],
-    distance: 25,
+    distance: 100 * 1.60934,
     isLoading: false
   }
 
@@ -89,8 +89,9 @@ class CategorizedItems extends React.Component {
     this.setState({ isLoading: true })
 
     const res = await getAllUsedItems()
-
+   
     const distance = Number(event.target.value) * 1.60934
+    
 
 
     if (isAuthenticated()) {
@@ -101,11 +102,11 @@ class CategorizedItems extends React.Component {
     }
 
     const filteredProducts = res.data.filter(product => {
-      if (event.target.value === "Whole Country") {
-        return product
-      } else if (this.getDistanceFromLatLonInKm(this.state.coordinates[1], this.state.coordinates[0], product.coordinates[1], product.coordinates[0]) < distance) {
+
+      if (this.getDistanceFromLatLonInKm(this.state.coordinates[1], this.state.coordinates[0], product.coordinates[1], product.coordinates[0]) < distance) {
         return product
       }
+      
     })
 
     this.setState({items: filteredProducts.reverse(), distance: distance, isLoading: false})
@@ -268,7 +269,7 @@ class CategorizedItems extends React.Component {
                   <option>50</option>
                   <option selected>100</option>
                   <option>500</option>
-                  <option>Whole Country</option>
+                  <option value="1000000">Everything</option>
                 </select>
               </div>
             </div>

@@ -34,7 +34,7 @@ class Profile extends React.Component {
 
   render() {
     if (!this.state.user) return null;
-    console.log(this.state.user);
+    console.log(this.state.user)
     return (
       <>
         <SecondHandNavbar />
@@ -42,13 +42,25 @@ class Profile extends React.Component {
         
           <div className="profile-icons-container">
 
+            <Link to="/profile/ads">
+              <div className="profile-icon">
+                <img src="https://res.cloudinary.com/nuhippies/image/upload/v1666055807/Nu%20Hippies/icons/tshirt_2_vubnsn.png" />
+                <div className="profile-icon-description">
+                  <div className="profile-icon-text">Your Ads</div>
+                  <div className="description">
+                    Edit Your Posted Ads
+                  </div>
+                </div>
+              </div>
+            </Link>
+
             <Link to="/profile/orders">
               <div className="profile-icon">
                 <img src="https://res.cloudinary.com/nuhippies/image/upload/v1639598032/Nu%20Hippies/icons/orders_xit6y1.png" />
-                <div className="profile-icon-decription">
+                <div className="profile-icon-description">
                   <div className="profile-icon-text">Your Orders</div>
                   <div className="description">
-            Check your previous orders or buy it again
+            Check your previous orders from our shop
                   </div>
                 </div>
               </div>

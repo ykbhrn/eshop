@@ -38,14 +38,14 @@ const userSchema = new mongoose.Schema({
   preferencePlaceName: { type: String, required: false }
 })
 
-userSchema.virtual('userProducts', {
-  ref: 'Product',
+userSchema.virtual('userUsedItems', {
+  ref: 'UsedItem',
   localField: '_id',
   foreignField: 'user'
 })
 
-userSchema.virtual('userUsedItems', {
-  ref: 'UsedItem',
+userSchema.virtual('userProducts', {
+  ref: 'Product',
   localField: '_id',
   foreignField: 'user'
 })

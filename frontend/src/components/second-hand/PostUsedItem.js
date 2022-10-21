@@ -350,25 +350,25 @@ onSelected = (viewport, item) => {
           <div className="post-buttons-wrapper">
 
             {this.state.adPosition > 1 && this.state.adPosition < 8 &&
-          <div className="second-hand-button post" onClick={() => {
+          <div className="classic-btn post" onClick={() => {
             this.handleNext("-") 
           }}>Back</div> 
             }
 
             {this.state.isLoading &&
-            <div className="second-hand-button btn-loading">
+            <div className="classic-btn btn-loading">
               <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
             </div>
             }
 
             {!this.state.isLoading && this.state.adPosition >= 1 && this.state.adPosition <= 6 &&
-          <div className="second-hand-button post" onClick={() => {
+          <div className="classic-btn post" onClick={() => {
             this.handleNext("+") 
           }}>Next</div> 
             }
 
             {!this.state.isLoading && this.state.adPosition === 7 &&
-          <div className="second-hand-button post" onClick={this.handleSubmit}>Post</div> 
+          <div className="classic-btn post" onClick={this.handleSubmit}>Post</div> 
             }
 
           </div>
@@ -378,7 +378,7 @@ onSelected = (viewport, item) => {
 
           <div className="uploaded-item-description">Your ad was uploaded and it is now public</div>
           
-          <div className="second-hand-button post" onClick={() => {
+          <div className="classic-btn post" onClick={() => {
             this.handleNext("+") 
           }}>Continue</div> 
 
