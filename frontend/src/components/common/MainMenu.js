@@ -48,14 +48,26 @@ class MainMenu extends React.Component {
 
             <li className='slice'>
               <div onMouseEnter={() => {
-                this.changeMainButton("About Us")
+                this.changeMainButton("Post an Item")
               }}
               onMouseLeave={this.mainButtonBack} >
-                <Link to="/about" title="What is Nu Hippies?">   
+
+                {isAuthenticated() &&
+                <Link to="/second-hand/post-item" title="Post a second hand item">   
                   <span>
-                    <i className="fa-solid fa-hand-peace"></i>
+                    <i className="fas fa-folder-plus"></i>
                   </span>
                 </Link>
+                }
+
+                {!isAuthenticated() &&
+                <Link to="/entering" title="Post a second hand item">   
+                  <span>
+                    <i className="fas fa-folder-plus"></i>
+                  </span>
+                </Link>
+                }
+
               </div>
             </li>
 
@@ -77,11 +89,23 @@ class MainMenu extends React.Component {
                 this.changeMainButton("Chat")
               }}
               onMouseLeave={this.mainButtonBack}>
+
+                {isAuthenticated() &&
                 <Link to="/chats" title="Messages">
                   <span>
                     <i className="fa-solid fa-comments"></i>
                   </span>
                 </Link>
+                }
+
+                {!isAuthenticated() &&
+                <Link to="/entering" title="Messages">
+                  <span>
+                    <i className="fa-solid fa-comments"></i>
+                  </span>
+                </Link>
+                }
+
               </div>
             </li>
 

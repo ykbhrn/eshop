@@ -70,6 +70,7 @@ class Login extends React.Component {
             <input
               className={`${error ? 'error-input' : ''}`}
               name="email"
+              type="email"
               onChange={this.handleChange}
               value={formData.email}
             />

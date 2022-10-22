@@ -39,6 +39,8 @@ class Register extends React.Component {
     if (errors.errors.email) {
       if (errors.errors.email.kind === "unique") {
         email = "This Email is already registered"
+      } else if (errors.errors.email.wrongFormat) {
+        email = errors.errors.email.wrongFormat
       } else {
         email = "Email is required"
       }
@@ -71,7 +73,6 @@ class Register extends React.Component {
     try {
       this.setState({ isLoading: true })
       const response = await registerUser(this.state.formData)
-
       if (response.status === 201) {
         const loginResponse = await loginUser(this.state.formData)
         setToken(loginResponse.data.token)
@@ -80,6 +81,7 @@ class Register extends React.Component {
       }
       if (response.status === 422) throw new Error()
     } catch (err) {
+      console.log(err.response)
       this.handleErrors(err.response.data)
       this.setState({ isLoading: false })
     }
@@ -120,6 +122,7 @@ class Register extends React.Component {
             <input
               className={`${errors.email ? 'error-input' : ''}`}
               name="email"
+              type="email"
               onChange={this.handleChange}
               value={formData.email}
             />

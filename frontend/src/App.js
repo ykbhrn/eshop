@@ -35,10 +35,12 @@ import UsedItems from './components/second-hand/UsedItems'
 import SingleItem from './components/second-hand/SingleItem'
 import CategorizedItems from './components/second-hand/CategorizedItems'
 import SecondHandNavbar from './components/second-hand/SecondHandNavbar'
-import Maps from './components/map/Maps'
 import PostUsedItem from './components/second-hand/PostUsedItem'
+import EditUsedItem from './components/second-hand/EditItem'
+import Maps from './components/map/Maps'
 import Chats from './components/profile/Chats'
 import ForumIndex from './components/forum/ForumIndex'
+import ErrorPage from './components/common/ErrorPage'
 
 // var pointerX = -1;
 // var pointerY = -1;
@@ -243,13 +245,15 @@ class App extends React.Component {
             <Route path="/privacy" component={Privacy} />
             <Route path="/discount" component={Donation} />
             <Route path="/done" component={Done} />
-            {/* <Route path="/second-hand/items/:name/:id" component={SingleItem} /> */}
             <Route path='/second-hand/items/:name/:id' render={(props) => <SingleItem {...props} user={this.state.user} />} />
+            <Route path="/second-hand/edit-item/:name/:id" component={EditUsedItem} />
             <Route path="/second-hand/post-item" component={PostUsedItem} />
             <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
             <Route path="/second-hand" component={UsedItems} />
             <Route path="/maps" component={Maps} />
             <Route path="/forum" component={ForumIndex} />
+            <Route path='/error' component={ErrorPage} />
+
           </Switch>
         </div>
         {this.state.showFooter &&

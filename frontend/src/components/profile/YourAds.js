@@ -34,7 +34,6 @@ class YourAds extends React.Component {
   render() {
     const { user } = this.state
     if (!user) return null
-    console.log(user.userUsedItems)
     return (
       <>
         <SecondHandNavbar />
@@ -56,8 +55,8 @@ class YourAds extends React.Component {
 
           {user.userUsedItems.length < 1 && 
           <div className='no-orders-wrapper'>
-            <h1>You don&apos;t have any orders yet</h1>
-            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1665807610/Nu%20Hippies/icons/basket_nxjwvy.png" />
+            <h1>You didn&apos;t post any ads yet</h1>
+            <img src="https://res.cloudinary.com/nuhippies/image/upload/v1666371894/Nu%20Hippies/icons/promotion_e0xajd.png" />
           </div>
           }
 

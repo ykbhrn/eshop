@@ -41,13 +41,7 @@ const userSchema = new mongoose.Schema({
 userSchema.virtual('userUsedItems', {
   ref: 'UsedItem',
   localField: '_id',
-  foreignField: 'user'
-})
-
-userSchema.virtual('userProducts', {
-  ref: 'Product',
-  localField: '_id',
-  foreignField: 'user'
+  foreignField: 'userStuff'
 })
 
 userSchema

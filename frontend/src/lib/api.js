@@ -107,6 +107,14 @@ export const getSingleUsedItem = id => {
   return axios.get(`/api/used-item/${id}`)
 }
 
+export const showUsedItemToUpdate = (id) => {
+  return axios.get(`/api/used-item/update/${id}`, withHeaders())
+}
+
+export const updateUsedItem = (id, formData) => {
+  return axios.put(`/api/used-item/${id}`, formData, withHeaders())
+}
+
 export const createChat = (formData) => {
   return axios.post('/api/chats', formData, withHeaders())
 }

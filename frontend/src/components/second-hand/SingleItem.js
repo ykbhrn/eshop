@@ -139,9 +139,11 @@ class SingleItem extends React.Component {
               }
 
               {isAuthenticated() && item.user._id === this.props.user._id &&
-                <div className='add-edit-button'>
-                  Edit Your Ad
-                </div>
+                <Link to={`/second-hand/edit-item/${newName}/${item._id}`}>
+                  <div className='add-edit-button'>
+                    <i className="fas fa-edit"></i> Edit Your Ad
+                  </div>
+                </Link>
               }
 
               {!isAuthenticated() &&

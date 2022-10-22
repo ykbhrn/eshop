@@ -33,11 +33,24 @@ async function usedItemShow(req, res) {
   }
 }
 
+async function usedItemShowToUpdate(req, res) {
+  const usedItemId = req.params.id 
+  try {
+    const usedItem = await UsedItem.findById(usedItemId)
+    if (usedItem.user._id.toString() !== req.currentUser._id.toString()) throw new Error('Not Authorized')
+    if (!usedItem) throw new Error('notFound')
+    res.status(200).json(usedItem)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+}
+
 async function usedItemUpdate(req, res) {
   const usedItemId = req.params.id
   try {
     const usedItem = await UsedItem.findByIdAndUpdate(usedItemId)
     if (!usedItem) throw new Error('Not Found')
+    if (usedItem.user._id.toString() !== req.currentUser._id.toString()) throw new Error('Not Authorized')
     Object.assign(usedItem, req.body)
     await usedItem.save()
     res.status(202).json(usedItem)
@@ -64,5 +77,6 @@ module.exports = {
   usedItemCreate,
   usedItemShow,
   usedItemUpdate,
+  usedItemShowToUpdate,
   usedItemDelete
 }

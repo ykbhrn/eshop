@@ -13,8 +13,24 @@ const stripe = require('stripe')(
   process.env.STRIPE_SECRET_KEY
 )
 
+function validateEmail(email){
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+}
+
 async function register(req, res) {
   try {
+    if (validateEmail(req.body.email) === null) {
+      return res.status(422).json({ errors: {
+        email: {
+          wrongFormat: 'Enter valid email adress'
+        }
+      } })
+    }
+
     const customer = await stripe.customers.create({
       name: req.body.name,
       email: req.body.email,

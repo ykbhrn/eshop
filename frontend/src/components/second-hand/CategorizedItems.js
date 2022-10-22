@@ -16,7 +16,7 @@ const mapStyle = {
 }
 
 const queryParams = {
-  country: 'sk'
+  country: 'gb'
 }
 
 const MyInput = (props) => <input {...props} placeholder="Add your postcode or adress" />

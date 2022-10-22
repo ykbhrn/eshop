@@ -1369,28 +1369,72 @@ h1{
   justify-content: flex-start;
   align-items: center;
   margin-top: 40px;
-  .no-orders-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    img{
-      width: 150px;
-      height: 150px;
-    }
+}
+.no-orders-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  img{
+    margin-top: 12px;
+    width: 150px;
+    height: 150px;
   }
 }
 
 // Ads paige 
-.ads--paige{
+.ads-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  a{
+    text-decoration: none;
+    color: $text-color;
+  }
   .product-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80vw;
     flex-wrap: wrap;
+    margin-top: 20px;
   }
+  .product-wrapper {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+  }
+  .product-preview-image {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.4s linear;
+  }
+  .product-preview-name {
+    width: 200px;
+    max-height: 80px;
+    overflow: hidden;
+    padding: 3px 8px;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .product-preview-price-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  .product-preview-price{
+    font-size: 22px;
+    font-weight: 1000;
+  }
+}
 }
 
 //About page

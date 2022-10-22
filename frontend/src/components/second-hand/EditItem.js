@@ -1,7 +1,8 @@
 import React from 'react'
-import { createUsedItem } from '../../lib/api'
+import { updateUsedItem, showUsedItemToUpdate } from '../../lib/api'
 import axios from 'axios'
 import Geocoder from 'react-mapbox-gl-geocoder'
+import {seo} from '../../lib/functions'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 const mapAccess = {
@@ -20,7 +21,7 @@ const queryParams = {
 const uploadUrl = "https://api.cloudinary.com/v1_1/nuhippies/upload"
 const uploadPreset = "i3lbcv7c"
 
-class PostUsedItem extends React.Component {
+class EditUsedItem extends React.Component {
   state = {
     formData: {
       title: '',
@@ -41,6 +42,31 @@ class PostUsedItem extends React.Component {
     error: '',
     errors: false
   }
+
+  async componentDidMount() {
+    try {
+      window.scrollTo(0, 0)
+
+      const itemId = this.props.match.params.id;
+      const res = await showUsedItemToUpdate(itemId);
+      console.log(res.data)
+      seo({
+        title: res.data.title,
+        metaDescription: res.data.description
+      });
+
+      const formData = { ...this.state.formData, title: res.data.title, description: res.data.description, images: res.data.images,
+        price: res.data.price, category: res.data.category, gender: res.data.gender, size: res.data.size, coordinates: res.data.coordinates,
+        placeName: res.data.placeName, phone: res.data.phone, email: res.data.email
+      }
+
+      this.setState({ formData });
+
+    } catch (err) {
+      console.log(err);
+      window.location.assign('/error')
+    }
+  } 
 
   handleChange = event => {
     if (event.target.name === "category" && this.state.formData.gender === "men" &&
@@ -69,7 +95,9 @@ handleSubmit = async event => {
   try {
     if (this.state.formData.coordinates) {
       this.setState({errors: false, isLoading: true})
-      const res = await createUsedItem(this.state.formData) 
+      const itemId = this.props.match.params.id;
+      console.log(this.state.formData)
+      const res = await updateUsedItem(itemId, this.state.formData) 
       console.log(res.data)
       this.setState({adPosition: this.state.adPosition + 1, isLoading: false})
     } else {
@@ -102,7 +130,6 @@ onSelected = (viewport, item) => {
       data.append('file', event.target.files[0])
       data.append('upload_preset', uploadPreset)
       const res = await axios.post(uploadUrl, data)
-      console.log(res.data)
       this.setState({ isLoading: false })
       this.setUrl(res.data.url)
     } catch (err) {
@@ -166,7 +193,6 @@ onSelected = (viewport, item) => {
 
   render() {
     const {viewport, formData} = this.state
-    console.log(formData)
     return (
       <>
         <SecondHandNavbar />
@@ -174,7 +200,7 @@ onSelected = (viewport, item) => {
         <div className="post-item-page">
           
           {this.state.adPosition < 8 &&
-        <h1>Post an ad</h1>
+        <h1>Edit Your Ad</h1>
           }
 
           {this.state.adPosition === 1 &&
@@ -378,7 +404,7 @@ onSelected = (viewport, item) => {
           {this.state.adPosition > 7 &&
         <div className="uploaded-item">
 
-          <div className="uploaded-item-description">Your ad was uploaded and it is now public</div>
+          <div className="uploaded-item-description">Your ad was successfully edited</div>
           
           <div className="classic-btn post" onClick={() => {
             this.handleNext("+") 
@@ -392,4 +418,4 @@ onSelected = (viewport, item) => {
   }
 }
 
-export default PostUsedItem
+export default EditUsedItem
