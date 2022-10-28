@@ -169,12 +169,6 @@ class App extends React.Component {
       const isPhone = window.matchMedia("(pointer: coarse)").matches
       var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-      if (isPhone || iOS || isSafari) {
-        mainMenu.style.display = "none"
-      } else {
-        console.log("NENI")
-      }
-
       if (isAuthenticated()) {
         const res = await getMyProfile()
 

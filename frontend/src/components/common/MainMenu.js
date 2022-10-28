@@ -26,31 +26,63 @@ class MainMenu extends React.Component {
 
           <nav>
             <ol>
-              <li className="menu-item item one"><Link to="/second-hand">Home</Link></li>
-              <li className="menu-item item two"><Link to="/second-hand">About</Link></li>
+
+              <li className="menu-item item one">
+                <a href="/">Home</a>
+                <ol className="sub-menu">
+                  <li className="menu-item"><Link to="/forum">Forum</Link></li>
+                  <li className="menu-item"><Link to="/products">Our Shop</Link></li>
+                  <li className="menu-item"><Link to="/second-hand">Second Hand Market</Link></li>
+                </ol>
+              </li>
+
+              <li className="menu-item item two">
+                <Link to="/about">About Us</Link>
+              </li>
+
               <li className="menu-item item three">
-                <Link to="/second-hand">Widgets</Link>
-                <ol className="sub-menu">
-                  <li className="menu-item"><Link to="/second-hand">Big Widgets</Link></li>
-                  <li className="menu-item"><Link to="/second-hand">Bigger Widgets</Link></li>
-                  <li className="menu-item"><Link to="/second-hand">Huge Widgets</Link></li>
-                </ol>
+                <Link to="/discount">Slapsgiving</Link>
               </li>
+
               <li className="menu-item item four">
-                <Link to="/second-hand">Kabobs</Link>
-                <ol className="sub-menu">
-                  <li className="menu-item"><Link to="/second-hand">Shishkabobs</Link></li>
-                  <li className="menu-item"><Link to="/second-hand">BBQ kabobs</Link></li>
-                  <li className="menu-item"><Link to="/second-hand">Summer kabobs</Link></li>
-                </ol>
+                {isAuthenticated() &&
+                  <Link to="/second-hand/post-item">Post Ad</Link>
+                }
+          
+                {!isAuthenticated() &&
+                  <Link to="/entering">Post Ad</Link>
+                }
               </li>
-              <li className="menu-item item five"><Link to="/second-hand">Contact</Link></li>
+
+              <li className="menu-item item five">
+                {isAuthenticated() &&
+                <>
+                  <Link to="/profile">Profile</Link>
+                  <ol className="sub-menu">
+                    <li className="menu-item"><Link to="/profile/orders">Your Orders</Link></li>
+                    <li className="menu-item"><Link to="/profile/ads">Your Ads</Link></li>
+                    <li className="menu-item"><Link to="/chats">Chat</Link></li>
+                  </ol>
+                </>
+                }
+                {!isAuthenticated() &&
+                <>
+                  <Link to="/entering">Profile</Link>
+                  <ol className="sub-menu">
+                    <li className="menu-item"><Link to="/entering">Your Orders</Link></li>
+                    <li className="menu-item"><Link to="/entering">Your Ads</Link></li>
+                    <li className="menu-item"><Link to="/entering">Chat</Link></li>
+                  </ol>
+                </>
+                }
+              </li>
+              
             </ol>
           </nav>
 
           {/* <div className="spacer"></div> */}
 
-          <img className='main-menu-icon label' src="https://res.cloudinary.com/nuhippies/image/upload/v1665807610/Nu%20Hippies/icons/basket_nxjwvy.png" />
+          <div className='main-menu-icon label'></div>
 
             
         </div>
