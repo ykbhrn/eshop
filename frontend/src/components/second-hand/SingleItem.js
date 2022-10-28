@@ -21,7 +21,7 @@ class SingleItem extends React.Component {
       console.log(res.data)
 
       seo({
-        title: res.data.title,
+        title: res.data.title + "| NHM",
         metaDescription: res.data.description
       });
 
@@ -77,9 +77,13 @@ class SingleItem extends React.Component {
   render() {
     const { item } = this.state
 
-    if (!item || !this.props.user) return null
+    if (isAuthenticated()) {
+      if (!item || !this.props.user) return null
+    } else {
+      if (!item) return null
+    }
 
-    const newName = item.title.replaceAll(' ', '-');
+    const newName = item.title.replace(/ /g, '-')
 
     return (
       <>

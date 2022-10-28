@@ -71,7 +71,6 @@ window.onscroll = function () {
   const navbar = document.querySelector(".navbar")
   const secondNavbar = document.querySelector(".second-hand-navbar")
 
-
   if (document.documentElement.scrollTop > 10) {
     
     if (navbar) {
@@ -164,13 +163,16 @@ class App extends React.Component {
     try {
       window.scrollTo(0, 0)
       const phoneMenuSlice = document.querySelector(".slice:nth-child(2)")
-
+      const mainMenu = document.querySelector(".main-menu-wrapper")
       const ua = window.navigator.userAgent;
       const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
       const isPhone = window.matchMedia("(pointer: coarse)").matches
+      var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-      if (isPhone && iOS) {
-        phoneMenuSlice.style.overflow = "auto"
+      if (isPhone || iOS || isSafari) {
+        mainMenu.style.display = "none"
+      } else {
+        console.log("NENI")
       }
 
       if (isAuthenticated()) {

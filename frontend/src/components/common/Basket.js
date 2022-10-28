@@ -123,7 +123,7 @@ class Basket extends React.Component {
           <div className="basket-container">
             {user.basket.map(item => {
 
-              const newName = item.name.replaceAll(' ', '-');
+              const newName = item.name.replace(/ /g, '-')
 
               return <div className="basket-item-wrapper" key={item._id}>
                 <div className="basket-item">

@@ -30,7 +30,7 @@ class SingleProduct extends React.Component {
       const res = await getSingleProduct(productId);
 
       seo({
-        title: res.data.name,
+        title: res.data.name + "| NHM",
         metaDescription: res.data.description
       });
 
@@ -181,7 +181,7 @@ class SingleProduct extends React.Component {
 
     if (!product) return null
 
-    const newName = this.state.product.name.replaceAll(' ', '-');
+    const newName = this.state.product.name.replace(/ /g, '-')
 
     return (
       <>

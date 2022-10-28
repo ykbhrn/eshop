@@ -39,6 +39,7 @@ class SecondHandNavbar extends React.Component {
       <div className="second-hand-navbar">
 
         <a href="/" className="link-no-underline" alt="Home Page">
+          
           <div className="menu" onMouseLeave={() => {
             this.revealText("")
           }}>
