@@ -107,7 +107,6 @@ class AllProducts extends React.Component {
   render() {
 
     if (!this.state.products) return null
-    console.log(this.state.isSearching)
     return (
       <>
         <Navbar />

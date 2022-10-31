@@ -1,12 +1,6 @@
 @import "./variables.scss";
 
 @media only screen and (max-width: 800px) {
-  .home-left-banner{
-    display: none;
-  }
-  .home-right-banner{
-    display: none;
-  } 
   .products-page{
     overflow-x: hidden;
     .products-loading{
@@ -45,39 +39,6 @@
     }
   }
 }
-.home-page{
-  overflow-x: hidden;
-}
-  .home-page .home-title{
-    font-size: 28px;
-    margin-bottom: -20px;
-  }
-  .dynamic-txts li{
-    font-size: 25px;
-  }
-  .header .dynamic-txts {
-    line-height: 70px;
-    height: 70px;
-  }
-  .header{
-    h3 {
-      font-size: 14px!important;
-      text-align: center;
-      top: 110px;
-    }
-  }
-  .dynamic-txts li span::after {
-    margin-top: 33px;
-  }
-  .flower-container{
-    display: none;
-  }
-  .home-menu {
-    transform: scale(1.1)!important;
-  }
-  // .home-menu ul{
-    // margin-top: -60px!important;
-  // }
   .footer-wrapper{
     flex-direction: column;
     .footer-menu-wrapper{
@@ -133,17 +94,6 @@
       font-size: 17px;
     }
   }
-  .logo{
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-  }
-  .logo-scroll{
-    width: 50px;
-    height: 50px;
-    top: 0px;
-    margin-left: -25px;
-  }
   .basket-icon-wrapper{
     top: 30px;
     right: 24px;
@@ -162,15 +112,29 @@
     height: 25px;
     top: 10px;
   }
-  .show-tip{
-    transform: scale(0.8)!important;
-  }
-  .main-menu-button{
-    transform: scale(0.8)!important;
-  }
   .product-wrapper{
     transform: scale(0.8);
     margin: 10px 10px 0px 10px!important;
+  }
+
+  //Single Product 
+  .single-product-section{
+    .basket-added-wrapper{
+      height: 50vh;
+      width: 100vw;
+      right: 0%;
+      margin-right: 0px;
+      border-radius: 0px;
+      h1{
+        font-size: 20px;
+      }
+      .basket-added-btn{
+        font-size: 15px;
+        padding: 6px 15px;
+        font-weight: 700;
+        margin: 20px 15px;
+      }
+    }
   }
   .single-product-section .product-color-wrapper, .single-product-section .product-size-wrapper {
     padding: 6px 12px;
@@ -240,19 +204,6 @@
       margin: 20px 0 30px 0;
     }
   }
-  .basket-added-wrapper{
-    height: 50vh!important;
-    width: 100vw!important;
-    right: 0%!important;
-    margin-right: 0px!important;
-    h1{
-      font-size: 20px;
-    }
-    .basket-added-btn{
-      font-size: 12px!important;
-      padding: 5px 10px!important;
-    }
-  }
   .profile-page{
     flex-direction: column;
     align-items: center;
@@ -282,9 +233,12 @@
   .edit-account-page, .edit-adress-page{
 
 }
+
+//Baket Page 
 .basket-page{
   flex-direction: column;  
   align-items: center; 
+  margin-bottom: 50px;
 .basket-container{
   h1{
     font-size: 12px;
@@ -455,6 +409,7 @@
   .total-price-checkout-wrapper{
     flex-direction: column;
     padding: 0px;
+    max-width: 90vw;
     div {
       margin-top: 0px;
     }
@@ -475,11 +430,6 @@
     .product-banner{
       height: 140px;
     }
-}
-.cat-nav{
-  a {
-    font-size: 12px;
-  }
 }
 .done-page{
   h1{
@@ -513,6 +463,11 @@
 .products-category-wrapper{
   transform: scale(0.5);
 }
+
+//Flowers
+.flower-content{
+  display: none;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -531,6 +486,211 @@
       }
     }
   }
+  .logo{
+    width: 80px;
+    height: 80px;
+    margin-left: -50px;
+  }
+  .logo-scroll{
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    margin-left: -25px;
+  }
+  .logo-scroll-sh{
+    width: 50px;
+    height: 50px;
+    margin-left: 0px!important;
+  }
+  
+  //Main Menu
+  .main-menu-wrapper{
+    .main-menu{
+      bottom: -12px;
+      right: 18px;
+      .main-menu-icon{
+        min-width: 45px;
+        min-height: 45px;
+      }
+    }
+    
+  }
+
+   //home
+.home-page{
+  overflow-x: hidden;
+  background: black;
+  h1{
+    font-size: 30px;
+  }
+  .home-title-wrapper{
+    top: 25px;
+  }
+  .header{
+    margin-top: -20px;
+  }
+  .dynamic-txts{
+    li{
+      font-size: 25px;
+    }
+    li span::after{
+      margin-top: 25px;
+    }
+  }
+  .all{
+    a{
+      text-decoration: none;
+    }
+  }
+  .left, .center, .right{
+    width: 80px;
+    height: 80px;
+  }
+  .text{
+    visibility: hidden;
+  }
+  .hidden-text{
+    // visibility: visible;
+    position: relative;
+    top: 90px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+//second-hand-page
+.second-hand-page{
+  h1{
+    font-size: 40px;
+    width: 90vw;
+    margin: 10px 7px;
+  }
+}
+.icon-container{
+  margin-top: 30px;
+  .sh-icons{
+    width: 55px;
+    height: 55px;
+    background-size: 40px 40px;
+    margin: 0 15px;
+  }
+  .icon-description{
+    font-size: 14px;
+  }
+}
+//categorized-items
+.categorized{
+  margin-top: 50px;
+  input{
+    width: 190px;
+    font-size: 14px;
+    padding: 5px 12px;
+  }
+  .categories-container{
+    top: 90px;
+    .menu-category{
+      .menu-category-header{
+        font-size: 19px;
+        padding: 0 30px;
+      }
+    }
+  }
+  .product-container{
+    margin-top: 0px;
+  }
+}
+.cat-nav{
+  a {
+    font-size: 16px;
+  }
+}
+
+//Post Item Page
+.post-item-page{
+  h1{
+    // top: 80px;
+  }
+  textarea{
+    width: 87vw;
+  }
+  .uploaded-item-description{
+    margin-bottom: 20px;
+}
+}
+
+//Single Item
+.single-item-page{
+  .start-chat-wrapper{
+    margin-top: 10px;
+    font-size: 17px;
+    i{
+      font-size: 20px;
+    }
+  }
+  .product-description{
+    margin-top: 27px;
+  }
+  .category-size-wrapper{
+    margin-top: 50px;
+  }
+}
+
+//Second Hand Navbar
+.second-hand-navbar{
+  .slogan-header{
+    font-size: 17px;
+  }
+}
+
+//Geocoder
+.react-geocoder-results{
+  max-width: 90vw;
+  padding: 0 10px;
+}
+.react-geocoder-item{
+  font-size: 15px;
+  text-align: center;
+}
+
+//Chats
+.chat-page{
+  .no-messages-header{
+    font-size: 25px;
+  }
+}
+//Orders Page
+.orders-page{
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  h1{
+    font-size: 28px;
+  }
+}
+
+//Ads page
+.ads-page{
+  img{
+    width: 90px;
+    height: 90px;
+  }
+  h1{
+    font-size: 28px;
+  }
+}
+
+//Edit Account
+.edit-account-page{
+  .password-change-notification{
+    width: 90%;
+    margin-left: -45%;
+    font-size: 20px;
+  }
+}
+
+
+// Terms and privacy pages
   .terms-page{
     transform: scale(0.45);
     transform-origin: top;
@@ -576,6 +736,18 @@
     .header-btn-score{
       margin-bottom: 80px;
       width: 80%;
+    }
+  }
+
+  // Forum
+  .main-forum-page{
+    h1{
+      font-size: 24px;
+      max-width: 90vw;
+    }
+    img{
+      width: 200px;
+      height: 200px;
     }
   }
 }

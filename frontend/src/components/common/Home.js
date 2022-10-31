@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../../lib/api';
@@ -68,10 +69,11 @@ class Home extends React.Component {
               <div className="hidden-text">Forum</div>
             </Link>
 
+            <div className="explainer"></div>
+
             <Link to="/second-hand" className="center" onMouseEnter={() => {
               this.revealText("Second Hand Market")
             }}>
-              <div className="explainer"></div>
               <div className="hidden-text">Second Hand Market</div>
             </Link>
 
@@ -99,3 +101,80 @@ class Home extends React.Component {
 
 
 export default Home;
+
+{/* <div className="home-page change-brightness" onClick={this.phoneMenu}>
+<style>
+  {'\
+.basket-icon-wrapper{\
+  display: none;\
+}\
+.navbar{\
+  display: none;\
+}\
+.main-menu-wrapper{\
+  display: none;\
+}\
+'}
+</style>
+
+<div className="home-title-wrapper">
+  <h1>Nu Hippies Movement</h1>
+  <div className="header">
+    <ul className="dynamic-txts">
+      <li><span>bring</span></li>
+      <li><span>hippies</span></li>
+      <li><span>back</span></li>
+    </ul>
+  </div>
+</div>
+
+<div className='home-menu'  onClick={this.phoneMenu}>
+  <div className="all" onMouseLeave={() => {
+    this.revealText("")
+  }}>
+
+    {/* <div className="lefter"> 
+    <div className="text">Hosting</div>
+  </div> */}
+//     <Link to="/forum" className="left" onMouseEnter={() => {
+//       this.revealText("Forum")
+//     }}>
+//       <div className="hidden-text">Forum</div>
+//     </Link>
+
+//     {this.state.isClickable &&
+//     <Link to="/second-hand" className="center" onMouseEnter={() => {
+//       this.revealText("Second Hand Market")
+//     }}>
+//       <div className="explainer"></div>
+//       <div className="hidden-text center-text">Second Hand Market</div>
+//     </Link>
+//     }
+
+//     {!this.state.isClickable &&
+//     <div className="center" onMouseEnter={() => {
+//       this.revealText("Second Hand Market")
+//     }}>
+//       <div className="explainer"></div>
+//       <div className="hidden-text">Second Hand Market</div>
+//     </div>
+//     }
+
+//     <Link to="/products" className="right" onMouseEnter={() => {
+//       this.revealText("Our Shop")
+//     }}>
+//       <div className="hidden-text">Our Shop</div>
+//     </Link>
+  
+//     {/* <div className="righter">
+//     <div className="text">SEO</div>
+//   </div> */}
+
+//     <div className="text">
+//       {this.state.text}
+//     </div>
+
+//   </div>
+// </div>
+
+// </div> */}

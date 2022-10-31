@@ -122,7 +122,7 @@ class Payment extends React.Component {
             </div>
 
             <div className="total-price-checkout-wrapper">
-              <div>Sum ({this.state.totalQuantity} Items): £{user.sumPrice / 100}</div>
+              <div>Sum ({this.state.totalQuantity}  {this.state.totalQuantity > 1 ? " Items" : " Item"}): £{user.sumPrice / 100}</div>
               <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
               <div className="total-text">Shipping: £{user.pendingOrder.shipping / 100}</div>
               <div>Total Price: £{(user.totalPrice + user.pendingOrder.shipping) / 100}</div>
@@ -141,7 +141,7 @@ class Payment extends React.Component {
               {!isLoading &&
              <div className="right-button" onClick={() => {
                this.completeOrder(this.state.paymentType)
-             }}>Complete Your Order</div> 
+             }}>Complete</div> 
               }
             
             </div>

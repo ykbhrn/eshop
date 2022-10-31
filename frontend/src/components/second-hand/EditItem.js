@@ -96,9 +96,7 @@ handleSubmit = async event => {
     if (this.state.formData.coordinates) {
       this.setState({errors: false, isLoading: true})
       const itemId = this.props.match.params.id;
-      console.log(this.state.formData)
       const res = await updateUsedItem(itemId, this.state.formData) 
-      console.log(res.data)
       this.setState({adPosition: this.state.adPosition + 1, isLoading: false})
     } else {
       this.setState({errors: "Enter your adress or postcode, and choose your location from the list"})
@@ -176,7 +174,7 @@ onSelected = (viewport, item) => {
           this.setState({errors: "Provide your phone number or email"})
         }
       } else if (this.state.adPosition === 8) {
-        window.location.assign("/second-hand")
+        window.location.assign("/profile/ads")
       } 
     } else if (option === "-") {
       this.setState({adPosition: this.state.adPosition - 1})

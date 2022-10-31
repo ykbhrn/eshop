@@ -74,7 +74,6 @@ class Chats extends React.Component {
     const { chats } = this.state
 
     if (!chats) return null
-    console.log(this.state.oneChat)
     return (
       <>
         <SecondHandNavbar />
@@ -87,26 +86,28 @@ class Chats extends React.Component {
 
           }
 
-          <div className='chats-container-left'>
-            {this.state.chats.map(chat => {
+          {chats.length > 0 &&
+  <>
+    <div className='chats-container-left'>
+      {this.state.chats.map(chat => {
             
-              return <Link to={`/chats/${chat._id}`} key={chat._id} className={chat._id === this.props.match.params.id ?  "chat-preview-wrapper active" : "chat-preview-wrapper"} 
-                onClick={() => {
-                  this.loadChat(chat._id)
-                }}>
+        return <Link to={`/chats/${chat._id}`} key={chat._id} className={chat._id === this.props.match.params.id ?  "chat-preview-wrapper active" : "chat-preview-wrapper"} 
+          onClick={() => {
+            this.loadChat(chat._id)
+          }}>
                 
-                <img src={chat.isFirst ? chat.secondUserProfileImage : chat.firstUserProfileImage} />
+          <img src={chat.isFirst ? chat.secondUserProfileImage : chat.firstUserProfileImage} />
 
-                <div className='chat-preview-name-message-wrapper'>
-                  <div className='chat-preview-username'>{chat.isFirst ? chat.secondUserName : chat.firstUserName}</div>
-                  <div className='chat-preview-last-message'>{chat.textsArray.length > 0 ? chat.textsArray[chat.textsArray.length - 1].textContent : ''}</div>
-                </div>
-              </Link>
-            })}
+          <div className='chat-preview-name-message-wrapper'>
+            <div className='chat-preview-username'>{chat.isFirst ? chat.secondUserName : chat.firstUserName}</div>
+            <div className='chat-preview-last-message'>{chat.textsArray.length > 0 ? chat.textsArray[chat.textsArray.length - 1].textContent : ''}</div>
           </div>
+        </Link>
+      })}
+    </div>
 
-          <div className='chats-form-right'>
-            {this.props.match.params.id &&
+    <div className='chats-form-right'>
+      {this.props.match.params.id &&
           <div className="conversation-input-wrapper">
 
             {this.state.oneChat  &&
@@ -150,8 +151,11 @@ class Chats extends React.Component {
             }
 
           </div>
-            }
-          </div>
+      }
+    </div>
+
+  </>
+          }
         
         </div>
       </>

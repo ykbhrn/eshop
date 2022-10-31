@@ -79,84 +79,84 @@ class UsedItems extends React.Component {
 
       <Link to="/second-hand/t-shirts/all">
         <div className="icon-wrapper">
-          <div className="first"></div>
+          <div className="sh-icons first"></div>
           <div className="icon-description">T-shirts</div>
         </div>
       </Link>
             
       <Link to="/second-hand/hoodies/all">
         <div className="icon-wrapper">
-          <div className="second"></div>
+          <div className="sh-icons second"></div>
           <div className="icon-description">Hoodies</div>
         </div>
       </Link>
 
       <Link to="/second-hand/dresses/all">
         <div className="icon-wrapper">
-          <div className="third"></div>
+          <div className="sh-icons third"></div>
           <div className="icon-description">Dresses</div>
         </div>
       </Link>
 
       <Link to="/second-hand/skirts/all">
         <div className="icon-wrapper">
-          <div className="fourth"></div>
+          <div className="sh-icons fourth"></div>
           <div className="icon-description">Skirts</div>
         </div>
       </Link>
 
       <Link to="/second-hand/pants/all">
         <div className="icon-wrapper">
-          <div className="fifth"></div>
+          <div className="sh-icons fifth"></div>
           <div className="icon-description">Pants</div>
         </div>
       </Link>
 
       <Link to="/second-hand/shoes/all">
         <div className="icon-wrapper">
-          <div className="sixth"></div>
+          <div className="sh-icons sixth"></div>
           <div className="icon-description">Shoes</div>
         </div>
       </Link>
 
       <Link to="/second-hand/jackets/all">
         <div className="icon-wrapper">
-          <div className="seventh"></div>
+          <div className="sh-icons seventh"></div>
           <div className="icon-description">Jackets</div>
         </div>
       </Link>
 
       <Link to="/second-hand/shorts/all">
         <div className="icon-wrapper">
-          <div className="eighth"></div>
+          <div className="sh-icons eighth"></div>
           <div className="icon-description">Shorts</div>
         </div>
       </Link>
 
       <Link to="/second-hand/sweaters/all">
         <div className="icon-wrapper">
-          <div className="ninth"></div>
+          <div className="sh-icons ninth"></div>
           <div className="icon-description">Sweaters</div>
         </div>
       </Link>
 
       <Link to="/second-hand/sweatshirts/all">
         <div className="icon-wrapper">
-          <div className="tenth"></div>
+          <div className="sh-icons tenth"></div>
           <div className="icon-description">Sweatshirts</div>
         </div>
       </Link>
 
       <Link to="/second-hand/shirts/all">
         <div className="icon-wrapper">
-          <div className="eleventh"></div>
+          <div className="sh-icons eleventh"></div>
           <div className="icon-description">Shirts</div>
         </div>
       </Link>
 
       <Link to="/second-hand/others/all">
         <div className="icon-wrapper">
-          <div className="twelfth"></div>
+          <div className="sh-icons twelfth"></div>
           <div className="icon-description">Others</div>
         </div>
       </Link>

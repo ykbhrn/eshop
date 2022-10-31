@@ -102,7 +102,6 @@ onSelected = (viewport, item) => {
       data.append('file', event.target.files[0])
       data.append('upload_preset', uploadPreset)
       const res = await axios.post(uploadUrl, data)
-      console.log(res.data)
       this.setState({ isLoading: false })
       this.setUrl(res.data.url)
     } catch (err) {
@@ -149,7 +148,7 @@ onSelected = (viewport, item) => {
           this.setState({errors: "Provide your phone number or email"})
         }
       } else if (this.state.adPosition === 8) {
-        window.location.assign("/second-hand")
+        window.location.assign("/profile/ads")
       } 
     } else if (option === "-") {
       this.setState({adPosition: this.state.adPosition - 1})

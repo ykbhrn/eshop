@@ -40,7 +40,7 @@ class Donation extends React.Component {
           showHand={true}
         />
         }
-        <div className="donation-page change-brightness">
+        <div className="donation-page">
 
           <img className="donation-img" src="https://res.cloudinary.com/nuhippies/image/upload/v1651183896/Nu%20Hippies/Backgrounds/1960s_2Bsign_2B_15_wnj0qb.jpg" />
 

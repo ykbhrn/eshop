@@ -167,7 +167,7 @@ class Basket extends React.Component {
           {user.basket.length > 0 &&
           <div className="checkout-button-total-price">
             <div className="total-price">
-              <div>Sum ({this.state.totalQuantity} Items(s)): £{user.sumPrice / 100}</div>
+              <div>Sum ({this.state.totalQuantity}  {this.state.totalQuantity > 1 ? " Items" : " Item"}): £{user.sumPrice / 100}</div>
               <div>Your Discount: {user.discount}% (£{user.discountAmount / 100})</div>
               <div>Total Price: £{user.totalPrice / 100}</div>
             </div>
