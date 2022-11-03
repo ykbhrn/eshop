@@ -1,6 +1,79 @@
 @import "./variables.scss";
 
+// max 800px screens
 @media only screen and (max-width: 800px) {
+  //Chats
+.chat-page{
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  .chats-container-left{
+    height: auto;
+    margin-right: 0px;
+  }
+  .chats-form-right{
+    position: absolute;
+    bottom: 10px;
+    padding-top: 20px;
+  }
+  .chat-preview-wrapper{
+  }
+  .username-picture-onechat{
+    flex-direction: row;
+    background: $main-background-color;
+    width: 100vw;
+    padding: 22px 0 12px 0;
+    z-index: 2;
+    border-bottom: 1px solid $text-color;
+    position: fixed;
+    top: 0px;
+    a{
+      text-decoration: none;
+      color: $text-color; 
+    }
+    .chat-back{
+      position: absolute;
+      left: 30px;
+      font-size: 20px;    
+      &:hover{
+        color: $third-color;
+      } 
+    }
+    h3{
+      font-size: 16px;
+    }
+    img{
+      width: 35px;
+      height:35px;
+      margin-right: 10px;
+    }
+  }
+  .conversation-input-wrapper{
+    .chat-form{
+      position: fixed;
+      bottom: 0px;
+      width: 100vw;
+      background: $main-background-color;
+      padding: 5px 0 5px 0;
+    }
+    textarea{
+    }
+  }
+  .conversation-wrapper{
+    padding-top: 190px;
+  }
+  .conversation-wrapper-reversed{
+    height: 100vh;
+    margin-bottom: 30px;
+  }
+  .chat-user-texts{
+  }
+
+  .no-messages-header{
+    font-size: 25px;
+  }
+}
+//Products
   .products-page{
     overflow-x: hidden;
     .products-loading{
@@ -470,6 +543,7 @@
 }
 }
 
+// max 600px screens
 @media only screen and (max-width: 600px) {
   .navbar{
     .products-navbar{
@@ -506,11 +580,14 @@
   //Main Menu
   .main-menu-wrapper{
     .main-menu{
-      bottom: -12px;
+      top: 10px;
       right: 18px;
+      .sub-menu{
+        top: 89px;
+      }
       .main-menu-icon{
-        min-width: 45px;
-        min-height: 45px;
+        min-width: 40px;
+        min-height: 40px;
       }
     }
     
@@ -637,8 +714,9 @@
 
 //Second Hand Navbar
 .second-hand-navbar{
+  height: 70px;
   .slogan-header{
-    font-size: 17px;
+    display: none;
   }
 }
 
@@ -652,12 +730,6 @@
   text-align: center;
 }
 
-//Chats
-.chat-page{
-  .no-messages-header{
-    font-size: 25px;
-  }
-}
 //Orders Page
 .orders-page{
   img{
@@ -750,4 +822,79 @@
       height: 200px;
     }
   }
+}
+
+//check if its phone
+@media (pointer:none), (pointer:coarse) {
+  //Chats
+.chat-page{
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  .chats-container-left{
+    height: auto;
+    margin-right: 0px;
+  }
+  .chats-form-right{
+    position: absolute;
+    bottom: 10px;
+    padding-top: 20px;
+  }
+  .chat-preview-wrapper{
+  }
+  .username-picture-onechat{
+    flex-direction: row;
+    background: $main-background-color;
+    width: 100vw;
+    padding: 22px 0 12px 0;
+    z-index: 2;
+    border-bottom: 1px solid $text-color;
+    position: fixed;
+    top: 0px;
+    a{
+      text-decoration: none;
+      color: $text-color; 
+    }
+    .chat-back{
+      position: absolute;
+      left: 30px;
+      font-size: 20px;    
+      &:hover{
+        color: $third-color;
+      } 
+    }
+    h3{
+      font-size: 16px;
+    }
+    img{
+      width: 35px;
+      height:35px;
+      margin-right: 10px;
+    }
+  }
+  .conversation-input-wrapper{
+    .chat-form{
+      position: fixed;
+      bottom: 0px;
+      width: 100vw;
+      background: $main-background-color;
+      padding: 5px 0 5px 0;
+    }
+    textarea{
+    }
+  }
+  .conversation-wrapper{
+    padding-top: 190px;
+  }
+  .conversation-wrapper-reversed{
+    height: 100vh;
+    margin-bottom: 30px;
+  }
+  .chat-user-texts{
+  }
+
+  .no-messages-header{
+    font-size: 25px;
+  }
+}
 }

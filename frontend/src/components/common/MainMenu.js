@@ -37,20 +37,26 @@ class MainMenu extends React.Component {
               </li>
 
               <li className="menu-item item two">
-                <Link to="/about">About Us</Link>
-              </li>
-
-              <li className="menu-item item three">
                 <Link to="/discount">Slapsgiving</Link>
               </li>
 
-              <li className="menu-item item four">
+              <li className="menu-item item three">
                 {isAuthenticated() &&
                   <Link to="/second-hand/post-item">Post Ad</Link>
                 }
           
                 {!isAuthenticated() &&
                   <Link to="/entering">Post Ad</Link>
+                }
+              </li>
+
+              <li className="menu-item item four">
+                {isAuthenticated() &&
+                  <Link to="/chats">Chat</Link>
+                }
+          
+                {!isAuthenticated() &&
+                  <Link to="/entering">Chat</Link>
                 }
               </li>
 
@@ -61,7 +67,7 @@ class MainMenu extends React.Component {
                   <ol className="sub-menu">
                     <li className="menu-item"><Link to="/profile/orders">Your Orders</Link></li>
                     <li className="menu-item"><Link to="/profile/ads">Your Ads</Link></li>
-                    <li className="menu-item"><Link to="/chats">Chat</Link></li>
+                    <li className="menu-item"><Link to="/profile/edit">Edit Account</Link></li>
                   </ol>
                 </>
                 }
@@ -71,7 +77,7 @@ class MainMenu extends React.Component {
                   <ol className="sub-menu">
                     <li className="menu-item"><Link to="/entering">Your Orders</Link></li>
                     <li className="menu-item"><Link to="/entering">Your Ads</Link></li>
-                    <li className="menu-item"><Link to="/entering">Chat</Link></li>
+                    <li className="menu-item"><Link to="/entering">Edit Account</Link></li>
                   </ol>
                 </>
                 }

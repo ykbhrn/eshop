@@ -3,6 +3,7 @@ import { allUserChat, showChat, newMessage } from '../../lib/api';
 import { Link, Redirect } from 'react-router-dom';
 import {seo} from '../../lib/functions'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
+import TextareaAutosize from 'react-textarea-autosize';
 
 class Chats extends React.Component {
   state = {
@@ -55,13 +56,21 @@ class Chats extends React.Component {
     this.setState({ formData })
   }
 
+  handleEnter = event => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      this.handleSubmit(event)
+    }
+  }
+
   handleSubmit = async (event) => {
     event.preventDefault()
+    const reversedDiv = document.querySelector(".conversation-wrapper-reversed")
 
     try {
       const res = await newMessage(this.props.match.params.id, this.state.formData)
       const formData = { ...this.state.formData, textContent: '' }
       this.setState({formData})
+      reversedDiv.scrollTop = 0
       this.componentDidMount()
       // this.loadChat(res.data._id)
     } catch (err) {
@@ -127,7 +136,7 @@ class Chats extends React.Component {
                       const timeArray = firstArray[1].split("")
 
                       //Temporary hard coded London time zone
-                      timeArray[1] = Number(timeArray[1]) + 1
+                      timeArray[1] = Number(timeArray[1])
                       const finishedTimeArray = timeArray.slice(0, 5).join("")
 
                       return <div key={text._id} className={text.userId === this.props.user._id ? "chat-user-texts" : "chat-received-texts"}>
@@ -139,12 +148,16 @@ class Chats extends React.Component {
                   </div>
                 </div>
 
-                <form onSubmit={this.handleSubmit}>
-                  <input
+                <form className='chat-form' onSubmit={this.handleSubmit}>
+
+                  <TextareaAutosize
                     value={this.state.formData.textContent}
                     onChange={this.handleChange}
+                    onKeyDown={this.handleEnter}
                   />
-                  <button className='classic-btn'>Send</button>
+
+                  <img onClick={this.handleSubmit} src={this.state.formData.textContent ? "https://res.cloudinary.com/nuhippies/image/upload/v1667410869/Nu%20Hippies/icons/send_tb0ahp.png" : "https://res.cloudinary.com/nuhippies/image/upload/v1667410643/Nu%20Hippies/icons/send_ub5ud7.png"} />
+                
                 </form>
 
               </>

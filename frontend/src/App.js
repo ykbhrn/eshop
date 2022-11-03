@@ -39,27 +39,9 @@ import PostUsedItem from './components/second-hand/PostUsedItem'
 import EditUsedItem from './components/second-hand/EditItem'
 import Maps from './components/map/Maps'
 import Chats from './components/profile/Chats'
+import PhoneChats from './components/profile/PhoneChats'
 import ForumIndex from './components/forum/ForumIndex'
 import ErrorPage from './components/common/ErrorPage'
-
-// var pointerX = -1;
-// var pointerY = -1;
-// document.onclick = function(event) {
-//   const cursorGif = document.querySelector(".cursor-gif")
-
-//   pointerX = event.pageX - 150;
-//   pointerY = event.pageY - 85;
-  
-//   cursorGif.style.left = pointerX + 'px'
-//   cursorGif.style.top = pointerY + 'px'
-
-//   cursorGif.style.display = "block"
-
-//   setTimeout(() => {
-//     cursorGif.style.display = "none"
-//   }, 1000);
-
-// }
 
 window.onscroll = function () { 
   const logo = document.querySelector(".logo")
@@ -156,18 +138,18 @@ class App extends React.Component {
     products: [],
     user: null,
     basketLength: null,
-    showFooter: false
+    showFooter: false,
+    isPhone: false
   }
 
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
-      const phoneMenuSlice = document.querySelector(".slice:nth-child(2)")
-      const mainMenu = document.querySelector(".main-menu-wrapper")
-      const ua = window.navigator.userAgent;
-      const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-      const isPhone = window.matchMedia("(pointer: coarse)").matches
-      var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      // const ua = window.navigator.userAgent;
+      // const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+      // var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+      const phone = window.matchMedia("(pointer: coarse)").matches
 
       if (isAuthenticated()) {
         const res = await getMyProfile()
@@ -177,10 +159,10 @@ class App extends React.Component {
           basketSize = basketSize + Number(item.chosenQuantity)
         })
 
-        this.setState({ basketLength: basketSize, showFooter: true, user: res.data })
+        this.setState({ basketLength: basketSize, showFooter: true, user: res.data, isPhone: phone })
 
       } else {
-        this.setState({ showFooter: true })
+        this.setState({ showFooter: true, isPhone: phone })
       }
 
 
@@ -228,7 +210,12 @@ class App extends React.Component {
             <Route path="/profile/orders" component={YourOrders} />
             <Route path="/profile/ads" component={YourAds} />
             <Route path="/profile" component={Profile} />
+            {(!this.state.isPhone && window.innerWidth >= 800) &&
             <Route path='/chats/:id' render={(props) => <Chats {...props} user={this.state.user} />} />
+            }
+            {(this.state.isPhone || window.innerWidth < 800) &&
+            <Route path='/chats/:id' render={(props) => <PhoneChats {...props} user={this.state.user} />} />
+            }
             <Route path='/chats' render={(props) => <Chats {...props} user={this.state.user} />} />
             <Route path='/shipping' component={Shipping} />
             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />

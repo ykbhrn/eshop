@@ -702,8 +702,8 @@ button{
   }
   progress {
     display:inline-block;
-    width: 290px;
-    height: 30px;
+    width: 70vw;
+    height: 10px;
     margin-top: 50px;
     border-radius: 0px;
     text-align: left;
@@ -712,16 +712,18 @@ button{
     font-size: 0.8em;
   }
   progress::-webkit-progress-bar {
-    height: 30px;
-    width: 290px;
+    height: 10px;
+    width: 70vw;
+    border-radius: 30px;
   }
   progress::-webkit-progress-value {
     display:inline-block;
     float: left;
-    height: 30px;
-    width: 290px;
+    height: 10px;
+    width: 70vw;
     margin:0px -10px 0 0;
-    background: $second-color;
+    background: $third-color;
+    border-radius: 30px;
   }
   // progress:after {
   //   margin:-26px 0 0 -7px;
