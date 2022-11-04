@@ -18,6 +18,29 @@ class MainMenu extends React.Component {
     this.setState({ mainButton: "" })
   }
 
+  pointerEventsOff = () => {
+    const mainMenu = document.querySelector(".main-menu")
+    const subMenu = document.querySelectorAll(".sub-menu")
+
+    mainMenu.style.pointerEvents = "none"
+    subMenu.forEach(item => {
+      item.style.pointerEvents = "none"
+    })
+  }
+
+  pointerEventsOn = () => {
+    const mainMenu = document.querySelector(".main-menu")
+    mainMenu.style.pointerEvents = "all"
+  }
+
+  subMenuPointerEventsOn = () => {
+    const subMenu = document.querySelectorAll(".sub-menu")
+
+    subMenu.forEach(item => {
+      item.style.pointerEvents = "all"
+    })
+  }
+
   render() {
     return (
       <div className="main-menu-wrapper">
@@ -27,20 +50,20 @@ class MainMenu extends React.Component {
           <nav>
             <ol>
 
-              <li className="menu-item item one">
+              <li className="menu-item item one" onClick={this.pointerEventsOff} onMouseEnter={this.subMenuPointerEventsOn}>
                 <a href="/">Home</a>
                 <ol className="sub-menu">
-                  <li className="menu-item"><Link to="/forum">Forum</Link></li>
-                  <li className="menu-item"><Link to="/products">Our Shop</Link></li>
-                  <li className="menu-item"><Link to="/second-hand">Second Hand Market</Link></li>
+                  <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/forum">Forum</Link></li>
+                  <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/products">Our Shop</Link></li>
+                  <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/second-hand">Second Hand Market</Link></li>
                 </ol>
               </li>
 
-              <li className="menu-item item two">
+              <li className="menu-item item two" onClick={this.pointerEventsOff}>
                 <Link to="/discount">Slapsgiving</Link>
               </li>
 
-              <li className="menu-item item three">
+              <li className="menu-item item three" onClick={this.pointerEventsOff}>
                 {isAuthenticated() &&
                   <Link to="/second-hand/post-item">Post Ad</Link>
                 }
@@ -50,7 +73,7 @@ class MainMenu extends React.Component {
                 }
               </li>
 
-              <li className="menu-item item four">
+              <li className="menu-item item four" onClick={this.pointerEventsOff}>
                 {isAuthenticated() &&
                   <Link to="/chats">Chat</Link>
                 }
@@ -60,14 +83,14 @@ class MainMenu extends React.Component {
                 }
               </li>
 
-              <li className="menu-item item five">
+              <li className="menu-item item five" onClick={this.pointerEventsOff} onMouseEnter={this.subMenuPointerEventsOn}>
                 {isAuthenticated() &&
                 <>
                   <Link to="/profile">Profile</Link>
                   <ol className="sub-menu">
-                    <li className="menu-item"><Link to="/profile/orders">Your Orders</Link></li>
-                    <li className="menu-item"><Link to="/profile/ads">Your Ads</Link></li>
-                    <li className="menu-item"><Link to="/profile/edit">Edit Account</Link></li>
+                    <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/profile/orders">Your Orders</Link></li>
+                    <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/profile/ads">Your Ads</Link></li>
+                    <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/profile/edit">Edit Account</Link></li>
                   </ol>
                 </>
                 }
@@ -75,9 +98,9 @@ class MainMenu extends React.Component {
                 <>
                   <Link to="/entering">Profile</Link>
                   <ol className="sub-menu">
-                    <li className="menu-item"><Link to="/entering">Your Orders</Link></li>
-                    <li className="menu-item"><Link to="/entering">Your Ads</Link></li>
-                    <li className="menu-item"><Link to="/entering">Edit Account</Link></li>
+                    <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/entering">Your Orders</Link></li>
+                    <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/entering">Your Ads</Link></li>
+                    <li className="menu-item" onClick={this.pointerEventsOff}><Link to="/entering">Edit Account</Link></li>
                   </ol>
                 </>
                 }
@@ -88,9 +111,8 @@ class MainMenu extends React.Component {
 
           {/* <div className="spacer"></div> */}
 
-          <div className='main-menu-icon label'></div>
+          <div className='main-menu-icon label' onMouseEnter={this.pointerEventsOn}></div>
 
-            
         </div>
 
       </div>

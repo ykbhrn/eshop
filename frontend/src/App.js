@@ -17,6 +17,7 @@ import YourOrders from './components/profile/YourOrders'
 import YourAds from './components/profile/YourAds'
 import Navbar from './components/common/Navbar'
 import MainMenu from './components/common/MainMenu'
+import PhoneMainMenu from './components/common/PhoneMainMenu'
 import Basket from './components/common/Basket'
 import BasketIcon from './components/common/BasketIcon'
 import Checkout from './components/common/Checkout'
@@ -193,8 +194,13 @@ class App extends React.Component {
           />
           {/* <Navbar />
           <SecondHandNavbar /> */}
+          {(!this.state.isPhone && window.innerWidth >= 800) &&
+            <MainMenu />
+          }
+          {(this.state.isPhone || window.innerWidth < 800) &&
+            <PhoneMainMenu />
+          }
           <PopupDiscount />
-          <MainMenu />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
