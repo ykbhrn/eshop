@@ -43,6 +43,9 @@ class Home extends React.Component {
           .main-menu-wrapper{\
             display: none;\
           }\
+          .phone-menu-wrapper{\
+            display: none;\
+          }\
           '}
           </style>
 

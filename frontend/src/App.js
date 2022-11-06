@@ -185,72 +185,95 @@ class App extends React.Component {
     }
   }
 
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="whole-page">
-          <BasketIcon
-            basketLength={this.state.basketLength}
-          />
-          {/* <Navbar />
-          <SecondHandNavbar /> */}
-          {(!this.state.isPhone && window.innerWidth >= 800) &&
-            <MainMenu />
-          }
-          {(this.state.isPhone || window.innerWidth < 800) &&
-            <PhoneMainMenu />
-          }
-          <PopupDiscount />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
-            <Route path='/products/:name/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
-            <Route path="/products" component={AllProducts} />
-            <Route path="/entering/:items/:name/:id" component={Authorization} />
-            <Route path="/entering/:name/:id" component={Authorization} />
-            <Route path="/entering" component={Authorization} />
-            <Route path="/forgot-password" component={ForgotPassword} />
-            <Route path="/reset-password/:token" component={ResetPassword} />
-            <Route path="/profile/edit" component={EditAccount} />
-            <Route path="/profile/adress" component={EditAdress} />
-            <Route path="/profile/orders" component={YourOrders} />
-            <Route path="/profile/ads" component={YourAds} />
-            <Route path="/profile" component={Profile} />
-            {(!this.state.isPhone && window.innerWidth >= 800) &&
-            <Route path='/chats/:id' render={(props) => <Chats {...props} user={this.state.user} />} />
-            }
-            {(this.state.isPhone || window.innerWidth < 800) &&
-            <Route path='/chats/:id' render={(props) => <PhoneChats {...props} user={this.state.user} />} />
-            }
-            <Route path='/chats' render={(props) => <Chats {...props} user={this.state.user} />} />
-            <Route path='/shipping' component={Shipping} />
-            <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/payment" component={Payment} />
-            <Route path="/confirmation/:type" component={Confirmation} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/about" component={About} />
-            <Route path="/terms" component={Terms} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path="/discount" component={Donation} />
-            <Route path="/done" component={Done} />
-            <Route path='/second-hand/items/:name/:id' render={(props) => <SingleItem {...props} user={this.state.user} />} />
-            <Route path="/second-hand/edit-item/:name/:id" component={EditUsedItem} />
-            <Route path="/second-hand/post-item" component={PostUsedItem} />
-            <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
-            <Route path="/second-hand" component={UsedItems} />
-            <Route path="/maps" component={Maps} />
-            <Route path="/forum" component={ForumIndex} />
-            <Route path='/error' component={ErrorPage} />
+   pointerEventsOff = (event) => {
+     const mainMenu = document.querySelector(".main-menu")
+     const mainMenuOl = document.querySelector(".main-menu-ol")
+     const subMenu = document.querySelectorAll(".sub-menu")
 
-          </Switch>
-        </div>
-        {this.state.showFooter &&
+     if (!event.target.classList.contains("main-menu-icon") && !event.target.classList.contains("emoji-icon")) {
+       const items = document.querySelectorAll(".phone-menu-wrapper .item")
+
+       items.forEach(item => {
+         item.style.left = "-540px"
+         item.style.opacity = "0"
+       })
+ 
+       mainMenuOl.style.background = "none"
+       console.log("hej")
+     }
+
+
+     // subMenu.forEach(item => {
+     //   item.style.pointerEvents = "none"
+     // })
+   }
+
+   render() {
+     return (
+       <BrowserRouter>
+         <div className="whole-page" onTouchStart={this.pointerEventsOff}>
+           <BasketIcon
+             basketLength={this.state.basketLength}
+           />
+           {/* <Navbar />
+          <SecondHandNavbar /> */}
+           {(!this.state.isPhone && window.innerWidth >= 800) &&
+            <MainMenu />
+           }
+           {(this.state.isPhone || window.innerWidth < 800) &&
+            <PhoneMainMenu />
+           }
+           <PopupDiscount />
+           <Switch>
+             <Route exact path='/' component={Home} />
+             <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
+             <Route path='/products/:name/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
+             <Route path="/products" component={AllProducts} />
+             <Route path="/entering/:items/:name/:id" component={Authorization} />
+             <Route path="/entering/:name/:id" component={Authorization} />
+             <Route path="/entering" component={Authorization} />
+             <Route path="/forgot-password" component={ForgotPassword} />
+             <Route path="/reset-password/:token" component={ResetPassword} />
+             <Route path="/profile/edit" component={EditAccount} />
+             <Route path="/profile/adress" component={EditAdress} />
+             <Route path="/profile/orders" component={YourOrders} />
+             <Route path="/profile/ads" component={YourAds} />
+             <Route path="/profile" component={Profile} />
+             {(!this.state.isPhone && window.innerWidth >= 800) &&
+            <Route path='/chats/:id' render={(props) => <Chats {...props} user={this.state.user} />} />
+             }
+             {(this.state.isPhone || window.innerWidth < 800) &&
+            <Route path='/chats/:id' render={(props) => <PhoneChats {...props} user={this.state.user} />} />
+             }
+             <Route path='/chats' render={(props) => <Chats {...props} user={this.state.user} />} />
+             <Route path='/shipping' component={Shipping} />
+             <Route path='/basket' render={(props) => <Basket {...props} basket={this.basket} />} />
+             <Route path="/checkout" component={Checkout} />
+             <Route path="/payment" component={Payment} />
+             <Route path="/confirmation/:type" component={Confirmation} />
+             <Route path="/contact" component={Contact} />
+             <Route path="/about" component={About} />
+             <Route path="/terms" component={Terms} />
+             <Route path="/privacy" component={Privacy} />
+             <Route path="/discount" component={Donation} />
+             <Route path="/done" component={Done} />
+             <Route path='/second-hand/items/:name/:id' render={(props) => <SingleItem {...props} user={this.state.user} />} />
+             <Route path="/second-hand/edit-item/:name/:id" component={EditUsedItem} />
+             <Route path="/second-hand/post-item" component={PostUsedItem} />
+             <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
+             <Route path="/second-hand" component={UsedItems} />
+             <Route path="/maps" component={Maps} />
+             <Route path="/forum" component={ForumIndex} />
+             <Route path='/error' component={ErrorPage} />
+
+           </Switch>
+         </div>
+         {this.state.showFooter &&
           <Footer />
-        }
-      </BrowserRouter>
-    )
-  }
+         }
+       </BrowserRouter>
+     )
+   }
 }
 
 export default App

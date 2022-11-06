@@ -78,6 +78,9 @@ class PhoneChats extends React.Component {
           .main-menu-wrapper{\
             display: none;\
           }\
+          .phone-menu-wrapper{\
+            display: none;\
+          }\
           .footer-wrapper{\
             display: none;\
           }\
