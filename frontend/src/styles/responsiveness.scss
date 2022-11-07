@@ -125,6 +125,12 @@
     margin: 30px 0 -20px 0!important;
     order: 2;
   }
+  //navbar and second hand navbar
+  .second-hand-navbar{
+    .slogan-header{
+      font-size: 15px;
+    }
+  }
   .navbar{
     flex-direction: column;
     align-items: center;
@@ -166,24 +172,6 @@
     h3{
       font-size: 17px;
     }
-  }
-  .basket-icon-wrapper{
-    top: 30px;
-    right: 24px;
-    width: 35px;
-    height: 35px;
-    .basket-number{
-      font-size: 14px;
-      top: 0px;
-    }
-    .basket-number-scroll{
-      font-size: 10px;
-    }
-  }
-  .basket-icon-scroll{
-    width: 25px;
-    height: 25px;
-    top: 10px;
   }
   .product-wrapper{
     transform: scale(0.8);
@@ -545,7 +533,44 @@
 
 // max 600px screens
 @media only screen and (max-width: 600px) {
+  //Navbar and Second Hand Navbar
+.second-hand-navbar{
+  height: 70px;
+  .slogan-header{
+    display: none;
+  }
+  .logo{
+    width: 80px;
+    height: 80px;
+    margin-left: -10px;
+  }
+  .logo-scroll-sh{
+    width: 50px;
+    height: 50px;
+    margin-left: 5px!important;
+  }
+}
+
+.menu{
+    left: 21px;
+    .spacer{
+      width: 350px;
+      margin-left: -143px;
+    }
+  .one, .two, .three, .four {
+    width: 60px;
+    height: 60px;
+  }
+}
+  .menu:hover .item {
+    opacity: 1;
+    top: 80px;
+  }
+//Navbar
   .navbar{
+    .menu{
+      margin-left: -30px;
+    }
     .products-navbar{
       .hover-products-menu{
         flex-direction: column;
@@ -558,23 +583,37 @@
           }
         }
       }
+      .products-navbar-icon{
+        left: 10px;
+        top: 10px;
+      }
     }
   }
   .logo{
     width: 80px;
     height: 80px;
-    margin-left: -50px;
+    margin-left: -40px;
   }
   .logo-scroll{
     width: 50px;
     height: 50px;
     top: 0px;
-    margin-left: -25px;
+    margin-left: -35px;
   }
-  .logo-scroll-sh{
-    width: 50px;
-    height: 50px;
-    margin-left: 0px!important;
+
+  //Basket icon
+  .basket-icon-wrapper{
+    position: fixed;
+    left: unset;
+    top: unset;
+    bottom: 8px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    .basket-number{
+      font-size: 13px;
+      line-height: 13px;
+    }
   }
 
    //home
@@ -641,7 +680,7 @@
 }
 //categorized-items
 .categorized{
-  margin-top: 50px;
+  margin-top: 70px;
   input{
     width: 190px;
     font-size: 14px;
@@ -654,6 +693,9 @@
         font-size: 19px;
         padding: 0 30px;
       }
+      .menu-item{
+        font-size: 15px;
+      }
     }
   }
   .product-container{
@@ -664,6 +706,11 @@
   a {
     font-size: 16px;
   }
+}
+.place-wrapper{
+  font-size: 16px;
+  max-width: 85vw;
+  margin-bottom: 10px;
 }
 
 //Post Item Page
@@ -693,14 +740,6 @@
   }
   .category-size-wrapper{
     margin-top: 50px;
-  }
-}
-
-//Second Hand Navbar
-.second-hand-navbar{
-  height: 70px;
-  .slogan-header{
-    display: none;
   }
 }
 
@@ -881,4 +920,25 @@
     font-size: 25px;
   }
 }
+//navbar and second hand navbar
+  .second-hand-navbar{
+    .slogan-header{
+      display: none;
+    }
+  }
+
+  //Basket icon
+  .basket-icon-wrapper{
+    position: fixed;
+    left: unset;
+    top: unset;
+    bottom: 8px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    .basket-number{
+      font-size: 13px;
+      line-height: 13px;
+    }
+  }
 }

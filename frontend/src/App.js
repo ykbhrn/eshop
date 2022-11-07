@@ -35,6 +35,7 @@ import Done from './components/common/Done'
 import UsedItems from './components/second-hand/UsedItems'
 import SingleItem from './components/second-hand/SingleItem'
 import CategorizedItems from './components/second-hand/CategorizedItems'
+import PhoneCategorizedItems from './components/second-hand/PhoneCategorizedItems'
 import SecondHandNavbar from './components/second-hand/SecondHandNavbar'
 import PostUsedItem from './components/second-hand/PostUsedItem'
 import EditUsedItem from './components/second-hand/EditItem'
@@ -57,9 +58,9 @@ window.onscroll = function () {
   if (document.documentElement.scrollTop > 10) {
     
     if (navbar) {
-      basketIcon.classList.add("basket-icon-scroll")
+      // basketIcon.classList.add("basket-icon-scroll")
       productsNavbarIcon.classList.add("products-navbar-icon-scroll")
-      basketNumber.classList.add("basket-number-scroll")
+      // basketNumber.classList.add("basket-number-scroll")
       logo.classList.add("logo-scroll")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     } else if (secondNavbar) {
@@ -70,9 +71,9 @@ window.onscroll = function () {
   } else if (document.documentElement.scrollTop < 10) {
       
     if (navbar) {
-      basketIcon.classList.remove("basket-icon-scroll")
+      // basketIcon.classList.remove("basket-icon-scroll")
       productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
-      basketNumber.classList.remove("basket-number-scroll")
+      // basketNumber.classList.remove("basket-number-scroll")
       logo.classList.remove("logo-scroll")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
     } else if (secondNavbar) {
@@ -186,12 +187,10 @@ class App extends React.Component {
   }
 
    pointerEventsOff = (event) => {
-     const mainMenu = document.querySelector(".main-menu")
      const mainMenuOl = document.querySelector(".main-menu-ol")
-     const subMenu = document.querySelectorAll(".sub-menu")
+     const items = document.querySelectorAll(".phone-menu-wrapper .item")
 
      if (!event.target.classList.contains("main-menu-icon") && !event.target.classList.contains("emoji-icon")) {
-       const items = document.querySelectorAll(".phone-menu-wrapper .item")
 
        items.forEach(item => {
          item.style.left = "-540px"
@@ -199,28 +198,23 @@ class App extends React.Component {
        })
  
        mainMenuOl.style.background = "none"
-       console.log("hej")
      }
-
-
-     // subMenu.forEach(item => {
-     //   item.style.pointerEvents = "none"
-     // })
+     
    }
 
    render() {
      return (
        <BrowserRouter>
-         <div className="whole-page" onTouchStart={this.pointerEventsOff}>
+         <div className="whole-page" onTouchStart={this.state.isPhone || window.innerWidth < 800 ? this.pointerEventsOff : "" }>
            <BasketIcon
              basketLength={this.state.basketLength}
            />
            {/* <Navbar />
           <SecondHandNavbar /> */}
-           {(!this.state.isPhone && window.innerWidth >= 800) &&
+           {(!this.state.isPhone && window.innerWidth >= 600) &&
             <MainMenu />
            }
-           {(this.state.isPhone || window.innerWidth < 800) &&
+           {(this.state.isPhone || window.innerWidth < 600) &&
             <PhoneMainMenu />
            }
            <PopupDiscount />
@@ -260,7 +254,12 @@ class App extends React.Component {
              <Route path='/second-hand/items/:name/:id' render={(props) => <SingleItem {...props} user={this.state.user} />} />
              <Route path="/second-hand/edit-item/:name/:id" component={EditUsedItem} />
              <Route path="/second-hand/post-item" component={PostUsedItem} />
+             {(this.state.isPhone || window.innerWidth < 600) &&
+             <Route path="/second-hand/:category/:gender" render={(props) => <PhoneCategorizedItems {...props} user={this.state.user} />} />
+             }
+             {(!this.state.isPhone && window.innerWidth >= 600) &&
              <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
+             }
              <Route path="/second-hand" component={UsedItems} />
              <Route path="/maps" component={Maps} />
              <Route path="/forum" component={ForumIndex} />

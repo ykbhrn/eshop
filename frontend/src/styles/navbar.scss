@@ -112,7 +112,7 @@
 }
 
 .basket-icon-wrapper{
-  background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1650341063/Nu%20Hippies/icons/shopping-cart_tosd3m.png');
+  background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1667794913/Nu%20Hippies/icons/shopping-basket_1_l2ja3u.png');
   background-size: cover;
   display: none;
   justify-content: center;
@@ -126,12 +126,15 @@
   height: 40px;
   z-index: 5;
   .basket-number{
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 14px;
     font-weight: 500;
     color: $third-color;
     position: absolute;
-    top: 0px;
-    right: 10px;
+    background: white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    margin-top: 8px;
   }
   .basket-number-scroll{
     font-size: 11px;

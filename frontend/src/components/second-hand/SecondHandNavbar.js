@@ -7,16 +7,18 @@ class SecondHandNavbar extends React.Component {
   state = {
     mainButton: "",
     text: '',
-    slogan: 1
+    slogan: 1,
+    isPhone: false
   }
 
   async componentDidMount() {
     const number = Math.round(Math.random() * 10)
+    const phone = window.matchMedia("(pointer: coarse)").matches
 
     if (number > 5) {
-      this.setState({slogan: 2})
+      this.setState({slogan: 2, isPhone: phone})
     } else {
-      this.setState({slogan: 1})
+      this.setState({slogan: 1, isPhone: phone})
     }
   }
 
@@ -38,33 +40,71 @@ class SecondHandNavbar extends React.Component {
     return (
       <div className="second-hand-navbar">
 
-        <a href="/" className="link-no-underline" alt="Home Page">
-          
-          <div className="menu" onMouseLeave={() => {
-            this.revealText("")
-          }}>
-
-            <div className="logo label"></div>
-
-            <div className="spacer"></div>
-            <Link to="/second-hand" className="item one" onMouseEnter={() => {
-              this.revealText("Second Hand Market")
-            }} onMouseLeave={() => {
-              this.revealText("")
-            }}></Link>
-            <Link to="/products" className="item two" onMouseEnter={() => {
-              this.revealText("Our Shop")
-            }} onMouseLeave={() => {
-              this.revealText("")
-            }}></Link>
-            <Link to="/forum" className="item three" onMouseEnter={() => {
-              this.revealText("Forum")
-            }} onMouseLeave={() => {
-              this.revealText("")
-            }}></Link>
+        {(!this.state.isPhone && window.innerWidth >= 600) &&
+          <a href="/" className="link-no-underline" alt="Home Page">
             
-          </div>
-        </a>
+            <div className="menu" onMouseLeave={() => {
+              this.revealText("")
+            }}>
+
+              <div className="logo label"></div>
+
+              <div className="spacer"></div>
+              <Link to="/second-hand" className="item one" onMouseEnter={() => {
+                this.revealText("Second Hand Market")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+              <Link to="/products" className="item two" onMouseEnter={() => {
+                this.revealText("Our Shop")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+              <Link to="/forum" className="item three" onMouseEnter={() => {
+                this.revealText("Forum")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+              
+            </div>
+          </a>
+        }
+
+        {(this.state.isPhone || window.innerWidth < 600) &&                  
+            <div className="menu" onMouseLeave={() => {
+              this.revealText("")
+            }}>
+
+              <div className="logo label"></div>
+
+              <div className="spacer"></div>
+              
+              <Link to="/second-hand" className="item one" onMouseEnter={() => {
+                this.revealText("Second Hand Market")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+
+              <Link to="/products" className="item two" onMouseEnter={() => {
+                this.revealText("Our Shop")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+
+              <Link to="/forum" className="item three" onMouseEnter={() => {
+                this.revealText("Forum")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+
+              <Link to="/" className="item four" onMouseEnter={() => {
+                this.revealText("Homepage")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}></Link>
+                    
+            </div>
+        }
 
         {this.state.slogan === 1 &&
           <h1 className="slogan-header">Bring Hippies <br /> Back</h1>

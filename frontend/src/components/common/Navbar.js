@@ -11,7 +11,14 @@ class Navbar extends React.Component {
     isClothing: null,
     showProductsNavbar: false,
     dotMenuText: false,
-    isHoveringDonation: false
+    isHoveringDonation: false,
+    isPhone: false
+  }
+
+  async componentDidMount() {
+    const phone = window.matchMedia("(pointer: coarse)").matches
+
+    this.setState({isPhone: phone})
   }
 
   changeMainButton = (hoveredItem) => {
@@ -211,18 +218,32 @@ class Navbar extends React.Component {
             </div>
           </div>
 
-          <div className="header">
-            <a href="/" className="link-no-underline" alt="Home Page">
+          {(!this.state.isPhone && window.innerWidth >= 800) &&
+            <div className="header">
+              <a href="/" className="link-no-underline" alt="Home Page">
+                <div className="menu">
+                  <div className="logo label"></div>
+                  <div className="spacer"></div>
+                  <Link to="/second-hand" className="item one"></Link>
+                  <Link to="/products" className="item two"></Link>
+                  <Link to="/forum" className="item three"></Link>
+                </div>
+              </a>
+            </div>
+          }
+
+          {(this.state.isPhone || window.innerWidth < 800) &&  
+            <div className="header">
               <div className="menu">
                 <div className="logo label"></div>
                 <div className="spacer"></div>
                 <Link to="/second-hand" className="item one"></Link>
                 <Link to="/products" className="item two"></Link>
                 <Link to="/forum" className="item three"></Link>
+                <Link to="/" className="item four"></Link>
               </div>
-            </a>
-          </div>
-    
+            </div>
+          }
         </div>
       
         {/* <Link to="/discount" title="Slap Putin and get discount">

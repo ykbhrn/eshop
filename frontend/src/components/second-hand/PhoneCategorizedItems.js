@@ -22,7 +22,7 @@ const queryParams = {
 const MyInput = (props) => <input {...props} placeholder="Add your postcode or adress" />
 
 
-class CategorizedItems extends React.Component {
+class PhoneCategorizedItems extends React.Component {
   state = {
     items: [],
     hoveredProductId: '',
@@ -167,16 +167,18 @@ class CategorizedItems extends React.Component {
             this.showMenu(null)
           }}>
 
-            <div className="menu-category" onMouseEnter={() =>{
-              this.showMenu("women")
-            }}>
+            <div className="menu-category">
 
-              <Link to="/second-hand/all/women" onClick={() =>{
-                this.showMenu(null)
-              }}><div className="menu-category-header">Women</div></Link>
+              <div className="menu-category-header" onTouchStart={() =>{
+                this.showMenu("women")
+              }}>Women</div>
 
               {this.state.isMenu === "women" &&
               <>
+                <Link to="/second-hand/all/women" onClick={() =>{
+                  this.showMenu(null)
+                }}><div className="menu-item">Women- All</div></Link>
+              
                 <Link to="/second-hand/dresses/women" onClick={() =>{
                   this.showMenu(null)
                 }}><div className="menu-item">Dresses</div>
@@ -236,17 +238,19 @@ class CategorizedItems extends React.Component {
 
             </div>
 
-            <div className="menu-category" onMouseEnter={() =>{
-              this.showMenu("men")
-            }}>
+            <div className="menu-category">
 
-              <Link to="/second-hand/all/men" onClick={() =>{
-                this.showMenu(null)
-              }}><div className="menu-category-header">Men</div>
-              </Link>
+              <div className="menu-category-header" onTouchStart={() =>{
+                this.showMenu("men")
+              }}>Men</div>
 
               {this.state.isMenu === "men" &&
               <>
+                <Link to="/second-hand/all/men" onClick={() =>{
+                  this.showMenu(null)
+                }}><div className="menu-item">Men- All</div>
+                </Link>
+              
                 <Link to="/second-hand/t-shirts/men" onClick={() =>{
                   this.showMenu(null)
                 }}><div className="menu-item">T-Shirts</div>
@@ -291,17 +295,19 @@ class CategorizedItems extends React.Component {
 
             </div>
 
-            <div className="menu-category" onMouseEnter={() =>{
-              this.showMenu("uni")
-            }}>
+            <div className="menu-category">
               
-              <Link to="/second-hand/all/uni" onClick={() =>{
-                this.showMenu(null)
-              }}><div className="menu-category-header">Uni</div>
-              </Link>
+              <div className="menu-category-header" onTouchStart={() => {
+                this.showMenu("uni")
+              }}>Uni</div>
 
               {this.state.isMenu === "uni" &&
               <>
+                <Link to="/second-hand/all/uni" onClick={() =>{
+                  this.showMenu(null)
+                }}><div className="menu-item">Uni- All</div>
+                </Link>
+              
                 <Link to="/second-hand/t-shirts/uni" onClick={() =>{
                   this.showMenu(null)
                 }}><div className="menu-item">T-Shirts</div>
@@ -337,17 +343,17 @@ class CategorizedItems extends React.Component {
                 }}><div className="menu-item">Sweaters</div>
                 </Link>
 
-                <Link to="/second-hand/dresses/women" onClick={() =>{
+                <Link to="/second-hand/dresses/uni" onClick={() =>{
                   this.showMenu(null)
                 }}><div className="menu-item">Dresses</div>
                 </Link>
 
-                <Link to="/second-hand/skirts/women" onClick={() =>{
+                <Link to="/second-hand/skirts/uni" onClick={() =>{
                   this.showMenu(null)
                 }}><div className="menu-item">Skirts</div>
                 </Link>
 
-                <Link to="/second-hand/tops/women" onClick={() =>{
+                <Link to="/second-hand/tops/uni" onClick={() =>{
                   this.showMenu(null)
                 }}><div className="menu-item">Tops</div>
                 </Link>
@@ -480,4 +486,4 @@ class CategorizedItems extends React.Component {
   }
 }
 
-export default CategorizedItems
+export default PhoneCategorizedItems

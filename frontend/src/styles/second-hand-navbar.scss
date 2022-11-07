@@ -71,7 +71,7 @@
     transition-delay: 0;
     
   }
-  .one, .two, .three {
+  .one, .two, .three, .four {
     width: 80px;
     height: 80px;
     transform-style: preserve-3d;
@@ -102,6 +102,10 @@
   .three{
     background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654625675/Nu%20Hippies/icons/forum_edavyj.png);
   }
+  .four{
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1667786561/Nu%20Hippies/icons/home_q5wsmi.png);
+  }
+
   span {
     transition: color 0.5s ease;
   }
