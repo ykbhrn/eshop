@@ -1,8 +1,8 @@
 @import "./variables.scss";
 
 $TOGGLE: $third-color;
-$TOGGLE2: $alternative-dark-color;
-$TOGGLE3: $dark-color;
+$TOGGLE2: $light-color;
+$TOGGLE3: $text-color;
 $DOT_FONT_SIZE: 27px;
 $BORDER: #555273;
 $FONT: #f2fdff;
@@ -86,7 +86,7 @@ li {
 .toggle {
   opacity: 0;
   &:checked {
-    & + .label {
+    & + .label-dots {
       .hum-img {
         @include prefixes(transition, 0.8s);
         @include prefixes(transform, rotate(45deg) scale(0.5));
@@ -164,7 +164,7 @@ li {
   }
 }
 
-.label {
+.label-dots {
   position: absolute;
   top: calc(50% - (330px / 2));
   left: calc(50% - (330px / 2));
@@ -662,6 +662,8 @@ li {
   @include prefixes(transition, 0.8s);
   &.text{
     font-size: 45px;
+    line-height: 45px;
+    height: 120px;
     color: white;
     display: flex;
     justify-content: center;

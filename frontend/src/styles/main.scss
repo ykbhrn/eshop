@@ -994,6 +994,7 @@ button{
 }
 .cat-nav{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 30px 0 10px 0;
   width: 100vw;
@@ -1002,6 +1003,7 @@ button{
     color: $text-color;
     padding-right: 10px;
     font-size: 20px;
+    margin-bottom: 10px;
   }
   .sign{
     margin-right: 10px;

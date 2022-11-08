@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import PhoneDotsMenu from './PhoneDotsMenu'
 import { isAuthenticated } from '../../lib/auth'
 import { getMyProfile } from '../../lib/api'
 
@@ -46,7 +47,7 @@ class Navbar extends React.Component {
   }
 
   openDotsMenu = (item) => {
-    const dot = document.querySelectorAll(".label")
+    const dot = document.querySelectorAll(".label-dots")
 
     if (item === 0) {
       dot[0].style.width = dot[0].style.width === '150px' ? '330px' : '150px'
@@ -88,11 +89,12 @@ class Navbar extends React.Component {
           }\
           '}
           </style>
-          <div className="products-navbar change-brightness">
+          <div className="products-navbar">
 
             <div className="products-navbar-icon" onClick={this.productsMenuShow} >
             </div>
-          
+
+            {(!this.state.isPhone && window.innerWidth >= 800) &&
             <div className="hover-products-menu">
 
               {/* Products navbar */}
@@ -101,7 +103,7 @@ class Navbar extends React.Component {
                 <input className="toggle" id="nav" type="checkbox" onClick={() => {
                   this.openDotsMenu(0)
                 }} />
-                <label className="label" htmlFor="nav"
+                <label className="label-dots" htmlFor="nav"
                   onMouseEnter={() => {
                     this.showText(0)
                   }}
@@ -161,7 +163,7 @@ class Navbar extends React.Component {
               <nav><input className="toggle" id="nav-two" type="checkbox" onClick={() => {
                 this.openDotsMenu(1)
               }}/>
-              <label className="label" htmlFor="nav-two" 
+              <label className="label-dots" htmlFor="nav-two" 
                 onMouseEnter={() => {
                   this.showText(1)
                 }}
@@ -216,6 +218,12 @@ class Navbar extends React.Component {
               </nav>
 
             </div>
+            }
+
+            {(this.state.isPhone || window.innerWidth < 800) &&  
+              <PhoneDotsMenu />
+            }
+
           </div>
 
           {(!this.state.isPhone && window.innerWidth >= 800) &&
