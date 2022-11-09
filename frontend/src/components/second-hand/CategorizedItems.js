@@ -19,7 +19,7 @@ const queryParams = {
   country: 'gb'
 }
 
-const MyInput = (props) => <input {...props} placeholder="Add your postcode or adress" />
+const MyInput = (props) => <input {...props} placeholder="Add your postcode or address" />
 
 
 class CategorizedItems extends React.Component {

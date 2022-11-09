@@ -22,7 +22,6 @@
       min-width: 40px;
       min-height: 40px;
       border-radius: 50%;
-      // transition-delay: .1s;
       position: relative;
       background-position: center center;
       background-size: contain;
@@ -31,11 +30,11 @@
       background-blend-mode: color-burn;
       transition: 0.5s linear;
       cursor: pointer;
-      &:hover{
-        box-shadow: 0 0 10px 2px $third-color;
-        background-color: rgb(220, 253, 255);
-        transform: rotate(-90deg);
-      }
+      // &:hover{
+      //   box-shadow: 0 0 10px 2px $third-color;
+      //   background-color: rgb(220, 253, 255);
+      //   transform: rotate(-90deg);
+      // }
     }
     .label {
       display: inline-block;

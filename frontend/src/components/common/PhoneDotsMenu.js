@@ -77,7 +77,7 @@ class PhoneDotsMenu extends React.Component {
             onMouseLeave={() => {
               this.showText(false)
             }}
-            onTouchStart={() =>{
+            onTouchEnd={() =>{
               this.isActive("")
             }}
           >
@@ -94,7 +94,7 @@ class PhoneDotsMenu extends React.Component {
             <ul className="list">
               <li className="list__home">
 
-                <a href={this.state.clickable === "bags" ? "/products/accessories/bags/all/all" : "javascript:void(0)"} title="Bags" onTouchEnd={() =>{
+                <a href={this.state.clickable === "bags" ? "/products/accessories/bags/all/all" : "javascript:void(0)"} title="Bags" onClick={() =>{
                   this.isActive("bags")
                 }}>
                   Bags
@@ -109,7 +109,7 @@ class PhoneDotsMenu extends React.Component {
 
               <li className="list__clients">
 
-                <a href={this.state.clickable === "home and garden" ? "/products/accessories/Home and Garden/all/all" : "javascript:void(0)"} title="Home and Garden" onTouchStart={() =>{
+                <a href={this.state.clickable === "home and garden" ? "/products/accessories/Home and Garden/all/all" : "javascript:void(0)"} title="Home and Garden" onClick={() =>{
                   this.isActive("home and garden")
                 }}>
                   Home and Garden
@@ -124,7 +124,7 @@ class PhoneDotsMenu extends React.Component {
 
               <li className="list__strauss">
 
-                <a href={this.state.clickable === "jewellery" ? "/products/accessories/jewellery/all/all" : "javascript:void(0)"} title="Jewellery" onTouchStart={() =>{
+                <a href={this.state.clickable === "jewellery" ? "/products/accessories/jewellery/all/all" : "javascript:void(0)"} title="Jewellery" onClick={() =>{
                   this.isActive("jewellery")
                 }}>
                   Jewellery
@@ -139,7 +139,7 @@ class PhoneDotsMenu extends React.Component {
 
               <li className="list__contact">
                 
-                <a href={this.state.clickable === "others" ? "/products/accessories/others/all/all" : "javascript:void(0)"} title="Others" onTouchStart={() =>{
+                <a href={this.state.clickable === "others" ? "/products/accessories/others/all/all" : "javascript:void(0)"} title="Others" onClick={() =>{
                   this.isActive("others")
                 }}>
                   Others
@@ -155,7 +155,7 @@ class PhoneDotsMenu extends React.Component {
           </label>
         </nav>
 
-        <div className="products-menu-close" onClick={this.productsMenuShow} onTouchStart={() =>{
+        <div className="products-menu-close" onClick={this.productsMenuShow} onTouchEnd={() =>{
           this.isActive("")
         }}>
           <img src="https://res.cloudinary.com/nuhippies/image/upload/v1644809706/Nu%20Hippies/icons/error_rvhkbf.png" />
@@ -173,7 +173,7 @@ class PhoneDotsMenu extends React.Component {
           onMouseLeave={() => {
             this.showText(false)
           }}
-          onTouchStart={() =>{
+          onTouchEnd={() =>{
             this.isActive("")
           }}
         >
@@ -190,7 +190,7 @@ class PhoneDotsMenu extends React.Component {
 
             <li className="list__home">
 
-              <a href={this.state.clickable === "immunity" ? "/products/supplements/immunity/all/all" : "javascript:void(0)"} title="Immunity" onTouchStart={() =>{
+              <a href={this.state.clickable === "immunity" ? "/products/supplements/immunity/all/all" : "javascript:void(0)"} title="Immunity" onClick={() =>{
                 this.isActive("immunity")
               }}>
                 Immunity
@@ -205,7 +205,7 @@ class PhoneDotsMenu extends React.Component {
 
             <li className="list__clients">
 
-              <a href={this.state.clickable === "digestion" ? "/products/supplements/digestion/all/all" : "javascript:void(0)"} title="Digestion" onTouchStart={() =>{
+              <a href={this.state.clickable === "digestion" ? "/products/supplements/digestion/all/all" : "javascript:void(0)"} title="Digestion" onClick={() =>{
                 this.isActive("digestion")
               }}>
                 Digestion
@@ -220,7 +220,7 @@ class PhoneDotsMenu extends React.Component {
 
             <li className="list__strauss">
 
-              <a href={this.state.clickable === "vegan" ? "/products/supplements/vegan/all/all" : "javascript:void(0)"} title="Vegan" onTouchStart={() =>{
+              <a href={this.state.clickable === "vegan" ? "/products/supplements/vegan/all/all" : "javascript:void(0)"} title="Vegan" onClick={() =>{
                 this.isActive("vegan")
               }}>
                 Vegan
@@ -235,7 +235,7 @@ class PhoneDotsMenu extends React.Component {
 
             <li className="list__contact">
 
-              <a href={this.state.clickable === "others" ? "/products/supplements/others/all/all" : "javascript:void(0)"} title="Others" onTouchStart={() =>{
+              <a href={this.state.clickable === "others" ? "/products/supplements/others/all/all" : "javascript:void(0)"} title="Others" onClick={() =>{
                 this.isActive("others")
               }}>
                 Others

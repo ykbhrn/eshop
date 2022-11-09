@@ -188,6 +188,7 @@ class App extends React.Component {
 
    pointerEventsOff = (event) => {
      const mainMenuOl = document.querySelector(".main-menu-ol")
+     const mainMenuIcon = document.querySelector(".main-menu-icon")
      const items = document.querySelectorAll(".phone-menu-wrapper .item")
 
      if (!event.target.classList.contains("main-menu-icon") && !event.target.classList.contains("emoji-icon")) {
@@ -196,6 +197,10 @@ class App extends React.Component {
          item.style.left = "-540px"
          item.style.opacity = "0"
        })
+
+       mainMenuIcon.style.transform = "rotate(0deg)"
+       mainMenuIcon.style.backgroundColor = "transparent"
+       mainMenuIcon.style.boxShadow = "none"
  
        mainMenuOl.style.background = "none"
      }

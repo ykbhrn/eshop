@@ -20,15 +20,36 @@ class PhoneMainMenu extends React.Component {
 
   pointerEventsOn = () => {
     const mainMenuOl = document.querySelector(".main-menu-ol")
-
+    const mainMenuIcon = document.querySelector(".main-menu-icon")
     const items = document.querySelectorAll(".phone-menu-wrapper .item")
 
-    items.forEach(item => {
-      item.style.left = "0px"
-      item.style.opacity = "1"
-    })
+    var  temp = window.getComputedStyle(items[0]).getPropertyValue("opacity");
 
-    mainMenuOl.style.background = "#f3f5fd"
+    if (temp == 0) {
+
+      items.forEach(item => {
+        item.style.left = "0px"
+        item.style.opacity = "1"
+      })
+  
+      mainMenuIcon.style.transform = "rotate(-90deg)"
+      mainMenuIcon.style.backgroundColor = "rgb(220, 253, 255)"
+      mainMenuIcon.style.boxShadow = "0 0 10px 2px #52C1C7"
+      mainMenuOl.style.background = "#f3f5fd"
+
+    } else {
+
+      items.forEach(item => {
+        item.style.left = "-540px"
+        item.style.opacity = "0"
+      })
+
+      mainMenuIcon.style.transform = "rotate(0deg)"
+      mainMenuIcon.style.backgroundColor = "transparent"
+      mainMenuIcon.style.boxShadow = "none"
+  
+      mainMenuOl.style.background = "none"
+    }
 
   }
 
@@ -101,11 +122,8 @@ class PhoneMainMenu extends React.Component {
             </ol>
           </nav>
 
-          {/* <div className="spacer"></div> */}
-
           <div className='main-menu-icon label' onTouchStart={this.pointerEventsOn}></div>
 
-            
         </div>
 
       </div>

@@ -67,7 +67,7 @@ class CategoriziedProducts extends React.Component {
   }
 
   handleClick = (event) => {
-    console.log(event.target)
+    
     if (event.target.name === "search") {
       this.setState({ isSearching: true })
     } else {
