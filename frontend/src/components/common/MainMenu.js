@@ -45,7 +45,7 @@ class MainMenu extends React.Component {
     return (
       <div className="main-menu-wrapper">
 
-        <div className="main-menu">
+        <div className="main-menu" onMouseLeave={this.pointerEventsOff}>
 
           <nav>
             <ol>

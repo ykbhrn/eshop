@@ -161,17 +161,9 @@ class PopupDiscount extends React.Component {
     const discountPage = document.querySelector('.discount-page')
     const discountPageHeader = document.querySelector('.discount-page h1')
     const discountPopup = document.querySelector('.discount-popup-wrapper')
-    const changeBrightness = document.querySelectorAll('.change-brightness')
-    const site = document.body
 
     const availableHeight = window.innerHeight
     const availableWidth = window.innerWidth
-
-    changeBrightness.forEach(item => {
-      item.style.filter = "brightness(0.7)"
-    })
-
-    site.style.background = "gray"
 
     const popupInterval = setInterval(() => {
 
