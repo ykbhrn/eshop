@@ -1,26 +1,49 @@
 @import "./variables.scss";
 
-.home-page{
+.home-page, .home-page-phone{
   display: flex;
   // justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-    background: black;
-  background-image: url(https://w0.peakpx.com/wallpaper/711/727/HD-wallpaper-sun-alone-minimal-minimalism-phone-kurdistan-sad-black-me-logo-kurd.jpg);
+  background: black;
+  // background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1668006967/Nu%20Hippies/Backgrounds/ce6e76ce6cb55fedae6d2b2c126309e3-removebg-preview_miv1fd.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  padding-bottom: 60px;
   .home-title-wrapper{
     margin-top: 0px;
   }
   h1{
     font-size: 80px;
     color: white;
-    margin-top: 0px;
+    margin-top: 10px;
     font-family: $logo-font;
   }
+
+.eye-gif{
+  position: absolute;
+  top: -30px;
+  right: 20px;
+}
+
+.home-background-image{
+  // width: 300px;
+  // height: 560px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -187.5px;
+  margin-top: -247px;
+  transition: 2.5s linear;
+}
+
+.all-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .all {
@@ -29,6 +52,7 @@
   top: 50%;
   margin-top: -62px;
   perspective: 10px;
+  height: 120px;
   transform: perspective(300px) rotateX(20deg);
   will-change: perspective;
   perspective-origin: center center;
@@ -52,9 +76,9 @@
   }
 }
 
-.left, .center, .right, .lefter, .righter {
-  width: 140px;
-  height: 140px;
+.home-menu-item {
+  width: 120px;
+  height: 120px;
   transform-style: preserve-3d;
   border-radius: 50%;
   // border: 1px solid #fff;
@@ -77,13 +101,16 @@
 .text {
   transform: translateY(30px);
   transition: all .3s ease;
-  font-size: 30px;
+  font-size: 25px;
   top: 190px;
   position: absolute;
   margin: 0 auto;
   will-change: transform;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(100, 100, 255, .6)
+  color: black;
+  background: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-shadow: 0px 0px 10px rgba(82,193,199,0.99);
 }
 .hidden-text{
   visibility: hidden;
@@ -113,11 +140,10 @@
   font-size: 2rem;
   color: #fff;
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   visibility: visible;
-  // background-color: #303050;
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654912298/Nu%20Hippies/icons/nu-hippies-white-logo_txifvd.png), radial-gradient(circle at center top, black, black);
+  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1668021741/Nu%20Hippies/icons/nu-hippies-white-logo_txifvd_wnlnt5.png), radial-gradient(circle at center top, black, black);
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
@@ -129,7 +155,6 @@
   animation: 4s shrinking-logo linear infinite;
   transform-origin: left;
   box-shadow: 0 0 20px 5px rgba(809, 809, 17, 0.372);
-  z-index: 3;
 }
 
 
@@ -185,5 +210,111 @@
   }
   100%{
     box-shadow: 0 0 20px 0px rgba(809, 809, 17, 0.372);
+  }
+}
+}
+// Is Touch Screen or max 600px width
+
+.home-page-phone{
+  overflow-x: hidden;
+  .home-background-phone{
+    position: absolute;
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1668049899/Nu%20Hippies/Backgrounds/HD-wallpaper-astronaut-black-cross-design-dragon-gold-golden-key-letter-love-scorpion-removebg-preview_x8ofbi.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -270.75px;
+    width: 300px;
+    height: 533px;
+    transition: 4s linear;
+    animation: astronauts 15s linear infinite;
+    z-index: 7;
+  }
+  h1{
+    font-size: 30px;
+  }
+  .home-title-wrapper{
+    top: 25px;
+  }
+  .header{
+    margin-top: -20px;
+  }
+  .dynamic-txts{
+    li{
+      font-size: 25px;
+    }
+    li span::after{
+      margin-top: 25px;
+    }
+  }
+  .all{
+    height: 130px;
+    margin-top: -70px;
+    a{
+      text-decoration: none;
+    }
+  }
+
+  .explainer{
+    width: 130px;
+    height: 130px;
+    z-index: 2;
+  }
+  .text{
+    visibility: hidden;
+  }
+  .home-menu-item{
+    width: 80px;
+    height: 80px;
+    transition-delay: 0s;
+  }
+  .hidden-text{
+    visibility: hidden;
+    position: relative;
+    top: 90px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+@keyframes astronauts {
+  0%{
+    transform: rotate(0deg);
+  }
+  10%{
+    transform: rotate(36deg);
+
+  }
+  20%{
+    transform: rotate(72deg);
+  }
+  30%{
+    transform: rotate(108deg);
+  }
+  40%{
+    transform: rotate(144deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  60%{
+    transform: rotate(216deg);
+  }
+  70%{
+    transform: rotate(252deg);
+
+  }
+  80%{
+    transform: rotate(288deg);
+  }
+  90%{
+    transform: rotate(324deg);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }

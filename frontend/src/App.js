@@ -4,6 +4,7 @@ import { getMyProfile } from './lib/api'
 import { isAuthenticated } from './lib/auth'
 
 import Home from './components/common/Home'
+import PhoneHome from './components/common/PhoneHome'
 import CategoriziedProducts from './components/products/CategoriziedProducts'
 import AllProducts from './components/products/AllProducts'
 import SingleProduct from './components/products/SingleProduct'
@@ -48,8 +49,6 @@ import ErrorPage from './components/common/ErrorPage'
 window.onscroll = function () { 
   const logo = document.querySelector(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
-  const basketIcon = document.querySelector(".basket-icon-wrapper")
-  const basketNumber = document.querySelector(".basket-number")
   const flowerElement = document.querySelectorAll(".flower-container")
   const vanImg = document.querySelector(".products-banner img")
   const navbar = document.querySelector(".navbar")
@@ -58,9 +57,7 @@ window.onscroll = function () {
   if (document.documentElement.scrollTop > 10) {
     
     if (navbar) {
-      // basketIcon.classList.add("basket-icon-scroll")
       productsNavbarIcon.classList.add("products-navbar-icon-scroll")
-      // basketNumber.classList.add("basket-number-scroll")
       logo.classList.add("logo-scroll")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
     } else if (secondNavbar) {
@@ -71,9 +68,7 @@ window.onscroll = function () {
   } else if (document.documentElement.scrollTop < 10) {
       
     if (navbar) {
-      // basketIcon.classList.remove("basket-icon-scroll")
       productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
-      // basketNumber.classList.remove("basket-number-scroll")
       logo.classList.remove("logo-scroll")
       logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
     } else if (secondNavbar) {
@@ -147,9 +142,6 @@ class App extends React.Component {
   async componentDidMount() {
     try {
       window.scrollTo(0, 0)
-      // const ua = window.navigator.userAgent;
-      // const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-      // var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
       const phone = window.matchMedia("(pointer: coarse)").matches
 
@@ -214,8 +206,7 @@ class App extends React.Component {
            <BasketIcon
              basketLength={this.state.basketLength}
            />
-           {/* <Navbar />
-          <SecondHandNavbar /> */}
+
            {(!this.state.isPhone && window.innerWidth >= 600) &&
             <MainMenu />
            }
@@ -224,7 +215,12 @@ class App extends React.Component {
            }
            <PopupDiscount />
            <Switch>
-             <Route exact path='/' component={Home} />
+             {(!this.state.isPhone && window.innerWidth >= 600) &&
+              <Route exact path='/' component={Home} />
+             }
+             {(this.state.isPhone || window.innerWidth < 600) &&
+              <Route exact path='/' component={PhoneHome} />
+             }
              <Route path="/products/:subcategory/:typeOne/:typeTwo/:typeThree" component={CategoriziedProducts} />
              <Route path='/products/:name/:id' render={(props) => <SingleProduct {...props} basket={this.basket} />} />
              <Route path="/products" component={AllProducts} />
