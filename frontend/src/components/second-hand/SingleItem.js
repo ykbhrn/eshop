@@ -9,7 +9,8 @@ class SingleItem extends React.Component {
   state = {
     item: null,
     bigImage: '',
-    isLoading: false
+    isLoading: false,
+    posted: ""
   }
 
   async componentDidMount() {
@@ -18,14 +19,22 @@ class SingleItem extends React.Component {
 
       const itemId = this.props.match.params.id;
       const res = await getSingleUsedItem(itemId);
-      console.log(res.data)
 
+      const firstArray = res.data.createdAt.split("T")
+      const dateArray = firstArray[0].split("-").reverse().join("/")
+      const timeArray = firstArray[1].split("")
+
+      //Temporary hard coded London time zone
+      timeArray[1] = Number(timeArray[1])
+      const finishedTimeArray = timeArray.slice(0, 5).join("")
+                      
       seo({
         title: res.data.title + "| NHM",
         metaDescription: res.data.description
       });
 
-      this.setState({ item: res.data, bigImage: res.data.images[0], imagesArray: res.data.images });
+      this.setState({ item: res.data, bigImage: res.data.images[0], imagesArray: res.data.images,
+        posted: dateArray + " " + finishedTimeArray});
 
     } catch (err) {
       console.log(err);
@@ -82,7 +91,7 @@ class SingleItem extends React.Component {
     } else {
       if (!item) return null
     }
-
+    console.log(item)
     const newName = item.title.replace(/ /g, '-')
 
     return (
@@ -103,8 +112,18 @@ class SingleItem extends React.Component {
                   }} key={image}></div>
                 })}
               </div>
-              <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
+
+              <div className='image-posted-wrapper'>
+
+                <div className="single-product-image" style={{ backgroundImage: `url(${this.state.bigImage})` }}>
+                </div>
+
+                <div className='date-single-item'>
+                  Posted: {this.state.posted}              
+                </div>
+
               </div>
+            
             </div>
 
             <div className="single-items-side-info-wrapper">
