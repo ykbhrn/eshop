@@ -96,7 +96,7 @@ class PhoneHome extends React.Component {
             </div>
           </div>
 
-          <div className='home-background-phone'></div>
+          <img className='home-background-phone'  src="https://res.cloudinary.com/nuhippies/image/upload/v1668055021/Nu%20Hippies/Backgrounds/astro_cef7ak.png"/>
 
           <div className="all" onMouseEnter={this.handleEye}>
 
