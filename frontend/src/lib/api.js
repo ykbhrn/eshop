@@ -107,6 +107,10 @@ export const getSingleUsedItem = id => {
   return axios.get(`/api/used-item/${id}`)
 }
 
+export const deleteUsedItem = id => {
+  return axios.delete(`/api/used-item/${id}`, withHeaders())
+}
+
 export const showUsedItemToUpdate = (id) => {
   return axios.get(`/api/used-item/update/${id}`, withHeaders())
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { logout } from '../../lib/auth';
-import { getMyProfile, updateUserAccount } from '../../lib/api';
+import { getMyProfile, deleteUsedItem } from '../../lib/api';
 import { Link } from 'react-router-dom';
 import {seo} from '../../lib/functions'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
@@ -8,7 +8,9 @@ import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 class YourAds extends React.Component {
   state = {
     user: null,
-    isLoading: false
+    isLoading: false,
+    deleteAd: false,
+    itemToDelete: ''
   }
 
   async componentDidMount() {
@@ -29,6 +31,27 @@ class YourAds extends React.Component {
 
   otherPreviewImage = (id) => {
     this.setState({ hoveredProductId: id });
+  }
+
+  deleteItem = async () => {
+
+    try {
+      this.setState({isLoading: true})
+
+      await deleteUsedItem(this.state.itemToDelete)
+
+      this.setState({isLoading: false})
+
+      window.location.assign('/profile/ads')
+    
+    } catch (err) {
+      window.location.assign('/error')
+    }
+
+  }
+
+  handleDelete = (item) => {
+    this.setState({deleteAd: this.state.deleteAd ? false : true, itemToDelete: item})
   }
 
   render() {
@@ -60,26 +83,61 @@ class YourAds extends React.Component {
           </div>
           }
 
+          {this.state.deleteAd &&
+                
+                <div className='password-change-notification'>
+                Are You Sure You Want To Delete This Ad?
+                
+                  <div className='buttons'>
+                    <button className="classic-btn" onClick={this.handleDelete}>Cancel</button>
+                
+                    {this.state.isLoading &&
+                    <div className="classic-btn btn-loading">
+                      <img src='https://res.cloudinary.com/nuhippies/image/upload/v1639599208/Nu%20Hippies/icons/loading_nxaifn.svg' className='loading-image' />
+                    </div>
+                    }
+                
+                    {!this.state.isLoading &&
+                  <button className="classic-btn" onClick={this.deleteItem}>Yes</button>
+                    }
+                  
+                  </div>
+                
+                </div>
+
+          }
+
           {user.userUsedItems.length >= 1 && 
           <div className="product-container">
             {user.userUsedItems.map(item => {
 
               const newName = item.title.replace(/ /g, '-')
 
-              return <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
-                <div className="product-wrapper" onMouseEnter={() => {
-                  this.otherPreviewImage(item._id);
-                }}
-                onMouseLeave={this.backToMainProductImage}>
-                  <div className="product-preview-image"
-                    style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id && item.images[1] ? item.images[1] : item.images[0]})` }}>
-                  </div>
-                  <div className="product-preview-name">{item.title}</div>
-                  <div className="product-preview-price-wrapper">
-                    <div className="product-preview-price">£{item.price}</div>
-                  </div>
+              return <div key={item._id}> 
+                <div className='edit-delete-wrapper'>
+                  <Link to={`/second-hand/edit-item/${newName}/${item._id}`}>Edit</Link>
+
+                  <div className='delete-item' onClick={() => {
+                    this.handleDelete(item._id)
+                  }}>Delete</div>
+
                 </div>
-              </Link>;
+                
+                <Link to={`/second-hand/items/${newName}/${item._id}`} title={item.title} key={item._id}>
+                  <div className="product-wrapper" onMouseEnter={() => {
+                    this.otherPreviewImage(item._id);
+                  }}
+                  onMouseLeave={this.backToMainProductImage}>
+                    <div className="product-preview-image"
+                      style={{ backgroundImage: `url(${this.state.hoveredProductId === item._id && item.images[1] ? item.images[1] : item.images[0]})` }}>
+                    </div>
+                    <div className="product-preview-name">{item.title}</div>
+                    <div className="product-preview-price-wrapper">
+                      <div className="product-preview-price">£{item.price}</div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             })}
           </div>
           }

@@ -63,29 +63,29 @@ async function productUpdate(req, res) {
   }
 }
 
-async function updateAllTheProducts(req, res) {
+// async function updateAllTheProducts(req, res) {
 
-  async function promises() {
+//   async function promises() {
 
-    const products = await Product.find()
+//     const products = await Product.find()
 
-    const unresolved = products.map(async(product) => {
+//     const unresolved = products.map(async(product) => {
 
-      product.isFavorite = false
-      await product.save()
+//       product.isFavorite = false
+//       await product.save()
   
-    })
+//     })
 
-    const resolved = await Promise.all(unresolved)
+//     const resolved = await Promise.all(unresolved)
 
-    res.status(202).json(products)
-  }
-  try {
-    promises()
-  } catch (err) {
-    res.status(422).json(err)
-  }
-}
+//     res.status(202).json(products)
+//   }
+//   try {
+//     promises()
+//   } catch (err) {
+//     res.status(422).json(err)
+//   }
+// }
 
 async function productDelete(req, res) {
   const productId = req.params.id
@@ -105,6 +105,5 @@ module.exports = {
   create: productCreate,
   show: productShow,
   update: productUpdate,
-  delete: productDelete,
-  updateAllTheProducts
+  delete: productDelete
 }

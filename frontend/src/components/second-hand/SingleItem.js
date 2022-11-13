@@ -181,7 +181,10 @@ class SingleItem extends React.Component {
             </div>
 
             <div className="description-contact-wrapper">
-              <div className="product-description">{item.description}</div>
+              <div className="product-description">
+                <h2>Description:</h2>
+                <div>{item.description}</div>
+              </div>
               <div className="single-item-contact">
                 <div>Email: {item.email}</div>
                 <div>Phone number: {item.phone}</div>

@@ -256,10 +256,10 @@ class App extends React.Component {
              <Route path="/second-hand/edit-item/:name/:id" component={EditUsedItem} />
              <Route path="/second-hand/post-item" component={PostUsedItem} />
              {(this.state.isPhone || window.innerWidth < 600) &&
-             <Route path="/second-hand/:category/:gender" render={(props) => <PhoneCategorizedItems {...props} user={this.state.user} />} />
+              <Route path="/second-hand/:category/:gender" component={PhoneCategorizedItems} />
              }
              {(!this.state.isPhone && window.innerWidth >= 600) &&
-             <Route path="/second-hand/:category/:gender" render={(props) => <CategorizedItems {...props} user={this.state.user} />} />
+             <Route path="/second-hand/:category/:gender" component={CategorizedItems} />
              }
              <Route path="/second-hand" component={UsedItems} />
              <Route path="/maps" component={Maps} />

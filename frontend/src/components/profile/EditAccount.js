@@ -150,7 +150,7 @@ class EditAccount extends React.Component {
 
           {this.state.isNotification && 
           <div className='password-change-notification'>
-            Click on Confirm and check your email for the link to reset your password.
+            Click on Confirm and check your email for the link to reset your password
 
             <div className='buttons'>
               <button className="classic-btn" onClick={this.showNofification}>Cancel</button>

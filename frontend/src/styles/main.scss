@@ -1029,10 +1029,12 @@ button{
   width: 90vw;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 h1{
-  font-size: 26px;
-  font-weight: 400;
+  font-size: 30px;
+  font-weight: 600;
   text-align: center;
   width: autos;
 }
@@ -1083,7 +1085,7 @@ h1{
   justify-content: left;
   align-items: center;
 .product-price{
-  font-size: 34px;
+  font-size: 29px;
   font-weight: 400;
   margin: 0 auto;
 }
@@ -1398,6 +1400,21 @@ h1{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  .edit-delete-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 0 auto;
+    div:hover, a:hover{
+      color: $third-color;
+    }
+  }
+  .classic-btn{
+    margin: 20px 30px;
+  }
+  .delete-item{
+    cursor: pointer;
+  }
   .no-orders-wrapper{
     img{
       margin-top: 25px;
@@ -1566,30 +1583,7 @@ h1{
     margin: 17px;
     align-self: center;
   }
-  .password-change-notification{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 500px;
-    height: 300px;
-    border: 1px solid $text-color;
-    position: absolute;
-    font-weight: 500;
-    font-size: 23px;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -250px;
-    background: $main-background-color;
-    z-index: 3;
-    border-radius: 10px;
-    .buttons{
-      display: flex;
-      margin-top: 7px;
-    }
-  }
+
   .edit-line-container{
     display: flex;
     flex-direction: column;
@@ -1636,6 +1630,30 @@ h1{
     cursor: $pointer-cursor;
     align-self: center;
     margin-top: 15px;
+  }
+}
+.password-change-notification{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 500px;
+  height: 300px;
+  border: 1px solid $text-color;
+  position: absolute;
+  font-weight: 500;
+  font-size: 23px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -250px;
+  background: $main-background-color;
+  z-index: 3;
+  border-radius: 10px;
+  .buttons{
+    display: flex;
+    margin-top: 7px;
   }
 }
 

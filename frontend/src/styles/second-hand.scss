@@ -347,6 +347,13 @@
 //Single Item Page
 .single-item-page{
   margin: 20px 0;
+  .single-product-wrapper{
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    font-size: 25px;
+  }
   .add-edit-button{
     margin-top: 30px;
     font-size: 21px;
@@ -380,6 +387,9 @@
   .description-contact-wrapper{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
   }
   .single-product-side-info-wrapper{
     display: flex;
@@ -407,6 +417,12 @@
   .product-description{
     font-size: 19px;
     line-height: 24px!important;
+    align-self: center;
+    div{
+      background: white;
+      padding: 8px 18px;
+      text-align: center;
+    }
   }
   .single-item-contact{
     margin-top: 40px;
@@ -418,6 +434,7 @@
   }
   .date-single-item{
     margin-top: 10px;
+    margin-bottom: 20px;
     font-weight: 700;
     font-size: 20px;
     text-align: center;

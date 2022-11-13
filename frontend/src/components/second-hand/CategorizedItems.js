@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getAllUsedItems, updateUserAccount } from '../../lib/api';
+import { getAllUsedItems, updateUserAccount, getMyProfile } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 import Geocoder from 'react-mapbox-gl-geocoder'
@@ -31,7 +31,7 @@ class CategorizedItems extends React.Component {
     isMenu: null,
     placeName: false,
     coordinates: [],
-    distance: 100 * 1.60934,
+    distance: 100,
     isLoading: false
   }
 
@@ -48,14 +48,52 @@ class CategorizedItems extends React.Component {
 
       const res = await getAllUsedItems();
 
-      // if (isAuthenticated()) {
-      //   this.setState({ items: res.data.reverse(), isLoading: false, placeName: this.props.user.preferencePlaceName ? this.props.user.preferencePlaceName : false, 
-      //     coordinates: this.props.user.preferenceCoordinates ? this.props.user.preferenceCoordinates : []
-      //   });
-      //   console.log(this.state)
-      // } else {
-      this.setState({ items: res.data.reverse(), isLoading: false });
-      // }
+      if (isAuthenticated()) {
+
+        const resTwo = await getMyProfile()
+
+        if (resTwo.data.preferenceCoordinates) {
+
+          const filteredProducts = res.data.filter(product => {
+            if (this.getDistanceFromLatLonInKm(resTwo.data.preferenceCoordinates[1], resTwo.data.preferenceCoordinates[0], product.coordinates[1], product.coordinates[0]) < resTwo.data.preferenceDistance ? resTwo.data.preferenceDistance : 100) {
+              return product
+            }
+          })
+
+          this.setState({ items: filteredProducts.reverse(), isLoading: false, placeName: resTwo.data.preferencePlaceName ? resTwo.data.preferencePlaceName : false, 
+            coordinates: resTwo.data.preferenceCoordinates ? resTwo.data.preferenceCoordinates : [],
+            distance: resTwo.data.preferenceDistance ? resTwo.data.preferenceDistance : 100
+          });
+
+        } else {
+
+          this.setState({ items: res.data.reverse(), isLoading: false });
+
+        }
+
+
+      } else {
+
+        if (localStorage.getItem("coordinates")) {
+
+          const coord = JSON.parse(localStorage.getItem("coordinates"))
+
+          const filteredProducts = res.data.filter(product => {
+            if (this.getDistanceFromLatLonInKm(coord[1], coord[0], product.coordinates[1], product.coordinates[0]) < Number(localStorage.getItem("distance")) ? Number(localStorage.getItem("distance")) : 100) {
+              return product
+            }
+          })
+        
+          this.setState({ items: filteredProducts.reverse(), isLoading: false, placeName: localStorage.getItem("placeName") ? localStorage.getItem("placeName") : false, 
+            coordinates: coord ? coord : [],
+            distance: Number(localStorage.getItem("distance")) ? Number(localStorage.getItem("distance")) : 100
+          });
+
+        } else {
+          this.setState({ items: res.data.reverse(), isLoading: false });
+        }
+        
+      }
 
     } catch (err) {
       console.log(err)
@@ -70,12 +108,14 @@ class CategorizedItems extends React.Component {
     if (isAuthenticated()) {
       const som = await updateUserAccount({preferenceCoordinates: [item.center[0], item.center[1]], preferencePlaceName: item.place_name})
     } else {
-      localStorage.setItem('coordinates', [item.center[0], item.center[1]])
+
+      const arr = [item.center[0], item.center[1]]
+      localStorage.setItem('coordinates', JSON.stringify(arr))
       localStorage.setItem('placeName', item.place_name)
     }
 
     const filteredProducts = res.data.filter(product => {
-      if (this.getDistanceFromLatLonInKm(item.center[1], item.center[0], product.coordinates[1], product.coordinates[0]) < this.state.distance) {
+      if (this.getDistanceFromLatLonInKm(item.center[1], item.center[0], product.coordinates[1], product.coordinates[0]) < this.state.distance * 1.60934) {
         return product
       }
     })
@@ -95,10 +135,10 @@ class CategorizedItems extends React.Component {
 
 
     if (isAuthenticated()) {
-      const som = await updateUserAccount({preferenceDistance: distance})
-      console.log(som.data)
+      const som = await updateUserAccount({preferenceDistance: Number(event.target.value)})
+
     } else {
-      localStorage.setItem('distance', distance)
+      localStorage.setItem('distance', Number(event.target.value))
     }
 
     const filteredProducts = res.data.filter(product => {
@@ -109,7 +149,7 @@ class CategorizedItems extends React.Component {
       
     })
 
-    this.setState({items: filteredProducts.reverse(), distance: distance, isLoading: false})
+    this.setState({items: filteredProducts.reverse(), distance: Number(event.target.value), isLoading: false})
   }
 
   getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
@@ -157,6 +197,7 @@ class CategorizedItems extends React.Component {
   render() {
     const {viewport} = this.state
     const {category, gender} = this.props.match.params
+    if (!this.state.items) return null
     return (
       <>
         <SecondHandNavbar /> 
@@ -386,15 +427,15 @@ class CategorizedItems extends React.Component {
               <div className="distance-input">
               Distance in miles:
                 <select onChange={this.handleDistance}>
-                  <option>1</option>
-                  <option>3</option>
-                  <option>5</option>
-                  <option>10</option>
-                  <option>25</option>
-                  <option>50</option>
-                  <option selected>100</option>
-                  <option>500</option>
-                  <option value="1000000">Everything</option>
+                  {this.state.distance === 1 ? <option selected>1</option> : <option>1</option>}
+                  {this.state.distance === 3 ? <option selected>3</option> : <option>3</option>}
+                  {this.state.distance === 5 ? <option selected>5</option> : <option>5</option>}
+                  {this.state.distance === 10 ? <option selected>10</option> : <option>10</option>}
+                  {this.state.distance === 25 ? <option selected>25</option> : <option>25</option>}
+                  {this.state.distance === 50 ? <option selected>50</option> : <option>50</option>}
+                  {this.state.distance === 100 ? <option selected>100</option> : <option>100</option>}
+                  {this.state.distance === 500 ? <option selected>500</option> : <option>500</option>}
+                  {this.state.distance === 1000000 ? <option selected value="1000000">Everything</option> : <option value="1000000">Everything</option>}
                 </select>
               </div>
             </div>

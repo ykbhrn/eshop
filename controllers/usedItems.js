@@ -72,11 +72,37 @@ async function usedItemDelete(req, res) {
   }
 }
 
+async function deleteAllTheItems(req, res) {
+
+  if (req.currentUser.name !== 'admin') throw new Error('Not Found')
+
+  async function promises() {
+
+    const items = await UsedItem.find()
+
+    const unresolved = items.map(async(item) => {
+
+      await item.remove()
+  
+    })
+
+    const resolved = await Promise.all(unresolved)
+
+    res.status(202).json(items)
+  }
+  try {
+    promises()
+  } catch (err) {
+    res.status(422).json(err)
+  }
+}
+
 module.exports = {
   allUsedItems,
   usedItemCreate,
   usedItemShow,
   usedItemUpdate,
   usedItemShowToUpdate,
-  usedItemDelete
+  usedItemDelete,
+  deleteAllTheItems
 }
