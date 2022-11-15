@@ -14,7 +14,8 @@ class PopupDiscount extends React.Component {
     user: null,
     discountCounter: 0,
     slapped: false,
-    isDemoAnimation: false
+    isDemoAnimation: false,
+    isNotification: false
   }
 
   async componentDidMount () {
@@ -78,7 +79,7 @@ class PopupDiscount extends React.Component {
 
       const discountPage = document.querySelector('.discount-page')
       const discountPopup = document.querySelector('.discount-popup-wrapper')
-      const discountPageHeader = document.querySelector('.discount-page h1')
+      const discountPageHeader = document.querySelector('.discount-page .discount-header')
 
       discountPopup.style.visibility = "hidden"
       discountPageHeader.style.visibility = "hidden"
@@ -128,7 +129,7 @@ class PopupDiscount extends React.Component {
     setTimeout(() => {
       const discountPage = document.querySelector('.discount-page')
       const discountPopup = document.querySelector('.discount-popup-wrapper')
-      const discountPageHeader = document.querySelector('.discount-page h1')
+      const discountPageHeader = document.querySelector('.discount-page .discount-header')
 
       discountPopup.style.visibility = "hidden"
       discountPageHeader.style.visibility = "hidden"
@@ -159,7 +160,7 @@ class PopupDiscount extends React.Component {
     });
 
     const discountPage = document.querySelector('.discount-page')
-    const discountPageHeader = document.querySelector('.discount-page h1')
+    const discountPageHeader = document.querySelector('.discount-page .discount-header')
     const discountPopup = document.querySelector('.discount-popup-wrapper')
 
     const availableHeight = window.innerHeight
@@ -192,7 +193,7 @@ class PopupDiscount extends React.Component {
 
   slap = () => {
     const discountPage = document.querySelector('.discount-page')
-    const discountPageHeader = document.querySelector('.discount-page h1')
+    const discountPageHeader = document.querySelector('.discount-page .discount-header')
 
     if (discountPage.classList.contains("show-discount")) {
 
@@ -237,6 +238,10 @@ class PopupDiscount extends React.Component {
     window.location.reload()
   }
 
+  showNofification = () => {
+    this.setState({isNotification: this.state.isNotification ? false : true})
+  }
+
   render() {
     const discount = localStorage.getItem('discount')
 
@@ -244,7 +249,27 @@ class PopupDiscount extends React.Component {
     return (
       <div className="discount-page" onClick={this.slap}>
 
-        <h1>Slap The Mad Dictator</h1>
+        <div className='discount-header'>
+
+          {this.state.isNotification && 
+          <div className='password-change-notification'>
+            Are You Sure?
+
+            <div className='buttons'>
+              <button className="classic-btn" onClick={this.showNofification}>No</button>
+
+              <button className="classic-btn" onClick={this.closeScorePage}>Yes</button>
+             
+            </div>
+            
+          </div>
+          }
+          
+          <SecondHandNavbar /> 
+          <h1>Slap The Mad Dictator</h1>
+          <div className='cancel-game' onClick={this.showNofification}>Cancel Game</div>
+          
+        </div>
 
         <div className="discount-popup-wrapper" onClick={this.slapped}>
 
@@ -304,7 +329,6 @@ class PopupDiscount extends React.Component {
             <div className="classic-btn" onClick={this.closeScorePage}>Continue</div>
 
           </div>
-
 
         </div>
 

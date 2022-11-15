@@ -100,10 +100,7 @@
   .products-banner{
     height: 200px;
     .products-side-slogan{
-      transform: scale(0.35) rotate(-10deg);
-      transform-origin: left;
-      margin-top: -50px;
-      left: 5px;
+      display: none;
     }
     img {
       width: 140px;
@@ -180,6 +177,7 @@
 
   //Single Product 
   .single-product-section{
+    margin-top: 15px;
     .basket-added-wrapper{
       height: 50vh;
       width: 100vw;
@@ -535,6 +533,23 @@
 
 // max 600px screens
 @media only screen and (max-width: 600px) {
+  //Popup Discount
+  .discount-page{
+    .discount-header{
+      h1{
+        font-size: 30px;
+        line-height: 40px;
+      }
+      .cancel-game{
+        transform: scale(0.8);
+      }
+      .password-change-notification{
+        width: 90%;
+        margin-left: -45%;
+        font-size: 20px;
+      }
+    }
+  }
   //Navbar and Second Hand Navbar
 .second-hand-navbar{
   height: 70px;
@@ -554,7 +569,7 @@
 }
 
 .menu{
-    left: 21px;
+    left: 1px;
     .spacer{
       width: 350px;
       margin-left: -143px;
@@ -570,6 +585,7 @@
   }
 //Navbar
   .navbar{
+    height: 70px;
     .menu{
       margin-left: -30px;
     }
@@ -699,10 +715,13 @@
     margin-top: 27px;
   }
   .category-size-wrapper{
-    margin-top: 50px;
+    margin-top: 20px;
   }
   .date-single-item{
     font-size: 14px;
+  }
+  .place-wrapper{
+    margin: 30px 0 30px 0;
   }
 }
 

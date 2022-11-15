@@ -100,8 +100,8 @@ class PhoneHome extends React.Component {
 
           <div className="all" onMouseEnter={this.handleEye}>
 
-            <a href={this.state.clickable ? "/forum" : "javascript:void(0)"} className="left home-menu-item">
-              <div className="hidden-text">Forum</div>
+            <a href={this.state.clickable ? "/products" : "javascript:void(0)"} className="left home-menu-item">
+              <div className="hidden-text">Our Shop</div>
             </a>
 
             <div className="explainer"></div>
@@ -110,8 +110,8 @@ class PhoneHome extends React.Component {
               <div className="hidden-text">Second Hand Market</div>
             </a>
 
-            <a href={this.state.clickable ? "/products" : "javascript:void(0)"} className="right home-menu-item">
-              <div className="hidden-text">Our Shop</div>
+            <a href={this.state.clickable ? "/forum" : "javascript:void(0)"} className="right home-menu-item">
+              <div className="hidden-text">Forum</div>
             </a>
           
           </div>

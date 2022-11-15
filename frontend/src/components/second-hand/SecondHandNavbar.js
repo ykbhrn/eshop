@@ -50,21 +50,30 @@ class SecondHandNavbar extends React.Component {
               <div className="logo label"></div>
 
               <div className="spacer"></div>
-              <Link to="/second-hand" className="item one" onMouseEnter={() => {
-                this.revealText("Second Hand Market")
-              }} onMouseLeave={() => {
-                this.revealText("")
-              }}></Link>
-              <Link to="/products" className="item two" onMouseEnter={() => {
+
+              <Link to="/products" className="item one" onMouseEnter={() => {
                 this.revealText("Our Shop")
               }} onMouseLeave={() => {
                 this.revealText("")
-              }}></Link>
+              }}>
+                {/* <div className='item-text'>Our Shop</div> */}
+              </Link>
+
+              <Link to="/second-hand" className="item two" onMouseEnter={() => {
+                this.revealText("Second Hand Market")
+              }} onMouseLeave={() => {
+                this.revealText("")
+              }}>
+                {/* <div className='item-text'>Second Hand Market</div> */}
+              </Link>
+
               <Link to="/forum" className="item three" onMouseEnter={() => {
                 this.revealText("Forum")
               }} onMouseLeave={() => {
                 this.revealText("")
-              }}></Link>
+              }}>
+                {/* <div className='item-text'>Forum</div> */}
+              </Link>
               
             </div>
           </a>
@@ -78,15 +87,15 @@ class SecondHandNavbar extends React.Component {
               <div className="logo label"></div>
 
               <div className="spacer"></div>
-              
-              <Link to="/second-hand" className="item one" onMouseEnter={() => {
-                this.revealText("Second Hand Market")
+
+              <Link to="/products" className="item one" onMouseEnter={() => {
+                this.revealText("Our Shop")
               }} onMouseLeave={() => {
                 this.revealText("")
               }}></Link>
-
-              <Link to="/products" className="item two" onMouseEnter={() => {
-                this.revealText("Our Shop")
+              
+              <Link to="/second-hand" className="item two" onMouseEnter={() => {
+                this.revealText("Second Hand Market")
               }} onMouseLeave={() => {
                 this.revealText("")
               }}></Link>

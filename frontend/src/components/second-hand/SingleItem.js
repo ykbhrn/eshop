@@ -75,9 +75,12 @@ class SingleItem extends React.Component {
 
   startChat = async (user) => {
     try {
+      this.setState({isLoading: true})
+
       const res = await createChat({secondUserId: user})
 
       window.location.assign(`/chats/${res.data._id}`)
+
     } catch (err) {
       console.log(err)
     }
@@ -99,7 +102,12 @@ class SingleItem extends React.Component {
         <SecondHandNavbar />
       
         <div className="single-product-section single-item-page">
-        
+
+          {this.state.isLoading &&
+            <img className="products-loading" src="https://res.cloudinary.com/nuhippies/image/upload/v1651162892/Nu%20Hippies/icons/output-onlinegiftools_2_y18upn.gif" />
+          }
+
+          {!this.state.isLoading &&
           <div className="single-product-wrapper">
             <div className="single-product-images-wrapper">
               <div className="side-images-container">
@@ -119,11 +127,11 @@ class SingleItem extends React.Component {
                 </div>
 
                 <div className='date-single-item'>
-                  Posted: {this.state.posted}              
+                Posted: {this.state.posted}              
                 </div>
 
               </div>
-            
+          
             </div>
 
             <div className="single-items-side-info-wrapper">
@@ -141,41 +149,46 @@ class SingleItem extends React.Component {
               </div>
 
               <div className="category-size-wrapper">
+
                 <div>
-              Category: {item.category}
+            Category: {item.category}
                 </div>
+
                 <div>
-              Size: {item.size}
+            Size: {item.size}
                 </div>
-                <div>
-              Item Location: {item.placeName}
-                </div>
+
               </div>
 
+              <div className="place-wrapper">
+                <img src="https://res.cloudinary.com/nuhippies/image/upload/v1663281183/Nu%20Hippies/icons/pin_glwy25.png" />
+                {item.placeName}
+              </div> 
+
               {isAuthenticated() && item.user._id !== this.props.user._id &&
-            <div className='start-chat-wrapper' onClick={() => {
-              this.startChat(item.user._id)
-            }}>
-              <i className="fa-regular fa-comment"></i>
-              <div>Send message to {item.user.name}</div>
-            </div>
+          <div className='start-chat-wrapper' onClick={() => {
+            this.startChat(item.user._id)
+          }}>
+            <div>Send message to {item.user.name}</div>
+            <i className="fa-regular fa-comment"></i>
+          </div>
               }
 
               {isAuthenticated() && item.user._id === this.props.user._id &&
-                <Link to={`/second-hand/edit-item/${newName}/${item._id}`}>
-                  <div className='add-edit-button'>
-                    <i className="fas fa-edit"></i> Edit Your Ad
-                  </div>
-                </Link>
+              <Link to={`/second-hand/edit-item/${newName}/${item._id}`}>
+                <div className='add-edit-button'>
+                  <i className="fas fa-edit"></i> Edit Your Ad
+                </div>
+              </Link>
               }
 
               {!isAuthenticated() &&
-                  <Link to={`/entering/items/${newName}/${item._id}`}>
-                    <div className='start-chat-wrapper'>
-                      <i className="fa-regular fa-comment"></i>
-                      <div>Send message to {item.user.name}</div>
-                    </div>
-                  </Link>
+                <Link to={`/entering/items/${newName}/${item._id}`}>
+                  <div className='start-chat-wrapper'>
+                    <i className="fa-regular fa-comment"></i>
+                    <div>Send message to {item.user.name}</div>
+                  </div>
+                </Link>
               }
 
             </div>
@@ -193,6 +206,7 @@ class SingleItem extends React.Component {
 
           </div>
 
+          }
 
         </div>
       </>

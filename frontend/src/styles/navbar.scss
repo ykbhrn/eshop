@@ -16,7 +16,7 @@
   z-index: 4;
   //Unwrap logo menu | custom from original version
   .menu{
-    left: 50%;
+    left: calc(50% - 20px);
     margin-left: -40px;
   }
   a{

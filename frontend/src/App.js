@@ -47,7 +47,7 @@ import ForumIndex from './components/forum/ForumIndex'
 import ErrorPage from './components/common/ErrorPage'
 
 window.onscroll = function () { 
-  const logo = document.querySelector(".logo")
+  const logo = document.querySelectorAll(".logo")
   const productsNavbarIcon = document.querySelector(".products-navbar-icon")
   const flowerElement = document.querySelectorAll(".flower-container")
   const vanImg = document.querySelector(".products-banner img")
@@ -57,23 +57,49 @@ window.onscroll = function () {
   if (document.documentElement.scrollTop > 10) {
     
     if (navbar) {
+
       productsNavbarIcon.classList.add("products-navbar-icon-scroll")
-      logo.classList.add("logo-scroll")
-      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+
+      logo.forEach(item => {
+
+        item.classList.add("logo-scroll")
+        item.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+
+      })
+
     } else if (secondNavbar) {
-      logo.classList.add("logo-scroll-sh")
-      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+
+      logo.forEach(item => {
+
+        item.classList.add("logo-scroll-sh")
+        item.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1646102026/Nu%20Hippies/Backgrounds/simple-logo_fpnqch.png)"
+
+      })
+
     } 
     
   } else if (document.documentElement.scrollTop < 10) {
       
     if (navbar) {
+
       productsNavbarIcon.classList.remove("products-navbar-icon-scroll")
-      logo.classList.remove("logo-scroll")
-      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+
+      logo.forEach(item => {
+
+        item.classList.remove("logo-scroll")
+        item.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+
+      })
+    
     } else if (secondNavbar) {
-      logo.classList.remove("logo-scroll-sh")
-      logo.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+
+      logo.forEach(item => {
+
+        item.classList.remove("logo-scroll-sh")
+        item.style.backgroundImage = "url(https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png)"
+
+      })
+
     }
     
   }

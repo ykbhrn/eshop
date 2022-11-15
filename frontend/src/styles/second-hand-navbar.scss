@@ -35,8 +35,9 @@
   pointer-events: none;
   position: fixed;
   top: 10px;
-  left: 30px;
+  left: 10px;
   z-index: 5;
+  padding: 0 20px;
   .label {
     display: inline-block;
     cursor: pointer;
@@ -94,10 +95,10 @@
       }
   }
   .one{
-    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
   }
   .two{
-    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
+    background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
   }
   .three{
     background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654625675/Nu%20Hippies/icons/forum_edavyj.png);
@@ -116,6 +117,12 @@
 
 .menu:hover {
   pointer-events: all;
+  background: $main-background-color;
+  height: 430px;
+  border: 1px solid $text-color;
+  border-top: none;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .logo-menu-text{
   font-size: 15px;

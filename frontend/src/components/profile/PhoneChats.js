@@ -22,7 +22,6 @@ class PhoneChats extends React.Component {
         metaDescription: "All your chat history"
       });
 
-
       const chatId = this.props.match.params.id
       const resTwo = await showChat(chatId)
 
@@ -68,7 +67,7 @@ class PhoneChats extends React.Component {
   render() {
     const { oneChat } = this.state
 
-    if (!oneChat) return null
+    if (!oneChat || !this.props.user) return null
     return (
       <>
         {/* <SecondHandNavbar /> */}

@@ -232,8 +232,8 @@ class Navbar extends React.Component {
                 <div className="menu">
                   <div className="logo label"></div>
                   <div className="spacer"></div>
-                  <Link to="/second-hand" className="item one"></Link>
-                  <Link to="/products" className="item two"></Link>
+                  <Link to="/products" className="item one"></Link>
+                  <Link to="/second-hand" className="item two"></Link>
                   <Link to="/forum" className="item three"></Link>
                 </div>
               </a>
@@ -245,8 +245,8 @@ class Navbar extends React.Component {
               <div className="menu">
                 <div className="logo label"></div>
                 <div className="spacer"></div>
-                <Link to="/second-hand" className="item one"></Link>
-                <Link to="/products" className="item two"></Link>
+                <Link to="/products" className="item one"></Link>
+                <Link to="/second-hand" className="item two"></Link>
                 <Link to="/forum" className="item three"></Link>
                 <Link to="/" className="item four"></Link>
               </div>
