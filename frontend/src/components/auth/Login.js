@@ -9,7 +9,7 @@ class Login extends React.Component {
       email: '',
       password: '',
     },
-    rediterect: false,
+    redirect: false,
     isLoading: false,
     error: ''
   }
@@ -39,11 +39,11 @@ class Login extends React.Component {
     }
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return window.location.assign('/products')
-    }
-  }
+  // renderRedirect = () => {
+  //   if (this.state.redirect) {
+  //     return window.location.assign('/products')
+  //   }
+  // }
   renderRedirect = () => {
     if (this.state.redirect) {
       if (this.props.id && !this.props.secondHand) {
