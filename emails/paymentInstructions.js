@@ -319,7 +319,7 @@ a[x-apple-data-detectors='true'] {
   </div>
 
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: center; color: #474747;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Total Price:</span> £${user.finishedOrder.pricePlusShipping}</span></p>
+    <p style="font-size: 14px; line-height: 140%; text-align: center; color: #474747;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Total Price:</span> £${user.finishedOrder.pricePlusShipping / 100}</span></p>
   </div>
 
       </td>
@@ -395,7 +395,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="line-height: 160%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 160%; text-align: center;"><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">If you need help with anything please don't hesitate to drop us an</span></strong></span><br /><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">email: care@londonbridge.com</span></strong></span></p>
+    <p style="font-size: 14px; line-height: 160%; text-align: center;"><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">If you need help with anything please don't hesitate to drop us an</span></strong></span><br /><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">email: info@nuhippies.com</span></strong></span></p>
   </div>
 
       </td>

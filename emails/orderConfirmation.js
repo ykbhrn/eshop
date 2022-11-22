@@ -450,19 +450,20 @@ ${user.finishedOrder.items.map(item => {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 45px 10px 10px;font-family:arial,helvetica,sans-serif;" align="left">
 
       <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Price:</span> £${user.finishedOrder.sumPrice}</span></p>
+      <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Price:</span> £${user.finishedOrder.sumPrice / 100}</span></p>
     </div>
 
       <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Discount:</span> ${user.finishedOrder.discount}% (£${user.finishedOrder.sumPrice * (user.finishedOrder.discount / 100)})</span></p>
+      <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Discount:</span> ${user.finishedOrder.discount}% (£${user.finishedOrder.sumPrice * (user.finishedOrder.discount / 100)})</span></p>
+
   </div>
 
       <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Shipping:</span>  £${user.finishedOrder.shipping}</span></p>
+    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Shipping:</span>  £${user.finishedOrder.shipping / 100}</span></p>
   </div>
 
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Total:</span> £${user.finishedOrder.pricePlusShipping}</span></p>
+  <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><span style="font-weight: bold">Total:</span> £${user.finishedOrder.pricePlusShipping / 100}</span></p>
   </div>
 
       </td>
@@ -538,7 +539,7 @@ ${user.finishedOrder.items.map(item => {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="line-height: 160%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 160%; text-align: center;"><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">If you need help with anything please don't hesitate to drop us an</span></strong></span><br /><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">email: care@londonbridge.com</span></strong></span></p>
+    <p style="font-size: 14px; line-height: 160%; text-align: center;"><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">If you need help with anything please don't hesitate to drop us an</span></strong></span><br /><span style="color: #474747; font-size: 14px; line-height: 22.4px;"><strong><span style="font-size: 16px; line-height: 25.6px;">email: info@nuhippies.com</span></strong></span></p>
   </div>
 
       </td>

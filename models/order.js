@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema({
   postcode: { type: String, required: true },
   country: { type: String, required: true },
   phone: { type: Number, required: false },
-  shipping: { type: Number },
+  shipping: { type: Number, default: 300 },
   isBillingAdress: { type: String, default: 'no' },
   billingAdress: billingAdressSchema,
   items: [],
