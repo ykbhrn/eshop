@@ -33,7 +33,7 @@ class Done extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect){
-      return  window.location.assign('/')
+      return  window.location.assign('/products')
     }
   }
 
