@@ -1,5 +1,5 @@
 const mailgun = require('mailgun-js')
-const DOMAIN = 'https://api.mailgun.net/v3/nuhippies.com'
+const DOMAIN = 'nuhippies.com'
 const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
 
 
