@@ -7,7 +7,7 @@ const newUser = require('../emails/newUser')
 const resetPasswordEmail = require('../emails/resetPassword')
 const _ = require('lodash')
 const mailgun = require('mailgun-js')
-const DOMAIN = 'sandbox17ceaf24041f4bbba7e83eb6d7e3bca7.mailgun.org'
+const DOMAIN = 'https://api.mailgun.net/v3/nuhippies.com'
 const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN})
 const stripe = require('stripe')(
   process.env.STRIPE_SECRET_KEY
