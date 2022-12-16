@@ -6,7 +6,7 @@ const _ = require('lodash')
 const order = require('../emails/orderConfirmation')
 const paymentInstructions = require('../emails/paymentInstructions')
 const mailgun = require('mailgun-js')
-const DOMAIN = 'https://api.eu.mailgun.net/v3/nuhippies.com'
+const DOMAIN = 'https://api.eu.mailgun.net/nuhippies.com'
 const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
 
 async function allCompletedOrders (req, res) {
