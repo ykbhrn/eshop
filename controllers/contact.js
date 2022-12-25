@@ -1,12 +1,16 @@
-const mailgun = require('mailgun-js')
+const API_KEY = process.env.MAILGUN_APIKEY
 const DOMAIN = 'nuhippies.com'
-const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
+const formData = require('form-data')
+const Mailgun = require('mailgun.js')
+const mailgun = new Mailgun(formData)
+const client = mailgun.client({ username: 'api', key: API_KEY, url: 'https://api.eu.mailgun.net' })
 
 
 async function sendEmail (req, res) {
 
   try {
-    const data = {
+
+    const messageData = {
       from: req.body.sender,
       to: 'info@nuhippies.com',
       subject: req.body.subject,
@@ -14,9 +18,7 @@ async function sendEmail (req, res) {
       <p>${req.body.message}</p>`
     }
 
-    mg.messages().send(data, function (error, body) {
-      console.log(body)
-    })
+    client.messages.create(DOMAIN, messageData)
 
     res.status(202).json('Message was sent')
 

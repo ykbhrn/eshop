@@ -6,9 +6,12 @@ const secret = 'muie'
 const newUser = require('../emails/newUser')
 const resetPasswordEmail = require('../emails/resetPassword')
 const _ = require('lodash')
-const mailgun = require('mailgun-js')
+const API_KEY = process.env.MAILGUN_APIKEY
 const DOMAIN = 'nuhippies.com'
-const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN})
+const formData = require('form-data')
+const Mailgun = require('mailgun.js')
+const mailgun = new Mailgun(formData)
+const client = mailgun.client({username: 'api', key: API_KEY, url: 'https://api.eu.mailgun.net'})
 const stripe = require('stripe')(
   process.env.STRIPE_SECRET_KEY
 )
@@ -59,16 +62,15 @@ async function newUserEmail (user, req, res) {
         return res.status(400).json({ error: 'User with this email does not exists' })
       }
 
-      const data = {
-        from: 'noreply@email.com',
+      const messageData = {
+        from: 'Nu Hippies <noreply@nuhippies.com>',
         to: email,
         subject: `Welcome To Nu Hippies Movement ${user.name}`,
         html: newUser.newUser(user)
       }
 
-      mg.messages().send(data, function (error, body) {
-        console.log(body)
-      })
+      client.messages.create(DOMAIN, messageData)
+
     })
   } catch (err) {
     res.status(401).json({ message: 'User with this email does not exists' })
@@ -110,32 +112,24 @@ async function forgotPassword (req, res) {
       }
 
       const token = jwt.sign({_id: user._id}, process.env.RESET_PASSWORD_KEY, {expiresIn: '20m'})
-      const data = {
-        from: 'noreply@email.com',
+
+      const messageData = {
+        from: 'Nu Hippies <noreply@nuhippies.com>',
         to: email,
         subject: 'Reset Password Link',
         html: resetPasswordEmail.resetPasswordEmail(token, user)
       }
 
-      mg.messages().send(data, function (error, body) {
-        console.log(body)
-      })
+      client.messages.create(DOMAIN, messageData)
       
       return user.updateOne({resetToken: token}, function(err, success) {
         if (err) {
           return res.status(400).json({error: 'reset password link error'})
         } else {
-          mg.messages().send(data, function (error, body) {
-            if (error) {
-              return res.json({
-                error: error.message
-              })
-            }
-            return res.json({message: 'Email has been sent, follow the instructions please'})
-          })
+          return res.json({message: 'Email has been sent, follow the instructions please'})
         }
       })
-    })
+    })                                                                                                                                   
   } catch (err) {
     res.status(401).json({message: 'User with this email does not exists'})
   }

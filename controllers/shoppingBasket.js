@@ -5,9 +5,12 @@ const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 const order = require('../emails/orderConfirmation')
 const paymentInstructions = require('../emails/paymentInstructions')
-const mailgun = require('mailgun-js')
-const DOMAIN = 'https://api.eu.mailgun.net/nuhippies.com'
-const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN })
+const API_KEY = process.env.MAILGUN_APIKEY
+const DOMAIN = 'nuhippies.com'
+const formData = require('form-data')
+const Mailgun = require('mailgun.js')
+const mailgun = new Mailgun(formData)
+const client = mailgun.client({ username: 'api', key: API_KEY, url: 'https://api.eu.mailgun.net' })
 
 async function allCompletedOrders (req, res) {
   try {
@@ -151,7 +154,6 @@ async function addShipping (req, res) {
 
 async function minusProductQuantity (order, req, res) {
   try {
-    console.log('co ti jebe')
     const idArray = []
     order.items.map(item => {
       idArray.push(item._id)
@@ -268,16 +270,15 @@ async function paymentInstructionFunction (user, req, res) {
         return res.status(400).json({ error: 'User with this email does not exists' })
       }
 
-      const data = {
-        from: 'noreply@email.com',
+      const messageData = {
+        from: 'Nu Hippies <noreply@nuhippies.com>',
         to: email,
         subject: 'Payment Instructions',
         html: paymentInstructions.paymentInstructionsEmail(user)
       }
 
-      mg.messages().send(data, function (error, body) {
-        console.log(body)
-      })
+      client.messages.create(DOMAIN, messageData)
+
     })
   } catch (err) {
     res.status(401).json({ message: 'User with this email does not exists' })
@@ -293,16 +294,14 @@ async function orderConfirmationFunction (user, req, res) {
         return res.status(400).json({ error: 'User with this email does not exists' })
       }
 
-      const data = {
-        from: 'noreply@email.com',
+      const messageData = {
+        from: 'Nu Hippies <noreply@nuhippies.com>',
         to: email,
         subject: 'Order Confirmation',
         html: order.emailOrderConfirmation(user)
       }
 
-      mg.messages().send(data, function (error, body) {
-        console.log(body)
-      })
+      client.messages.create(DOMAIN, messageData)
     })
   } catch (err) {
     res.status(401).json({ message: 'User with this email does not exists' })

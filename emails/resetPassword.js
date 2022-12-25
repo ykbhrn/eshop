@@ -27,7 +27,7 @@ function resetPasswordEmail (token, user) {
                       <tr>
                           <td style="text-align:center;">
                             <a href=${url} title="logo" target="_blank">
-                              <img width="150" src="https://res.cloudinary.com/nuhippies/image/upload/v1639597863/Nu%20Hippies/icons/logo2_mog4wx.png" title="logo" alt="logo">
+                              <img width="150" src="https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png" title="logo" alt="logo">
                             </a>
                           </td>
                       </tr>

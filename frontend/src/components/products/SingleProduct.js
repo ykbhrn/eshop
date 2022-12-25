@@ -99,7 +99,7 @@ class SingleProduct extends React.Component {
       setTimeout(() => {
         btn.classList.remove('loading')
         this.setState({addedToBasket: true})
-      }, 3400);
+      }, 2400);
 
       this.hideOverflow()
       // this.setState({ isLoading: false })

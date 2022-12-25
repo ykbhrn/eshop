@@ -39,10 +39,10 @@ class ForgotPassword extends React.Component {
     try {
       this.setState({ isLoading: true })
       const res = await forgotPassword(this.state.formData)
-      this.setState({ showResponse: true, isLoading: false })
       console.log(res)
+      this.setState({ showResponse: true, isLoading: false })
     } catch (err) {
-      this.setState({ error: err.response.data.error, isLoading: false })
+      this.setState({ isLoading: false })
     }
   }
 
