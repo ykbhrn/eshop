@@ -171,7 +171,7 @@ function newUser (user) {
     <tr>
       <td style="padding-right: 0px;padding-left: 0px;" align="center">
         <a href=${url} target="_self">
-        <img align="center" border="0" src="https://res.cloudinary.com/nuhippies/image/upload/v1639874261/Nu%20Hippies/icons/logo-email_likotj.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 190px;width: 190px; height: 150px; max-height: 150px;" />
+        <img align="center" border="0" src="https://res.cloudinary.com/nuhippies/image/upload/v1655114968/Nu%20Hippies/icons/mainlogo1_ypgmou.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 190px;width: 190px; height: 150px; max-height: 150px;" />
         </a>
       </td>
     </tr>
@@ -235,11 +235,10 @@ function newUser (user) {
     <tbody>
       <tr>
         <td style="overflow-wrap:break-word;word-break:break-word;padding:30px 30px 10px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-    <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><span style="line-height: 22.4px; font-size: 16px;">This season is important to us here at London Bridge Bike Co., we wait </span><span style="line-height: 22.4px; font-size: 16px;">(im)patiently all year to be able to roll out our fall collection and now </span><span style="line-height: 22.4px; font-size: 16px;">it's finally here! Hit up our site to see the full range of things we have </span></span><br /><span style="font-size: 16px; line-height: 22.4px;">in store for you.</span></p>
-    </div>
-  
+        <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><span style="line-height: 22.4px; font-size: 16px;">We are Nu Hippies Movement and our goal is creating an online space for people with a hippie kind of spirit. We are providing space for second hand clothes advertisement and selling fair trade, eco-friendly accessories, high-quality health supplements and forum for like-minded users to discuss.
+        </span></p>
+      </div>
         </td>
       </tr>
     </tbody>
@@ -270,10 +269,6 @@ function newUser (user) {
     <tbody>
       <tr>
         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 30px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-    <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><span style="line-height: 22.4px; font-size: 16px;">While you're there, be sure to check our calendar to see which races </span><span style="line-height: 22.4px; font-size: 16px;">we're going to this month and join us in cheering our team on. </span></span></p>
-    </div>
   
         </td>
       </tr>
@@ -307,7 +302,7 @@ function newUser (user) {
         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 30px 20px;font-family:arial,helvetica,sans-serif;" align="left">
           
     <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">See ya on the streets, </span><br /><span style="font-size: 16px; line-height: 22.4px;">The LBBC crew</span></p>
+      <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">Let's join us on our journey to </span><br /><span style="font-size: 16px; line-height: 22.4px;">BRING HIPPIES BACK</span></p>
     </div>
   
         </td>
@@ -359,29 +354,7 @@ function newUser (user) {
     <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
     </div>
   </div>
-  <!--[if (mso)|(IE)]></td><![endif]-->
-  <!--[if (mso)|(IE)]><td align="center" width="277" style="width: 277px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-  <div class="u-col u-col-46p14" style="max-width: 320px;min-width: 277px;display: table-cell;vertical-align: top;">
-    <div style="width: 100% !important;">
-    <!--[if (!mso)&(!IE)]><!--><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
-    
-  <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-    <tbody>
-      <tr>
-        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 7px 20px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-    <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 18px; line-height: 25.2px;"><strong>FOLLOW US ON INSTAGRAM</strong></span></p>
-    </div>
-  
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-    <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
-    </div>
-  </div>
+
   <!--[if (mso)|(IE)]></td><![endif]-->
   <!--[if (mso)|(IE)]><td align="center" width="167" style="width: 167px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
   <div class="u-col u-col-27p87" style="max-width: 320px;min-width: 167px;display: table-cell;vertical-align: top;">
@@ -428,26 +401,6 @@ function newUser (user) {
   <div class="u-col u-col-33p33" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
     <div style="width: 100% !important;">
     <!--[if (!mso)&(!IE)]><!--><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
-    
-  <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-    <tbody>
-      <tr>
-        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 40px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-        
-        <img align="center" border="0" src="https://img.bayengage.com/assets/1602483939257-img1 (3).png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 158px;" width="158"/>
-        
-      </td>
-    </tr>
-  </table>
-  
-        </td>
-      </tr>
-    </tbody>
-  </table>
   
     <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
     </div>
@@ -457,26 +410,6 @@ function newUser (user) {
   <div class="u-col u-col-33p33" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
     <div style="width: 100% !important;">
     <!--[if (!mso)&(!IE)]><!--><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
-    
-  <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-    <tbody>
-      <tr>
-        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 40px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-        
-        <img align="center" border="0" src="https://img.bayengage.com/assets/1602483954822-img2 (2).png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 158px;" width="158"/>
-        
-      </td>
-    </tr>
-  </table>
-  
-        </td>
-      </tr>
-    </tbody>
-  </table>
   
     <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
     </div>
@@ -486,26 +419,6 @@ function newUser (user) {
   <div class="u-col u-col-33p33" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
     <div style="width: 100% !important;">
     <!--[if (!mso)&(!IE)]><!--><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
-    
-  <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-    <tbody>
-      <tr>
-        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 40px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-        
-        <img align="center" border="0" src="https://img.bayengage.com/assets/1602483966287-img3 (1).png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 158px;" width="158"/>
-        
-      </td>
-    </tr>
-  </table>
-  
-        </td>
-      </tr>
-    </tbody>
-  </table>
   
     <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
     </div>
@@ -534,8 +447,8 @@ function newUser (user) {
         <td style="overflow-wrap:break-word;word-break:break-word;padding:6px 10px 8px;font-family:arial,helvetica,sans-serif;" align="left">
           
     <div style="line-height: 160%; text-align: left; word-wrap: break-word;">
-      <p style="text-align: center; font-size: 14px; line-height: 160%;"><span style="font-size: 12px; line-height: 19.2px;"><strong><span style="line-height: 19.2px; font-size: 12px;">Our mailing address is:</span></strong></span></p>
-  <p style="text-align: center; font-size: 14px; line-height: 160%;"><span style="font-size: 12px; line-height: 19.2px;">{{company_address}}</span></p>
+      <p style="text-align: center; font-size: 14px; line-height: 160%;"><span style="font-size: 12px; line-height: 19.2px;"><strong><span style="line-height: 19.2px; font-size: 12px;">If you have any question, drop us a message:</span></strong></span></p>
+  <p style="text-align: center; font-size: 14px; line-height: 160%;"><span style="font-size: 12px; line-height: 19.2px;">info@nuhippies.com</span></p>
     </div>
   
         </td>
@@ -547,10 +460,6 @@ function newUser (user) {
     <tbody>
       <tr>
         <td style="overflow-wrap:break-word;word-break:break-word;padding:6px 10px 13px;font-family:arial,helvetica,sans-serif;" align="left">
-          
-    <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 12px; line-height: 16.8px;"><span style="color: #7e8c8d; font-size: 12px; line-height: 16.8px;">No longer want to receive this emails?</span><span style="color: #0782c1; font-size: 12px; line-height: 16.8px;"> {{unsub_link}}</span><br /></span></p>
-    </div>
   
         </td>
       </tr>
