@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
-    "node": "14.3.0"
+    "node": "20.x"
   },
   "scripts": {
     "build": "cd frontend && yarn run build",
@@ -14,7 +14,7 @@
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "repository": "git@github.com:ykbhrn/eshop.git",
-  "author": "ykbhrn <jakub.horun@gmail.com>",
+  "author": "ykbhrn <jakub.horun@mail.com>",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.1.18",
@@ -33,6 +33,7 @@
     "mailgun-js": "^0.22.0",
     "mailgun.js": "^8.0.6",
     "mapbox-gl": "^2.9.2",
+    "mongodb": "^5.1.0",
     "mongoose": "^5.12.14",
     "mongoose-unique-validator": "^2.0.3",
     "node-cron": "3.0.0",

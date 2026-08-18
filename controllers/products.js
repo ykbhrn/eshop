@@ -8,6 +8,7 @@ const stripe = require('stripe')(
 async function allProducts(req, res) {
   try {
     const products = await Product.find()
+    console.log([products])
     res.status(200).json(products)
   } catch (err) {
     res.json(err)

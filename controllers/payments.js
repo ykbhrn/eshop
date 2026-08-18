@@ -23,23 +23,23 @@ async function sendInvoice(req, res) {
     const resolved = await Promise.all(unresolved)
 
     const classicShipping = await stripe.prices.retrieve(
-      'price_1KOSFPKAzVkc5rRlmR9v9y0q'
+      'price_1U5tQvKAzVkc5rRlBaaXUXlm'
     )
 
     const expressShipping = await stripe.prices.retrieve(
-      'price_1KOSEVKAzVkc5rRl3xus8599'
+      'price_1U5tRpKAzVkc5rRlB78xxND0'
     )
 
     if (order.shipping === classicShipping.unit_amount) {
       const invoiceItem = await stripe.invoiceItems.create({
         customer: customerId,
-        price: 'price_1KOSFPKAzVkc5rRlmR9v9y0q',
+        price: 'price_1U5tQvKAzVkc5rRlBaaXUXlm',
         discountable: false
       })
     } else if (order.shipping === expressShipping.unit_amount) {
       const invoiceItem = await stripe.invoiceItems.create({
         customer: customerId,
-        price: 'price_1KOSEVKAzVkc5rRl3xus8599',
+        price: 'price_1U5tRpKAzVkc5rRlB78xxND0',
         discountable: false
       })
     }

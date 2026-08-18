@@ -3,7 +3,7 @@ import axios from 'axios'
 import Register from './Register'
 import Login from './Login'
 import { isAuthenticated } from '../../lib/auth'
-import {seo} from '../../lib/functions'
+import { seo } from '../../lib/functions'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 class Authorization extends React.Component {
@@ -12,7 +12,7 @@ class Authorization extends React.Component {
     register: false
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     try {
       window.scrollTo(0, 0)
 
@@ -25,7 +25,7 @@ class Authorization extends React.Component {
       console.log(err)
     }
   }
-  
+
   showRegisterOrLogin = (thing) => {
     if (thing === "login") {
       this.setState({ login: true, register: false })
@@ -53,61 +53,61 @@ class Authorization extends React.Component {
           </style>
 
           {!this.state.login && !this.state.register &&
-          <div className="authorization-section">
-            <div className="authorization-wrapper" onClick={() => {
-              this.showRegisterOrLogin("register")
-            }}>
-              All we are saying is give us a chance
-              <button className="classic-btn">Register</button>
-            </div>
+            <div className="authorization-section">
+              <div className="authorization-wrapper" onClick={() => {
+                this.showRegisterOrLogin("register")
+              }}>
+                All we are saying is give us a chance
+                <button className="classic-btn">Register</button>
+              </div>
 
-            <div className="authorization-wrapper" onClick={() => {
-              this.showRegisterOrLogin("login")
-            }}>
-              Are you already member of our community?
-              <button className="classic-btn">Login</button>
+              <div className="authorization-wrapper" onClick={() => {
+                this.showRegisterOrLogin("login")
+              }}>
+                Are you already member of our community?
+                <button className="classic-btn">Login</button>
+              </div>
             </div>
-          </div>
           }
           {this.state.login &&
-        <>
-          <div className="account-nav">
-            <div className="auth" onClick={this.showAuth}><span className="sign-auth">&#60;</span>Back</div>
-          </div>
-          <div className="auth-side">
-            <Login
-              id={this.props.match.params.id}
-              name={this.props.match.params.name}
-              secondHand={this.props.match.params.items}
-            />
-            <div className="auth-btn-wrapper">
-              Don&apos;t have an account yet?
-              <button className="classic-btn" onClick={() => {
-                this.showRegisterOrLogin("register")
-              }}>Register</button>
-            </div>
-          </div>
-        </>
+            <>
+              <div className="account-nav">
+                <div className="auth" onClick={this.showAuth}><span className="sign-auth">&#60;</span>Back</div>
+              </div>
+              <div className="auth-side">
+                <Login
+                  id={this.props.match.params.id}
+                  name={this.props.match.params.name}
+                  secondHand={this.props.match.params.items}
+                />
+                <div className="auth-btn-wrapper">
+                  Don&apos;t have an account yet?
+                  <button className="classic-btn" onClick={() => {
+                    this.showRegisterOrLogin("register")
+                  }}>Register</button>
+                </div>
+              </div>
+            </>
           }
           {this.state.register &&
-        <>
-          <div className="account-nav">
-            <div className="auth" onClick={this.showAuth}><span className="sign-auth">&#60;</span>Back</div>
-          </div>
-          <div className="auth-side">
-            <Register
-              id={this.props.match.params.id}
-              name={this.props.match.params.name}
-              secondHand={this.props.match.params.items}
-            />
-            <div className="auth-btn-wrapper">
-              Are you already our member?
-              <button className="classic-btn" onClick={() => {
-                this.showRegisterOrLogin("login")
-              }}>Login</button>
-            </div>
-          </div>
-        </>
+            <>
+              <div className="account-nav">
+                <div className="auth" onClick={this.showAuth}><span className="sign-auth">&#60;</span>Back</div>
+              </div>
+              <div className="auth-side">
+                <Register
+                  id={this.props.match.params.id}
+                  name={this.props.match.params.name}
+                  secondHand={this.props.match.params.items}
+                />
+                <div className="auth-btn-wrapper">
+                  Are you already our member?
+                  <button className="classic-btn" onClick={() => {
+                    this.showRegisterOrLogin("login")
+                  }}>Login</button>
+                </div>
+              </div>
+            </>
           }
         </div>
       </>
