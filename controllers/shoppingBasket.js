@@ -72,7 +72,7 @@ async function addToBasket (req, res) {
     }
 
     await user.save()
-    calculatePrice(user)
+    await calculatePrice(user)
     res.status(201).json(user)
   } catch (err) {
     res.json(err)
@@ -96,33 +96,29 @@ async function updateBasket (req, res) {
     })
 
     await user.save()
-    calculatePrice(user)
+    await calculatePrice(user)
     res.status(202).json(user)
   } catch (err) {
     res.json(err)
   }
 }
 
-async function calculatePrice (user, req, res) {
-  try {
-    let price = 0
-    
-    user.basket.map(item => {
-      price = price + (item.chosenQuantity * item.price)
-    })
-    
-    user.sumPrice = price
+async function calculatePrice (user) {
+  let price = 0
 
-    user.discountAmount = Math.round(((user.discount / 100) * user.sumPrice))
-    
-    user.totalPrice = Math.round(user.sumPrice - user.discountAmount)
+  user.basket.map(item => {
+    price = price + (item.chosenQuantity * item.price)
+  })
 
+  user.sumPrice = price
 
-    await user.save()
-    res.status(202).json(user)
-  } catch (err) {
-    res.json(err)
-  }
+  user.discountAmount = Math.round(((user.discount / 100) * user.sumPrice))
+
+  user.totalPrice = Math.round(user.sumPrice - user.discountAmount)
+
+  await user.save()
+
+  return user
 }
 
 async function pendingOrder (req, res) {
@@ -134,7 +130,7 @@ async function pendingOrder (req, res) {
     user.pendingOrder = req.body
     user.pendingOrder.items = user.basket
     await user.save()
-    calculatePrice(user)
+    await calculatePrice(user)
     res.status(201).json(user)
   } catch (err) {
     res.status(422).json(err)
@@ -318,7 +314,7 @@ async function removeFromBasket (req, res) {
     })
     user.basket = newBasket
     await user.save()
-    calculatePrice(user)
+    await calculatePrice(user)
     res.status(204).json(user)
   } catch (err) {
     res.json(err)

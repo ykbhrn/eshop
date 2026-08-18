@@ -120,7 +120,11 @@
   background-image: url(https://cdn3.iconfinder.com/data/icons/other-icons/48/organization-512.png);
 }
 .left {
-  transform: translateX(-30px) translateZ(-25px) rotateY(-5deg);
+  // No translateZ: inside .all's preserve-3d context a negative Z places this
+  // link behind the parent's own plane, so .all wins hit-testing and the icon
+  // can never be hovered or clicked. scale() reproduces the "set back" look
+  // while keeping every icon on z = 0, so all three stay interactive.
+  transform: translateX(-30px) rotateY(-5deg) scale(0.9756);
   background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
 }
 .center {
@@ -128,7 +132,8 @@
   background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
 }
 .right {
-  transform: translateX(30px) translateZ(-25px) rotateY(5deg);
+  // See .left above: translateZ would push this behind .all and kill its hover.
+  transform: translateX(30px) rotateY(5deg) scale(0.9756);
   background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654625675/Nu%20Hippies/icons/forum_edavyj.png);
 }
 .righter {

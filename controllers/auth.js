@@ -44,8 +44,7 @@ async function register(req, res) {
 
     const user = await User.create(req.body)
 
-    basket.calculatePrice(user)
-
+    await basket.calculatePrice(user)
     newUserEmail(user)
     res.status(201).json({message: `${user.email} has been registered`})
   } catch (err) {
@@ -79,18 +78,16 @@ async function newUserEmail (user, req, res) {
 
 async function login(req, res) {
   try {
-    console.log('user wanted: ', req.body)
     const user = await User.findOne({email: req.body.email})
-    console.log('user found: ', user)
+
+    if (!user || !user.validatePassword(req.body.password)) {
+      return res.status(401).json({message: 'Unauthorized'})
+    }
 
     if (req.body.discount > user.discount) {
       user.discount = req.body.discount
       await user.save()
-      basket.calculatePrice(user)
-    }
-
-    if (!user || !user.validatePassword(req.body.password)) {
-      throw new Error()
+      await basket.calculatePrice(user)
     }
     const token = jwt.sign({sub: user._id}, secret, {expiresIn: '7 days'})
     res.status(202).json({

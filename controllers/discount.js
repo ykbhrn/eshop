@@ -52,7 +52,7 @@ async function changeUserDiscount (req, res) {
       user.discount = 25
     }
     await user.save()
-    calculate.calculatePrice(user)
+    await calculate.calculatePrice(user)
     res.status(202).json(user)
   } catch (err) {
     res.json(err)
