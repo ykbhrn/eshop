@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Geocoder from "react-mapbox-gl-geocoder";
 import ReactMapGL from "react-map-gl";
+import { mapAccess, MAP_STYLE_URL } from "../../lib/mapbox";
 
-const mapAccess = {
-  mapboxApiAccessToken: process.env.REACT_APP_MAPBOX_TOKEN,
-};
-
-const mapStyle = {
+// Dimensions of the map canvas (not the mapbox style URL - see MAP_STYLE_URL).
+const mapDimensions = {
   width: "100%",
   height: 600,
 };
@@ -17,12 +15,16 @@ const queryParams = {
 
 class Maps extends React.Component {
   state = {
-    viewport: {},
+    // Central London, so the canvas has somewhere to sit before a search.
+    viewport: {
+      latitude: 51.5074,
+      longitude: -0.1278,
+      zoom: 10,
+    },
   };
 
   onSelected = (viewport, item) => {
     this.setState({ viewport });
-    console.log("Selected: ", item);
   };
 
   render() {
@@ -43,10 +45,14 @@ class Maps extends React.Component {
           }}
         />
 
-        {/* <ReactMapGL
-        {...mapAccess} {...viewport} {...mapStyle}
-        onViewportChange={(newViewport) => this.setState({viewport: newViewport})}
-      /> */}
+        <ReactMapGL
+          {...mapAccess}
+          {...viewport}
+          {...mapDimensions}
+          mapStyle={MAP_STYLE_URL}
+          onViewportChange={(newViewport) => this.setState({ viewport: newViewport })}
+          onError={(e) => console.error('Mapbox error', e && e.error && e.error.status)}
+        />
       </div>
     );
   }
