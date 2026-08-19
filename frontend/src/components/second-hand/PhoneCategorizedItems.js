@@ -4,15 +4,9 @@ import { getAllUsedItems, updateUserAccount } from '../../lib/api';
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 import Geocoder from 'react-mapbox-gl-geocoder'
-import ReactMapGL, { Marker } from 'react-map-gl'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
-import { mapAccess, MAP_STYLE_URL } from '../../lib/mapbox'
-
-// Shorter than the desktop map so it does not push the listings off screen.
-const mapDimensions = {
-  width: '100%',
-  height: 220
-}
+import { mapAccess } from '../../lib/mapbox'
+import SecondHandMap from './SecondHandMap'
 
 const queryParams = {
   country: 'gb'
@@ -47,14 +41,27 @@ class PhoneCategorizedItems extends React.Component {
 
       const res = await getAllUsedItems();
 
-      // if (isAuthenticated()) {
-      //   this.setState({ items: res.data.reverse(), isLoading: false, placeName: this.props.user.preferencePlaceName ? this.props.user.preferencePlaceName : false, 
-      //     coordinates: this.props.user.preferenceCoordinates ? this.props.user.preferenceCoordinates : []
-      //   });
-      //   console.log(this.state)
-      // } else {
+      if (!isAuthenticated() && localStorage.getItem('coordinates')) {
+        const coords = JSON.parse(localStorage.getItem('coordinates'))
+        const miles = Number(localStorage.getItem('distance')) ? Number(localStorage.getItem('distance')) : 100
+        const km = miles * 1.60934
+
+        const filteredProducts = res.data.filter(product => (
+          Array.isArray(product.coordinates) && product.coordinates.length === 2 &&
+          this.getDistanceFromLatLonInKm(coords[1], coords[0], product.coordinates[1], product.coordinates[0]) < km
+        ))
+
+        this.setState({
+          items: filteredProducts.reverse(),
+          isLoading: false,
+          placeName: localStorage.getItem('placeName') ? localStorage.getItem('placeName') : false,
+          coordinates: coords,
+          distance: miles
+        })
+        return
+      }
+
       this.setState({ items: res.data.reverse(), isLoading: false });
-      // }
 
     } catch (err) {
       console.log(err)
@@ -69,7 +76,7 @@ class PhoneCategorizedItems extends React.Component {
     if (isAuthenticated()) {
       const som = await updateUserAccount({preferenceCoordinates: [item.center[0], item.center[1]], preferencePlaceName: item.place_name})
     } else {
-      localStorage.setItem('coordinates', [item.center[0], item.center[1]])
+      localStorage.setItem('coordinates', JSON.stringify([item.center[0], item.center[1]]))
       localStorage.setItem('placeName', item.place_name)
     }
 
@@ -94,10 +101,9 @@ class PhoneCategorizedItems extends React.Component {
 
 
     if (isAuthenticated()) {
-      const som = await updateUserAccount({preferenceDistance: distance})
-      console.log(som.data)
+      await updateUserAccount({preferenceDistance: Number(event.target.value)})
     } else {
-      localStorage.setItem('distance', distance)
+      localStorage.setItem('distance', Number(event.target.value))
     }
 
     const filteredProducts = res.data.filter(product => {
@@ -156,6 +162,13 @@ class PhoneCategorizedItems extends React.Component {
   render() {
     const {viewport} = this.state
     const {category, gender} = this.props.match.params
+
+    // The grid filters by category/gender as it renders; the map has to show
+    // the same subset, otherwise a shoes page would pin every nearby item.
+    const itemsInView = this.state.items.filter(item => (
+      (category.toLowerCase() === 'all' || item.category.toLowerCase() === category.toLowerCase()) &&
+      (gender.toLowerCase() === 'all' || item.gender.toLowerCase() === gender.toLowerCase())
+    ))
     return (
       <>
         <SecondHandNavbar /> 
@@ -403,24 +416,14 @@ class PhoneCategorizedItems extends React.Component {
                 </select>
               </div>
 
-              {this.state.coordinates.length === 2 &&
-              <div className="search-map-wrapper">
-                <ReactMapGL
-                  {...mapAccess}
-                  {...mapDimensions}
-                  latitude={this.state.viewport.latitude !== undefined ? this.state.viewport.latitude : this.state.coordinates[1]}
-                  longitude={this.state.viewport.longitude !== undefined ? this.state.viewport.longitude : this.state.coordinates[0]}
-                  zoom={this.state.viewport.zoom !== undefined ? this.state.viewport.zoom : 11}
-                  mapStyle={MAP_STYLE_URL}
-                  onViewportChange={(newViewport) => this.setState({ viewport: newViewport })}
-                  onError={(e) => console.error('Mapbox error', e && e.error && e.error.status)}
-                >
-                  <Marker latitude={this.state.coordinates[1]} longitude={this.state.coordinates[0]}>
-                    <div className="search-map-marker" title={this.state.placeName} />
-                  </Marker>
-                </ReactMapGL>
-              </div>
-              }
+              <SecondHandMap
+                items={itemsInView}
+                coordinates={this.state.coordinates}
+                viewport={this.state.viewport}
+                placeName={this.state.placeName}
+                height={220}
+                onViewportChange={(newViewport) => this.setState({ viewport: newViewport })}
+              />
             </div>
             }
 

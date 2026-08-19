@@ -4,14 +4,9 @@ import { getAllUsedItems, updateUserAccount, getMyProfile } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth';
 import {seo, mainMetaDescription} from '../../lib/functions'
 import Geocoder from 'react-mapbox-gl-geocoder'
-import ReactMapGL, { Marker } from 'react-map-gl'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
-import { mapAccess, MAP_STYLE_URL } from '../../lib/mapbox'
-
-const mapDimensions = {
-  width: '100%',
-  height: 320
-}
+import { mapAccess } from '../../lib/mapbox'
+import SecondHandMap from './SecondHandMap'
 
 const queryParams = {
   country: 'gb'
@@ -195,6 +190,13 @@ class CategorizedItems extends React.Component {
   render() {
     const {viewport} = this.state
     const {category, gender} = this.props.match.params
+
+    // The grid filters by category/gender as it renders; the map has to show
+    // the same subset, otherwise a shoes page would pin every nearby item.
+    const itemsInView = this.state.items.filter(item => (
+      (category.toLowerCase() === 'all' || item.category.toLowerCase() === category.toLowerCase()) &&
+      (gender.toLowerCase() === 'all' || item.gender.toLowerCase() === gender.toLowerCase())
+    ))
     if (!this.state.items) return null
     return (
       <>
@@ -437,23 +439,14 @@ class CategorizedItems extends React.Component {
                 </select>
               </div>
 
-              {this.state.coordinates.length === 2 &&
-              <div className="search-map-wrapper">
-                <ReactMapGL
-                  {...mapAccess}
-                  {...mapDimensions}
-                  latitude={this.state.viewport.latitude !== undefined ? this.state.viewport.latitude : this.state.coordinates[1]}
-                  longitude={this.state.viewport.longitude !== undefined ? this.state.viewport.longitude : this.state.coordinates[0]}
-                  zoom={this.state.viewport.zoom !== undefined ? this.state.viewport.zoom : 11}
-                  mapStyle={MAP_STYLE_URL}
-                  onViewportChange={(newViewport) => this.setState({ viewport: newViewport })}
-                >
-                  <Marker latitude={this.state.coordinates[1]} longitude={this.state.coordinates[0]}>
-                    <div className="search-map-marker" title={this.state.placeName} />
-                  </Marker>
-                </ReactMapGL>
-              </div>
-              }
+              <SecondHandMap
+                items={itemsInView}
+                coordinates={this.state.coordinates}
+                viewport={this.state.viewport}
+                placeName={this.state.placeName}
+                height={320}
+                onViewportChange={(newViewport) => this.setState({ viewport: newViewport })}
+              />
             </div>
             }
 
