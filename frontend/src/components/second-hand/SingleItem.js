@@ -161,7 +161,7 @@ class SingleItem extends React.Component {
               </div>
 
               <div className="place-wrapper">
-                <img src="https://res.cloudinary.com/nuhippies/image/upload/v1663281183/Nu%20Hippies/icons/pin_glwy25.png" />
+                <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%202c-3.9%200-7%203.1-7%207%200%205.2%207%2013%207%2013s7-7.8%207-13c0-3.9-3.1-7-7-7z%27%20fill%3D%27%23474747%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%279%27%20r%3D%272.6%27%20fill%3D%27%23FACB52%27%2F%3E%3C%2Fsvg%3E" />
                 {item.placeName}
               </div> 
 
