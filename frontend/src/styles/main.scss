@@ -12,6 +12,7 @@
 @import "./maps.scss";
 @import "./chat.scss";
 @import "./forum.scss";
+@import "./demo-banner.scss";
 
 html, body{
   height: 100%;
@@ -38,7 +39,9 @@ body {
 }
 
 .whole-page{
-  min-height: 100vh;
+  // Sits below the fixed demo banner without adding page height.
+  padding-top: var(--demo-banner-h);
+  min-height: calc(100vh - var(--demo-banner-h));
 }
 
 // .canvas{

@@ -1,0 +1,102 @@
+@import "./variables.scss";
+
+// Height lives in a custom property so the page shell, the hero and the
+// top-anchored controls can all offset themselves by the same amount.
+:root {
+  --demo-banner-h: 36px;
+}
+
+.demo-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--demo-banner-h);
+  z-index: 60;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 0 14px;
+  box-sizing: border-box;
+
+  font-family: 'Jura', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #f3f5fd;
+
+  background: linear-gradient(90deg, #262626 0%, #474747 50%, #262626 100%);
+  border-bottom: 1px solid rgba($second-color, 0.55);
+  // Same warm glow the home page icons use, so it reads as part of the set.
+  box-shadow: 0 0 18px 2px rgba($second-color, 0.28);
+
+  user-select: none;
+}
+
+.demo-banner-badge {
+  flex: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: #262626;
+  background: $second-color;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.demo-banner-text {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.demo-banner-accent {
+  color: $third-color;
+  font-weight: 700;
+}
+
+.demo-banner-short {
+  display: none;
+}
+
+// Keep the two top-anchored controls clear of the fixed bar. Both are
+// positioned against the viewport, so page padding cannot move them.
+.basket-icon-wrapper {
+  top: calc(15px + var(--demo-banner-h));
+}
+
+.phone-menu-wrapper .main-menu {
+  top: calc(5px + var(--demo-banner-h));
+}
+
+@media (max-width: 700px) {
+  :root {
+    --demo-banner-h: 32px;
+  }
+
+  .demo-banner {
+    font-size: 11.5px;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .demo-banner-badge {
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+  }
+
+  .demo-banner-long {
+    display: none;
+  }
+
+  .demo-banner-short {
+    display: inline;
+  }
+}

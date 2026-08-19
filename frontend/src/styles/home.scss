@@ -5,7 +5,7 @@
   // justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--demo-banner-h));
   width: 100vw;
   background: black;
   // background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1668006967/Nu%20Hippies/Backgrounds/ce6e76ce6cb55fedae6d2b2c126309e3-removebg-preview_miv1fd.png);
@@ -125,11 +125,11 @@
   // can never be hovered or clicked. scale() reproduces the "set back" look
   // while keeping every icon on z = 0, so all three stay interactive.
   transform: translateX(-30px) rotateY(-5deg) scale(0.9756);
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
+  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
 }
 .center {
   border-radius: 50%;
-  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654624433/Nu%20Hippies/icons/second-hand_qitygo.png);
+  background-image: url(https://res.cloudinary.com/nuhippies/image/upload/v1654627203/Nu%20Hippies/icons/nu-hippies-shop_sjaopo.png);
 }
 .right {
   // See .left above: translateZ would push this behind .all and kill its hover.

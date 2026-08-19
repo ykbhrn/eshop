@@ -27,6 +27,7 @@ import Payment from './components/common/Payment'
 import Confirmation from './components/common/Confirmation'
 import Contact from './components/common/Contact'
 import Footer from './components/common/Footer'
+import DemoBanner from './components/common/DemoBanner'
 import About from './components/common/About'
 import Terms from './components/common/Terms'
 import Privacy from './components/common/Privacy'
@@ -229,6 +230,7 @@ class App extends React.Component {
      return (
        <BrowserRouter>
          <div className="whole-page" onTouchStart={this.state.isPhone || window.innerWidth < 800 ? this.pointerEventsOff : "" }>
+           <DemoBanner />
            <BasketIcon
              basketLength={this.state.basketLength}
            />

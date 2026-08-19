@@ -96,18 +96,18 @@ class Home extends React.Component {
               <div className="text">Hosting</div>
             </div> */}
 
-              <Link to="/products" className="left home-menu-item" onMouseEnter={() => {
-                this.revealText("Our Shop")
+              <Link to="/second-hand" className="left home-menu-item" onMouseEnter={() => {
+                this.revealText("Second Hand Market")
               }}>
-                <div className="hidden-text">Our Shop</div>
+                <div className="hidden-text">Second Hand Market</div>
               </Link>
 
               <div className="explainer"></div>
 
-              <Link to="/second-hand" className="center home-menu-item" onMouseEnter={() => {
-                this.revealText("Second Hand Market")
+              <Link to="/products" className="center home-menu-item" onMouseEnter={() => {
+                this.revealText("Our Shop")
               }}>
-                <div className="hidden-text">Second Hand Market</div>
+                <div className="hidden-text">Our Shop</div>
               </Link>
 
               <Link to="/forum" className="right home-menu-item" onMouseEnter={() => {
