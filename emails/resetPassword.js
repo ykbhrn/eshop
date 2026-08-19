@@ -1,4 +1,4 @@
-const url = 'https://nuhippies.com'
+const url = 'https://nu-hippies.onrender.com'
 
 function resetPasswordEmail (token, user) {
   return  `

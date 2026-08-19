@@ -5,7 +5,7 @@ import Geocoder from 'react-mapbox-gl-geocoder'
 import SecondHandNavbar from '../second-hand/SecondHandNavbar';
 
 const mapAccess = {
-  mapboxApiAccessToken: 'pk.eyJ1IjoibnVoaXBwaWVzIiwiYSI6ImNsNXN6bG0yeTAyMjAzaXA3ZDMyYjlvdDgifQ.DSvTjZ3H-vfRDSIsUYLw8Q'
+  mapboxApiAccessToken: process.env.REACT_APP_MAPBOX_TOKEN
 }
 
 const mapStyle = {
