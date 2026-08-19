@@ -16,7 +16,8 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  // Left-aligned on desktop so the centred site logo is never crowded.
+  justify-content: flex-start;
   gap: 10px;
 
   padding: 0 14px;
@@ -75,6 +76,17 @@
   top: calc(5px + var(--demo-banner-h));
 }
 
+// The logo is fixed to the viewport, so page padding cannot move it and the
+// banner would otherwise cover its top. Each scroll state needs the same shift.
+.logo {
+  top: var(--demo-banner-h);
+}
+
+.logo-scroll,
+.logo-scroll-sh {
+  top: calc(-4px + var(--demo-banner-h));
+}
+
 @media (max-width: 700px) {
   :root {
     --demo-banner-h: 32px;
@@ -84,6 +96,7 @@
     font-size: 11.5px;
     gap: 8px;
     padding: 0 10px;
+    justify-content: center;
   }
 
   .demo-banner-badge {

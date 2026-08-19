@@ -24,10 +24,13 @@
       border-radius: 50%;
       position: relative;
       background-position: center center;
-      background-size: contain;
+      background-size: 55%;
       background-repeat: no-repeat;
-      background-image: url('https://res.cloudinary.com/nuhippies/image/upload/v1666958038/Nu%20Hippies/icons/menu-icon_kkqddn.png');
-      background-blend-mode: color-burn;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cg%20fill='none'%20stroke='%23474747'%20stroke-width='2.4'%20stroke-linecap='round'%3E%3Cpath%20d='M4%207h16'/%3E%3Cpath%20d='M4%2012h16'/%3E%3Cpath%20d='M4%2017h16'/%3E%3C/g%3E%3C/svg%3E");
+      background-blend-mode: normal;
+      background-color: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba($third-color, 0.5);
+      box-shadow: 0 2px 8px rgba(71, 71, 71, 0.22);
       transition: 0.5s linear;
       cursor: pointer;
       // &:hover{
