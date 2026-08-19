@@ -1321,6 +1321,19 @@ h1{
       height: 80px;
       margin-right: 10px;
     }
+    // Matches the footprint of the sibling icons above. Rendered as a glyph so
+    // it cannot 404 the way the previous hosted image did.
+    .profile-icon-emoji{
+      flex: none;
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      line-height: 1;
+    }
   }
   .profile-icon:hover{
     box-shadow: $third-color 0px 30px 60px -12px inset, $third-color 0px 18px 36px -18px inset;

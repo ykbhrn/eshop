@@ -44,7 +44,7 @@ class Profile extends React.Component {
 
             <Link to="/profile/ads">
               <div className="profile-icon">
-                <img src="https://res.cloudinary.com/nuhippies/image/upload/v1666055807/Nu%20Hippies/icons/tshirt_2_vubnsn.png" />
+                <span className="profile-icon-emoji" role="img" aria-label="Your ads">📢</span>
                 <div className="profile-icon-description">
                   <div className="profile-icon-text">Your Ads</div>
                   <div className="description">

@@ -87,6 +87,12 @@
   top: calc(-4px + var(--demo-banner-h));
 }
 
+// "Bring Hippies Back" is absolutely positioned against the viewport too
+// (.second-hand-navbar is not a positioned ancestor), so it needs the shift as well.
+.second-hand-navbar .slogan-header {
+  top: calc(10px + var(--demo-banner-h));
+}
+
 @media (max-width: 700px) {
   :root {
     --demo-banner-h: 32px;
