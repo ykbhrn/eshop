@@ -15,15 +15,15 @@ async function createDiscount(req, res) {
   }
 }
 
-cron.schedule("*/5 * * * *", async function (req, res) {
+cron.schedule("*/30 * * * *", async function (req, res) {
   try {
     const now = new Date();
     const discounts = await Discount.find();
     if (now.getMinutes() === 0) {
-      const randomNumber = Math.floor(Math.random() * 5);
+      const randomNumber = Math.floor(Math.random() * 30);
       discounts[0].time = randomNumber;
     } else if (now.getMinutes() === 30) {
-      const randomNumber = Math.floor(Math.random() * 5) + 5;
+      const randomNumber = Math.floor(Math.random() * 30) + 30;
       discounts[0].time = randomNumber;
     }
     await discounts[0].save();
