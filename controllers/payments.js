@@ -7,8 +7,8 @@ const stripe = require('stripe')(
 // Shipping prices are Stripe objects like any other, so they are tied to the
 // key that created them. Overridable by env var so the ids can be swapped
 // without a code change; the originals stay as the default.
-const CLASSIC_SHIPPING_PRICE_ID = process.env.STRIPE_CLASSIC_SHIPPING_PRICE_ID || 'price_1U5tQvKAzVkc5rRlBaaXUXlm'
-const EXPRESS_SHIPPING_PRICE_ID = process.env.STRIPE_EXPRESS_SHIPPING_PRICE_ID || 'price_1U5tRpKAzVkc5rRlB78xxND0'
+const CLASSIC_SHIPPING_PRICE_ID = process.env.STRIPE_CLASSIC_SHIPPING_PRICE_ID || 'price_1U6oaSKAzVkc5rRlA4verawY'
+const EXPRESS_SHIPPING_PRICE_ID = process.env.STRIPE_EXPRESS_SHIPPING_PRICE_ID || 'price_1U6oaTKAzVkc5rRldn68nMpB'
 
 /*
  * A stored stripeId can outlive the key that made it: customers created with a
