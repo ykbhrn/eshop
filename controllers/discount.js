@@ -15,21 +15,13 @@ async function createDiscount(req, res) {
   }
 }
 
-cron.schedule("*/1 * * * *", async function (req, res) {
+cron.schedule("* * * * *", async function () {
   try {
-    const now = new Date();
     const discounts = await Discount.find();
-    if (now.getMinutes() === 0) {
-      const randomNumber = Math.floor(Math.random() * 1);
-      discounts[0].time = randomNumber;
-    } else if (now.getMinutes() === 30) {
-      const randomNumber = Math.floor(Math.random() * 1) + 1;
-      discounts[0].time = randomNumber;
-    }
+    discounts[0].time = new Date().getMinutes();
     await discounts[0].save();
-    res.status(201).json(discounts[0]);
   } catch (err) {
-    res.status(422).json(err);
+    console.log("Discount cron error", err);
   }
 });
 
