@@ -15,7 +15,7 @@ async function createDiscount(req, res) {
   }
 }
 
-cron.schedule("* * * * *", async function () {
+cron.schedule("*/10 * * * * *", async function () {
   try {
     const discounts = await Discount.find();
     discounts[0].time = new Date().getMinutes();
