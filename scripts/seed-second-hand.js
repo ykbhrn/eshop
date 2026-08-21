@@ -95,7 +95,12 @@ async function main () {
 
   const client = new MongoClient(uri)
   await client.connect()
-  const db = client.db()
+
+  // The connection string may omit the database name; the driver would then
+  // fall back to "test", which is not where this project's data lives.
+  const impliedDb = client.db().databaseName
+  const dbName = process.env.MONGODB_DB || (impliedDb && impliedDb !== 'test' ? impliedDb : 'myFirstDatabase')
+  const db = client.db(dbName)
   const users = db.collection('users')
   const items = db.collection('useditems')
 

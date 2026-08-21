@@ -41,7 +41,15 @@ async function main () {
   const stripe = require('stripe')(key)
   const client = new MongoClient(uri)
   await client.connect()
-  const products = client.db().collection('products')
+
+  // The connection string may omit the database name, in which case the driver
+  // falls back to "test" - which is empty here. Prefer an explicit MONGODB_DB,
+  // then whatever the URI names, then this project's actual database.
+  const impliedDb = client.db().databaseName
+  const dbName = process.env.MONGODB_DB || (impliedDb && impliedDb !== 'test' ? impliedDb : 'myFirstDatabase')
+  console.log(`database: ${dbName}\n`)
+
+  const products = client.db(dbName).collection('products')
 
   const all = await products.find({}).toArray()
   console.log(`${all.length} products in the catalogue\n`)
