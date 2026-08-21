@@ -10,7 +10,8 @@ class Payment extends React.Component {
     creditCard: true,
     bankTransfer: false,
     paymentType: "credit-card",
-    isLoading: false
+    isLoading: false,
+    error: ''
   }
 
   async componentDidMount() {
@@ -45,24 +46,46 @@ class Payment extends React.Component {
 
   async completeOrder (type) {
     try {
-      this.setState({ isLoading: true })
+      this.setState({ isLoading: true, error: '' })
       const formData = {paymentType: type}
       const res = await completeOrder(type, formData)
       const resOrder = await createOrder(res.data)
-      console.log(resOrder.data.pricePlusShipping)
       const resInvoice = await createInvoice({
         customerId: this.state.user.stripeId,
         order: resOrder.data
       })
-      console.log(resInvoice.data)
+
+      const paymentUrl = resInvoice.data && resInvoice.data.success
+        ? resInvoice.data.message
+        : null
+
       if (type === 'credit-card') {
-        // window.open(resInvoice.data.message)
-        window.location.assign(`/confirmation/${type}`)
-      } else {
-        window.location.assign(`/confirmation/${type}`)
+        if (!paymentUrl) {
+          throw new Error('No payment link was returned')
+        }
+
+        // Stripe's hosted payment page. This runs after an await, so a popup
+        // blocker can veto window.open - fall back to this tab if it does.
+        const stripeWindow = window.open(paymentUrl, '_blank')
+
+        if (!stripeWindow) {
+          window.location.assign(paymentUrl)
+          return
+        }
       }
+
+      window.location.assign(`/confirmation/${type}`)
     } catch (err) {
       console.log(err)
+
+      const serverMessage = err.response && err.response.data && err.response.data.message
+
+      this.setState({
+        isLoading: false,
+        error: serverMessage
+          ? `${serverMessage}. Please try again, or choose bank transfer.`
+          : 'We could not complete your order. Please try again.'
+      })
     }
   }
 
@@ -127,6 +150,10 @@ class Payment extends React.Component {
               <div className="total-text">Shipping: £{user.pendingOrder.shipping / 100}</div>
               <div>Total Price: £{(user.totalPrice + user.pendingOrder.shipping) / 100}</div>
             </div>
+
+            {this.state.error &&
+              <small className="error-message">{this.state.error}</small>
+            }
 
             <div className="checkout-buttons">
               <Link to="/shipping" title="Shipping">
