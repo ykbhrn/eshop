@@ -64,14 +64,13 @@ class Payment extends React.Component {
           throw new Error('No payment link was returned')
         }
 
-        // Stripe's hosted payment page. This runs after an await, so a popup
-        // blocker can veto window.open - fall back to this tab if it does.
-        const stripeWindow = window.open(paymentUrl, '_blank')
-
-        if (!stripeWindow) {
-          window.location.assign(paymentUrl)
-          return
-        }
+        // Opens Stripe in a new tab where the browser allows it. This runs
+        // after an await, so a popup blocker can veto it - but we deliberately
+        // do not replace this tab with Stripe as a fallback, because the hosted
+        // invoice page has no link back and would strand the customer. Either
+        // way this tab lands on the confirmation page, which repeats the same
+        // payment link alongside Continue.
+        window.open(paymentUrl, '_blank')
       }
 
       window.location.assign(`/confirmation/${type}`)
